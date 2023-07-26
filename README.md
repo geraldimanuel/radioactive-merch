@@ -1,8 +1,8 @@
 # UMN RadioActive 2023 Merch Website
 
-![UMN RadioActive Logo](https://umnradioactive.com/images/logo.gif)
+![UMN RadioActive Logo](https://radio.umn.ac.id/wp-content/uploads/2022/02/logo.png)
 
-Welcome to the official GitHub repository for the UMN RadioActive 2023 Merch Website! This website is built using the Laravel framework and Tailwind CSS and serves as an online platform for the annual event held by UMN Radio, called RadioActive 2023, at the University of Minnesota.
+Welcome to the official GitHub repository for the UMN RadioActive 2023 Merch Website! This website is built using the Laravel framework and Tailwind CSS and serves as an online platform for the annual event held by UMN Radio, called RadioActive 2023, at Universitas Multimedia Nusantara.
 
 ## Table of Contents
 
