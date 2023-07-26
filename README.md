@@ -1,66 +1,85 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# UMN RadioActive 2023 Merch Website
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![UMN RadioActive Logo](https://umnradioactive.com/images/logo.gif)
 
-## About Laravel
+Welcome to the official GitHub repository for the UMN RadioActive 2023 Merch Website! This website is built using the Laravel framework and Tailwind CSS and serves as an online platform for the annual event held by UMN Radio, called RadioActive 2023, at the University of Minnesota.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Table of Contents
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   [Introduction](#introduction)
+-   [Features](#features)
+-   [Demo](#demo)
+-   [Installation](#installation)
+-   [Usage](#usage)
+-   [Technologies](#technologies)
+-   [Database](#database)
+-   [Contributing](#contributing)
+-   [License](#license)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Introduction
 
-## Learning Laravel
+UMN RadioActive is an annual event organized by UMN Radio, and this website serves as the official merchandise platform for RadioActive 2023. The website allows event attendees and enthusiasts to browse and purchase a wide range of merchandise related to the event. Users can explore various merchandise categories, view product details, and add items to their shopping carts for a seamless shopping experience.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Features
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+-   Browse and search for merchandise items by categories.
+-   View detailed information about each product, including images, descriptions, and prices.
+-   Add items to the shopping cart and proceed to checkout for a streamlined purchasing process.
+-   Calculate shipping costs and estimated delivery dates based on the user's location.
+-   Secure and easy-to-use payment gateway integration for smooth transactions.
+-   User authentication and profiles to manage orders and track order history.
+-   Mobile-responsive design for optimal viewing across different devices.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Demo
 
-## Laravel Sponsors
+A live demo of the UMN RadioActive 2023 Merch Website is available at [https://merch.umnradioactive.com/](https://merch.umnradioactive.com/).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Installation
 
-### Premium Partners
+To set up the project locally, follow these steps:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+1. Clone the repository: `git clone https://github.com/yourusername/radioactive-merch.git`
+2. Navigate to the project directory: `cd radioactive-merch`
+3. Install the required dependencies: `composer install`
+4. Set up the database configuration in the `.env` file.
+5. Run the database migrations: `php artisan migrate`
+6. Seed the database with initial data (optional): `php artisan db:seed`
+7. Build the frontend assets: `npm install && npm run dev`
+
+## Usage
+
+1. Run the development server: `php artisan serve`
+2. Open your web browser and go to `http://localhost:8000` to access the website.
+
+## Technologies
+
+The UMN RadioActive 2023 Merch Website is built using the following technologies:
+
+-   Front-end: Laravel (Blade templates) with Tailwind CSS
+-   Back-end: PHP (Laravel framework)
+-   Database: MySQL
+-   Payment Integration: Midtrans
+
+## Database
+
+The website uses MySQL as the database to store merchandise, user information, orders, and other relevant data. The database schema is managed through Laravel's migrations.
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+We welcome contributions to enhance the website and make it even better for the RadioActive 2023 event. To contribute, follow these steps:
 
-## Code of Conduct
+1. Fork the repository.
+2. Create a new branch for your feature: `git checkout -b features/your-feature`
+3. Commit your changes: `git commit -m "Add feature"`
+4. Push the branch to your forked repository: `git push origin features/your-feature`
+5. Open a pull request to the main repository.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Please ensure your code follows the project's coding standards and practices.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+---
+
+Thank you for your interest in the UMN RadioActive 2023 Merch Website. If you encounter any issues or have any questions, please feel free to open an issue on this repository. Happy contributing and happy shopping at RadioActive 2023!
