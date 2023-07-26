@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Merch;
 use App\Http\Requests\StoreMerchRequest;
 use App\Http\Requests\UpdateMerchRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Cart;
+use Illuminate\Http\Request;
 
 class MerchController extends Controller
 {
@@ -19,31 +22,37 @@ class MerchController extends Controller
     }
 
     public function cart() {
-        $cart = session('cart');
-        return view('Merch.cart')->with('cart', $cart);
-    }
-
-    public function addToCart($id_merch) {
-        $cart = session('cart');
-        $merch = Merch::find($id_merch);
-        $cart[$id_merch] = $merch;
+        if(Auth::check()){
+            $cart = session('cart');
+            return view('Merch.cart')->with('cart', $cart);
+        } else {
+            return redirect('/login');
+        }
         
-        session(['cart' => $cart]);
-
-        return redirect('/cart');
     }
 
-    public function removeFromCart($id_merch) {
-        $cart = session('cart');
-        unset($cart[$id_merch]);
-        session(['cart' => $cart]);
+    public function addToCart(Request $request) {
+        if(Auth::check()){
+            $logged_id = auth()->user()->id;
 
-        return redirect('/cart');
-    }
+            $cart = session('cart');
+            $merch = Merch::find($request->id);
+            $cart[$request->id] = $merch;
+            $cart[$request->id]->qty = $request->qty;
+            
+            session(['cart' => $cart]);
 
-    public function checkout() {
-        $cart = session('cart');
-        return view('Merch.checkout')->with('cart', $cart);
+            Cart::create([
+                'user_id' => $logged_id,
+                'merch_id' => $request->id,
+                'qty' => $request->qty
+            ]);
+
+            return redirect('/cart');
+        } else {
+            return redirect('/login');
+        }
+        
     }
 
     /**

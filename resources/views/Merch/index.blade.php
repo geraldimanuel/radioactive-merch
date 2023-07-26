@@ -15,6 +15,8 @@
             <th>No</th>
             <th>Name</th>
             <th>Price</th>
+            <th>Stock</th>
+            <th>Quantity</th>
         </tr>
         <?php $no = 1; ?>
         @foreach($merch as $obj)
@@ -22,13 +24,19 @@
                 <td>{{$no++}}</td>
                 <td>{{$obj->name}}</td>
                 <td>{{$obj->price}}</td>
+                <td>{{$obj->stock}}</td>
                 <td>
-                    <a href="{{url($obj->id.'/cart/')}}">Add to Cart</a>
+                    <form action="{{url('/cart/'.$obj->id)}}" method="post">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$obj->id}}">
+                        <input type="number" name="qty" id="qty" min="1" max="{{$obj->stock}}" value="1">
+                        <input type="submit" value="Add to Cart">
+                    </form>
                 </td>
             </tr>
         @endforeach
         <tr>
-            <td colspan="3"></td>
+            <td colspan="4"></td>
             <td>
                 <a href="{{url('/cart')}}">Cart</a>
             </td>

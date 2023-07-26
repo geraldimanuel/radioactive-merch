@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MerchController;
 use App\Http\Controllers\ResetPasswordController;
@@ -50,7 +51,10 @@ Route::middleware('guest')->controller(ResetPasswordController::class)->group(fu
 Route::controller(MerchController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/cart', 'cart');
-    Route::get('/{id}/cart', 'addToCart');
+    Route::post('/cart/{id}', 'addToCart');
+});
+
+Route::controller(CartController::class)->group(function () {
     Route::get('/cart/{id}', 'removeFromCart');
-    Route::get('/merch-checkout', 'checkout');
+    Route::get('/checkout', 'checkout');
 });

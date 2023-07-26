@@ -11,14 +11,43 @@
 <body>
         <h1>Order Merch</h1>
 
-        <h2>List Produk</h2>
-        @foreach ($cart as $obj)
-            <li>{{$obj->name}}</li>
-        @endforeach
+        <h2>Detail Transaksi</h2>
+        <table border="1" cellpadding="10">
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+            </tr>
+            <?php 
+                $no = 1;
+                $total = 0;
+
+                if (empty($detailTrans)) {
+                    echo "kosong";
+                } else {
+            ?>
+
+            @foreach($detailTrans as $obj)
+                <tr>
+                    <td>{{$no++}}</td>
+                    <td>{{$obj->merch_id}}</td>
+                    <td>{{$obj->qty}}</td>
+                    <td>{{$obj->total_price}}</td>
+                </tr>
+                <?php $total += $obj->total_price; ?>
+            @endforeach
+
+            <?php } ?>
+            <tr>
+                <td colspan="3">Total</td>
+                <td>{{$total}}</td>
+            </tr>
+        </table>
 
         <br/>
 
-        <form action="/checkout" method="POST">
+        {{-- <form action="/checkout" method="POST">
             @csrf
             <div class="mb-3 flex flex-col">
                 <label for="name" class="">Nama</label>
@@ -34,7 +63,7 @@
             </div>
 
             <button type="submit" class="text-red-800">GAS!</button>
-        </form>
+        </form> --}}
 </body>
 
 </html>
