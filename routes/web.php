@@ -57,4 +57,5 @@ Route::controller(MerchController::class)->group(function () {
 Route::controller(CartController::class)->group(function () {
     Route::get('/cart/{id}', 'removeFromCart');
     Route::get('/checkout', 'checkout');
+    Route::get('/dashboard', 'dashboard');
 });

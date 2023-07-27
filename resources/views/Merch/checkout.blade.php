@@ -22,48 +22,33 @@
             <?php 
                 $no = 1;
                 $total = 0;
-
-                if (empty($detailTrans)) {
-                    echo "kosong";
-                } else {
             ?>
-
             @foreach($detailTrans as $obj)
                 <tr>
                     <td>{{$no++}}</td>
-                    <td>{{$obj->merch_id}}</td>
+
+                    @foreach ($merchs as $merch)
+                        @if ($merch->id == $obj->merch_id)
+                            <td>{{$merch->name}}</td>
+                            @break
+                        @endif
+                    @endforeach
+
                     <td>{{$obj->qty}}</td>
                     <td>{{$obj->total_price}}</td>
                 </tr>
                 <?php $total += $obj->total_price; ?>
             @endforeach
-
-            <?php } ?>
             <tr>
                 <td colspan="3">Total</td>
                 <td>{{$total}}</td>
             </tr>
+            <tr>
+                <td colspan="3">Status</td>
+                <td>{{$order->status}}</td>
+            </tr>
         </table>
 
-        <br/>
-
-        {{-- <form action="/checkout" method="POST">
-            @csrf
-            <div class="mb-3 flex flex-col">
-                <label for="name" class="">Nama</label>
-                <input type="text" name="name" id="name" placeholder="Geri Geri Geri">
-            </div>
-            <div class="mb-3 flex flex-col">
-                <label for="email" class="">Email</label>
-                <input type="email" name="email" id="email" placeholder="geri@gmail.com">
-            </div>
-            <div class="mb-3 flex flex-col">
-                <label for="phone" class="">Phone</label>
-                <input type="number" name="phone" id="phone" placeholder="081221468932">
-            </div>
-
-            <button type="submit" class="text-red-800">GAS!</button>
-        </form> --}}
 </body>
 
 </html>

@@ -43,8 +43,14 @@ class CartController extends Controller
 
             if (session('cart') == null) {
                 $detailTrans = DetailTransaction::where('order_id', session('order_id'))->get();
+                $order = Order::where('id', session('order_id'))->first();
+                $merchs = Merch::all();
 
-                return view('Merch.checkout')->with('detailTrans', $detailTrans);
+                return view('Merch.checkout', [
+                    'detailTrans' => $detailTrans,
+                    'order' => $order,
+                    'merchs' => $merchs
+                ]);
             } else {
                 $cart = session('cart');
                 $total_qty = 0;
@@ -84,6 +90,18 @@ class CartController extends Controller
             return redirect('/login');
         }
 
+    }
+
+    public function dashboard() {
+        $merchs = Merch::all();
+        $orders = Order::all();
+        $detailTrans = DetailTransaction::all();
+
+        return view('Merch.dashboard', [
+            'merchs' => $merchs,
+            'orders' => $orders,
+            'detailTrans' => $detailTrans
+        ]);
     }
 
     /**
