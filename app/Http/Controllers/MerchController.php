@@ -21,6 +21,30 @@ class MerchController extends Controller
         return view('Merch.index')->with('merch', $merch);
     }
 
+    public function home()
+    {
+        $merch = Merch::all();
+        return view('Merch.list')->with('merch', $merch);
+    }
+
+    public function merch() {
+        if(Auth::check()){
+            $cart = session('cart');
+            return view('Merch.merch')->with('cart', $cart);
+        } else {
+            return redirect('/login');
+        }
+        
+    }
+
+    public function ShowItem($id) 
+    {
+        $merch = Merch::find($id);
+        
+
+        return view('Merch.merch', compact('merch'));
+    }
+
     public function cart() {
         if(Auth::check()){
             $cart = session('cart');

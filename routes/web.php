@@ -53,9 +53,15 @@ Route::controller(MerchController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/cart', 'cart');
     Route::post('/cart/{id}', 'addToCart');
+    Route::get('/merch', 'home');
+    Route::get('item/', 'merch');
+    Route::get('item/{id}', 'ShowItem');
 });
 
 Route::controller(CartController::class)->group(function () {
     Route::get('/cart/{id}', 'removeFromCart');
     Route::get('/checkout', 'checkout');
+    Route::get('item/{id}'. 'removeFromCart');
 });
+
+
