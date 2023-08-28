@@ -79,10 +79,9 @@
                 </span>
             </button>
         </div>
-        <div class="flex justify-center">
-        @foreach($merch as $obj)
-        <a href="{{url('/item/'.$obj->id)}}" class="mt-[6rem] p-[30px] justify-center content-center gap-10">
-            <!-- <div id="merch1" class="relative"> -->
+        <div class="flex flex-wrap justify-center">
+            @foreach($merch as $obj)
+                <a href="{{url('/item/'.$obj->id)}}" class="mt-[6rem] p-[30px] justify-center content-center gap-10">
                     <div id="item-img" class="mb-[7rem] w-[250px] h-[350px] border-solid border-[1px] border-white transform transition duration-500 hover:scale-[1.03]">
                         <div class="absolute h-full w-full">
                             <img src=" " class="object-cover w-full h-full"/>
@@ -91,48 +90,15 @@
                             <p class="mt-1 font-sans text-white text-sm">Rp {{$obj->price}}</p>
                         </div>
                     </div>
-            <!-- </div> -->
-
-            <!-- <div id="merch2" class="relative">
-                <div id="item-img" class="mb-[7rem] w-[250px] h-[350px] border-solid border-[1px] border-white transform transition duration-500 hover:scale-[1.03]">
-                    <img src=" " class="object-cover w-full h-full"/>
-                    <p class="mt-5 font-taruno text-white text-[15px]">T-Shirt Electric Blue</p>
-                    <p class="mt-1 font-sans text-white text-sm">Rp 50.000</p>
-                </div>
-            </div>
-
-            <div id="merch3" class="relative">
-                <div id="item-img" class="mb-[7rem] w-[250px] h-[350px] border-solid border-[1px] border-white transform transition duration-500 hover:scale-[1.03]">
-                    <img src=" " class="object-cover w-full h-full"/>
-                    <p class="mt-5 font-taruno text-white text-[15px]">T-Shirt Electric Blue</p>
-                    <p class="mt-1 font-sans text-white text-sm">Rp 50.000</p>
-                </div>
-            </div>
-
-            <div id="merch4" class="relative">
-                <div id="item-img" class="mb-[7rem] w-[250px] h-[350px] border-solid border-[1px] border-white transform transition duration-500 hover:scale-[1.03]">
-                    <img src=" " class="object-cover w-full h-full"/>
-                    <p class="mt-5 font-taruno text-white text-[15px]">T-Shirt Electric Blue</p>
-                    <p class="mt-1 font-sans text-white text-sm">Rp 50.000</p>
-                </div>
-            </div>
-
-            <div id="merch5" class="relative">
-                <div id="item-img" class="mb-[7rem] w-[250px] h-[350px] border-solid border-[1px] border-white transform transition duration-500 hover:scale-[1.03]">
-                    <img src=" " class="object-cover w-full h-full"/>
-                    <p class="mt-5 font-taruno text-white text-[15px]">T-Shirt Electric Blue</p>
-                    <p class="mt-1 font-sans text-white text-sm">Rp 50.000</p>
-                </div>
-            </div> -->
-        </a>
-        @endforeach
+                </a>
+            @endforeach
         </div>
         <div id="shopping-cart" class="w-full fixed bottom-5 right-5 flex justify-end">
-            <div class="rounded-full bg-white w-[60px] h-[60px] flex justify-center items-center cursor-pointer transform transition duration-500 hover:scale-110">
-                <i class="fas fa-shopping-cart fa-xl" style="color: black;"></i>
-            </div>
+            <a href="{{url('/cart')}}" class="rounded-full bg-white w-[60px] h-[60px] flex justify-center items-center cursor-pointer transform transition duration-500 hover:scale-110 no-underline">
+                <i class="fas fa-shopping-cart fa-xl" style="color: #0E0EC0;"></i>
+            </a>
         </div>
-</div>
+    </div>
     <!-- Footer -->
     <footer class="bg-gradient-to-b from-transparent to-[#0E0EC0] pt-56 pb-16">
             <div class="flex flex-col w-full justify-center md:items-center md:flex-row">

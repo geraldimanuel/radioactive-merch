@@ -12,7 +12,7 @@
 
 <body>
     <h1>Cart</h1>
-    <a href="{{ url('/') }}">Back to Merch</a>
+    <a href="{{ url('/merch') }}">Back to Merch</a>
 
     @if (empty($cart))
         <p>Cart is empty</p>
@@ -38,7 +38,7 @@
                     </td>
                 </tr>
 
-                <?php $total += $obj->price; ?>
+                <?php $total += $obj->qty*$obj->price; ?>
             @endforeach
             <tr>
                 <td colspan="4">Total</td>

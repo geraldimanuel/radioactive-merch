@@ -36,7 +36,7 @@
             <div id="indicators-carousel" class="relative w-[250px] h-[350px]" data-carousel="static">
                 <div class="relative w-[250px] h-[350px] overflow-hidden md:w-[250px] md:h-[350px] rounded-lg border-[1px] border-white">
                     <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                        <img src="images/merch1.jpg" class="absolute block w-full object-fill">
+                        <img src=" " class="absolute block w-full object-fill">
                     </div>
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
                         <img src=" " class="absolute block w-full object-contain">
@@ -77,21 +77,27 @@
             </div>            
             <div class="grid gap-3">
                 <p class="mt-5 font-taruno text-white text-lg">{{$merch->name}}</p>
+                <p class="mt-1 font-sans text-gray-500 text-xs">Stock {{$merch->stock}}</p>
                 <p class="mt-1 font-sans text-white text-sm">{{$merch->price}}</p>
-                <div class="grid gap-6">
-                    <form class="inline-flex justify-center w-full gap-3" action="" method="post">
-                        @csrf
-                        <input type="hidden" name="id" value="">
-                        <button class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0]">-</button>
-                        <input type="number" name="qty" id="qty" min="1" max="{($obj->stock)}" value="1" class="p-2 text-lg"></input>
-                        <button class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0]">+</button>
-                    
-                    </form>
+                <div>
+                    <form class="grid gap-6" action="{{url('/cart/'.$merch->id)}}" method="post">
+                        <div class="inline-flex justify-center w-full gap-3" action="" method="post">
+                            @csrf
+                            <input type="button" value="-" id="decrement" class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0]" onclick="button(this)"></input>
+                            
+                            <input id="qty" type="number" name="qty" min="1" max="{($merch->stock)}" value="1" step="1" readonly class="p-2 text-lg"></input>
+                            
+                            <input type="button" value="+" id="increment" class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0]" onclick="button(this)"></input>
+                        
+                        </div>
 
-                    <div class="grid gap-3">
-                        <button class="font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0]">Add to Shopping Cart</button>
-                        <button class="font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0]">View My Cart</button>
-                    </div>
+                        <div class="grid gap-3">
+                            <input type="hidden" name="id" value="{{$merch->id}}">
+                            <input value="Add to Cart" type="submit" class="w-full font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0]"></input>
+                            
+                            <a href="{{url('/merch')}}" class="text-center font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] no-underline">Back to Merch</a>
+                        </div>
+                    </form>
                 </div>
             </div> 
         </div>
@@ -206,6 +212,23 @@
                     header.classList.remove('fixed');
                 }
             });
+            const Input = document.getElementById("qty");
+            
+            function button(btn){
+                let id = btn.getAttribute("id");
+                let min = Input.getAttribute("min");
+                let step = Input.getAttribute("step");
+                let val = Input.getAttribute("value");
+
+                var stockValue = <?php echo $merch->stock; ?>;
+  
+                let calcStep = (id == "increment") ? (step * 1) : (step * -1);
+                let newValue = parseInt(val) + calcStep;
+
+                if(newValue >= min && newValue <= stockValue) {
+                    Input.setAttribute("value", newValue);
+                }
+            }
         </script>
 </body>
 
