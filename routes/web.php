@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MerchController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ResetPasswordController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -52,10 +53,16 @@ Route::controller(MerchController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/cart', 'cart');
     Route::post('/cart/{id}', 'addToCart');
+    Route::get('/merch', 'home');
+    Route::get('item/', 'merch');
+    Route::get('item/{id}', 'ShowItem');
 });
 
 Route::controller(CartController::class)->group(function () {
     Route::get('/cart/{id}', 'removeFromCart');
     Route::get('/checkout', 'checkout');
     Route::get('/dashboard', 'dashboard');
+    Route::get('item/{id}'. 'removeFromCart');
 });
+
+
