@@ -50,7 +50,7 @@ Route::middleware('guest')->controller(ResetPasswordController::class)->group(fu
 });
 
 Route::controller(MerchController::class)->group(function () {
-    Route::get('/', 'index');
+    Route::get('/', 'index'); // endpoint null
     Route::get('/cart', 'cart');
     Route::post('/cart/{id}', 'addToCart');
     Route::get('/merch', 'home');
