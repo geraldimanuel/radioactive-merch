@@ -19,9 +19,6 @@ class OrderController extends Controller
 
     public function checkout(Request $request)
     {
-
-
-
         // $request->request->add(['total_price' => $request->qty * 75000, 'status' => 'Unpaid']);
         // $order = Order::create($request->all());
 

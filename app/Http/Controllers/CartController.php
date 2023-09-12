@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\DetailTransaction;
 use App\Models\Order;
+use Illuminate\Http\Request;
 
-class CartController extends Controller
+class   CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,14 +38,20 @@ class CartController extends Controller
 
     }
 
-    public function checkout() {
+    public function checkout(Request $request) {
 
         if(Auth::check()){
 
             if (session('cart') == null) {
                 $detailTrans = DetailTransaction::where('order_id', session('order_id'))->get();
+                $order = Order::where('id', session('order_id'))->first();
+                $merchs = Merch::all();
 
-                return view('Merch.checkout')->with('detailTrans', $detailTrans);
+                return view('Merch.checkout', [
+                    'detailTrans' => $detailTrans,
+                    'order' => $order,
+                    'merchs' => $merchs
+                ]);
             } else {
                 $cart = session('cart');
                 $total_qty = 0;
@@ -77,13 +84,66 @@ class CartController extends Controller
                 session()->forget('cart');
 
                 $detailTrans = DetailTransaction::where('order_id', $order_id)->get();
+                $merchs = Merch::all();
+                $order = Order::where('id', $order_id)->first();
 
-                return view('Merch.checkout')->with('detailTrans', $detailTrans);
-            }
+                // dd($order);
+
+                // $request->request->add(['total_price' => $request->qty * 75000, 'status' => 'Unpaid']);
+                // $order = Order::create($request->all());
+
+                // Set your Merchant Server Key
+                \Midtrans\Config::$serverKey = config('midtrans.server_key');
+                // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+                \Midtrans\Config::$isProduction = false;
+                // Set sanitization on (default)
+                \Midtrans\Config::$isSanitized = true;
+                // Set 3DS transaction for credit card to true
+                \Midtrans\Config::$is3ds = true;
+
+                $params = array(
+                    'transaction_details' => array(
+                        'order_id' => $order->id,
+                        'gross_amount' => $order->total_price,
+                    ),
+                    'customer_details' => array(
+                        'first_name' => $order->name,
+                        'last_name' => '',
+                        'email' => $order->email,
+                        'phone' => $order->phone,
+                    ),
+                );
+
+                $snapToken = \Midtrans\Snap::getSnapToken($params);
+                // dd($snapToken);
+                return view('Merch.checkout', compact('snapToken','detailTrans', 'merchs', 'order'));
+                // return view('Tickets.checkout', compact('order', 'snapToken'));
+
+
+                // ->with([
+                //     'detailTrans' => $detailTrans,
+                //     'merchs' => $merches,
+                //     'order' => $order_details,
+                //     'snapToken' => $snapToken
+                    
+                // ]);
+            }   
         } else {
             return redirect('/login');
         }
 
+    }
+
+    public function dashboard() {
+        $merchs = Merch::all();
+        $orders = Order::all();
+        $detailTrans = DetailTransaction::all();
+
+        return view('Merch.dashboard', [
+            'merchs' => $merchs,
+            'orders' => $orders,
+            'detailTrans' => $detailTrans
+        ]);
     }
 
     /**

@@ -18,7 +18,9 @@ class MerchController extends Controller
     {
         //
         $merch = Merch::all();
-        return view('Merch.index')->with('merch', $merch);
+        return view('Merch.index', [
+            'merch' => $merch
+        ]);
     }
 
     public function home()

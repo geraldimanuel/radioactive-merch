@@ -46,11 +46,11 @@ Route::middleware('guest')->controller(ResetPasswordController::class)->group(fu
     Route::get('/forgot-password', 'index')->name('password.request');
     Route::post('/forgot-password', 'forgot_password')->name('password.email');
     Route::get('/reset-password/{token}', 'reset_token')->name('password.reset');
-    Route::post('/reset-password', 'reset')->name('password.update');;
+    Route::post('/reset-password', 'reset')->name('passord.update');;
 });
 
 Route::controller(MerchController::class)->group(function () {
-    Route::get('/', 'index');
+    Route::get('/', 'index'); // endpoint null
     Route::get('/cart', 'cart');
     Route::post('/cart/{id}', 'addToCart');
     Route::get('/merch', 'home');
@@ -61,5 +61,6 @@ Route::controller(MerchController::class)->group(function () {
 Route::controller(CartController::class)->group(function () {
     Route::get('/cart/{id}', 'removeFromCart');
     Route::get('/checkout', 'checkout');
+    Route::get('/dashboard', 'dashboard');
     Route::get('item/{id}'. 'removeFromCart');
 });

@@ -35,6 +35,17 @@ class UserSeeder extends Seeder
             // 'birthdate' => '2000-01-01',
         ]);
 
+        User::create([
+            'name' => 'Bella Saharani',
+            'email' => 'bella.saharani@student.umn.ac.id',
+            'password' => bcrypt('bella'),
+            // 'role' => 1,
+            // 'phone' => '12345678',
+            // 'address' => 'Jl. Admin',
+            // 'line' => 'admin',
+            // 'birthdate' => '2000-01-01',
+        ]);
+
      
     }
 }
