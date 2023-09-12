@@ -13,7 +13,7 @@
 </head>
 
 <body class="overflow-x-hidden">
-    <nav id="header" class="navbar bg-transparent justify-center gap-16 z-40 transition-all duration-700">
+    <nav id="header" class="fixed navbar bg-transparent justify-center gap-16 z-40 transition-all duration-700">
         <a class="font-taruno text-white text-xs underline underline-offset-4 decoration-[#FFF000] cursor-pointer"
             href="/">HOME</a>
         <a
@@ -29,7 +29,7 @@
         @endauth
     </nav>
     <div class="grid justify-center">
-        <div class="flex items-center gap-20 pt-[8rem] flex-wrap justify-center">
+        <div class="flex items-center gap-20 pt-[13rem] flex-wrap justify-center">
             <!-- <div id="item-img" class="w-[250px] h-[350px] border-[1px] border-white">
                 <img src=" " class="object-cover w-full h-full"/>
             </div> -->
@@ -108,7 +108,13 @@
                             <input type="button" value="+" id="increment"
                                 class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
                                 onclick="button(this)"></input>
-
+                            <select name="size" id="size" class="p-2 w-[60px]">
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
                         </div>
 
                         <div class="grid gap-3">
@@ -124,6 +130,47 @@
             </div>
         </div>
     </div>
+    <div class="tabel mt-[250px] flex justify-center text-center">
+        <table border="1" cellpadding="10" class="border-white border-[1px]">
+            <tr>
+                <th>Size</th>
+                <th>Lingkar Dada<br>(cm)</th>
+                <th>Lingkar Pinggang<br>(cm)</th>
+                <th>Lingkar Pinggul<br>(cm)</th>
+            </tr>
+            <tr>
+                <td>XS</td>
+                <td>10000</td>
+                <td>10000</td>
+                <td>10000</td>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>10000</td>
+                <td>10000</td>
+                <td>10000</td>
+            </tr>
+            <tr>
+                <td>M</td>
+                <td>10000</td>
+                <td>10000</td>
+                <td>10000</td>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>10000</td>
+                <td>10000</td>
+                <td>10000</td>
+            </tr>
+            <tr>
+                <td>XL</td>
+                <td>10000</td>
+                <td>10000</td>
+                <td>10000</td>
+            </tr>
+        </table>
+    </div>
+
 
     <!-- Footer -->
     <footer class="bg-gradient-to-b from-transparent to-[#0E0EC0] pt-56 pb-16">
@@ -225,11 +272,11 @@
         if (window.scrollY > 0) {
             header.classList.remove('bg-transparent');
             header.classList.add('bg-[#0E0EC0]');
-            header.classList.add('fixed');
+            // header.classList.add('fixed');
         } else {
             header.classList.add('bg-transparent');
             header.classList.remove('bg-[#0E0EC0]');
-            header.classList.remove('fixed');
+            // header.classList.remove('fixed');
         }
     });
     const Input = document.getElementById("qty");

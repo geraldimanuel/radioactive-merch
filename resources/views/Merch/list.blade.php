@@ -31,7 +31,7 @@
     <div class="justify-center align-middle items-center">
         <div id="indicators-carousel" class="relative w-full" data-carousel="static">
         
-            <div class="relative h-56 overflow-hidden md:h-96 rounded-lg">
+            <div class="relative lg:h-[600px] overflow-hidden md:h-96 rounded-lg">
         
                 <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
                     <img src="/images/CarouselImg1.jpg" class="absolute block w-full object-cover">
