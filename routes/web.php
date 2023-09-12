@@ -36,11 +36,11 @@ Route::get('/logout', function (Request $request) {
     return redirect('/login');
 });
 
-Route::controller(OrderController::class)->group(function () {
-    Route::get('/ticket', 'index');
-    Route::post('/checkout', 'checkout');
-    Route::get('/invoice/{id}', 'invoice');
-});
+// Route::controller(OrderController::class)->group(function () {
+//     Route::get('/ticket', 'index');
+//     Route::post('/checkout', 'checkout');
+//     Route::get('/invoice/{id}', 'invoice');
+// });
 
 Route::middleware('guest')->controller(ResetPasswordController::class)->group(function() {
     Route::get('/forgot-password', 'index')->name('password.request');
@@ -53,7 +53,7 @@ Route::controller(MerchController::class)->group(function () {
     Route::get('/', 'index'); // endpoint null
     Route::get('/cart', 'cart');
     Route::post('/cart/{id}', 'addToCart');
-    Route::get('/merch', 'home');
+    // Route::get('/merch', 'home');
     Route::get('item/', 'merch');
     Route::get('item/{id}', 'ShowItem');
 });

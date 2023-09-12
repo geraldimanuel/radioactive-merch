@@ -23,11 +23,11 @@ class MerchController extends Controller
         ]);
     }
 
-    public function home()
-    {
-        $merch = Merch::all();
-        return view('Merch.list')->with('merch', $merch);
-    }
+    // public function home()
+    // {
+    //     $merch = Merch::all();
+    //     return view('Merch.list')->with('merch', $merch);
+    // }
 
     public function merch() {
         if(Auth::check()){

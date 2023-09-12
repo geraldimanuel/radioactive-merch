@@ -1,17 +1,18 @@
-{{-- shopping cart dri session --}}
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3a9b6894e0.js" crossorigin="anonymous"></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cart</title>
+    <title>Radioactive UMN</title>
     @vite('resources/css/app.css')
 </head>
 
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden bg-black">
     <nav id="header" class="fixed navbar bg-transparent justify-center gap-16 z-40 transition-all duration-700">
         <a class="font-taruno text-white text-xs underline underline-offset-4 decoration-[#FFF000] cursor-pointer"
             href="/">HOME</a>
@@ -27,66 +28,125 @@
             <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer" href="/logout">LOGOUT</a>
         @endauth
     </nav>
-    <div class="flex justify-center pb-[50px] pt-[200px] h-[800px]">
-        <div class="text-center">
-            @if (empty($cart))
-                <div class="flex justify-center align-middle items-center h-[800px]">
-                    <div>
-                        <p class="font-taruno text-xl">Cart is empty</p>
-                        <div class="mt-[20px]">
-                            <a class="text-[.8rem] hover:text-[#3838ff] rounded-[6px] no-underline text-white"
-                                href="{{ url('/') }}">Back to Merch</a>
-                        </div>
-                    </div>
-                </div>
-            @else
-                <table border="1" cellpadding="10" class="w-[1000px] text-[1.1rem] mr-[50px] ml-[50px]">
-                    <tr>
-                        <th class="font-taruno">No</th>
-                        <th class="font-taruno">Name</th>
-                        <th class="font-taruno">Price</th>
-                        <th class="font-taruno">Size</th>
-                        <th class="font-taruno">Qty</th>
-                        <th class="font-taruno">Total Price</th>
-                    </tr>
-                    <?php $no = 1;
-                    $total = 0; ?>
-                    @foreach ($cart as $obj)
-                        <tr>
-                            <td>{{ $no++ }}</td>
-                            <td>{{ $obj->name }}</td>
-                            <td>{{ $obj->price }}</td>
-                            <td>{{ $obj->size }}</td>
-                            <td>{{ $obj->qty }}</td>
-                            <td>{{ $obj->price * $obj->qty }}</td>
-                            <td class="text-[1.1rem] w-[20px] rounded-[6px]">
-                                <a class="text-center text-[1rem] no-underline text-white bg-[#c00e0e] p-[20px] pt-[4px] pb-[4px] rounded-[10px]"
-                                    href="{{ url('/cart/' . $obj->id) }}">Remove</a>
-                            </td>
-                        </tr>
+    <div class="justify-center align-middle items-center">
+        <div id="indicators-carousel" class="relative w-full" data-carousel="static">
 
-                        <?php $total += $obj->qty * $obj->price; ?>
-                    @endforeach
-                    <tr>
-                        <td colspan="5" class="text-xl font-bold">Total</td>
-                        <td>{{ $total }}</td>
-                    </tr>
-                </table>
+            <div class="relative h-56 overflow-hidden md:h-96 rounded-lg">
 
-                <div class="mt-[80px] flex justify-center mb-[10px]">
-                    <div
-                        class="text-[1.1rem] bg-[#0E0EC0] hover:bg-[#1313c4] w-[200px] pt-[10px] pb-[10px] rounded-[6px] cursor-pointer">
-                        <a class="text-[1.1rem] no-underline text-white" href="{{ url('/checkout') }}">Checkout</a>
-                    </div>
+                <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+                    <img src="/images/CarouselImg1.jpg" class="absolute block w-full object-cover">
                 </div>
-                <a class="text-[.8rem] hover:text-[#3838ff] rounded-[6px] no-underline text-white"
-                    href="{{ url('/') }}">Back to Merch</a>
-            @endif
+
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="/images/img2.jpg" class="absolute block w-full object-contain">
+                </div>
+
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="/images/img3.jpg" class="absolute block w-full object-contain">
+                </div>
+
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="/images/img4.jpg" class="absolute block w-full object-contain">
+                </div>
+
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <img src="/images/img5.jpg" class="absolute block w-full object-contain">
+                </div>
+            </div>
+
+            <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+                <button type="button" class="w-3 h-3 rounded-full bg-transparent border-[1px] border-white"
+                    aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                <button type="button" class="w-3 h-3 rounded-full bg-transparent border-[1px] border-white"
+                    aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                <button type="button" class="w-3 h-3 rounded-full bg-transparent border-[1px] border-white"
+                    aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                <button type="button" class="w-3 h-3 rounded-full bg-transparent border-[1px] border-white"
+                    aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+                <button type="button" class="w-3 h-3 rounded-full bg-transparent border-[1px] border-white"
+                    aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+            </div>
+
+            <button type="button"
+                class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                data-carousel-prev>
+                <span
+                    class="inline-flex items-center justify-center w-10 h-10 rounded-full dark:group-hover:bg-gray-800/60">
+                    <svg class="w-4 h-4 text-white dark:text-gray-600" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 1 1 5l4 4" />
+                    </svg>
+                    <span class="sr-only">Previous</span>
+                </span>
+            </button>
+            <button type="button"
+                class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                data-carousel-next>
+                <span
+                    class="inline-flex items-center justify-center w-10 h-10 rounded-full dark:group-hover:bg-gray-800/60 ">
+                    <svg class="w-4 h-4 text-white dark:text-gray-600" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 9 4-4-4-4" />
+                    </svg>
+                    <span class="sr-only">Next</span>
+                </span>
+            </button>
         </div>
+        <?php $no = 1; ?>
+        <div id="merch_items" class="mt-[6rem] p-[30px] flex flex-wrap w-full justify-center content-center gap-10">
+            @foreach ($merch as $obj)
+                <div id="merch1" class="relative">
+                    <div id="item-img"
+                        class="mb-[7rem] w-[250px] h-[350px] border-solid border-[1px] border-white transform transition duration-500 hover:scale-[1.03]">
+                        <img src="/images/merch1.jpg" class="object-cover w-full h-full" />
+                        <p class="mt-5 font-taruno text-white text-[15px]">{{ $obj->name }}</p>
+                        <p class="mt-1 font-sans text-white text-sm">{{ $obj->price }}</p>
+                    </div>
+                </div>
 
+                <!-- <div id="merch2" class="relative">
+                <div id="item-img" class="mb-[7rem] w-[250px] h-[350px] border-solid border-[1px] border-white transform transition duration-500 hover:scale-[1.03]">
+                    <img src=" " class="object-cover w-full h-full"/>
+                    <p class="mt-5 font-taruno text-white text-[15px]">T-Shirt Electric Blue</p>
+                    <p class="mt-1 font-sans text-white text-sm">Rp 50.000</p>
+                </div>
+            </div>
+
+            <div id="merch3" class="relative">
+                <div id="item-img" class="mb-[7rem] w-[250px] h-[350px] border-solid border-[1px] border-white transform transition duration-500 hover:scale-[1.03]">
+                    <img src=" " class="object-cover w-full h-full"/>
+                    <p class="mt-5 font-taruno text-white text-[15px]">T-Shirt Electric Blue</p>
+                    <p class="mt-1 font-sans text-white text-sm">Rp 50.000</p>
+                </div>
+            </div>
+
+            <div id="merch4" class="relative">
+                <div id="item-img" class="mb-[7rem] w-[250px] h-[350px] border-solid border-[1px] border-white transform transition duration-500 hover:scale-[1.03]">
+                    <img src=" " class="object-cover w-full h-full"/>
+                    <p class="mt-5 font-taruno text-white text-[15px]">T-Shirt Electric Blue</p>
+                    <p class="mt-1 font-sans text-white text-sm">Rp 50.000</p>
+                </div>
+            </div>
+
+            <div id="merch5" class="relative">
+                <div id="item-img" class="mb-[7rem] w-[250px] h-[350px] border-solid border-[1px] border-white transform transition duration-500 hover:scale-[1.03]">
+                    <img src=" " class="object-cover w-full h-full"/>
+                    <p class="mt-5 font-taruno text-white text-[15px]">T-Shirt Electric Blue</p>
+                    <p class="mt-1 font-sans text-white text-sm">Rp 50.000</p>
+                </div>
+            </div> -->
+        </div>
+        @endforeach
+        <div id="shopping-cart" class="w-full fixed bottom-5 right-5 flex justify-end">
+            <div
+                class="rounded-full bg-white w-[60px] h-[60px] flex justify-center items-center cursor-pointer transform transition duration-500 hover:scale-110">
+                <i class="fas fa-shopping-cart fa-xl" style="color: black;"></i>
+            </div>
+        </div>
     </div>
-
-
+    <!-- Footer -->
     <footer class="bg-gradient-to-b from-transparent to-[#0E0EC0] pt-56 pb-16">
         <div class="flex flex-col w-full justify-center md:items-center md:flex-row">
             <div class="flex justify-center lg:container w-full">
@@ -154,7 +214,8 @@
                             </path>
                         </svg>
                     </a>
-                    <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank" class="text-white">
+                    <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank"
+                        class="text-white">
                         <svg class="h-12 w-12 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path
                                 d="M12,20.55c-.3,0-7.279-.006-9.115-.5A3.375,3.375,0,0,1,.5,17.665,29.809,29.809,0,0,1,0,12,29.824,29.824,0,0,1,.5,6.334,3.375,3.375,0,0,1,2.885,3.948c1.836-.492,8.819-.5,9.115-.5s7.279.006,9.115.5A3.384,3.384,0,0,1,23.5,6.334,29.97,29.97,0,0,1,24,12a29.97,29.97,0,0,1-.5,5.666,3.384,3.384,0,0,1-2.388,2.386C19.279,20.544,12.3,20.55,12,20.55Zm0-16.1c-.072,0-7.146.006-8.857.464A2.377,2.377,0,0,0,1.464,6.593,29.566,29.566,0,0,0,1,12a29.566,29.566,0,0,0,.464,5.407,2.377,2.377,0,0,0,1.679,1.679c1.711.458,8.785.464,8.857.464s7.146-.006,8.857-.464a2.377,2.377,0,0,0,1.679-1.679A29.66,29.66,0,0,0,23,12a29.66,29.66,0,0,0-.464-5.407h0a2.377,2.377,0,0,0-1.679-1.679C19.146,4.456,12.071,4.45,12,4.45ZM9.7,15.95a.5.5,0,0,1-.5-.5V8.55a.5.5,0,0,1,.75-.433l5.975,3.45a.5.5,0,0,1,0,.866L9.95,15.883A.5.5,0,0,1,9.7,15.95Zm.5-6.534v5.168L14.675,12Z">
@@ -175,17 +236,21 @@
             <p class="mb-2 text-xs font-taruno font-medium text-white">&copy; UMN RADIOACTIVE 2023</p>
         </div>
     </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
     <script>
         window.addEventListener('scroll', function() {
             var header = document.getElementById('header');
             if (window.scrollY > 0) {
                 header.classList.remove('bg-transparent');
                 header.classList.add('bg-[#0E0EC0]');
-                // header.classList.add('fixed');
             } else {
                 header.classList.add('bg-transparent');
                 header.classList.remove('bg-[#0E0EC0]');
-                // header.classList.remove('fixed');
             }
         });
     </script>

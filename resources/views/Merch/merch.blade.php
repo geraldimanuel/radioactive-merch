@@ -25,7 +25,7 @@
             href="ticket">CLOSING
             NIGHT</a>
         @auth
-        <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer" href="/logout">LOGOUT</a>
+            <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer" href="/logout">LOGOUT</a>
         @endauth
     </nav>
     <div class="grid justify-center">
@@ -91,19 +91,20 @@
                 </button>
             </div>
             <div class="grid gap-3">
-                <p class="mt-5 font-taruno text-white text-lg">{{$merch->name}}</p>
-                <p class="mt-1 font-sans text-gray-500 text-xs">Stock {{$merch->stock}}</p>
-                <p class="mt-1 font-sans text-white text-sm">{{$merch->price}}</p>
+                <p class="mt-5 font-taruno text-white text-lg">{{ $merch->name }}</p>
+                <p class="mt-1 font-sans text-gray-500 text-xs">Stock {{ $merch->stock }}</p>
+                <p class="mt-1 font-sans text-white text-sm">{{ $merch->price }}</p>
                 <div>
-                    <form class="grid gap-6" action="{{url('/cart/'.$merch->id)}}" method="post">
+                    <form class="grid gap-6" action="{{ url('/cart/' . $merch->id) }}" method="post">
                         <div class="inline-flex justify-center w-full gap-3" action="" method="post">
                             @csrf
                             <input type="button" value="-" id="decrement"
                                 class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
                                 onclick="button(this)"></input>
 
-                            <input id="qty" type="number" name="qty" min="1" max="{($merch->stock)}" value="1" step="1"
-                                readonly class="p-2 text-lg"></input>
+                            <input id="qty" type="number" name="qty" min="1"
+                                max="{($merch->stock)}" value="1" step="1" readonly
+                                class="p-2 text-lg"></input>
 
                             <input type="button" value="+" id="increment"
                                 class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
@@ -118,10 +119,10 @@
                         </div>
 
                         <div class="grid gap-3">
-                            <input type="hidden" name="id" value="{{$merch->id}}">
+                            <input type="hidden" name="id" value="{{ $merch->id }}">
                             <input value="Add to Cart" type="submit"
                                 class="w-full font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"></input>
-                            <a href="{{url('/merch')}}"
+                            <a href="{{ url('/') }}"
                                 class="text-center font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] no-underline cursor-pointer">Back
                                 to Merch</a>
                         </div>
@@ -240,7 +241,8 @@
                             </path>
                         </svg>
                     </a>
-                    <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank" class="text-white">
+                    <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank"
+                        class="text-white">
                         <svg class="h-12 w-12 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path
                                 d="M12,20.55c-.3,0-7.279-.006-9.115-.5A3.375,3.375,0,0,1,.5,17.665,29.809,29.809,0,0,1,0,12,29.824,29.824,0,0,1,.5,6.334,3.375,3.375,0,0,1,2.885,3.948c1.836-.492,8.819-.5,9.115-.5s7.279.006,9.115.5A3.384,3.384,0,0,1,23.5,6.334,29.97,29.97,0,0,1,24,12a29.97,29.97,0,0,1-.5,5.666,3.384,3.384,0,0,1-2.388,2.386C19.279,20.544,12.3,20.55,12,20.55Zm0-16.1c-.072,0-7.146.006-8.857.464A2.377,2.377,0,0,0,1.464,6.593,29.566,29.566,0,0,0,1,12a29.566,29.566,0,0,0,.464,5.407,2.377,2.377,0,0,0,1.679,1.679c1.711.458,8.785.464,8.857.464s7.146-.006,8.857-.464a2.377,2.377,0,0,0,1.679-1.679A29.66,29.66,0,0,0,23,12a29.66,29.66,0,0,0-.464-5.407h0a2.377,2.377,0,0,0-1.679-1.679C19.146,4.456,12.071,4.45,12,4.45ZM9.7,15.95a.5.5,0,0,1-.5-.5V8.55a.5.5,0,0,1,.75-.433l5.975,3.45a.5.5,0,0,1,0,.866L9.95,15.883A.5.5,0,0,1,9.7,15.95Zm.5-6.534v5.168L14.675,12Z">
@@ -263,39 +265,39 @@
     </footer>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-    AOS.init();
+        AOS.init();
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
     <script>
-    window.addEventListener('scroll', function() {
-        var header = document.getElementById('header');
-        if (window.scrollY > 0) {
-            header.classList.remove('bg-transparent');
-            header.classList.add('bg-[#0E0EC0]');
-            // header.classList.add('fixed');
-        } else {
-            header.classList.add('bg-transparent');
-            header.classList.remove('bg-[#0E0EC0]');
-            // header.classList.remove('fixed');
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            if (window.scrollY > 0) {
+                header.classList.remove('bg-transparent');
+                header.classList.add('bg-[#0E0EC0]');
+                // header.classList.add('fixed');
+            } else {
+                header.classList.add('bg-transparent');
+                header.classList.remove('bg-[#0E0EC0]');
+                // header.classList.remove('fixed');
+            }
+        });
+        const Input = document.getElementById("qty");
+
+        function button(btn) {
+            let id = btn.getAttribute("id");
+            let min = Input.getAttribute("min");
+            let step = Input.getAttribute("step");
+            let val = Input.getAttribute("value");
+
+            var stockValue = <?php echo $merch->stock; ?>;
+
+            let calcStep = (id == "increment") ? (step * 1) : (step * -1);
+            let newValue = parseInt(val) + calcStep;
+
+            if (newValue >= min && newValue <= stockValue) {
+                Input.setAttribute("value", newValue);
+            }
         }
-    });
-    const Input = document.getElementById("qty");
-
-    function button(btn) {
-        let id = btn.getAttribute("id");
-        let min = Input.getAttribute("min");
-        let step = Input.getAttribute("step");
-        let val = Input.getAttribute("value");
-
-        var stockValue = <?php echo $merch->stock; ?>;
-
-        let calcStep = (id == "increment") ? (step * 1) : (step * -1);
-        let newValue = parseInt(val) + calcStep;
-
-        if (newValue >= min && newValue <= stockValue) {
-            Input.setAttribute("value", newValue);
-        }
-    }
     </script>
 </body>
 
