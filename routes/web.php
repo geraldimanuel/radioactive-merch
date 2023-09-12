@@ -64,5 +64,3 @@ Route::controller(CartController::class)->group(function () {
     Route::get('/dashboard', 'dashboard');
     Route::get('item/{id}'. 'removeFromCart');
 });
-
-
