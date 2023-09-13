@@ -15,7 +15,8 @@ class Order extends Model
             'name' => auth()->user()->name,
             'email' => auth()->user()->email,
             'phone' => 0,
-            'qty' => 0,
+            'line' => 'al',
+            'image' => 'adad',
             'total_price' => 0,
             'status' => 'Unpaid'
         ]);

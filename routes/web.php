@@ -37,9 +37,7 @@ Route::get('/logout', function (Request $request) {
 });
 
 Route::controller(OrderController::class)->group(function () {
-    Route::get('/ticket', 'index');
-    Route::post('/checkout', 'checkout');
-    Route::get('/invoice/{id}', 'invoice');
+    Route::get('/order', 'order');
 });
 
 Route::middleware('guest')->controller(ResetPasswordController::class)->group(function() {
@@ -56,6 +54,7 @@ Route::controller(MerchController::class)->group(function () {
     Route::get('/merch', 'home');
     Route::get('item/', 'merch');
     Route::get('item/{id}', 'ShowItem');
+
 });
 
 Route::controller(CartController::class)->group(function () {

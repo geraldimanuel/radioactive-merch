@@ -77,7 +77,7 @@ class   CartController extends Controller
                 }
 
                 Order::where('id', $order_id)->update([
-                    'qty' => $total_qty,
+                    // 'qty' => $total_qty,
                     'total_price' => $grandTotal
                 ]);
 
