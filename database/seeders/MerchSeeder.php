@@ -15,44 +15,75 @@ class MerchSeeder extends Seeder
     {
         //
         Merch::create([
-            'name' => 'T-Shirt',
+            'name' => 'Turbulent Revolution Tee',
             'description' => 'T-Shirt',
+            'table' => 1,
             'image' => 't-shirt.jpg',
-            'price' => 100000,
+            'price' => 95000,
             'stock' => 10,
         ]);
 
         Merch::create([
-            'name' => 'Hoodie',
-            'description' => 'Hoodie',
+            'name' => 'Celestial Revy Tee',
+            'description' => 'T-Shirt',
+            'table' => 1,
             'image' => 't-shirt.jpg',
-            'price' => 200000,
+            'price' => 95000,
             'stock' => 10,
         ]);
 
         Merch::create([
-            'name' => 'Jacket',
+            'name' => 'Radioactive Sticker Pack',
+            'table' => 0,
             'description' => 'Jacket',
             'image' => 't-shirt.jpg',
-            'price' => 300000,
+            'price' => 15000,
             'stock' => 10,
         ]);
 
         Merch::create([
-            'name' => 'Hat',
+            'name' => 'Revolution Tote Bag',
             'description' => 'Hat',
+            'table' => 0,
             'image' => 't-shirt.jpg',
-            'price' => 50000,
+            'price' => 85000,
             'stock' => 10,
         ]);
 
         Merch::create([
-            'name' => 'Pants',
+            'name' => 'Revy Eggo Tumbler',
             'description' => 'Pants',
+            'table' => 0,
             'image' => 't-shirt.jpg',
-            'price' => 150000,
+            'price' => 65000,
+            'stock' => 10,
+        ]);
+        
+        Merch::create([
+            'name' => 'Bundle Exclusive 1',
+            'description' => 'Pants',
+            'table' => 0,
+            'image' => 't-shirt.jpg',
+            'price' => 115000,
+            'stock' => 10,
+        ]);
+        
+        Merch::create([
+            'name' => 'Bundle Exclusive 2',
+            'description' => 'Pants',
+            'table' => 0,
+            'image' => 't-shirt.jpg',
+            'price' => 180000,
             'stock' => 10,
         ]);
 
+        Merch::create([
+            'name' => 'Bundle Exclusive 3',
+            'description' => 'Pants',
+            'table' => 0,
+            'image' => 't-shirt.jpg',
+            'price' => 240000,
+            'stock' => 10,
+        ]);
     }
 }

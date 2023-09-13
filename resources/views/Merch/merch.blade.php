@@ -29,13 +29,15 @@
         @endauth
     </nav>
     <div class="grid justify-center">
-        <div class="flex items-center gap-20 pt-[13rem] flex-wrap justify-center">
-            <!-- <div id="item-img" class="w-[250px] h-[350px] border-[1px] border-white">
-                <img src=" " class="object-cover w-full h-full"/>
-            </div> -->
-            <div id="indicators-carousel" class="relative w-[250px] h-[350px]" data-carousel="static">
-                <div
-                    class="relative w-[250px] h-[350px] overflow-hidden md:w-[250px] md:h-[350px] rounded-lg border-[1px] border-white">
+        <div class="flex items-center gap-20 pt-[11rem] flex-wrap justify-center">
+            <div id="indicators-carousel" class="relative w-[350px] h-[400px] justify-center" data-carousel="static">
+                <div class="m-auto relative overflow-hidden w-5/6 h-full rounded-lg border-[1px] border-white">
+
+                    <!-- @foreach($merch as $obj)
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src=" " class="absolute block w-full object-contain">
+                    </div>
+                    @endforeach -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
                         <img src=" " class="absolute block w-full object-fill">
                     </div>
@@ -52,7 +54,11 @@
                         <img src=" " class="absolute block w-full object-contain">
                     </div>
                 </div>
-                <div class="z-30 inline-flex gap-4 overflow-hidden justify-center mt-[20px]">
+                <div class="z-30 flex gap-4 overflow-hidden justify-center mt-[20px]">
+                    <!-- @foreach($merch as $obj)
+                    <img type="button" class="w-[50px] h-[70px] border-[1px] border-white" aria-current="true"
+                        aria-label="Slide 1" data-carousel-slide-to="0" src="images/merch1.jpg" />
+                    @endforeach -->
                     <img type="button" class="w-[50px] h-[70px] border-[1px] border-white" aria-current="true"
                         aria-label="Slide 1" data-carousel-slide-to="0" src="images/merch1.jpg" />
                     <img type="button" class="w-[50px] h-[70px] border-[1px] border-white" aria-current="true"
@@ -64,7 +70,7 @@
                 </div>
 
                 <button type="button"
-                    class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                    class="absolute top-0 left-5 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     data-carousel-prev>
                     <span
                         class="inline-flex items-center justify-center w-10 h-10 rounded-full dark:group-hover:bg-gray-800/60">
@@ -77,7 +83,7 @@
                     </span>
                 </button>
                 <button type="button"
-                    class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                    class="absolute top-0 right-5 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                     data-carousel-next>
                     <span
                         class="inline-flex items-center justify-center w-10 h-10 rounded-full dark:group-hover:bg-gray-800/60 ">
@@ -91,85 +97,306 @@
                 </button>
             </div>
             <div class="grid gap-3">
-                <p class="mt-5 font-taruno text-white text-lg">{{$merch->name}}</p>
+                <div class="mt-5">
+                    <p class="mt-5 font-taruno text-white text-lg">{{$merch->name}}</p>
+                    @if($merch->id == 3)
+                    <p class="text-[11px] font-taruno text-gray-500"><i>Illustrated by Radioactive</i></p>
+                    @endif
+                    @if($merch->id == 4)
+                    <p class="text-[11px] font-taruno text-gray-500"><i>With Zipper</i></p>
+                    @endif
+                </div>
                 <p class="mt-1 font-sans text-gray-500 text-xs">Stock {{$merch->stock}}</p>
-                <p class="mt-1 font-sans text-white text-sm">{{$merch->price}}</p>
+                <p class="mt-1 font-sans text-white text-sm">Rp {{$merch->price}}</p>
+                <div id="indicators-carousel" class="relative w-full h-full" data-carousel="static">
+                    <div class="z-30 inline-flex gap-4 h-3 overflow-hidden justify-center mt-[20px]">
+                        <div type="button"
+                            class="h-[2px] w-[100px] cursor-pointer no-underline text-white font-taruno text-[10px]"
+                            data-carousel-slide-to="0" class="relative">
+                            <p class="absolute top-1">Description</p>
+                            <!-- @if(!$merch->id == 6 || !$merch->id == 7 || !$merch->id == 8) -->
+
+                            <!-- @else -->
+                            <!-- <p class="absolute top-1">What will you get?</p> -->
+                            <!-- @endif -->
+                        </div>
+                        <div type="button"
+                            class="h-[2px] w-[80px] cursor-pointer no-underline text-white font-taruno text-[10px]"
+                            data-carousel-slide-to="1" class="relative">
+                            <p class="absolute top-1">Shipping</p>
+                        </div>
+
+                    </div>
+                    <div class="relative w-full h-[110px] overflow-hidden">
+
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item="">
+                            @if($merch->id == 6 || $merch->id == 7 || $merch->id == 8)
+                            <p class="text-white text-[17px]"><i>What will you get?</i></p>
+                            @endif
+                            <ul class="list-disc ml-[17px]">
+                                @if($merch->id == 1)
+                                <li class="text-white text-[15px]">Premium soft cotton combed 24s</li>
+                                <li class="text-white text-[15px]">Oversized cut and easy to wear</li>
+                                <li class="text-white text-[15px]">6 sizes XS - XXL</li>
+                                <li class="text-white text-[15px]">Model is 170cm and wearing size M</li>
+                                </li>
+                                @endif
+                                @if($merch->id == 2)
+                                <li class="text-white text-[15px]">Premium soft cotton combed 24s</li>
+                                <li class="text-white text-[15px]">Regular cut and easy to wear</li>
+                                <li class="text-white text-[15px]">7 sizes S - 4XL</li>
+                                <li class="text-white text-[15px]">Model is 155cm and wearing size M</li>
+                                @endif
+                                @if($merch->id == 3)
+                                <li class="text-white text-[15px]">Size: A6</li>
+                                <li class="text-white text-[15px]">Material: <i>Glossy Finish</i></li>
+                                <li class="text-white text-[15px]">Type: <i>Kisscut</i></li>
+                                @endif
+                                @if($merch->id == 4)
+                                <li class="text-white text-[15px]">Material: <i>Canvas Twill</i></li>
+                                <li class="text-white text-[15px]">Size: 40cm × 33 × 7cm</li>
+                                @endif
+                                @if($merch->id == 5)
+                                <li class="text-white text-[15px]">Material: <i>Stainless Steel</i></li>
+                                <li class="text-white text-[15px]">Capacity: 380ml</i></li>
+                                <li class="text-white text-[15px]">Weight: 200g</li>
+                                <li class="text-white text-[15px]">Dimension: 6cm × 8cm × 12cm</li>
+                                @endif
+                                @if($merch->id == 6)
+                                <li class="text-white text-[15px]">Revolution Tote Bag</i></li>
+                                <li class="text-white text-[15px]">Revy Eggo Tumbler</li>
+                                <li class="text-white text-[15px]">Revolution Sticker Pack</li>
+                                @endif
+                                @if($merch->id == 7 || $merch->id == 8)
+                                <li class="text-white text-[15px]">Revolution Tote Bag</i></li>
+                                <li class="text-white text-[15px]">Revolution Tote Bag</li>
+                                <li class="text-white text-[15px]">Revolution Sticker Pack</li>
+                                @endif
+                                @if($merch->id == 8)
+                                <li class="text-white text-[15px]">Revy Eggo Tumbler</li>
+                                @endif
+                                
+                            </ul>
+                        </div>
+                        <div class="hidden duration-700 ease-in-out w-full" data-carousel-item>
+                            <ul class="list-disc ml-[17px]">
+                                <li class="text-white text-[15px]">Pesanan diproses kurang lebih 7 hari setelah order
+                                    dikonfirmasi</li>
+                                <li class="text-white text-[15px]">Pesanan melalui website HANYA berlaku untuk
+                                    pengambilan di UMN</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div>
                     <form class="grid gap-6" action="{{url('/cart/'.$merch->id)}}" method="post">
-                        <div class="inline-flex justify-center w-full gap-3" action="" method="post">
-                            @csrf
-                            <input type="button" value="-" id="decrement"
-                                class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
-                                onclick="button(this)"></input>
+                        @if($merch->id == 7 || $merch->id == 8)
+                        <div class=" w-full">
+                            <p class="text-white text-[15px]"><b><i>Choose ONE of your favorite tee!</i></b></p>
+                            <div class="flex gap-1">
+                                <select name="tee" id="tee"
+                                    class="w-full h-10 mt-1 text-center font-taruno text-[.8rem] text-white cursor-pointer">
+                                    <option value="Turbulent Revolution Tee">Turbulent Revolution Tee</option>
+                                    <option value="Celestial Revy Tee">Celestial Revy Tee</option>
+                                </select>
+                                <select name="size" id="size1"
+                                    class="w-[60px] h-10 mt-1 text-center font-taruno text-[.8rem] text-white cursor-pointer">
+                                    <option value="XS">XS</option>
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                </select>
 
-                            <input id="qty" type="number" name="qty" min="1" max="{($merch->stock)}" value="1" step="1"
-                                readonly class="p-2 text-lg"></input>
-
-                            <input type="button" value="+" id="increment"
-                                class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
-                                onclick="button(this)"></input>
-                            <select name="size" id="size" class="p-2 w-[60px]">
-                                <option value="XS">XS</option>
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                            </select>
+                                <select name="size" id="size2"
+                                    class="w-[60px] hidden h-10 mt-1 text-center font-taruno text-[.8rem] text-white cursor-pointer">
+                                    <option value="S">S</option>
+                                    <option value="M">M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                    <option value="2XL">2XL</option>
+                                    <option value="3XL">3XL</option>
+                                </select>
+                            </div>
                         </div>
-
-                        <div class="grid gap-3">
-                            <input type="hidden" name="id" value="{{$merch->id}}">
-                            <input value="Add to Cart" type="submit"
-                                class="w-full font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"></input>
-                            <a href="{{url('/merch')}}"
-                                class="text-center font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] no-underline cursor-pointer">Back
-                                to Merch</a>
-                        </div>
-                    </form>
                 </div>
+                @endif
+                <div class="inline-flex justify-center w-full gap-3" action="" method="post">
+                    @csrf
+                    <input type="button" value="-" id="decrement"
+                        class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
+                        onclick="button(this)"></input>
+
+                    <input id="qty" type="number" name="qty" min="1" max="{($merch->stock)}" value="1" step="1" readonly
+                        class="p-2 text-lg"></input>
+
+                    <input type="button" value="+" id="increment"
+                        class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
+                        onclick="button(this)"></input>
+                    @if($merch->table && $merch->id == 1)
+                    <select name="size" id="size"
+                        class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                    @endif
+                    @if($merch->table && $merch->id == 2)
+                    <select name="size" id="size"
+                        class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="2XL">2XL</option>
+                        <option value="3XL">3XL</option>
+                    </select>
+                    @endif
+                </div>
+
+                <div class="grid gap-3">
+                    <input type="hidden" name="id" value="{{$merch->id}}">
+                    <input value="Add to Cart" type="submit"
+                        class="w-full font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"></input>
+                    <a href="{{url('/merch')}}"
+                        class="text-center font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] no-underline cursor-pointer">Back
+                        to Merch</a>
+                </div>
+                </form>
             </div>
         </div>
     </div>
-    <div class="tabel mt-[250px] flex justify-center text-center">
-        <table border="1" cellpadding="10" class="border-white border-[1px]">
-            <tr>
+    </div>
+    <div class="mt-[100px] flex justify-center w-full align-middle">
+        <div class="text-left">
+            <h2 class="font-taruno text-white">NOTES</h2>
+            <ul class="list-disc ml-[17px]">
+                <li class="text-white text-[15px]">TIDAK MENERIMA SEGALA JENIS BENTUK PENUKARAN TERMASUK
+                    PENUKARAN MODEL, WARNA, DAN SIZE
+
+                </li>
+                <li class="text-white text-[15px]">TIDAK MENERIMA PENGEMBALIAN DANA ATAS PESANAN YANG
+                    TELAH DILAKUKAN</li>
+            </ul>
+        </div>
+    </div>
+    <div class="mt-[80px] flex justify-center text-center w-full align-middle">
+        @if($merch->table && $merch->id == 1)
+        <table border="1" cellpadding="10" class="border-white border-[1px] w-4/5 lg:w-1/2">
+            <tr class="border-[1px] bg-[#0E0EC0]">
                 <th>Size</th>
-                <th>Lingkar Dada<br>(cm)</th>
-                <th>Lingkar Pinggang<br>(cm)</th>
-                <th>Lingkar Pinggul<br>(cm)</th>
+                <th>Width<br>(cm)</th>
+                <th>Length<br>(cm)</th>
+                <th>Shoulders<br>(cm)</th>
+                <th>Hands<br>(cm)</th>
+                <th>Harga<br>(Rp)</th>
             </tr>
             <tr>
                 <td>XS</td>
-                <td>10000</td>
-                <td>10000</td>
-                <td>10000</td>
+                <td>54</td>
+                <td>69</td>
+                <td>15</td>
+                <td>25</td>
+                <td>95 000</td>
             </tr>
             <tr>
                 <td>S</td>
-                <td>10000</td>
-                <td>10000</td>
-                <td>10000</td>
+                <td>57</td>
+                <td>72</td>
+                <td>16</td>
+                <td>25</td>
+                <td>95 000</td>
             </tr>
             <tr>
                 <td>M</td>
-                <td>10000</td>
-                <td>10000</td>
-                <td>10000</td>
+                <td>59</td>
+                <td>73</td>
+                <td>16</td>
+                <td>29</td>
+                <td>95 000</td>
             </tr>
             <tr>
                 <td>L</td>
-                <td>10000</td>
-                <td>10000</td>
-                <td>10000</td>
+                <td>62</td>
+                <td>76</td>
+                <td>17</td>
+                <td>31</td>
+                <td>95 000</td>
             </tr>
             <tr>
                 <td>XL</td>
-                <td>10000</td>
-                <td>10000</td>
-                <td>10000</td>
+                <td>66</td>
+                <td>78</td>
+                <td>17</td>
+                <td>33</td>
+                <td>95 000</td>
+            </tr>
+            <tr>
+                <td>XXL</td>
+                <td>70</td>
+                <td>80</td>
+                <td>19</td>
+                <td>31</td>
+                <td>105 000</td>
             </tr>
         </table>
+        @endif
+        @if($merch->table && $merch->id == 2)
+        <table border="1" cellpadding="10" class="border-white border-[1px] w-1/2">
+            <tr class="border-[1px] bg-[#0E0EC0]">
+                <th>Size</th>
+                <th>Width<br>(cm)</th>
+                <th>Length<br>(cm)</th>
+                <th>Price<br>(Rp)</th>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>47</td>
+                <td>70</td>
+                <td>95 000</td>
+            </tr>
+            <tr>
+                <td>M</td>
+                <td>51</td>
+                <td>71</td>
+                <td>95 000</td>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>55</td>
+                <td>73</td>
+                <td>95 000</td>
+            </tr>
+            <tr>
+                <td>XL</td>
+                <td>59</td>
+                <td>76</td>
+                <td>95 000</td>
+            </tr>
+            <tr>
+                <td>2XL</td>
+                <td>64</td>
+                <td>80</td>
+                <td>100 000</td>
+            </tr>
+            <tr>
+                <td>3XL</td>
+                <td>67</td>
+                <td>83</td>
+                <td>105 000</td>
+            </tr>
+            <tr>
+                <td>4XL</td>
+                <td>70</td>
+                <td>86</td>
+                <td>110 000</td>
+            </tr>
+        </table>
+        @endif
     </div>
+
 
 
     <!-- Footer -->
@@ -296,6 +523,25 @@
             Input.setAttribute("value", newValue);
         }
     }
+
+    const teeSelect = document.getElementById('tee');
+    const size1Select = document.getElementById('size1');
+    const size2Select = document.getElementById('size2');
+    teeSelect.addEventListener('change', function() {
+        if (teeSelect.value === 'Turbulent Revolution Tee') {
+            size1Select.classList.add('block');
+            size1Select.classList.remove('hidden');
+            size2Select.classList.add('hidden');
+            size2Select.classList.remove('block');
+        } else if (teeSelect.value === 'Celestial Revy Tee') {
+            size2Select.classList.add('block');
+            size2Select.classList.remove('hidden');
+            size1Select.classList.add('hidden');
+            size1Select.classList.remove('block');
+        }
+        sizeSelect.style.display = 'none';
+
+    });
     </script>
 </body>
 

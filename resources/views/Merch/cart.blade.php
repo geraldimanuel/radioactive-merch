@@ -27,40 +27,49 @@
         <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer" href="/logout">LOGOUT</a>
         @endauth
     </nav>
-    <div class="flex justify-center pb-[50px] pt-[200px] h-[800px]">
-        <div class="text-center">
-            @if (empty($cart))
-            <div class="flex justify-center align-middle items-center h-[800px]">
-                <div>
-                    <p class="font-taruno text-xl">Cart is empty</p>
-                    <div class="mt-[20px]">
-                        <a class="text-[.8rem] hover:text-[#3838ff] rounded-[6px] no-underline text-white"
-                            href="{{ url('/merch') }}">Back to Merch</a>
+    <div class="flex flex-wrap justify-center pb-[50px] pt-[200px] h-[800px]">
+        <div class="text-center flex">
+            <div class="w-full">
+                @if (empty($cart))
+                <div class="flex justify-center align-middle items-center h-[800px]">
+                    <div>
+                        <p class="font-taruno text-xl">Cart is empty</p>
+                        <div class="mt-[20px]">
+                            <a class="text-[.8rem] hover:text-[#3838ff] rounded-[6px] no-underline text-white"
+                                href="{{ url('/merch') }}">Back to Merch</a>
+                        </div>
                     </div>
                 </div>
             </div>
             @else
-            <table border="1" cellpadding="10" class="w-[1000px] text-[1.1rem] mr-[50px] ml-[50px]">
+            <table border="1" cellpadding="10" class="w-4/5 text-lg mr-[50px] ml-[50px] shadow-lg lg:w-full">
                 <tr>
-                    <th class="font-taruno">No</th>
-                    <th class="font-taruno">Name</th>
+                    <th class="font-taruno text-left">Items</th>
+                    <!-- <th class="font-taruno">Name</th> -->
                     <th class="font-taruno">Price</th>
                     <th class="font-taruno">Size</th>
                     <th class="font-taruno">Qty</th>
                     <th class="font-taruno">Total Price</th>
+                    <th class="font-taruno">Remove</th>
                 </tr>
                 <?php $no = 1; $total = 0; ?>
                 @foreach ($cart as $obj)
-                <tr>
-                    <td>{{ $no++ }}</td>
-                    <td>{{ $obj->name }}</td>
+                <tr class="border-b-[1px]">
+                    <!-- <td>{{ $no++ }}</td> -->
+                    <td class="flex h-full justify-left items-center">
+                        <img src="/images/img2.jpg" class="h-[150px] w-auto object-fill" />
+                        <div class="flex ml-5">
+                            <p class="text-center">{{ $obj->name }}</p>
+                        </div>
+                    </td>
+                    <!-- <td>{{ $obj->name }}</td> -->
                     <td>{{ $obj->price }}</td>
                     <td>{{ $obj->size  }}</td>
                     <td>{{ $obj->qty }}</td>
                     <td>{{ $obj->price * $obj->qty }}</td>
                     <td class="text-[1.1rem] w-[20px] rounded-[6px]">
-                        <a class="text-center text-[1rem] no-underline text-white bg-[#c00e0e] p-[20px] pt-[4px] pb-[4px] rounded-[10px]"
-                            href="{{ url('/cart/' . $obj->id) }}">Remove</a>
+                        <a class="text-center text-[1.6rem] no-underline text-white hover:text-red-600"
+                            href="{{ url('/cart/' . $obj->id) }}">×</a>
                     </td>
                 </tr>
 
@@ -74,14 +83,15 @@
 
             <div class="mt-[80px] flex justify-center mb-[10px]">
                 <div
-                    class="text-[1.1rem] bg-[#0E0EC0] hover:bg-[#1313c4] w-[200px] pt-[10px] pb-[10px] rounded-[6px] cursor-pointer">
+                    class="text-[1.1rem] bg-[#0E0EC0] hover:bg-[#1313c4] w-[200px] pt-[10px] pb-[10px]  border-white border-[1px] cursor-pointer">
                     <a class="text-[1.1rem] no-underline text-white" href="{{ url('/checkout') }}">Checkout</a>
                 </div>
             </div>
-            <a class="text-[.8rem] hover:text-[#3838ff] rounded-[6px] no-underline text-white"
-                href="{{ url('/merch') }}">Back to Merch</a>
-            @endif
+            <a class="text-[.8rem] hover:text-[#3838ff] no-underline text-white" href="{{ url('/merch') }}">Back to
+                Merch</a>
         </div>
+        @endif
+    </div>
 
     </div>
 
