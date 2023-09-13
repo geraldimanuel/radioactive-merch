@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -20,6 +21,31 @@ class OrderController extends Controller
     public function checkout(Request $request)
     {
 
+    }
+    public function orderPage() {
+        if(Auth::check()){
+            $cart = session('cart');
+            return view('Merch.cart')->with('cart', $cart);
+        } else {
+            return redirect('/login');
+        }
+    }
+    public function order(Request $request) {
+        if(Auth::check()){
+            Order::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->wa,
+                'line' => $request->line,
+                'image' => $request->file('payment_proof')->storePublicly('payment_images_merch', 'public'),
+                'total_price' => $request->total_price,
+                'status' => 'Unpaid'
+            ]);
+
+            return redirect('/order');
+        } else {
+            return redirect('/login');
+        }
     }
 
     public function callback(Request $request)

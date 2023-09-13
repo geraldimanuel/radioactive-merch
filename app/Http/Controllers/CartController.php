@@ -77,7 +77,7 @@ class   CartController extends Controller
                 }
 
                 Order::where('id', $order_id)->update([
-                    'qty' => $total_qty,
+                    // 'qty' => $total_qty,
                     'total_price' => $grandTotal
                 ]);
 
@@ -87,7 +87,8 @@ class   CartController extends Controller
                 $merchs = Merch::all();
                 $order = Order::where('id', $order_id)->first();
 
-              
+               
+          
             }   
         } else {
             return redirect('/login');
