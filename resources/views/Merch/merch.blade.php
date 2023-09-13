@@ -111,7 +111,7 @@
                 <div id="indicators-carousel" class="relative w-full h-full" data-carousel="static">
                     <div class="z-30 inline-flex gap-4 h-3 overflow-hidden justify-center mt-[20px]">
                         <div type="button"
-                            class="h-[2px] w-[100px] cursor-pointer no-underline text-white font-taruno text-[10px]"
+                            class="h-[2px] w-[126px] cursor-pointer no-underline text-white font-taruno text-[13px]"
                             data-carousel-slide-to="0" class="relative">
                             <p class="absolute top-1">Description</p>
                             <!-- @if(!$merch->id == 6 || !$merch->id == 7 || !$merch->id == 8) -->
@@ -121,7 +121,7 @@
                             <!-- @endif -->
                         </div>
                         <div type="button"
-                            class="h-[2px] w-[80px] cursor-pointer no-underline text-white font-taruno text-[10px]"
+                            class="h-[2px] w-[100px] cursor-pointer no-underline text-white font-taruno text-[13px]"
                             data-carousel-slide-to="1" class="relative">
                             <p class="absolute top-1">Shipping</p>
                         </div>
@@ -537,6 +537,7 @@
             size2Select.classList.add('block');
             size2Select.classList.remove('hidden');
             size1Select.classList.add('hidden');
+            size1Select.add('readonly');
             size1Select.classList.remove('block');
         }
         sizeSelect.style.display = 'none';

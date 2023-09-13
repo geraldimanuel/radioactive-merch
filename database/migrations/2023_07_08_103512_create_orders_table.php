@@ -16,9 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
-            $table->integer('qty');
+            $table->string('line');
+            $table->string('image');
             $table->bigInteger('total_price');
-            $table->enum('status', ['Unpaid', 'Paid', 'Used', 'Canceled', 'Expired']);
+            $table->enum('status', ['Unpaid', 'Paid', 'Canceled']);
             $table->timestamps();
         });
     }
