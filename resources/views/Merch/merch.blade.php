@@ -234,7 +234,7 @@
                         class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
                         onclick="button(this)"></input>
                     @if($merch->table && $merch->id == 1)
-                    <select name="size" id="size"
+                    <select name="size1" id="size1"
                         class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
                         <option value="XS">XS</option>
                         <option value="S">S</option>
@@ -244,7 +244,7 @@
                     </select>
                     @endif
                     @if($merch->table && $merch->id == 2)
-                    <select name="size" id="size"
+                    <select name="size2" id="size2"
                         class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
                         <option value="S">S</option>
                         <option value="M">M</option>
@@ -537,7 +537,6 @@
             size2Select.classList.add('block');
             size2Select.classList.remove('hidden');
             size1Select.classList.add('hidden');
-            size1Select.add('readonly');
             size1Select.classList.remove('block');
         }
         sizeSelect.style.display = 'none';
