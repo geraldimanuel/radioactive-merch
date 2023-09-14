@@ -68,7 +68,7 @@ class OrderController extends Controller
                 'status' => 'Unpaid'
             ]);
 
-            return view('Merch.list');
+            return redirect('/merch');
         } else {
             return redirect('/login');
         }

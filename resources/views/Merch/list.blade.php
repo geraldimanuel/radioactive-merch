@@ -149,7 +149,7 @@
             </button>
         </div>
         <div class="flex flex-wrap w-full justify-center">
-            <div class="flex flex-wrap justify-center w-">
+            <div class="flex flex-wrap justify-center w-3/4">
                 @foreach ($merch as $obj)
                     <a href="{{ url('/item/' . $obj->id) }}"
                         class="m-[30px] mt-[6rem] justify-center content-center gap-10 no-underline">

@@ -685,14 +685,10 @@
             let step = Input.getAttribute("step");
             let val = Input.getAttribute("value");
 
-            var stockValue = <?php echo $merch->stock; ?>;
 
             let calcStep = (id == "increment") ? (step * 1) : (step * -1);
             let newValue = parseInt(val) + calcStep;
 
-            if (newValue >= min && newValue <= stockValue) {
-                Input.setAttribute("value", newValue);
-            }
         }
 
 
@@ -710,12 +706,14 @@
             if (this.checked) {
                 isSelected.value = true;
             }
+            console.log('aaaa:', isSelected.value);
             sizechanges()
         });
         celestialRadio.addEventListener('change', function() {
             if (this.checked) {
                 isSelected.value = false;
             }
+            console.log('aaaa:', isSelected.value);
             sizechanges()
         });
 
