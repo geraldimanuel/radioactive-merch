@@ -76,11 +76,11 @@ class MerchController extends Controller
 
             $price = $merch->price;
 
-            if ($request->id != 1 && $request->id != 2) {
+            if ($request->id == 3 || $request->id == 4 || $request->id == 5) {
                 $size = '';
             }
 
-            if ($request->id != 7 && $request->id != 8) {
+            if ($request->id != 6 && $request->id != 7 && $request->id != 8) {
                 $tee = '';
             }
 
