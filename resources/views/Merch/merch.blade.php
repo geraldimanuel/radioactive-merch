@@ -245,7 +245,7 @@
                                         <li>
                                             <input type="radio" id="M" name="size" value="M" class="hidden peer w-full"
                                                 required>
-                                            <label for="hosting-small"
+                                            <label for="M"
                                                 class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                                 <div class="block w-full text-center">
                                                     <p class="w-full">M</p>
@@ -266,9 +266,9 @@
                                 <div class="hidden" id="celessize">
                                     <ul class="grid w-full gap-3 md:grid-cols-2 sm:grid-cols-4">
                                         <li>
-                                            <input type="radio" id="XS" name="size" value="S" class="hidden peer w-full"
+                                            <input type="radio" id="SS" name="size" value="S" class="hidden peer w-full"
                                                 required>
-                                            <label for="XS"
+                                            <label for="SS"
                                                 class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                                 <div class="w-full text-center block">
                                                     <p class="w-full text-center">S</p>
@@ -276,8 +276,8 @@
                                             </label>
                                         </li>
                                         <li>
-                                            <input type="radio" id="S" name="size" value="M" class="hidden peer">
-                                            <label for="S"
+                                            <input type="radio" id="MM" name="size" value="M" class="hidden peer">
+                                            <label for="MM"
                                                 class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                                 <div class="block w-full text-center">
                                                     <p class="w-full">M</p>
@@ -285,9 +285,9 @@
                                             </label>
                                         </li>
                                         <li>
-                                            <input type="radio" id="M" name="size" value="L" class="hidden peer w-full"
+                                            <input type="radio" id="LL" name="size" value="L" class="hidden peer w-full"
                                                 required>
-                                            <label for="hosting-small"
+                                            <label for="LL"
                                                 class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                                 <div class="block w-full text-center">
                                                     <p class="w-full">L</p>
@@ -295,8 +295,8 @@
                                             </label>
                                         </li>
                                         <li>
-                                            <input type="radio" id="L" name="size" value="XL" class="hidden peer">
-                                            <label for="L"
+                                            <input type="radio" id="XLXL" name="size" value="XL" class="hidden peer">
+                                            <label for="XLXL"
                                                 class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                                 <div class="block w-full text-center">
                                                     <p class="w-full">XL</p>
@@ -304,8 +304,8 @@
                                             </label>
                                         </li>
                                         <li>
-                                            <input type="radio" id="XL" name="size" value="2XL" class="hidden peer">
-                                            <label for="XL"
+                                            <input type="radio" id="2XL" name="size" value="2XL" class="hidden peer">
+                                            <label for="2XL"
                                                 class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                                 <div class="block w-full text-center">
                                                     <p class="w-full">2XL</p>
@@ -313,8 +313,8 @@
                                             </label>
                                         </li>
                                         <li>
-                                            <input type="radio" id="XXL" name="size" value="3XL" class="hidden peer">
-                                            <label for="XXL"
+                                            <input type="radio" id="3XL" name="size" value="3XL" class="hidden peer">
+                                            <label for="3XL"
                                                 class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                                 <div class="block w-full text-center">
                                                     <p class="w-full">3XL</p>
