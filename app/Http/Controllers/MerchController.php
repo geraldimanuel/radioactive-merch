@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Merch;
+use App\Models\Order;
+use App\Models\User;
 use App\Http\Requests\StoreMerchRequest;
 use App\Http\Requests\UpdateMerchRequest;
 use Illuminate\Support\Facades\Auth;

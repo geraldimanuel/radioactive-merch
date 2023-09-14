@@ -8,6 +8,7 @@ use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Cart;
 
 class OrderController extends Controller
 {
@@ -45,6 +46,20 @@ class OrderController extends Controller
                 'total_price' => $request->total_price,
                 'status' => 'Unpaid'
             ]);
+
+            return redirect('/reset-cart');
+        } else {
+            return redirect('/login');
+        }
+    }
+
+    public function resetCart() {
+        if(Auth::check()){
+            $logged_id = auth()->user()->id;
+
+            $user = User::find($logged_id);
+            
+            Cart::where('user_id', '=', $logged_id)->delete();
 
             return redirect('/');
         } else {

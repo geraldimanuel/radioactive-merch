@@ -13,10 +13,10 @@ class Order extends Model
     static function new_order() {
         $order = Order::create([
             'name' => auth()->user()->name,
-            'email' => auth()->user()->email,
-            'wa' => 'aaaa',
-            'line' => 'al',
-            'image' => 'adad',
+            'email' => '',
+            'wa' => '',
+            'line' => '',
+            'image' => '',
             'total_price' => 0,
             'status' => 'Unpaid'
         ]);
