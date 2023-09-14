@@ -80,21 +80,23 @@ class MerchController extends Controller
                 $size = '';
             }
 
-            if ($request->id != 6 && $request->id != 7 && $request->id != 8) {
+            if ($request->id != 7 && $request->id != 8) {
                 $tee = '';
             }
 
-            if($size == 'XXL' || $size == '3XL')
-            {
-                $price = 105000;
-            }
-            else if($size == '2XL')
-            {
-                $price = 100000;
-            }
-            else if($size == '4XL')
-            {
-                $price = 110000;
+            if ($request->id == 1 || $request->id == 2) {
+                if($size == 'XXL' || $size == '3XL')
+                {
+                    $price = 105000;
+                }
+                else if($size == '2XL')
+                {
+                    $price = 100000;
+                }
+                else if($size == '4XL')
+                {
+                    $price = 110000;
+                }
             }
 
             if (isset($carts[0])) {

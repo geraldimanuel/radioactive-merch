@@ -68,8 +68,9 @@ class CartController extends Controller
                     $merch = Merch::find($key->merch_id);
                     $merch->save();
 
-
                     $total_price = $key->price * $key->qty;
+
+                    // dd($total_price);
 
                     DetailTransaction::new_transaction($key->merch_id, $order_id, $key->qty, $total_price);
 
