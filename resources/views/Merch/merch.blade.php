@@ -339,7 +339,7 @@
                             class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
                             onclick="button(this)"></input>
 
-                        <input id="qty" type="number" name="qty" min="1" max="{($merch->stock)}"
+                        <input id="qty" type="number" name="qty"
                         value="1" step="1" readonly class="p-2 text-lg"></input>
 
                     <input type="button" value="+" id="increment"
