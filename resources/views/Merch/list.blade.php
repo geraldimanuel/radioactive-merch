@@ -25,7 +25,7 @@
             href="ticket">CLOSING
             NIGHT</a>
         @auth
-        <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer" href="/logout">LOGOUT</a>
+            <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer" href="/logout">LOGOUT</a>
         @endauth
     </nav>
     <div class="justify-center align-middle items-center">
@@ -96,24 +96,24 @@
         </div>
         <div class="flex flex-wrap w-full justify-center">
             <div class="flex flex-wrap justify-center w-">
-                @foreach($merch as $obj)
-                <a href="{{url('/item/'.$obj->id)}}"
-                    class="mt-[6rem] p-[30px] justify-center content-center gap-10 no-underline">
-                    <div id="item-img"
-                        class=" mb-[7rem] w-[250px] h-[350px] border-solid border-[1px] border-white transform transition duration-500 hover:scale-[1.03]">
-                        <div class="h-full w-full">
-                            <img src="/images/{{$obj->image}}" class="object-cover w-[250px] h-[350px]" />
-                            <p class="mt-5 font-taruno text-white text-[15px]">{{$obj->name}}</p>
-                            <p class="mt-1 font-sans text-gray-500 text-xs">Stock {{$obj->stock}}</p>
-                            <p class="mt-1 font-sans text-white text-sm">Rp {{$obj->price}}</p>
+                @foreach ($merch as $obj)
+                    <a href="{{ url('/item/' . $obj->id) }}"
+                        class="mt-[6rem] p-[30px] justify-center content-center gap-10 no-underline">
+                        <div id="item-img"
+                            class=" mb-[7rem] w-[250px] h-[350px] border-solid border-[1px] border-white transform transition duration-500 hover:scale-[1.03]">
+                            <div class="h-full w-full">
+                                <img src="/images/{{ $obj->image }}" class="object-cover w-[250px] h-[350px]" />
+                                <p class="mt-5 font-taruno text-white text-[15px]">{{ $obj->name }}</p>
+                                <p class="mt-1 font-sans text-gray-500 text-xs">Stock {{ $obj->stock }}</p>
+                                <p class="mt-1 font-sans text-white text-sm">Rp {{ $obj->price }}</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
                 @endforeach
             </div>
         </div>
         <div id="shopping-cart" class="w-full fixed bottom-5 right-5 flex justify-end">
-            <a href="{{url('/cart')}}"
+            <a href="{{ url('/cart') }}"
                 class="rounded-full bg-white w-[60px] h-[60px] flex justify-center items-center cursor-pointer transform transition duration-500 hover:scale-110 no-underline">
                 <i class="fas fa-shopping-cart fa-xl" style="color: #0E0EC0;"></i>
             </a>
@@ -187,7 +187,8 @@
                             </path>
                         </svg>
                     </a>
-                    <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank" class="text-white">
+                    <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank"
+                        class="text-white">
                         <svg class="h-12 w-12 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path
                                 d="M12,20.55c-.3,0-7.279-.006-9.115-.5A3.375,3.375,0,0,1,.5,17.665,29.809,29.809,0,0,1,0,12,29.824,29.824,0,0,1,.5,6.334,3.375,3.375,0,0,1,2.885,3.948c1.836-.492,8.819-.5,9.115-.5s7.279.006,9.115.5A3.384,3.384,0,0,1,23.5,6.334,29.97,29.97,0,0,1,24,12a29.97,29.97,0,0,1-.5,5.666,3.384,3.384,0,0,1-2.388,2.386C19.279,20.544,12.3,20.55,12,20.55Zm0-16.1c-.072,0-7.146.006-8.857.464A2.377,2.377,0,0,0,1.464,6.593,29.566,29.566,0,0,0,1,12a29.566,29.566,0,0,0,.464,5.407,2.377,2.377,0,0,0,1.679,1.679c1.711.458,8.785.464,8.857.464s7.146-.006,8.857-.464a2.377,2.377,0,0,0,1.679-1.679A29.66,29.66,0,0,0,23,12a29.66,29.66,0,0,0-.464-5.407h0a2.377,2.377,0,0,0-1.679-1.679C19.146,4.456,12.071,4.45,12,4.45ZM9.7,15.95a.5.5,0,0,1-.5-.5V8.55a.5.5,0,0,1,.75-.433l5.975,3.45a.5.5,0,0,1,0,.866L9.95,15.883A.5.5,0,0,1,9.7,15.95Zm.5-6.534v5.168L14.675,12Z">
@@ -211,20 +212,20 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-    AOS.init();
+        AOS.init();
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
     <script>
-    window.addEventListener('scroll', function() {
-        var header = document.getElementById('header');
-        if (window.scrollY > 0) {
-            header.classList.remove('bg-transparent');
-            header.classList.add('bg-[#0E0EC0]');
-        } else {
-            header.classList.add('bg-transparent');
-            header.classList.remove('bg-[#0E0EC0]');
-        }
-    });
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            if (window.scrollY > 0) {
+                header.classList.remove('bg-transparent');
+                header.classList.add('bg-[#0E0EC0]');
+            } else {
+                header.classList.add('bg-transparent');
+                header.classList.remove('bg-[#0E0EC0]');
+            }
+        });
     </script>
 </body>
 

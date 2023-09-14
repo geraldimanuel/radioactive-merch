@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Dashboard</title>
 </head>
+
 <body>
     <h1>Orders</h1>
     <table border="1" cellpadding="10">
@@ -17,9 +19,9 @@
         <?php $no = 1; ?>
         @foreach ($orders as $order)
             <tr>
-                <td>{{$no++}}</td>
-                <td>{{$order->id}}</td>
-                <td>{{$order->name}}</td>
+                <td>{{ $no++ }}</td>
+                <td>{{ $order->id }}</td>
+                <td>{{ $order->name }}</td>
                 <td>
                     <ul>
                         @foreach ($detailTrans as $obj)
@@ -27,19 +29,20 @@
                                 <li>
                                     @foreach ($merchs as $merch)
                                         @if ($merch->id == $obj->merch_id)
-                                            {{$merch->name}} ({{$obj->qty}})
-                                            @break
-                                        @endif
-                                    @endforeach
-                                </li>
-                            @endif
-                        @endforeach
-                    </ul>
-                </td>
-                <td>{{$order->total_price}}</td>
-                <td>{{$order->status}}</td>
-            </tr>
-        @endforeach
-    </table>
+                                            {{ $merch->name }} ({{ $obj->qty }})
+                                        @break
+                                    @endif
+                                @endforeach
+                            </li>
+                        @endif
+                    @endforeach
+                </ul>
+            </td>
+            <td>{{ $order->total_price }}</td>
+            <td>{{ $order->status }}</td>
+        </tr>
+    @endforeach
+</table>
 </body>
+
 </html>

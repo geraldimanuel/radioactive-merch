@@ -12,7 +12,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden bg-black">
     <nav id="header" class="fixed navbar bg-transparent justify-center gap-16 z-40 transition-all duration-700">
         <a class="font-taruno text-white text-xs underline underline-offset-4 decoration-[#FFF000] cursor-pointer"
             href="/">HOME</a>
@@ -198,12 +198,13 @@
                             <div class=" w-full">
                                 <p class="text-white text-[15px]"><b><i>Choose ONE of your favorite tee!</i></b></p>
                                 <div class="flex gap-1">
-                                    <select name="tee" id="tee"
+                                    <select name="tee" id="tee" default="Turbulent Revolution Tee"
                                         class="w-full h-10 mt-1 text-center font-taruno text-[.8rem] text-white cursor-pointer">
+                                        <option value="choose">choose</option>
                                         <option value="Turbulent Revolution Tee">Turbulent Revolution Tee</option>
                                         <option value="Celestial Revy Tee">Celestial Revy Tee</option>
                                     </select>
-                                    <select name="size" id="size1"
+                                    <select name="size1" id="size1" default="XS"
                                         class="w-[60px] h-10 mt-1 text-center font-taruno text-[.8rem] text-white cursor-pointer">
                                         <option value="XS">XS</option>
                                         <option value="S">S</option>
@@ -212,7 +213,7 @@
                                         <option value="XL">XL</option>
                                     </select>
 
-                                    <select name="size" id="size2"
+                                    <select name="size2" id="size2" default="S"
                                         class="w-[60px] hidden h-10 mt-1 text-center font-taruno text-[.8rem] text-white cursor-pointer">
                                         <option value="S">S</option>
                                         <option value="M">M</option>
@@ -238,7 +239,7 @@
                         class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
                         onclick="button(this)"></input>
                     @if ($merch->table && $merch->id == 1)
-                        <select name="size1" id="size1"
+                        <select name="size" id="size1"
                             class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
                             <option value="XS">XS</option>
                             <option value="S">S</option>
@@ -248,7 +249,7 @@
                         </select>
                     @endif
                     @if ($merch->table && $merch->id == 2)
-                        <select name="size2" id="size2"
+                        <select name="size" id="size2"
                             class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
                             <option value="S">S</option>
                             <option value="M">M</option>
@@ -527,29 +528,6 @@
             if (newValue >= min && newValue <= stockValue) {
                 Input.setAttribute("value", newValue);
             }
-        } <<
-        <<
-        << < HEAD
-            ===
-            ===
-            =
-        });
-        const Input = document.getElementById("qty");
-
-        function button(btn) {
-            let id = btn.getAttribute("id");
-            let min = Input.getAttribute("min");
-            let step = Input.getAttribute("step");
-            let val = Input.getAttribute("value");
-
-            var stockValue = <?php echo $merch->stock; ?>;
-
-            let calcStep = (id == "increment") ? (step * 1) : (step * -1);
-            let newValue = parseInt(val) + calcStep;
-
-            if (newValue >= min && newValue <= stockValue) {
-                Input.setAttribute("value", newValue);
-            }
         }
 
         const teeSelect = document.getElementById('tee');
@@ -558,20 +536,22 @@
         teeSelect.addEventListener('change', function() {
             if (teeSelect.value === 'Turbulent Revolution Tee') {
                 size1Select.classList.add('block');
+                size1Select.setAttribute("name", "size");
                 size1Select.classList.remove('hidden');
                 size2Select.classList.add('hidden');
                 size2Select.classList.remove('block');
+                size2Select.setAttribute("name", "size2");
             } else if (teeSelect.value === 'Celestial Revy Tee') {
                 size2Select.classList.add('block');
                 size2Select.classList.remove('hidden');
+                size2Select.setAttribute("name", "size");
                 size1Select.classList.add('hidden');
                 size1Select.classList.remove('block');
+                size1Select.setAttribute("name", "size1");
             }
             sizeSelect.style.display = 'none';
 
-        }); >>>
-        >>>
-        > features / frontend / vega
+        });
     </script>
 </body>
 
