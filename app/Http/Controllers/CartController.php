@@ -12,7 +12,7 @@ use App\Models\DetailTransaction;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
-class   CartController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,53 +37,45 @@ class   CartController extends Controller
     public function checkout(Request $request) {
 
         if(Auth::check()){
+            $logged_id = auth()->user()->id;
+            $cart = Cart::where('user_id', '=', $logged_id)->get();
+            $total_qty = 0;
+            $total_price = 0;
+            $grandTotal = 0;
 
-            if (session('cart') == null) {
-                $detailTrans = DetailTransaction::where('order_id', session('order_id'))->get();
-                $order = Order::where('id', session('order_id'))->first();
-                $merchs = Merch::all();
+            // dd($cart);
 
-                return view('Merch.checkout', [
-                    'detailTrans' => $detailTrans,
-                    'order' => $order,
-                    'merchs' => $merchs
-                ]);
-            } else {
-                $cart = session('cart');
-                $total_qty = 0;
-                $total_price = 0;
-                $grandTotal = 0;
+            $order_id = Order::new_order();
 
-                $order_id = Order::new_order();
-                session(['order_id' => $order_id]);
+            foreach ($cart as $key) {
+                $merch = Merch::find($key->merch_id);
+                $merch->save();
 
-                foreach ($cart as $key) {
-                    $merch = Merch::find($key->id);
-                    $merch->save();
+                // Cart::where('id', $key->id)->delete();
 
-                    Cart::where('merch_id', $key->id)->delete();
+                $total_price = $merch->price * $key->qty;
 
-                    $total_price = $key->price * $key->qty;
+                DetailTransaction::new_transaction($key->merch_id, $order_id, $key->qty, $total_price);
 
-                    DetailTransaction::new_transaction($key->id, $order_id, $key->qty, $total_price);
+                $total_qty += $key->qty;
+                $grandTotal += $total_price;
+            }
 
-                    $total_qty += $key->qty;
-                    $grandTotal += $total_price;
-                }
+            Order::where('id', $order_id)->update([
+                'total_price' => $grandTotal
+            ]);
 
-                Order::where('id', $order_id)->update([
-                    'total_price' => $grandTotal
-                ]);
+            $detailTrans = DetailTransaction::where('order_id', $order_id)->get();
+            $merchs = Merch::all();
+            $order = Order::where('id', $order_id)->first();
 
-                session()->forget('cart');
+            // dd($detailTrans);
 
-                $detailTrans = DetailTransaction::where('order_id', $order_id)->get();
-                $merchs = Merch::all();
-                $order = Order::where('id', $order_id)->first();
-
-               
-          
-            }   
+            return view('Merch.checkout', [
+                        'detailTrans' => $detailTrans,
+                        'order' => $order,
+                        'merchs' => $merchs
+            ]);
         } else {
             return redirect('/login');
         }

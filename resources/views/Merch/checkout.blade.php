@@ -36,14 +36,14 @@
                 @foreach ($merchs as $merch)
                     @if ($merch->id == $obj->merch_id)
                         <td>{{ $merch->name }}</td>
-                    @break
-                @endif
-            @endforeach
-
-        </tr>
+                    @endif
+                @endforeach
+                <td>{{ $obj->qty }}</td>
+                <td>{{ $obj->total_price }}</td>
+            </tr>
         <?php $total += $obj->total_price; ?>
-    @endforeach
-    <tr>
+        @endforeach
+            <tr>
         <td colspan="3">Total</td>
         <td>{{ $total }}</td>
     </tr>

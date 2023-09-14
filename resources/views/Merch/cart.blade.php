@@ -36,7 +36,7 @@
                             <p class="font-taruno text-xl">Cart is empty</p>
                             <div class="mt-[20px]">
                                 <a class="text-[.8rem] hover:text-[#3838ff] rounded-[6px] no-underline text-white"
-                                    href="{{ url('/merch') }}">Back to Merch</a>
+                                    href='/'>Back to Merch</a>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                     <a class="text-[1.1rem] no-underline text-white" href="{{ url('/checkout') }}">Checkout</a>
                 </div>
             </div>
-            <a class="text-[.8rem] hover:text-[#3838ff] no-underline text-white" href="{{ url('/merch') }}">Back to
+            <a class="text-[.8rem] hover:text-[#3838ff] no-underline text-white" href='/'>Back to
                 Merch</a>
         </div>
         @endif

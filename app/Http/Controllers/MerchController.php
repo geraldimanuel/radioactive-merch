@@ -67,11 +67,12 @@ class MerchController extends Controller
         if(Auth::check()){
             $logged_id = auth()->user()->id;
 
-            $cart = Cart::where('user_id', '=', $logged_id)
-                        ->get();
+            $cart = Cart::where('user_id', '=', $logged_id)->get();
 
             $flag = 'false';
             $size = $request->size;
+
+            // dd($request->size);
 
             if ($request->id != 1 && $request->id != 2) {
                 $size = '';
@@ -81,7 +82,6 @@ class MerchController extends Controller
                 foreach ($cart as $merch) {
 
                     if ($merch->merch_id == $request->id) {
-                        
                         if ($merch->size == $request->size) {
                             $new_qty = $merch->qty + $request->qty;
                             $merch->update(['qty' => $new_qty]);

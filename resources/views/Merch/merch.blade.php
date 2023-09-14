@@ -356,7 +356,7 @@
                         </select>
                         @endif
                         @if($merch->table && $merch->id == 2)
-                        <select name="size2" id="size2"
+                        <select name="size" id="size2"
                             class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
                             <option value="S">S</option>
                             <option value="M">M</option>
@@ -371,7 +371,7 @@
                         <input type="hidden" name="id" value="{{$merch->id}}">
                         <input value="Add to Cart" type="submit"
                             class="w-full font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"></input>
-                        <a href="{{url('/merch')}}"
+                        <a href='/'
                             class="text-center font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] no-underline cursor-pointer">Back
                             to Merch</a>
                     </div>
@@ -649,9 +649,9 @@
             }
             sizeSelect.style.display = 'none';
 
-        let calcStep = (id == "increment") ? (step * 1) : (step * -1);
-        let newValue = parseInt(val) + calcStep;
-    }
+            let calcStep = (id == "increment") ? (step * 1) : (step * -1);
+            let newValue = parseInt(val) + calcStep;
+        })
 
 
 
