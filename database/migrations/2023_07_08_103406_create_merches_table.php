@@ -16,7 +16,11 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->boolean('table');
-            $table->string('image');
+            $table->string('image1');
+            $table->string('image2');
+            $table->string('image3');
+            $table->string('image4');
+            $table->string('image5');
             $table->bigInteger('price');
             $table->integer('stock');
             $table->timestamps();

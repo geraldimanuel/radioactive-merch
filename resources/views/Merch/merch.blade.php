@@ -39,20 +39,29 @@
                     </div>
                     @endforeach -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                        <img src=" " class="absolute block w-full object-fill">
+                        <img src="/images/{{$merch->description}}/{{$merch->image1}}"
+                            class="absolute block w-full h-full object-fill">
                     </div>
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src=" " class="absolute block w-full object-contain">
+                        <img src="/images/{{$merch->description}}/{{$merch->image2}}"
+                            class="absolute block w-full h-full object-fill">
                     </div>
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src=" " class="absolute block w-full object-contain">
+                        <img src="/images/{{$merch->description}}/{{$merch->image3}}"
+                            class="absolute block w-full h-full object-fill">
                     </div>
+                    @if ($merch->id == 1 || $merch->id == 2 || $merch->id == 6 || $merch->id == 7 || $merch->id == 8)
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src=" " class="absolute block w-full object-contain">
+                        <img src="/images/{{$merch->description}}/{{$merch->image4}}"
+                            class="absolute block w-full h-full object-fill">
                     </div>
+                    @endif
+                    @if ($merch->id == 6 || $merch->id == 7 || $merch->id == 8)
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src=" " class="absolute block w-full object-contain">
+                        <img src="/images/{{$merch->description}}/{{$merch->image5}}"
+                            class="absolute block w-full object-contain">
                     </div>
+                    @endif
                 </div>
                 <div class="z-30 flex gap-4 overflow-hidden justify-center mt-[20px]">
                     <!-- @foreach($merch as $obj)
@@ -60,13 +69,24 @@
                         aria-label="Slide 1" data-carousel-slide-to="0" src="images/merch1.jpg" />
                     @endforeach -->
                     <img type="button" class="w-[50px] h-[70px] border-[1px] border-white" aria-current="true"
-                        aria-label="Slide 1" data-carousel-slide-to="0" src="images/merch1.jpg" />
+                        aria-label="Slide 1" data-carousel-slide-to="0"
+                        src="/images/{{$merch->description}}/{{$merch->image1}}" />
                     <img type="button" class="w-[50px] h-[70px] border-[1px] border-white" aria-current="true"
-                        aria-label="Slide 2" data-carousel-slide-to="1" src=" " />
+                        aria-label="Slide 2" data-carousel-slide-to="1"
+                        src="/images/{{$merch->description}}/{{$merch->image2}}" />
                     <img type="button" class="w-[50px] h-[70px] border-[1px] border-white" aria-current="true"
-                        aria-label="Slide 3" data-carousel-slide-to="2" src=" " />
+                        aria-label="Slide 3" data-carousel-slide-to="2"
+                        src="/images/{{$merch->description}}/{{$merch->image3}}" />
+                    @if ($merch->id == 1 || $merch->id == 2 || $merch->id == 6 || $merch->id == 7 || $merch->id == 8)
                     <img type="button" class="w-[50px] h-[70px] border-[1px] border-white" aria-current="true"
-                        aria-label="Slide 4" data-carousel-slide-to="3" src=" " />
+                        aria-label="Slide 4" data-carousel-slide-to="3"
+                        src="/images/{{$merch->description}}/{{$merch->image4}}" />
+                    @endif
+                    @if ($merch->id == 6 || $merch->id == 7 || $merch->id == 8)
+                    <img type="button" class="w-[50px] h-[70px] border-[1px] border-white" aria-current="true"
+                        aria-label="Slide 5" data-carousel-slide-to="4"
+                        src="/images/{{$merch->description}}/{{$merch->image5}}" />
+                    @endif
                 </div>
 
                 <button type="button"
@@ -96,7 +116,7 @@
                     </span>
                 </button>
             </div>
-            <div class="grid gap-3">
+            <div class="grid gap-3 w-4/5">
                 <div class="mt-5">
                     <p class="mt-5 font-taruno text-white text-lg">{{$merch->name}}</p>
                     @if($merch->id == 3)
@@ -112,7 +132,7 @@
                     <div class="z-30 inline-flex gap-4 h-3 overflow-hidden justify-center mt-[20px]">
                         <div type="button"
                             class="h-[2px] w-[126px] cursor-pointer no-underline text-white font-taruno text-[13px]"
-                            data-carousel-slide-to="0" class="relative">
+                            aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0" class="relative">
                             <p class="absolute top-1">Description</p>
                             <!-- @if(!$merch->id == 6 || !$merch->id == 7 || !$merch->id == 8) -->
 
@@ -327,49 +347,49 @@
                         </div>
                     </div>
                     @endif
+                    <div class="w-4/5">
+                        <div class="inline-flex justify-center w-full gap-3" action="" method="post">
+                            @csrf
+                            <input type="button" value="-" id="decrement"
+                                class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
+                                onclick="button(this)"></input>
 
-                    <div class="inline-flex justify-center w-full gap-3" action="" method="post">
-                        @csrf
-                        <input type="button" value="-" id="decrement"
-                            class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
-                            onclick="button(this)"></input>
+                            <input id="qty" type="number" name="qty" min="1" max="{($merch->stock)}" value="1" step="1"
+                                readonly class="p-2 text-lg"></input>
 
-                        <input id="qty" type="number" name="qty" min="1" max="{($merch->stock)}" value="1" step="1"
-                            readonly class="p-2 text-lg"></input>
-
-                        <input type="button" value="+" id="increment"
-                            class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
-                            onclick="button(this)"></input>
-                        @if($merch->table && $merch->id == 1)
-                        <select name="size1" id="size1"
-                            class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
-                            <option value="XS">XS</option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                        </select>
-                        @endif
-                        @if($merch->table && $merch->id == 2)
-                        <select name="size2" id="size2"
-                            class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                            <option value="2XL">2XL</option>
-                            <option value="3XL">3XL</option>
-                        </select>
-                        @endif
-                    </div>
-
-                    <div class="grid gap-3">
-                        <input type="hidden" name="id" value="{{$merch->id}}">
-                        <input value="Add to Cart" type="submit"
-                            class="w-full font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"></input>
-                        <a href="{{url('/merch')}}"
-                            class="text-center font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] no-underline cursor-pointer">Back
-                            to Merch</a>
+                            <input type="button" value="+" id="increment"
+                                class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
+                                onclick="button(this)"></input>
+                            @if($merch->table && $merch->id == 1)
+                            <select name="size1" id="size1"
+                                class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                            </select>
+                            @endif
+                            @if($merch->table && $merch->id == 2)
+                            <select name="size2" id="size2"
+                                class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="2XL">2XL</option>
+                                <option value="3XL">3XL</option>
+                            </select>
+                            @endif
+                        </div>
+                        <div class="grid gap-3">
+                            <input type="hidden" name="id" value="{{$merch->id}}">
+                            <input value="Add to Cart" type="submit"
+                                class="w-full font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"></input>
+                            <a href="{{url('/merch')}}"
+                                class="text-center font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] no-underline cursor-pointer">Back
+                                to Merch</a>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -388,7 +408,7 @@
             </ul>
         </div>
     </div>
-    <div class="mt-[80px] flex justify-center text-center w-full align-middle">
+    <div class="mt-[80px] flex justify-center text-center w-full align-middle overflow-x-scroll">
         @if($merch->table && $merch->id == 1)
         <table border="1" cellpadding="10" class="border-white border-[1px] w-4/5 lg:w-1/2">
             <tr class="border-[1px] bg-[#0E0EC0]">

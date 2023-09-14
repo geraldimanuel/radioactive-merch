@@ -16,18 +16,26 @@ class MerchSeeder extends Seeder
         //
         Merch::create([
             'name' => 'Turbulent Revolution Tee',
-            'description' => 'T-Shirt',
+            'description' => 'KAOSBIRU',
             'table' => 1,
-            'image' => 't-shirt.jpg',
+            'image1' => '1-KAOSBIRU.png',
+            'image2' => '2-KAOSBIRU.png',
+            'image3' => '3-KAOSBIRU.png',
+            'image4' => '4-KAOSBIRU.png',
+            'image5' => '4-KAOSBIRU.png',
             'price' => 95000,
             'stock' => 10,
         ]);
 
         Merch::create([
             'name' => 'Celestial Revy Tee',
-            'description' => 'T-Shirt',
+            'description' => 'KAOSPUTIH',
             'table' => 1,
-            'image' => 't-shirt.jpg',
+            'image1' => '1-KAOSPUTIH.png',
+            'image2' => '2-KAOSPUTIH.png',
+            'image3' => '3-KAOSPUTIH.png',
+            'image4' => '4-KAOSPUTIH.png',
+            'image5' => '5-KAOSPUTIH.png',
             'price' => 95000,
             'stock' => 10,
         ]);
@@ -35,53 +43,79 @@ class MerchSeeder extends Seeder
         Merch::create([
             'name' => 'Radioactive Sticker Pack',
             'table' => 0,
-            'description' => 'Jacket',
-            'image' => 't-shirt.jpg',
+            'description' => 'STICKER',
+            'image1' => '1-STICKER.png',
+            'image2' => '2-STICKER.png',
+            'image3' => '3-STICKER.png',
+            'image4' => '4-STICKER.png',
+            'image5' => '5-STICKER.png',
+            
             'price' => 15000,
             'stock' => 10,
         ]);
 
         Merch::create([
             'name' => 'Revolution Tote Bag',
-            'description' => 'Hat',
+            'description' => 'TOTEBAG',
             'table' => 0,
-            'image' => 't-shirt.jpg',
+            'image1' => '1-TOTEBAG.png',
+            'image2' => '2-TOTEBAG.png',
+            'image3' => '3-TOTEBAG.png',
+            'image4' => '4-TOTEBAG.png',
+            'image5' => '5-TOTEBAG.png',
+            
             'price' => 85000,
             'stock' => 10,
         ]);
 
         Merch::create([
             'name' => 'Revy Eggo Tumbler',
-            'description' => 'Pants',
+            'description' => 'TUMBLER',
             'table' => 0,
-            'image' => 't-shirt.jpg',
+            'image1' => '1-TUMBLER.png',
+            'image2' => '2-TUMBLER.png',
+            'image3' => '3-TUMBLER.png',
+            'image4' => '4-TUMBLER.png',
+            'image5' => '5-TUMBLER.png',
             'price' => 65000,
             'stock' => 10,
         ]);
         
         Merch::create([
             'name' => 'Bundle Exclusive 1',
-            'description' => 'Pants',
+            'description' => 'BUNDLE1',
             'table' => 0,
-            'image' => 't-shirt.jpg',
+            'image1' => '1-BUNDLE1.png',
+            'image2' => '2-BUNDLE1.png',
+            'image3' => '3-BUNDLE1.png',
+            'image4' => '4-BUNDLE1.png',
+            'image5' => '5-BUNDLE1.png',
             'price' => 115000,
             'stock' => 10,
         ]);
         
         Merch::create([
             'name' => 'Bundle Exclusive 2',
-            'description' => 'Pants',
+            'description' => 'BUNDLE2',
             'table' => 0,
-            'image' => 't-shirt.jpg',
+            'image1' => '1-BUNDLE2.png',
+            'image2' => '2-BUNDLE2.png',
+            'image3' => '3-BUNDLE2.png',
+            'image4' => '4-BUNDLE2.png',
+            'image5' => '5-BUNDLE2.png',
             'price' => 180000,
             'stock' => 10,
         ]);
 
         Merch::create([
             'name' => 'Bundle Exclusive 3',
-            'description' => 'Pants',
+            'description' => 'BUNDLE3',
             'table' => 0,
-            'image' => 't-shirt.jpg',
+            'image1' => '1-BUNDLE3.png',
+            'image2' => '2-BUNDLE3.png',
+            'image3' => '3-BUNDLE3.png',
+            'image4' => '4-BUNDLE3.png',
+            'image5' => '5-BUNDLE3.png',
             'price' => 240000,
             'stock' => 10,
         ]);
