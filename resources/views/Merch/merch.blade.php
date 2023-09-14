@@ -169,15 +169,15 @@
                     <p class="mt-5 font-taruno text-white text-lg">{{ $merch->name }}</p>
                     @if ($merch->id == 3)
                         <p class="text-[11px] font-taruno text-gray-500"><i>Illustrated by Radioactive</i></p>
-                    <p class="mt-5 font-taruno text-white text-lg">{{ $merch->name }}</p>
-                    @if ($merch->id == 3)
-                        <p class="text-[11px] font-taruno text-gray-500"><i>Illustrated by Radioactive</i></p>
-                    @endif
-                    @if ($merch->id == 4)
-                        <p class="text-[11px] font-taruno text-gray-500"><i>With Zipper</i></p>
-                    @if ($merch->id == 4)
-                        <p class="text-[11px] font-taruno text-gray-500"><i>With Zipper</i></p>
-                    @endif
+                        <p class="mt-5 font-taruno text-white text-lg">{{ $merch->name }}</p>
+                        @if ($merch->id == 3)
+                            <p class="text-[11px] font-taruno text-gray-500"><i>Illustrated by Radioactive</i></p>
+                        @endif
+                        @if ($merch->id == 4)
+                            <p class="text-[11px] font-taruno text-gray-500"><i>With Zipper</i></p>
+                            @if ($merch->id == 4)
+                                <p class="text-[11px] font-taruno text-gray-500"><i>With Zipper</i></p>
+                            @endif
                 </div>
                 <p class="mt-1 font-sans text-gray-500 text-xs">Stock {{ $merch->stock }}</p>
                 <p class="mt-1 font-sans text-white text-sm">Rp {{ $merch->price }}</p>
@@ -209,80 +209,93 @@
                         <div class="hidden duration-700 ease-in-out" data-carousel-item="">
                             @if ($merch->id == 6 || $merch->id == 7 || $merch->id == 8)
                                 <p class="text-white text-[17px]"><i>What will you get?</i></p>
-                            @if ($merch->id == 6 || $merch->id == 7 || $merch->id == 8)
-                                <p class="text-white text-[17px]"><i>What will you get?</i></p>
-                            @endif
-                            <ul class="list-disc ml-[17px]">
-                                @if ($merch->id == 1)
-                                    <li class="text-white text-[15px]">Premium soft cotton combed 24s</li>
-                                    <li class="text-white text-[15px]">Oversized cut and easy to wear</li>
-                                    <li class="text-white text-[15px]">6 sizes XS - XXL</li>
-                                    <li class="text-white text-[15px]">Model is 170cm and wearing size M</li>
-                                    </li>
+                                @if ($merch->id == 6 || $merch->id == 7 || $merch->id == 8)
+                                    <p class="text-white text-[17px]"><i>What will you get?</i></p>
                                 @endif
-                                @if ($merch->id == 2)
-                                    <li class="text-white text-[15px]">Premium soft cotton combed 24s</li>
-                                    <li class="text-white text-[15px]">Regular cut and easy to wear</li>
-                                    <li class="text-white text-[15px]">7 sizes S - 4XL</li>
-                                    <li class="text-white text-[15px]">Model is 155cm and wearing size M</li>
-                                @if ($merch->id == 2)
-                                    <li class="text-white text-[15px]">Premium soft cotton combed 24s</li>
-                                    <li class="text-white text-[15px]">Regular cut and easy to wear</li>
-                                    <li class="text-white text-[15px]">7 sizes S - 4XL</li>
-                                    <li class="text-white text-[15px]">Model is 155cm and wearing size M</li>
-                                @endif
-                                @if ($merch->id == 3)
-                                    <li class="text-white text-[15px]">Size: A6</li>
-                                    <li class="text-white text-[15px]">Material: <i>Glossy Finish</i></li>
-                                    <li class="text-white text-[15px]">Type: <i>Kisscut</i></li>
-                                @if ($merch->id == 3)
-                                    <li class="text-white text-[15px]">Size: A6</li>
-                                    <li class="text-white text-[15px]">Material: <i>Glossy Finish</i></li>
-                                    <li class="text-white text-[15px]">Type: <i>Kisscut</i></li>
-                                @endif
-                                @if ($merch->id == 4)
-                                    <li class="text-white text-[15px]">Material: <i>Canvas Twill</i></li>
-                                    <li class="text-white text-[15px]">Size: 40cm × 33 × 7cm</li>
-                                @if ($merch->id == 4)
-                                    <li class="text-white text-[15px]">Material: <i>Canvas Twill</i></li>
-                                    <li class="text-white text-[15px]">Size: 40cm × 33 × 7cm</li>
-                                @endif
-                                @if ($merch->id == 5)
-                                    <li class="text-white text-[15px]">Material: <i>Stainless Steel</i></li>
-                                    <li class="text-white text-[15px]">Capacity: 380ml</i></li>
-                                    <li class="text-white text-[15px]">Weight: 200g</li>
-                                    <li class="text-white text-[15px]">Dimension: 6cm × 8cm × 12cm</li>
-                                @if ($merch->id == 5)
-                                    <li class="text-white text-[15px]">Material: <i>Stainless Steel</i></li>
-                                    <li class="text-white text-[15px]">Capacity: 380ml</i></li>
-                                    <li class="text-white text-[15px]">Weight: 200g</li>
-                                    <li class="text-white text-[15px]">Dimension: 6cm × 8cm × 12cm</li>
-                                @endif
-                                @if ($merch->id == 6)
-                                    <li class="text-white text-[15px]">Revolution Tote Bag</i></li>
-                                    <li class="text-white text-[15px]">Revy Eggo Tumbler</li>
-                                    <li class="text-white text-[15px]">Revolution Sticker Pack</li>
-                                @if ($merch->id == 6)
-                                    <li class="text-white text-[15px]">Revolution Tote Bag</i></li>
-                                    <li class="text-white text-[15px]">Revy Eggo Tumbler</li>
-                                    <li class="text-white text-[15px]">Revolution Sticker Pack</li>
-                                @endif
-                                @if ($merch->id == 7 || $merch->id == 8)
-                                    <li class="text-white text-[15px]">Revolution Tote Bag</i></li>
-                                    <li class="text-white text-[15px]">Revolution Tote Bag</li>
-                                    <li class="text-white text-[15px]">Revolution Sticker Pack</li>
-                                @if ($merch->id == 7 || $merch->id == 8)
-                                    <li class="text-white text-[15px]">Revolution Tote Bag</i></li>
-                                    <li class="text-white text-[15px]">Revolution Tote Bag</li>
-                                    <li class="text-white text-[15px]">Revolution Sticker Pack</li>
-                                @endif
-                                @if ($merch->id == 8)
-                                    <li class="text-white text-[15px]">Revy Eggo Tumbler</li>
-                                @if ($merch->id == 8)
-                                    <li class="text-white text-[15px]">Revy Eggo Tumbler</li>
-                                @endif
+                                <ul class="list-disc ml-[17px]">
+                                    @if ($merch->id == 1)
+                                        <li class="text-white text-[15px]">Premium soft cotton combed 24s</li>
+                                        <li class="text-white text-[15px]">Oversized cut and easy to wear</li>
+                                        <li class="text-white text-[15px]">6 sizes XS - XXL</li>
+                                        <li class="text-white text-[15px]">Model is 170cm and wearing size M</li>
+                                        </li>
+                                    @endif
+                                    @if ($merch->id == 2)
+                                        <li class="text-white text-[15px]">Premium soft cotton combed 24s</li>
+                                        <li class="text-white text-[15px]">Regular cut and easy to wear</li>
+                                        <li class="text-white text-[15px]">7 sizes S - 4XL</li>
+                                        <li class="text-white text-[15px]">Model is 155cm and wearing size M</li>
+                                        @if ($merch->id == 2)
+                                            <li class="text-white text-[15px]">Premium soft cotton combed 24s</li>
+                                            <li class="text-white text-[15px]">Regular cut and easy to wear</li>
+                                            <li class="text-white text-[15px]">7 sizes S - 4XL</li>
+                                            <li class="text-white text-[15px]">Model is 155cm and wearing size M</li>
+                                        @endif
+                                        @if ($merch->id == 3)
+                                            <li class="text-white text-[15px]">Size: A6</li>
+                                            <li class="text-white text-[15px]">Material: <i>Glossy Finish</i></li>
+                                            <li class="text-white text-[15px]">Type: <i>Kisscut</i></li>
+                                            @if ($merch->id == 3)
+                                                <li class="text-white text-[15px]">Size: A6</li>
+                                                <li class="text-white text-[15px]">Material: <i>Glossy Finish</i></li>
+                                                <li class="text-white text-[15px]">Type: <i>Kisscut</i></li>
+                                            @endif
+                                            @if ($merch->id == 4)
+                                                <li class="text-white text-[15px]">Material: <i>Canvas Twill</i></li>
+                                                <li class="text-white text-[15px]">Size: 40cm × 33 × 7cm</li>
+                                                @if ($merch->id == 4)
+                                                    <li class="text-white text-[15px]">Material: <i>Canvas Twill</i>
+                                                    </li>
+                                                    <li class="text-white text-[15px]">Size: 40cm × 33 × 7cm</li>
+                                                @endif
+                                                @if ($merch->id == 5)
+                                                    <li class="text-white text-[15px]">Material: <i>Stainless Steel</i>
+                                                    </li>
+                                                    <li class="text-white text-[15px]">Capacity: 380ml</i></li>
+                                                    <li class="text-white text-[15px]">Weight: 200g</li>
+                                                    <li class="text-white text-[15px]">Dimension: 6cm × 8cm × 12cm</li>
+                                                    @if ($merch->id == 5)
+                                                        <li class="text-white text-[15px]">Material: <i>Stainless
+                                                                Steel</i></li>
+                                                        <li class="text-white text-[15px]">Capacity: 380ml</i></li>
+                                                        <li class="text-white text-[15px]">Weight: 200g</li>
+                                                        <li class="text-white text-[15px]">Dimension: 6cm × 8cm × 12cm
+                                                        </li>
+                                                    @endif
+                                                    @if ($merch->id == 6)
+                                                        <li class="text-white text-[15px]">Revolution Tote Bag</i></li>
+                                                        <li class="text-white text-[15px]">Revy Eggo Tumbler</li>
+                                                        <li class="text-white text-[15px]">Revolution Sticker Pack</li>
+                                                        @if ($merch->id == 6)
+                                                            <li class="text-white text-[15px]">Revolution Tote Bag</i>
+                                                            </li>
+                                                            <li class="text-white text-[15px]">Revy Eggo Tumbler</li>
+                                                            <li class="text-white text-[15px]">Revolution Sticker Pack
+                                                            </li>
+                                                        @endif
+                                                        @if ($merch->id == 7 || $merch->id == 8)
+                                                            <li class="text-white text-[15px]">Revolution Tote Bag</i>
+                                                            </li>
+                                                            <li class="text-white text-[15px]">Revolution Tote Bag</li>
+                                                            <li class="text-white text-[15px]">Revolution Sticker Pack
+                                                            </li>
+                                                            @if ($merch->id == 7 || $merch->id == 8)
+                                                                <li class="text-white text-[15px]">Revolution Tote
+                                                                    Bag</i></li>
+                                                                <li class="text-white text-[15px]">Revolution Tote Bag
+                                                                </li>
+                                                                <li class="text-white text-[15px]">Revolution Sticker
+                                                                    Pack</li>
+                                                            @endif
+                                                            @if ($merch->id == 8)
+                                                                <li class="text-white text-[15px]">Revy Eggo Tumbler
+                                                                </li>
+                                                                @if ($merch->id == 8)
+                                                                    <li class="text-white text-[15px]">Revy Eggo
+                                                                        Tumbler</li>
+                                                                @endif
 
-                            </ul>
+                                </ul>
                         </div>
                         <div class="hidden duration-700 ease-in-out w-full" data-carousel-item>
                             <ul class="list-disc ml-[17px]">
@@ -610,58 +623,58 @@
                     <td>110 000</td>
                 </tr>
             </table>
-        @if ($merch->table && $merch->id == 2)
-            <table border="1" cellpadding="10" class="border-white border-[1px] w-1/2">
-                <tr class="border-[1px] bg-[#0E0EC0]">
-                    <th>Size</th>
-                    <th>Width<br>(cm)</th>
-                    <th>Length<br>(cm)</th>
-                    <th>Price<br>(Rp)</th>
-                </tr>
-                <tr>
-                    <td>S</td>
-                    <td>47</td>
-                    <td>70</td>
-                    <td>95 000</td>
-                </tr>
-                <tr>
-                    <td>M</td>
-                    <td>51</td>
-                    <td>71</td>
-                    <td>95 000</td>
-                </tr>
-                <tr>
-                    <td>L</td>
-                    <td>55</td>
-                    <td>73</td>
-                    <td>95 000</td>
-                </tr>
-                <tr>
-                    <td>XL</td>
-                    <td>59</td>
-                    <td>76</td>
-                    <td>95 000</td>
-                </tr>
-                <tr>
-                    <td>2XL</td>
-                    <td>64</td>
-                    <td>80</td>
-                    <td>100 000</td>
-                </tr>
-                <tr>
-                    <td>3XL</td>
-                    <td>67</td>
-                    <td>83</td>
-                    <td>105 000</td>
-                </tr>
-                <tr>
-                    <td>4XL</td>
-                    <td>70</td>
-                    <td>86</td>
-                    <td>110 000</td>
-                </tr>
-            </table>
-        @endif
+            @if ($merch->table && $merch->id == 2)
+                <table border="1" cellpadding="10" class="border-white border-[1px] w-1/2">
+                    <tr class="border-[1px] bg-[#0E0EC0]">
+                        <th>Size</th>
+                        <th>Width<br>(cm)</th>
+                        <th>Length<br>(cm)</th>
+                        <th>Price<br>(Rp)</th>
+                    </tr>
+                    <tr>
+                        <td>S</td>
+                        <td>47</td>
+                        <td>70</td>
+                        <td>95 000</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td>51</td>
+                        <td>71</td>
+                        <td>95 000</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>55</td>
+                        <td>73</td>
+                        <td>95 000</td>
+                    </tr>
+                    <tr>
+                        <td>XL</td>
+                        <td>59</td>
+                        <td>76</td>
+                        <td>95 000</td>
+                    </tr>
+                    <tr>
+                        <td>2XL</td>
+                        <td>64</td>
+                        <td>80</td>
+                        <td>100 000</td>
+                    </tr>
+                    <tr>
+                        <td>3XL</td>
+                        <td>67</td>
+                        <td>83</td>
+                        <td>105 000</td>
+                    </tr>
+                    <tr>
+                        <td>4XL</td>
+                        <td>70</td>
+                        <td>86</td>
+                        <td>110 000</td>
+                    </tr>
+                </table>
+            @endif
     </div>
 
 
@@ -736,14 +749,15 @@
                     </a>
                     <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank"
                         class="text-white">
-                    <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank"
-                        class="text-white">
-                        <svg class="h-12 w-12 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path
-                                d="M12,20.55c-.3,0-7.279-.006-9.115-.5A3.375,3.375,0,0,1,.5,17.665,29.809,29.809,0,0,1,0,12,29.824,29.824,0,0,1,.5,6.334,3.375,3.375,0,0,1,2.885,3.948c1.836-.492,8.819-.5,9.115-.5s7.279.006,9.115.5A3.384,3.384,0,0,1,23.5,6.334,29.97,29.97,0,0,1,24,12a29.97,29.97,0,0,1-.5,5.666,3.384,3.384,0,0,1-2.388,2.386C19.279,20.544,12.3,20.55,12,20.55Zm0-16.1c-.072,0-7.146.006-8.857.464A2.377,2.377,0,0,0,1.464,6.593,29.566,29.566,0,0,0,1,12a29.566,29.566,0,0,0,.464,5.407,2.377,2.377,0,0,0,1.679,1.679c1.711.458,8.785.464,8.857.464s7.146-.006,8.857-.464a2.377,2.377,0,0,0,1.679-1.679A29.66,29.66,0,0,0,23,12a29.66,29.66,0,0,0-.464-5.407h0a2.377,2.377,0,0,0-1.679-1.679C19.146,4.456,12.071,4.45,12,4.45ZM9.7,15.95a.5.5,0,0,1-.5-.5V8.55a.5.5,0,0,1,.75-.433l5.975,3.45a.5.5,0,0,1,0,.866L9.95,15.883A.5.5,0,0,1,9.7,15.95Zm.5-6.534v5.168L14.675,12Z">
-                            </path>
-                        </svg>
-                    </a>
+                        <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank"
+                            class="text-white">
+                            <svg class="h-12 w-12 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12,20.55c-.3,0-7.279-.006-9.115-.5A3.375,3.375,0,0,1,.5,17.665,29.809,29.809,0,0,1,0,12,29.824,29.824,0,0,1,.5,6.334,3.375,3.375,0,0,1,2.885,3.948c1.836-.492,8.819-.5,9.115-.5s7.279.006,9.115.5A3.384,3.384,0,0,1,23.5,6.334,29.97,29.97,0,0,1,24,12a29.97,29.97,0,0,1-.5,5.666,3.384,3.384,0,0,1-2.388,2.386C19.279,20.544,12.3,20.55,12,20.55Zm0-16.1c-.072,0-7.146.006-8.857.464A2.377,2.377,0,0,0,1.464,6.593,29.566,29.566,0,0,0,1,12a29.566,29.566,0,0,0,.464,5.407,2.377,2.377,0,0,0,1.679,1.679c1.711.458,8.785.464,8.857.464s7.146-.006,8.857-.464a2.377,2.377,0,0,0,1.679-1.679A29.66,29.66,0,0,0,23,12a29.66,29.66,0,0,0-.464-5.407h0a2.377,2.377,0,0,0-1.679-1.679C19.146,4.456,12.071,4.45,12,4.45ZM9.7,15.95a.5.5,0,0,1-.5-.5V8.55a.5.5,0,0,1,.75-.433l5.975,3.45a.5.5,0,0,1,0,.866L9.95,15.883A.5.5,0,0,1,9.7,15.95Zm.5-6.534v5.168L14.675,12Z">
+                                </path>
+                            </svg>
+                        </a>
                 </div>
             </div>
             <div class="flex justify-center md:justify-end items-center w-full mb-10 md:mb-0">
@@ -772,14 +786,14 @@
             let step = Input.getAttribute("step");
             let val = Input.getAttribute("value");
 
-            var stockValue = <?php echo $merch->stock; ?>;
+            // var stockValue = <?php echo $merch->stock; ?>;
 
             let calcStep = (id == "increment") ? (step * 1) : (step * -1);
             let newValue = parseInt(val) + calcStep;
 
-            if (newValue >= min && newValue <= stockValue) {
-                Input.setAttribute("value", newValue);
-            }
+            // if (newValue >= min && newValue <= stockValue) {
+            //     Input.setAttribute("value", newValue);
+            // }
         }
 
 
@@ -797,13 +811,14 @@
             if (this.checked) {
                 isSelected.value = true;
             }
-            sizechanges()
+            sizechanges();
         });
+
         celestialRadio.addEventListener('change', function() {
             if (this.checked) {
                 isSelected.value = false;
             }
-            sizechanges()
+            sizechanges();
         });
 
         function sizechanges() {
