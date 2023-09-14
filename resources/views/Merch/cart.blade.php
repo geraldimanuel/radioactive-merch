@@ -93,10 +93,12 @@
             </table>
 
             <div class="mt-[80px] flex justify-center mb-[10px]">
-                <div
-                    class="text-[1.1rem] bg-[#0E0EC0] hover:bg-[#1313c4] w-[200px] pt-[10px] pb-[10px]  border-white border-[1px] cursor-pointer">
-                    <a class="text-[1.1rem] no-underline text-white" href="{{ url('/checkout') }}">Checkout</a>
-                </div>
+                <a href='/checkout' class="text-[1.1rem] no-underline text-white">
+                    <div
+                        class="text-[1.1rem] bg-[#0E0EC0] hover:bg-[#1313c4] w-[200px] pt-[10px] pb-[10px]  border-white border-[1px] cursor-pointer">
+                        Checkout
+                    </div>
+                </a>
             </div>
             <a class="text-[.8rem] hover:text-[#3838ff] no-underline text-white" href='/'>Back to
                 Merch</a>

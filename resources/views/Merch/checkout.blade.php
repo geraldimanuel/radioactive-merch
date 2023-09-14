@@ -25,6 +25,7 @@
                 <tr>
                     <th>No</th>
                     <th>Name</th>
+                    <th>Size</th>
                     <th>Quantity</th>
                     <th>Total Price</th>
                 </tr>
@@ -40,6 +41,7 @@
                             <td>{{ $merch->name }}</td>
                         @endif
                     @endforeach
+                    <td>{{ $obj->size }}</td>
                     <td>{{ $obj->qty }}</td>
                     <td>{{ $obj->total_price }}</td>
                 </tr>

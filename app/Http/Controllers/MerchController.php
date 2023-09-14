@@ -25,7 +25,7 @@ class MerchController extends Controller
         ]);
     }
 
-    public function home()
+    public function home(Request $request)
     {
         $merch = Merch::all();
         return view('Merch.list')->with('merch', $merch);
@@ -66,9 +66,7 @@ class MerchController extends Controller
     public function addToCart(Request $request) {
         if(Auth::check()){
             $logged_id = auth()->user()->id;
-
             $cart = Cart::where('user_id', '=', $logged_id)->get();
-
             $flag = 'false';
             $size = $request->size;
             $tee = $request->tee;

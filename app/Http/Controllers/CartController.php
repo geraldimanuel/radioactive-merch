@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\DetailTransaction;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -38,44 +39,61 @@ class CartController extends Controller
 
         if(Auth::check()){
             $logged_id = auth()->user()->id;
-            $cart = Cart::where('user_id', '=', $logged_id)->get();
-            $total_qty = 0;
-            $total_price = 0;
-            $grandTotal = 0;
 
-            // dd($cart);
+            $user = User::find($logged_id);
 
-            $order_id = Order::new_order();
+            $existing_order = Order::find($user->name);
 
-            foreach ($cart as $key) {
-                $merch = Merch::find($key->merch_id);
-                $merch->save();
+            // dd($existing_order);
 
-                // Cart::where('id', $key->id)->delete();
+            if (isset($existing_order)) {
+                $detailTrans = DetailTransaction::where('order_id', $existing_order->id)->latest();
+                $merchs = Merch::all();
+                // $order = Order::where('id', $existing_order)->first();
 
-                $total_price = $merch->price * $key->qty;
+                return view('Merch.checkout', [
+                            'detailTrans' => $detailTrans,
+                            'order' => $existing_order,
+                            'merchs' => $merchs
+                ]);
+            } else {
+                $cart = Cart::where('user_id', '=', $logged_id)->get();
+                $total_qty = 0;
+                $total_price = 0;
+                $grandTotal = 0;
 
-                DetailTransaction::new_transaction($key->merch_id, $order_id, $key->qty, $total_price);
+                // dd($cart);
 
-                $total_qty += $key->qty;
-                $grandTotal += $total_price;
+                $order_id = Order::new_order();
+
+                foreach ($cart as $key) {
+                    $merch = Merch::find($key->merch_id);
+                    $merch->save();
+
+                    // Cart::where('id', $key->id)->delete();
+
+                    $total_price = $merch->price * $key->qty;
+
+                    DetailTransaction::new_transaction($key->merch_id, $order_id, $key->qty, $total_price);
+
+                    $total_qty += $key->qty;
+                    $grandTotal += $total_price;
+                }
+
+                Order::where('id', $order_id)->update([
+                    'total_price' => $grandTotal
+                ]);
+
+                $detailTrans = DetailTransaction::where('order_id', $order_id)->get();
+                $merchs = Merch::all();
+                $order = Order::where('id', $order_id)->first();
+
+                return view('Merch.checkout', [
+                            'detailTrans' => $detailTrans,
+                            'order' => $order,
+                            'merchs' => $merchs
+                ]);
             }
-
-            Order::where('id', $order_id)->update([
-                'total_price' => $grandTotal
-            ]);
-
-            $detailTrans = DetailTransaction::where('order_id', $order_id)->get();
-            $merchs = Merch::all();
-            $order = Order::where('id', $order_id)->first();
-
-            // dd($detailTrans);
-
-            return view('Merch.checkout', [
-                        'detailTrans' => $detailTrans,
-                        'order' => $order,
-                        'merchs' => $merchs
-            ]);
         } else {
             return redirect('/login');
         }
