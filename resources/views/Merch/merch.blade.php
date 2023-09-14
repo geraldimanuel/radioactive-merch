@@ -183,7 +183,7 @@
                                     tee!</p>
                                 <div class="flex flex-col gap-1">
                                     <div class="flex">
-                                        <input id="tee" name="tee" type="radio"
+                                        <input id="tee" name="tee" type="radio" class=""
                                             value="Turbulent Revolution Tee">
                                         <label for="tee" class="text-white">Turbulent Revolution Tee</label>
                                     </div>
@@ -215,30 +215,6 @@
                                         </div>
                                     </div>
 
-
-                                    {{-- <select name="tee" id="tee"
-                                        class="w-full h-10 mt-1 text-center font-taruno text-[.8rem] text-black cursor-pointer">
-                                        <option value="Turbulent Revolution Tee">Turbulent Revolution Tee</option>
-                                        <option value="Celestial Revy Tee">Celestial Revy Tee</option>
-                                    </select>
-                                    <select name="size1" id="size1"
-                                        class="w-[60px] h-10 mt-1 text-center font-taruno text-[.8rem] text-black cursor-pointer">
-                                        <option value="XS">XS</option>
-                                        <option value="S">S</option>
-                                        <option value="M">M</option>
-                                        <option value="L">L</option>
-                                        <option value="XL">XL</option>
-                                    </select>
-
-                                    <select name="size2" id="size2"
-                                        class="w-[60px] hidden h-10 mt-1 text-center font-taruno text-[.8rem] text-black cursor-pointer">
-                                        <option value="S">S</option>
-                                        <option value="M">M</option>
-                                        <option value="L">L</option>
-                                        <option value="XL">XL</option>
-                                        <option value="2XL">2XL</option>
-                                        <option value="3XL">3XL</option>
-                                    </select> --}}
                                 </div>
                             </div>
                 </div>
