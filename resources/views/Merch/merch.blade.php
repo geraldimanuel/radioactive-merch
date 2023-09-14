@@ -188,43 +188,44 @@
                         </div>
                     </div>
                 </div>
-                <div>
-                    <form class="grid gap-6" action="{{url('/cart/'.$merch->id)}}" method="post">
-                        @if($merch->id == 7 || $merch->id == 8)
-                        <?php $isTrue1 = FALSE; ?>
-                        <div class=" w-full">
-                            <p class="text-white text-[15px]"><b><i>Choose ONE of your favorite tee!</i></b></p>
-                            <div class="flex gap-1">
-                                <div>
-                                    <ul class="grid w-full gap-3 md:grid-cols-2">
-                                        <li>
-                                            <input type="radio" id="hosting-small" name="tee"
-                                                value="Turbulent Revolution Tee" class="hidden peer w-full" required>
-                                            <label for="hosting-small" 
-                                                class="peer-checked:[($isTrue1=TRUE)] inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                <div class="block">
-                                                    <div class="w-full text-lg font-semibold"></div>
-                                                    <div class="w-full">Turbulent Revolution Tee</div>
-                                                </div>
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <input type="radio" id="hosting-big" name="tee" value="Celestial Revy Tee"
-                                                class="hidden peer">
-                                            <label for="hosting-big"
-                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                <div class="block">
-                                                    <div class="w-full">Celestial Revy Tee</div>
-                                                </div>
-                                            </label>
-                                        </li>
-                                    </ul>
-                                    @if ($isTrue1 == TRUE)
-                                    <p class="text-white text-[15px]"><b><i>Size</i></b></p>
+
+                <form class="grid gap-6 w-full" action="{{url('/cart/'.$merch->id)}}" method="post">
+                    @if($merch->id == 7 || $merch->id == 8)
+                    <div class=" w-full">
+                        <p class="text-white text-[15px]"><b><i>Choose ONE of your favorite tee!</i></b></p>
+                        <div class="flex gap-1">
+                            <div>
+                                <ul class="grid w-full gap-3 md:grid-cols-2">
+                                    <li>
+                                        <input type="radio" id="tee" name="tee" value="Turbulent Revolution Tee"
+                                            class="hidden peer w-full" required>
+                                        <label for="tee"
+                                            class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            <img src="images/{{  $merch->image  }}" />
+                                            <div class="block">
+                                                <div class="w-full">Turbulent Revolution Tee</div>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="tee1" name="tee" value="Celestial Revy Tee"
+                                            class="hidden peer">
+                                        <label for="tee1"
+                                            class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            <img src="images/{{  $merch->image  }}" />
+                                            <div class="block">
+                                                <div class="w-full">Celestial Revy Tee</div>
+                                            </div>
+                                        </label>
+                                    </li>
+                                </ul>
+
+                                <p class="text-white text-[15px] hidden" id="judul"><b><i>Size</i></b></p>
+                                <div id="turbsize" class="hidden">
                                     <ul class="grid w-full gap-3 md:grid-cols-2 sm:grid-cols-4">
                                         <li>
-                                            <input type="radio" id="XS" name="size"
-                                                value="XS" class="hidden peer w-full" required>
+                                            <input type="radio" id="XS" name="size" value="XS"
+                                                class="hidden peer w-full" required>
                                             <label for="XS"
                                                 class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                                 <div class="w-full text-center block">
@@ -233,8 +234,7 @@
                                             </label>
                                         </li>
                                         <li>
-                                            <input type="radio" id="S" name="size" value="S"
-                                                class="hidden peer">
+                                            <input type="radio" id="S" name="size" value="S" class="hidden peer">
                                             <label for="S"
                                                 class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                                 <div class="block w-full text-center">
@@ -243,8 +243,8 @@
                                             </label>
                                         </li>
                                         <li>
-                                            <input type="radio" id="M" name="size"
-                                                value="M" class="hidden peer w-full" required>
+                                            <input type="radio" id="M" name="size" value="M" class="hidden peer w-full"
+                                                required>
                                             <label for="hosting-small"
                                                 class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                                 <div class="block w-full text-center">
@@ -253,8 +253,7 @@
                                             </label>
                                         </li>
                                         <li>
-                                            <input type="radio" id="L" name="size" value="L"
-                                                class="hidden peer">
+                                            <input type="radio" id="L" name="size" value="L" class="hidden peer">
                                             <label for="L"
                                                 class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
                                                 <div class="block w-full text-center">
@@ -263,98 +262,118 @@
                                             </label>
                                         </li>
                                     </ul>
-                                    @endif
-                                    <!-- <input type="radio" name="tee" value="Turbulent Revolution Tee">Turbulent Revolution Tee</input>
-                                    <br>
-                                    <input type="radio" name="tee" value="Celestial Revy Tee">Celestial Revy Tee</input>
-                                    <br>
-
-                                    <label>Size: </label>
-                                    <br>
-                                    <input type="radio" name="size" value="XS">XS</input>
-                                    <br>
-                                    <input type="radio" name="size" value="S">S</input>
-                                    <br>
-                                    <input type="radio" name="size" value="M">M</input>
-                                    <br>
-                                    <input type="radio" name="size" value="L">L</input>
-                                    <br>
-                                    <input type="radio" name="size" value="XL">XL</input> -->
                                 </div>
-                                <!-- <select name="tee" id="tee"
-                                    class="w-full h-10 mt-1 text-center font-taruno text-[.8rem] text-white cursor-pointer">
-                                    <option value="Turbulent Revolution Tee">Turbulent Revolution Tee</option>
-                                    <option value="Celestial Revy Tee">Celestial Revy Tee</option>
-                                </select>
-                                <select name="size" id="size1"
-                                    class="w-[60px] h-10 mt-1 text-center font-taruno text-[.8rem] text-white cursor-pointer">
-                                    <option value="XS">XS</option>
-                                    <option value="S">S</option>
-                                    <option value="M">M</option>
-                                    <option value="L">L</option>
-                                    <option value="XL">XL</option>
-                                </select>
-
-                                <select name="size" id="size2"
-                                    class="w-[60px] hidden h-10 mt-1 text-center font-taruno text-[.8rem] text-white cursor-pointer">
-                                    <option value="S">S</option>
-                                    <option value="M">M</option>
-                                    <option value="L">L</option>
-                                    <option value="XL">XL</option>
-                                    <option value="2XL">2XL</option>
-                                    <option value="3XL">3XL</option>
-                                </select> -->
+                                <div class="hidden" id="celessize">
+                                    <ul class="grid w-full gap-3 md:grid-cols-2 sm:grid-cols-4">
+                                        <li>
+                                            <input type="radio" id="XS" name="size" value="S" class="hidden peer w-full"
+                                                required>
+                                            <label for="XS"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="w-full text-center block">
+                                                    <p class="w-full text-center">S</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="S" name="size" value="M" class="hidden peer">
+                                            <label for="S"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">M</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="M" name="size" value="L" class="hidden peer w-full"
+                                                required>
+                                            <label for="hosting-small"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">L</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="L" name="size" value="XL" class="hidden peer">
+                                            <label for="L"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">XL</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="XL" name="size" value="2XL" class="hidden peer">
+                                            <label for="XL"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">2XL</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="XXL" name="size" value="3XL" class="hidden peer">
+                                            <label for="XXL"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">3XL</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                </div>
-                @endif
-                <div class="inline-flex justify-center w-full gap-3" action="" method="post">
-                    @csrf
-                    <input type="button" value="-" id="decrement"
-                        class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
-                        onclick="button(this)"></input>
-
-                    <input id="qty" type="number" name="qty" min="1" max="{($merch->stock)}" value="1" step="1" readonly
-                        class="p-2 text-lg"></input>
-
-                    <input type="button" value="+" id="increment"
-                        class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
-                        onclick="button(this)"></input>
-                    @if($merch->table && $merch->id == 1)
-                    <select name="size1" id="size1"
-                        class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
-                        <option value="XS">XS</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                    </select>
+                    </div>
                     @endif
-                    @if($merch->table && $merch->id == 2)
-                    <select name="size2" id="size2"
-                        class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                        <option value="2XL">2XL</option>
-                        <option value="3XL">3XL</option>
-                    </select>
-                    @endif
-                </div>
 
-                <div class="grid gap-3">
-                    <input type="hidden" name="id" value="{{$merch->id}}">
-                    <input value="Add to Cart" type="submit"
-                        class="w-full font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"></input>
-                    <a href="{{url('/merch')}}"
-                        class="text-center font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] no-underline cursor-pointer">Back
-                        to Merch</a>
-                </div>
+                    <div class="inline-flex justify-center w-full gap-3" action="" method="post">
+                        @csrf
+                        <input type="button" value="-" id="decrement"
+                            class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
+                            onclick="button(this)"></input>
+
+                        <input id="qty" type="number" name="qty" min="1" max="{($merch->stock)}" value="1" step="1"
+                            readonly class="p-2 text-lg"></input>
+
+                        <input type="button" value="+" id="increment"
+                            class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
+                            onclick="button(this)"></input>
+                        @if($merch->table && $merch->id == 1)
+                        <select name="size1" id="size1"
+                            class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                        </select>
+                        @endif
+                        @if($merch->table && $merch->id == 2)
+                        <select name="size2" id="size2"
+                            class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="2XL">2XL</option>
+                            <option value="3XL">3XL</option>
+                        </select>
+                        @endif
+                    </div>
+
+                    <div class="grid gap-3">
+                        <input type="hidden" name="id" value="{{$merch->id}}">
+                        <input value="Add to Cart" type="submit"
+                            class="w-full font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"></input>
+                        <a href="{{url('/merch')}}"
+                            class="text-center font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] no-underline cursor-pointer">Back
+                            to Merch</a>
+                    </div>
                 </form>
             </div>
         </div>
-    </div>
     </div>
     <div class="mt-[100px] flex justify-center w-full align-middle">
         <div class="text-left">
@@ -611,24 +630,46 @@
         }
     }
 
-    const teeSelect = document.getElementById('tee');
-    const size1Select = document.getElementById('size1');
-    const size2Select = document.getElementById('size2');
-    teeSelect.addEventListener('change', function() {
-        if (teeSelect.value === 'Turbulent Revolution Tee') {
-            size1Select.classList.add('block');
-            size1Select.classList.remove('hidden');
-            size2Select.classList.add('hidden');
-            size2Select.classList.remove('block');
-        } else if (teeSelect.value === 'Celestial Revy Tee') {
-            size2Select.classList.add('block');
-            size2Select.classList.remove('hidden');
-            size1Select.classList.add('hidden');
-            size1Select.classList.remove('block');
-        }
-        sizeSelect.style.display = 'none';
 
+
+    const turbulentRadio = document.getElementById('tee');
+    const celestialRadio = document.getElementById('tee1');
+    const turbsize = document.getElementById('turbsize');
+    const celessize = document.getElementById('celessize');
+    const judul = document.getElementById('judul');
+    const isSelected = {
+        value: false
+    };
+
+    turbulentRadio.addEventListener('change', function() {
+        if (this.checked) {
+            isSelected.value = true;
+        }
+        sizechanges()
     });
+    celestialRadio.addEventListener('change', function() {
+        if (this.checked) {
+            isSelected.value = false;
+        }
+        sizechanges()
+    });
+
+    function sizechanges() {
+        judul.classList.remove('hidden');
+        judul.classList.add('block');
+        if (isSelected.value === true) {
+            turbsize.classList.remove('hidden');
+            turbsize.classList.add('block');
+            celessize.classList.remove('block');
+            celessize.classList.add('hidden');
+        } else {
+            turbsize.classList.remove('block');
+            turbsize.classList.add('hidden');
+            celessize.classList.add('block');
+            celessize.classList.remove('hidden');
+        }
+        console.log('aaaa:', isSelected.value);
+    };
     </script>
 </body>
 
