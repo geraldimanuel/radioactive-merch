@@ -11,7 +11,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden bg-black">
     <nav id="header" class="fixed navbar bg-transparent justify-center gap-16 z-40 transition-all duration-700">
         <a class="font-taruno text-white text-xs underline underline-offset-4 decoration-[#FFF000] cursor-pointer"
             href="/">HOME</a>
