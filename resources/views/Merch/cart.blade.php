@@ -26,7 +26,7 @@
             href="ticket">CLOSING
             NIGHT</a>
         @auth
-        <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer" href="/logout">LOGOUT</a>
+            <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer" href="/logout">LOGOUT</a>
         @endauth
     </nav> --}}
     <div id="header" x-data="{ isOpen: false }"
@@ -91,7 +91,7 @@
                             <p class="font-taruno text-xl">Cart is empty</p>
                             <div class="mt-[20px]">
                                 <a class="text-[.8rem] hover:text-[#3838ff] rounded-[6px] no-underline text-white"
-                                    href="{{ url('/merch') }}">Back to Merch</a>
+                                    href='/'>Back to Merch</a>
                             </div>
                         </div>
                     </div>
@@ -111,30 +111,36 @@
                 <?php $no = 1;
                 $total = 0; ?>
                 @foreach ($cart as $obj)
-                    <tr class="border-b-[1px]">
-                        <!-- <td>{{ $no++ }}</td> -->
-                        <td class="flex flex-wrap gap-3 h-full justify-left items-center">
-                            <img src="/images/{{ $obj->description }}//{{ $obj->image1 }}"
-                                class="h-[150px] w-auto object-cover" />
-                            <div class="flex mr-5 gap-0">
-                                <div>
-                                    <p class="text-left h-5">{{ $obj->name }}</p>
-                                    <p class="text-left m-0 text-gray-500 text-[11px]">{{ $obj->tee }}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <!-- <td>{{ $obj->name }}</td> -->
-                        <td>{{ $obj->price }}</td>
-                        <td>{{ $obj->size }}</td>
-                        <td>{{ $obj->qty }}</td>
-                        <td>{{ $obj->price * $obj->qty }}</td>
-                        <td class="text-[1.1rem] w-[20px] rounded-[6px]">
-                            <a class="text-center text-[1.6rem] no-underline text-white hover:text-red-600"
-                                href="{{ url('/cart/' . $obj->id) }}">×</a>
-                        </td>
-                    </tr>
+                    @foreach ($merches as $merch)
+                        @if ($merch->id == $obj->merch_id)
 
-                    <?php $total += $obj->qty * $obj->price; ?>
+                        <?php $price = $obj->qty * $merch->price;
+                        $total += $price; ?>
+
+                            <tr class="border-b-[1px]">
+                                <!-- <td>{{ $no++ }}</td> -->
+                                <td class="flex flex-wrap gap-3 h-full justify-left items-center">
+                                    <img src="/images/{{$merch->description}}//{{$merch->image1}}"
+                                    class="h-[150px] w-auto object-cover" />
+                                    <div class="flex mr-5 gap-0">
+                                        <div>
+                                            <p class="text-left h-5">{{ $obj->name }}</p>
+                                            <p class="text-left m-0 text-gray-500 text-[11px]">{{ $obj->tee}}</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <!-- <td>{{ $merch->name }}</td> -->
+                                <td>{{ $merch->price }}</td>
+                                <td>{{ $obj->size }}</td>
+                                <td>{{ $obj->qty }}</td>
+                                <td>{{ $price }}</td>
+                                <td class="text-[1.1rem] w-[20px] rounded-[6px]">
+                                    <a class="text-center text-[1.6rem] no-underline text-white hover:text-red-600"
+                                        href="{{ url('/cart/' . $obj->id) }}">×</a>
+                                </td>
+                            </tr>
+                        @endif
+                    @endforeach
                 @endforeach
                 <tr>
                     <td colspan="5" class="text-xl font-bold">Total</td>
@@ -183,12 +189,14 @@
             </table>
 
             <div class="mt-[80px] flex justify-center mb-[10px]">
-                <div
-                    class="text-[1.1rem] bg-[#0E0EC0] hover:bg-[#1313c4] w-[200px] pt-[10px] pb-[10px]  border-white border-[1px] cursor-pointer">
-                    <a class="text-[1.1rem] no-underline text-white" href="{{ url('/checkout') }}">Checkout</a>
-                </div>
+                <a href='/checkout' class="text-[1.1rem] no-underline text-white">
+                    <div
+                        class="text-[1.1rem] bg-[#0E0EC0] hover:bg-[#1313c4] w-[200px] pt-[10px] pb-[10px]  border-white border-[1px] cursor-pointer">
+                        Checkout
+                    </div>
+                </a>
             </div>
-            <a class="text-[.8rem] hover:text-[#3838ff] no-underline text-white" href="{{ url('/merch') }}">Back to
+            <a class="text-[.8rem] hover:text-[#3838ff] no-underline text-white" href='/'>Back to
                 Merch</a>
         </div>
         @endif
@@ -286,6 +294,20 @@
             <p class="mb-2 text-xs font-taruno font-medium text-white">&copy; UMN RADIOACTIVE 2023</p>
         </div>
     </footer>
+    <script>
+    window.addEventListener('scroll', function() {
+        var header = document.getElementById('header');
+        if (window.scrollY > 0) {
+            header.classList.remove('bg-transparent');
+            header.classList.add('bg-[#0E0EC0]');
+            // header.classList.add('fixed');
+        } else {
+            header.classList.add('bg-transparent');
+            header.classList.remove('bg-[#0E0EC0]');
+            // header.classList.remove('fixed');
+        }
+    });
+    </script>
 </body>
 
 </html>

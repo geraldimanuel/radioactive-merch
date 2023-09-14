@@ -16,7 +16,8 @@ return new class extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('merch_id');
-            $table->integer('qty');
+            $table->integer('qty')->default(0);
+            $table->string('size')->default('');
         });
     }
 

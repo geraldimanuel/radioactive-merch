@@ -26,7 +26,7 @@
             href="ticket">CLOSING
             NIGHT</a>
         @auth
-        <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer" href="/logout">LOGOUT</a>
+            <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer" href="/logout">LOGOUT</a>
         @endauth
     </nav> --}}
     <div id="header" x-data="{ isOpen: false }"
@@ -150,17 +150,15 @@
         </div>
         <div class="flex flex-wrap w-full justify-center">
             <div class="flex flex-wrap justify-center w-">
-                @foreach ($merch as $obj)
-                    <a href="{{ url('/item/' . $obj->id) }}"
-                        class="m-[30px] mt-[6rem] justify-center content-center gap-10 no-underline">
-                        <div id="item-img"
-                            class=" mb-[7rem] w-[250px] h-[350px] border-solid border-[1px] border-white transform transition duration-500 hover:scale-[1.03]">
-                            <div class="h-full w-full">
-                                <img src="/images/{{ $obj->description }}/{{ $obj->image1 }}"
-                                    class="object-cover w-[250px] h-[350px]" />
-                                <p class="mt-5 font-taruno text-white text-[15px]">{{ $obj->name }}</p>
-                                <p class="mt-1 font-sans text-gray-500 text-xs">Stock {{ $obj->stock }}</p>
-                                <p class="mt-1 font-sans text-white text-sm">Rp {{ $obj->price }}</p>
+                @foreach($merch as $obj)
+                <a href="{{url('/item/'.$obj->id)}}"
+                    class="m-[30px] mt-[6rem] justify-center content-center gap-10 no-underline">
+                    <div id="item-img"
+                        class=" mb-[7rem] w-[250px] h-[350px] border-solid border-[1px] border-white transform transition duration-500 hover:scale-[1.03]">
+                        <div class="h-full w-full">
+                            <img src="/images/{{$obj->description}}/{{$obj->image1}}" class="object-cover w-[250px] h-[350px]" />
+                            <p class="mt-5 font-taruno text-white text-[15px]">{{$obj->name}}</p>
+                            <p class="mt-1 font-sans text-white text-sm">Rp {{$obj->price}}</p>
                             </div>
                         </div>
                     </a>
