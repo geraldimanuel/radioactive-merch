@@ -71,6 +71,7 @@ class MerchController extends Controller
 
             $flag = 'false';
             $size = $request->size;
+            $tee = $request->tee;
 
             // dd($request->size);
 
