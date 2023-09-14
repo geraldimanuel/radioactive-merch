@@ -31,7 +31,9 @@ class MerchController extends Controller
 
     public function merch() {
         if(Auth::check()){
-            $cart = session('cart');
+            $logged_id = auth()->user()->id;
+            $cart = Cart::where('user_id', '=', $logged_id)->get();
+
             return view('Merch.merch')->with('cart', $cart);
         } else {
             return redirect('/login');
@@ -49,8 +51,11 @@ class MerchController extends Controller
 
     public function cart() {
         if(Auth::check()){
-            $cart = session('cart');
-            return view('Merch.cart')->with('cart', $cart);
+            $logged_id = auth()->user()->id;
+            $cart = Cart::where('user_id', '=', $logged_id)->get();
+            $merches = Merch::all();
+
+            return view('Merch.cart')->with('cart', $cart)->with('merches', $merches);
         } else {
             return redirect('/login');
         }
@@ -60,26 +65,60 @@ class MerchController extends Controller
     public function addToCart(Request $request) {
         if(Auth::check()){
             $logged_id = auth()->user()->id;
+            $cart = Cart::where('user_id', '=', $logged_id)->get();
+            $flag = 'false';
+            $size = $request->size;
+            $tee = $request->tee;
 
-            $cart = session('cart');
-            $merch = Merch::find($request->id);
-            $cart[$request->id] = $merch;
-            $cart[$request->id]->qty = $request->qty;
-            $cart[$request->id]->size = $request->size;
-            $cart[$request->id]->tee = $request->tee;
-            session(['cart' => $cart]);
+            // dd($cart);
 
-            Cart::create([
-                'user_id' => $logged_id,
-                'merch_id' => $request->id,
-                'qty' => $request->qty
-            ]);
+            if ($request->id != 1 && $request->id != 2) {
+                $size = '';
+            }
+
+            if ($request->id != 7 && $request->id != 8) {
+                $tee = '';
+            }
+
+            if (isset($cart[0])) {
+                foreach ($cart as $merch) {
+
+                    // dd($merch);
+
+                    if ($merch->merch_id == $request->id) {
+                        if ($merch->size == $request->size) {
+                            $new_qty = $merch->qty + $request->qty;
+                            $merch->update(['qty' => $new_qty]);
+
+                            $flag = 'true';
+                        }
+                    }
+                }
+
+                if ($flag == 'false') {
+                    Cart::create([
+                        'user_id' => $logged_id,
+                        'merch_id' => $request->id,
+                        'qty' => $request->qty,
+                        'size' => $size,
+                        'tee' => $tee
+                    ]);
+                }
+            } else {
+                Cart::create([
+                    'user_id' => $logged_id,
+                    'merch_id' => $request->id,
+                    'qty' => $request->qty,
+                    'size' => $size,
+                    'tee' => $tee
+                ]);
+            }
 
             return redirect('/cart');
+
         } else {
             return redirect('/login');
         }
-        
     }
 
     /**

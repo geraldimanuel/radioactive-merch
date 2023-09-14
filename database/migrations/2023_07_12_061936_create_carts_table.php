@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('merch_id');
             $table->integer('qty')->default(0);
             $table->string('size')->default('');
+            $table->string('tee')->default('');
         });
     }
 

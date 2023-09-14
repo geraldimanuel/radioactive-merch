@@ -42,49 +42,57 @@
                     </div>
             </div>
         @else
-            <table border="1" cellpadding="10" class="w-4/5 text-lg mr-[50px] ml-[50px] shadow-lg lg:w-full">
-                <tr>
-                    <th class="font-taruno text-left">Items</th>
-                    <!-- <th class="font-taruno">Name</th> -->
-                    <th class="font-taruno">Price</th>
-                    <th class="font-taruno">Size</th>
-                    <th class="font-taruno">Qty</th>
-                    <th class="font-taruno">Total Price</th>
-                    <th class="font-taruno">Remove</th>
-                </tr>
-                <?php $no = 1;
-                $total = 0; ?>
-                @foreach ($cart as $obj)
-                    <tr class="border-b-[1px]">
-                        <!-- <td>{{ $no++ }}</td> -->
-                        <td class="flex flex-wrap gap-3 h-full justify-left items-center">
-                            <img src="/images/{{ $obj->description }}//{{ $obj->image1 }}"
-                                class="h-[150px] w-auto object-cover" />
-                            <div class="flex mr-5 gap-0">
-                                <div>
-                                    <p class="text-left h-5">{{ $obj->name }}</p>
-                                    <p class="text-left m-0 text-gray-500 text-[11px]">{{ $obj->tee }}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <!-- <td>{{ $obj->name }}</td> -->
-                        <td>{{ $obj->price }}</td>
-                        <td>{{ $obj->size }}</td>
-                        <td>{{ $obj->qty }}</td>
-                        <td>{{ $obj->price * $obj->qty }}</td>
-                        <td class="text-[1.1rem] w-[20px] rounded-[6px]">
-                            <a class="text-center text-[1.6rem] no-underline text-white hover:text-red-600"
-                                href="{{ url('/cart/' . $obj->id) }}">×</a>
-                        </td>
-                    </tr>
+        <table border="1" cellpadding="10"
+            class="hidden md:contents w-4/5 text-white dark:text-gray-800 text-sm lg:text-lg md:mr-[50px] md:ml-[50px] shadow-lg lg:w-full">
+            <tr>
+                <th class="font-taruno text-left">Items</th>
+                <!-- <th class="font-taruno">Name</th> -->
+                <th class="font-taruno">Price</th>
+                <th class="font-taruno">Size</th>
+                <th class="font-taruno">Qty</th>
+                <th class="font-taruno">Total Price</th>
+                <th class="font-taruno">Remove</th>
+            </tr>
+            <?php $no = 1;
+            $total = 0; ?>
+            @foreach ($cart as $obj)
+                @foreach ($merches as $merch)
+                    @if ($merch->id == $obj->merch_id)
 
-                    <?php $total += $obj->qty * $obj->price; ?>
+                    <?php $price = $obj->qty * $merch->price;
+                    $total += $price;
+                    ?>
+
+                        <tr class="border-b-[1px]">
+                            <!-- <td>{{ $no++ }}</td> -->
+                            <td class="flex flex-wrap gap-3 h-full justify-left items-center">
+                                <img src="/images/{{$merch->description}}//{{$merch->image1}}"
+                                class="h-[150px] w-auto object-cover" />
+                                <div class="flex mr-5 gap-0">
+                                    <div>
+                                        <p class="text-left h-5">{{ $obj->name }}</p>
+                                        <p class="text-left m-0 text-gray-500 text-[11px]">{{ $obj->tee}}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <!-- <td>{{ $merch->name }}</td> -->
+                            <td>{{ $merch->price }}</td>
+                            <td>{{ $obj->size }}</td>
+                            <td>{{ $obj->qty }}</td>
+                            <td>{{ $price }}</td>
+                            <td class="text-[1.1rem] w-[20px] rounded-[6px]">
+                                <a class="text-center text-[1.6rem] no-underline text-white hover:text-red-600"
+                                    href="{{ url('/cart/' . $obj->id) }}">×</a>
+                            </td>
+                        </tr>
+                    @endif
                 @endforeach
-                <tr>
-                    <td colspan="5" class="text-xl font-bold">Total</td>
-                    <td>{{ $total }}</td>
-                </tr>
-            </table>
+            @endforeach
+            <tr>
+                <td colspan="5" class="text-xl font-bold">Total</td>
+                <td>{{ $total }}</td>
+            </tr>
+        </table>
 
             <div class="mt-[80px] flex justify-center mb-[10px]">
                 <a href='/checkout' class="text-[1.1rem] no-underline text-white">
