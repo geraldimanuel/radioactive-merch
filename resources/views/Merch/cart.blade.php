@@ -56,9 +56,9 @@
                 @foreach ($cart as $obj)
                 <tr class="border-b-[1px]">
                     <!-- <td>{{ $no++ }}</td> -->
-                    <td class="flex h-full justify-left items-center">
+                    <td class="flex flex-wrap gap-3 h-full justify-left items-center">
                         <img src="/images/img2.jpg" class="h-[150px] w-auto object-fill" />
-                        <div class="flex ml-5">
+                        <div class="flex">
                             <p class="text-center">{{ $obj->name }}</p>
                         </div>
                     </td>

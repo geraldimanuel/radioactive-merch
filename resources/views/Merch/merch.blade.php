@@ -175,7 +175,7 @@
                                 @if($merch->id == 8)
                                 <li class="text-white text-[15px]">Revy Eggo Tumbler</li>
                                 @endif
-                                
+
                             </ul>
                         </div>
                         <div class="hidden duration-700 ease-in-out w-full" data-carousel-item>
@@ -191,10 +191,97 @@
                 <div>
                     <form class="grid gap-6" action="{{url('/cart/'.$merch->id)}}" method="post">
                         @if($merch->id == 7 || $merch->id == 8)
+                        <?php $isTrue1 = FALSE; ?>
                         <div class=" w-full">
                             <p class="text-white text-[15px]"><b><i>Choose ONE of your favorite tee!</i></b></p>
                             <div class="flex gap-1">
-                                <select name="tee" id="tee"
+                                <div>
+                                    <ul class="grid w-full gap-3 md:grid-cols-2">
+                                        <li>
+                                            <input type="radio" id="hosting-small" name="tee"
+                                                value="Turbulent Revolution Tee" class="hidden peer w-full" required>
+                                            <label for="hosting-small" 
+                                                class="peer-checked:[($isTrue1=TRUE)] inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block">
+                                                    <div class="w-full text-lg font-semibold"></div>
+                                                    <div class="w-full">Turbulent Revolution Tee</div>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="hosting-big" name="tee" value="Celestial Revy Tee"
+                                                class="hidden peer">
+                                            <label for="hosting-big"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block">
+                                                    <div class="w-full">Celestial Revy Tee</div>
+                                                </div>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                    @if ($isTrue1 == TRUE)
+                                    <p class="text-white text-[15px]"><b><i>Size</i></b></p>
+                                    <ul class="grid w-full gap-3 md:grid-cols-2 sm:grid-cols-4">
+                                        <li>
+                                            <input type="radio" id="XS" name="size"
+                                                value="XS" class="hidden peer w-full" required>
+                                            <label for="XS"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="w-full text-center block">
+                                                    <p class="w-full text-center">XS</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="S" name="size" value="S"
+                                                class="hidden peer">
+                                            <label for="S"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">S</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="M" name="size"
+                                                value="M" class="hidden peer w-full" required>
+                                            <label for="hosting-small"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">M</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="L" name="size" value="L"
+                                                class="hidden peer">
+                                            <label for="L"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">L</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                    @endif
+                                    <!-- <input type="radio" name="tee" value="Turbulent Revolution Tee">Turbulent Revolution Tee</input>
+                                    <br>
+                                    <input type="radio" name="tee" value="Celestial Revy Tee">Celestial Revy Tee</input>
+                                    <br>
+
+                                    <label>Size: </label>
+                                    <br>
+                                    <input type="radio" name="size" value="XS">XS</input>
+                                    <br>
+                                    <input type="radio" name="size" value="S">S</input>
+                                    <br>
+                                    <input type="radio" name="size" value="M">M</input>
+                                    <br>
+                                    <input type="radio" name="size" value="L">L</input>
+                                    <br>
+                                    <input type="radio" name="size" value="XL">XL</input> -->
+                                </div>
+                                <!-- <select name="tee" id="tee"
                                     class="w-full h-10 mt-1 text-center font-taruno text-[.8rem] text-white cursor-pointer">
                                     <option value="Turbulent Revolution Tee">Turbulent Revolution Tee</option>
                                     <option value="Celestial Revy Tee">Celestial Revy Tee</option>
@@ -216,7 +303,7 @@
                                     <option value="XL">XL</option>
                                     <option value="2XL">2XL</option>
                                     <option value="3XL">3XL</option>
-                                </select>
+                                </select> -->
                             </div>
                         </div>
                 </div>
