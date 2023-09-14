@@ -63,11 +63,14 @@ class MerchController extends Controller
 
             $cart = session('cart');
             $merch = Merch::find($request->id);
+            
+            $form_data = $request->all();
+            // dd($form_data);
+
             $cart[$request->id] = $merch;
             $cart[$request->id]->qty = $request->qty;
             $cart[$request->id]->size = $request->size;
-            // $cart[$request->id]->size1 = $request->size1;
-            // $cart[$request->id]->size2 = $request->size2;
+        
             session(['cart' => $cart]);
 
             Cart::create([

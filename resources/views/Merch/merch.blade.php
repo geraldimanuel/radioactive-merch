@@ -33,11 +33,6 @@
             <div id="indicators-carousel" class="relative w-[350px] h-[400px] justify-center" data-carousel="static">
                 <div class="m-auto relative overflow-hidden w-5/6 h-full rounded-lg border-[1px] border-white">
 
-                    <!-- @foreach ($merch as $obj)
-<div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src=" " class="absolute block w-full object-contain">
-                    </div>
-@endforeach -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
                         <img src=" " class="absolute block w-full object-fill">
                     </div>
@@ -55,10 +50,6 @@
                     </div>
                 </div>
                 <div class="z-30 flex gap-4 overflow-hidden justify-center mt-[20px]">
-                    <!-- @foreach ($merch as $obj)
-<img type="button" class="w-[50px] h-[70px] border-[1px] border-white" aria-current="true"
-                        aria-label="Slide 1" data-carousel-slide-to="0" src="images/merch1.jpg" />
-@endforeach -->
                     <img type="button" class="w-[50px] h-[70px] border-[1px] border-white" aria-current="true"
                         aria-label="Slide 1" data-carousel-slide-to="0" src="images/merch1.jpg" />
                     <img type="button" class="w-[50px] h-[70px] border-[1px] border-white" aria-current="true"
@@ -114,15 +105,6 @@
                             class="h-[2px] w-[126px] cursor-pointer no-underline text-white font-taruno text-[13px]"
                             data-carousel-slide-to="0" class="relative">
                             <p class="absolute top-1">Description</p>
-                            <!-- @if (!$merch->id == 6 || !$merch->id == 7 || !$merch->id == 8)
--->
-
-                            <!--
-@else
--->
-                            <!-- <p class="absolute top-1">What will you get?</p> -->
-                            <!--
-@endif -->
                         </div>
                         <div type="button"
                             class="h-[2px] w-[100px] cursor-pointer no-underline text-white font-taruno text-[13px]"
@@ -138,6 +120,7 @@
                                 <p class="text-white text-[17px]"><i>What will you get?</i></p>
                             @endif
                             <ul class="list-disc ml-[17px]">
+                                {{-- codingan desc produk --}}
                                 @if ($merch->id == 1)
                                     <li class="text-white text-[15px]">Premium soft cotton combed 24s</li>
                                     <li class="text-white text-[15px]">Oversized cut and easy to wear</li>
@@ -196,16 +179,50 @@
                     <form class="grid gap-6" action="{{ url('/cart/' . $merch->id) }}" method="post">
                         @if ($merch->id == 7 || $merch->id == 8)
                             <div class=" w-full">
-                                <p class="text-white text-[15px]"><b><i>Choose ONE of your favorite tee!</i></b></p>
-                                <div class="flex gap-1">
-                                    <select name="tee" id="tee" default="Turbulent Revolution Tee"
-                                        class="w-full h-10 mt-1 text-center font-taruno text-[.8rem] text-white cursor-pointer">
-                                        <option value="choose">choose</option>
+                                <p class="text-white font-pathway font-bold italic">Choose ONE of your favorite
+                                    tee!</p>
+                                <div class="flex flex-col gap-1">
+                                    <div class="flex">
+                                        <input id="tee" name="tee" type="radio"
+                                            value="Turbulent Revolution Tee">
+                                        <label for="tee" class="text-white">Turbulent Revolution Tee</label>
+                                    </div>
+                                    <div class="flex">
+                                        <input id="tee" name="tee" type="radio"
+                                            value="Celestial Revy Tee">
+                                        <label for="tee" class="text-white">Celestial Revy Tee</label>
+                                    </div>
+
+                                    <p class="text-white font-pathway font-bold italic">Choose ONE of your
+                                        favorite tee!
+                                    </p>
+                                    <div class="flex gap-2">
+                                        <div class="flex">
+                                            <input id="size" name="size" type="radio" value="S">
+                                            <label for="size" class="text-white">S</label>
+                                        </div>
+                                        <div class="flex">
+                                            <input id="size" name="size" type="radio" value="M">
+                                            <label for="size" class="text-white">M</label>
+                                        </div>
+                                        <div class="flex">
+                                            <input id="size" name="size" type="radio" value="L">
+                                            <label for="size" class="text-white">L</label>
+                                        </div>
+                                        <div class="flex">
+                                            <input id="size" name="size" type="radio" value="XL">
+                                            <label for="size" class="text-white">XL</label>
+                                        </div>
+                                    </div>
+
+
+                                    {{-- <select name="tee" id="tee"
+                                        class="w-full h-10 mt-1 text-center font-taruno text-[.8rem] text-black cursor-pointer">
                                         <option value="Turbulent Revolution Tee">Turbulent Revolution Tee</option>
                                         <option value="Celestial Revy Tee">Celestial Revy Tee</option>
                                     </select>
-                                    <select name="size1" id="size1" default="XS"
-                                        class="w-[60px] h-10 mt-1 text-center font-taruno text-[.8rem] text-white cursor-pointer">
+                                    <select name="size1" id="size1"
+                                        class="w-[60px] h-10 mt-1 text-center font-taruno text-[.8rem] text-black cursor-pointer">
                                         <option value="XS">XS</option>
                                         <option value="S">S</option>
                                         <option value="M">M</option>
@@ -213,15 +230,15 @@
                                         <option value="XL">XL</option>
                                     </select>
 
-                                    <select name="size2" id="size2" default="S"
-                                        class="w-[60px] hidden h-10 mt-1 text-center font-taruno text-[.8rem] text-white cursor-pointer">
+                                    <select name="size2" id="size2"
+                                        class="w-[60px] hidden h-10 mt-1 text-center font-taruno text-[.8rem] text-black cursor-pointer">
                                         <option value="S">S</option>
                                         <option value="M">M</option>
                                         <option value="L">L</option>
                                         <option value="XL">XL</option>
                                         <option value="2XL">2XL</option>
                                         <option value="3XL">3XL</option>
-                                    </select>
+                                    </select> --}}
                                 </div>
                             </div>
                 </div>
@@ -501,7 +518,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
     <script>
         window.addEventListener('scroll', function() {
-            var header = document.getElementById('header');
             if (window.scrollY > 0) {
                 header.classList.remove('bg-transparent');
                 header.classList.add('bg-[#0E0EC0]');
