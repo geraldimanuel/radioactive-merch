@@ -13,7 +13,6 @@ class MerchSeeder extends Seeder
      */
     public function run(): void
     {
-        //
         Merch::create([
             'name' => 'Turbulent Revolution Tee',
             'description' => 'KAOSBIRU',

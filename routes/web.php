@@ -38,6 +38,7 @@ Route::get('/logout', function (Request $request) {
 
 Route::controller(OrderController::class)->group(function () {
     Route::get('/order', 'order');
+    Route::post('/order', 'order');
 });
 
 Route::middleware('guest')->controller(ResetPasswordController::class)->group(function() {
