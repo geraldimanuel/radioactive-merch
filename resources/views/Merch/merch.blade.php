@@ -412,7 +412,7 @@
                             onclick="button(this)"></input>
                         @if ($merch->table && $merch->id == 1)
                             <select name="size" id="size1"
-                                class="w-[60px] text-center font-taruno text-[.8rem] text-gray-800 dark:text-white cursor-pointer">
+                                class="w-[60px] text-center font-taruno text-[.8rem] text-gray-800 cursor-pointer">
                                 <option value="XS">XS</option>
                                 <option value="S">S</option>
                                 <option value="M">M</option>
@@ -422,7 +422,7 @@
                         @endif
                         @if ($merch->table && $merch->id == 2)
                             <select name="size" id="size2"
-                                class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
+                                class="w-[60px] text-center font-taruno text-[.8rem] text-gray-800  cursor-pointer">
                                 <option value="S">S</option>
                                 <option value="M">M</option>
                                 <option value="L">L</option>
