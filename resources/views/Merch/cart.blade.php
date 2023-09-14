@@ -75,7 +75,7 @@
                                     </div>
                                 </td>
                                 {{-- <td>{{ $merch->name }}</td> --}}
-                                <td>{{ $merch->price }}</td>
+                                <td>{{ $obj->price }}</td>
                                 <td>{{ $obj->size }}</td>
                                 <td>{{ $obj->qty }}</td>
                                 <td>{{ $price }}</td>

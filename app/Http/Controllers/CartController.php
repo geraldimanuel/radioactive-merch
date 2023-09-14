@@ -69,7 +69,7 @@ class CartController extends Controller
                     $merch->save();
 
 
-                    $total_price = $merch->price * $key->qty;
+                    $total_price = $key->price * $key->qty;
 
                     DetailTransaction::new_transaction($key->merch_id, $order_id, $key->qty, $total_price);
 
