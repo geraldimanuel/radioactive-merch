@@ -67,12 +67,14 @@ class MerchController extends Controller
     public function addToCart(Request $request) {
         if(Auth::check()){
             $logged_id = auth()->user()->id;
-            $cart = Cart::where('user_id', '=', $logged_id)->get();
+            $carts = Cart::where('user_id', '=', $logged_id)->get();
             $flag = 'false';
             $size = $request->size;
             $tee = $request->tee;
 
-            // dd($cart);
+            $merch = Merch::find($request->id);
+
+            $price = $merch->price;
 
             if ($request->id != 1 && $request->id != 2) {
                 $size = '';
@@ -82,15 +84,26 @@ class MerchController extends Controller
                 $tee = '';
             }
 
-            if (isset($cart[0])) {
-                foreach ($cart as $merch) {
+            if($size == 'XXL' || $size == '3XL')
+            {
+                $price = 105000;
+            }
+            else if($size == '2XL')
+            {
+                $price = 100000;
+            }
+            else if($size == '4XL')
+            {
+                $price = 110000;
+            }
 
-                    // dd($merch);
+            if (isset($carts[0])) {
+                foreach ($carts as $cart) {
 
-                    if ($merch->merch_id == $request->id) {
-                        if ($merch->size == $request->size) {
-                            $new_qty = $merch->qty + $request->qty;
-                            $merch->update(['qty' => $new_qty]);
+                    if ($cart->merch_id == $request->id) {
+                        if ($cart->size == $request->size) {
+                            $new_qty = $cart->qty + $request->qty;
+                            $cart->update(['qty' => $new_qty]);
 
                             $flag = 'true';
                         }
@@ -103,7 +116,8 @@ class MerchController extends Controller
                         'merch_id' => $request->id,
                         'qty' => $request->qty,
                         'size' => $size,
-                        'tee' => $tee
+                        'tee' => $tee,
+                        'price' => $price
                     ]);
                 }
             } else {
@@ -112,7 +126,8 @@ class MerchController extends Controller
                     'merch_id' => $request->id,
                     'qty' => $request->qty,
                     'size' => $size,
-                    'tee' => $tee
+                    'tee' => $tee,
+                    'price' => $price
                 ]);
             }
 

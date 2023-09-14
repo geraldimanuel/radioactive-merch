@@ -30,7 +30,7 @@
     <div class="flex flex-wrap justify-center pb-[50px] pt-[200px] h-[800px] text-white">
         <div class="text-center flex">
             <div class="w-full">
-                @if (empty($cart))
+                @if ($cart->isEmpty())
                     <div class="flex justify-center align-middle items-center h-[800px]">
                         <div>
                             <p class="font-taruno text-xl">Cart is empty</p>
@@ -58,7 +58,7 @@
                 @foreach ($cart as $obj)
                     @foreach ($merches as $merch)
                         @if ($merch->id == $obj->merch_id)
-                            <?php $price = $obj->qty * $merch->price;
+                            <?php $price = $obj->qty * $obj->price;
                             $total += $price;
                             ?>
 

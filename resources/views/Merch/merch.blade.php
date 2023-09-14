@@ -172,7 +172,6 @@
                         <p class="text-[11px] font-taruno text-gray-500"><i>With Zipper</i></p>
                     @endif
                 </div>
-                <p class="mt-1 font-sans text-gray-500 text-xs">Stock {{ $merch->stock }}</p>
                 <p class="mt-1 font-sans text-white text-sm">Rp {{ $merch->price }}</p>
                 <div id="indicators-carousel" class="relative w-full h-full" data-carousel="static">
                     <div class="z-30 inline-flex gap-4 h-3 overflow-hidden justify-center mt-[20px]">

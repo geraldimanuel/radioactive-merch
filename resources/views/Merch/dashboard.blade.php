@@ -30,25 +30,31 @@
                                     @foreach ($merchs as $merch)
                                         @if ($merch->id == $obj->merch_id)
                                             {{ $merch->name }} ({{ $obj->qty }})
-                                        @break
-                                    @endif
-                                @endforeach
-                            </li>
+                                        @endif
+                                    @endforeach
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
+                </td>
+                <td>
+                    @foreach ($merchs as $merch)
+                        @if ($merch->id == $obj->merch_id)
+                        <img class="w-2 object-cover" src="/images/{{ $merch->description }}//{{ $merch->image1 }}"/>
                         @endif
                     @endforeach
-                </ul>
-            </td>
-            <td>{{ $order->total_price }}</td>
-            <td>
-                <select required='required' class="form-control" name='status'>
-                    <optgroup label={{ $order->status }} />
-                    <option value='Unpaid'>Unpaid</option>
-                    <option value='Paid'>Paid</option>
-                    <option value='Cancelled'>Cancelled</option>
-                </select>
-            </td>
-        </tr>
-    @endforeach
+                </td>
+                <td>{{ $order->total_price }}</td>
+                <td>
+                    <select required='required' class="form-control" name='status'>
+                        <optgroup label={{ $order->status }} />
+                        <option value='Unpaid'>Unpaid</option>
+                        <option value='Paid'>Paid</option>
+                        <option value='Cancelled'>Cancelled</option>
+                    </select>
+                </td>
+            </tr>
+        @endforeach
 </table>
 </body>
 

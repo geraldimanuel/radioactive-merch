@@ -159,7 +159,6 @@
                                 <img src="/images/{{ $obj->description }}/{{ $obj->image1 }}"
                                     class="object-cover w-[250px] h-[350px]" />
                                 <p class="mt-5 font-taruno text-white text-[15px]">{{ $obj->name }}</p>
-                                <p class="mt-1 font-sans text-gray-500 text-xs">Stock {{ $obj->stock }}</p>
                                 <p class="mt-1 font-sans text-white text-sm">Rp {{ $obj->price }}</p>
                             </div>
                         </div>
