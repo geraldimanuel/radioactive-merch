@@ -27,3 +27,8 @@
     font-family: 'Taruno Wide Outline';
     src: url("fonts/TarunoWideOutline-Regular.otf") format("opentype");
 }
+
+@font-face {
+  font-family: 'Pathway Extreme';
+  src: url("fonts/PathwayExtreme.ttf") format("truetype");
+}

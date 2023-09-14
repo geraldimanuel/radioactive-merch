@@ -25,7 +25,7 @@
                 <div
                     class="text-center w-full md:w-1/2 form-content shadow-md px-0 md:px-8 py-3 mb-3 md:mb-10 font-pathway shadow-[#FFF000]">
                     <h2 class="font-taruno">Detail Transaksi</h2>
-                    <table border="1" class="text-left font-pathway" cellpadding="10">
+                    <table border="1" class="text-left font-pathway text-sm" cellpadding="10">
                         <tr>
                             <th>No</th>
                             <th>Name</th>
@@ -134,7 +134,7 @@
                         for="">Bukti Pembayaran</label>
                 </div>
                 <div>
-                    <h6 class="text-sm">Pembayaran sebesar Rp 150.000,~ ke xxxxx a/n xxxxx</h6 class="text-sm">
+                    <h6 class="text-sm font-pathway">Pembayaran sebesar Rp {{ $total }},~ ke 8831917474 a/n Raudhah Salsabila Surbakti</h6 class="text-sm">
                 </div>
                 <div>
                     <input required
@@ -153,7 +153,8 @@
 
         </div>
         </form>
-
+        <a class="text-[.8rem] hover:text-[#3838ff] no-underline text-white" href="{{ url('/cart') }}">Back to
+                cart</a>
 </body>
 
 </html>

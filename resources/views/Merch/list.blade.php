@@ -52,8 +52,8 @@
                 <a class="font-taruno text-white text-xs underline underline-offset-4 decoration-[#FFF000] cursor-pointer"
                     href="https://merch.umnradioactive.com/">MERCHANDISE</a>
                 @auth
-                    <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer"
-                        href="/logout">LOGOUT</a>
+                <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer"
+                    href="/logout">LOGOUT</a>
                 @endauth
             </div>
 
@@ -74,8 +74,8 @@
                         <a class="font-taruno text-black text-xs underline underline-offset-4 decoration-[#0E0EC0] cursor-pointer"
                             href="https://merch.umnradioactive.com/">MERCHANDISE</a>
                         @auth
-                            <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer"
-                                href="/logout">LOGOUT</a>
+                        <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer"
+                            href="/logout">LOGOUT</a>
                         @endauth
                     </div>
                 </div>
@@ -83,28 +83,31 @@
         </div>
     </div>
     <div class="justify-center align-middle items-center">
-        <div id="indicators-carousel" class="relative w-full" data-carousel="static">
+        <div class="relative lg:h-[600px] overflow-hidden md:h-96 h-[275px] rounded-lg" data-carousel-item="">
+            <img src="/images/CarouselImg1.jpg" class="absolute block w-full lg:h-[40vw] md:h-[80vw] h-[75vw] object-cover lg:object-center">
+        </div>
+        <!-- <div id="indicators-carousel" class="relative w-full" data-carousel="static">
 
-            <div class="relative lg:h-[600px] overflow-hidden md:h-96 rounded-lg">
+            <div class="relative lg:h-[800px] overflow-hidden md:h-96 rounded-lg">
 
                 <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                    <img src="/images/CarouselImg1.jpg" class="absolute block w-full object-cover">
+                    <img src="/images/CarouselImg1.jpg" class="absolute block w-full h-full object-cover">
                 </div>
 
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/images/img2.jpg" class="absolute block w-full object-contain">
+                    <img src="/images/img2.jpg" class="absolute block w-full h-full object-cover">
                 </div>
 
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/images/img3.jpg" class="absolute block w-full object-contain">
+                    <img src="/images/img3.jpg" class="absolute block w-full h-full object-cover">
                 </div>
 
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/images/img4.jpg" class="absolute block w-full object-contain">
+                    <img src="/images/img4.jpg" class="absolute block w-full h-full object-cover">
                 </div>
 
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/images/img5.jpg" class="absolute block w-full object-contain">
+                    <img src="/images/img5.jpg" class="absolute block w-full h-full object-cover">
                 </div>
             </div>
 
@@ -147,22 +150,22 @@
                     <span class="sr-only">Next</span>
                 </span>
             </button>
-        </div>
+        </div> -->
         <div class="flex flex-wrap w-full justify-center">
             <div class="flex flex-wrap justify-center w-3/4">
                 @foreach ($merch as $obj)
-                    <a href="{{ url('/item/' . $obj->id) }}"
-                        class="m-[30px] mt-[6rem] justify-center content-center gap-10 no-underline">
-                        <div id="item-img"
-                            class=" mb-[7rem] w-[250px] h-[350px] border-solid border-[1px] border-white transform transition duration-500 hover:scale-[1.03]">
-                            <div class="h-full w-full">
-                                <img src="/images/{{ $obj->description }}/{{ $obj->image1 }}"
-                                    class="object-cover w-[250px] h-[350px]" />
-                                <p class="mt-5 font-taruno text-white text-[15px]">{{ $obj->name }}</p>
-                                <p class="mt-1 font-sans text-white text-sm">Rp {{ $obj->price }}</p>
-                            </div>
+                <a href="{{ url('/item/' . $obj->id) }}"
+                    class="m-[30px] mt-[6rem] justify-center content-center gap-10 no-underline">
+                    <div id="item-img"
+                        class=" mb-[7rem] w-[250px] h-[350px] border-solid border-[1px] border-white transform transition duration-500 hover:scale-[1.03]">
+                        <div class="h-full w-full">
+                            <img src="/images/{{ $obj->description }}/{{ $obj->image1 }}"
+                                class="object-cover w-[250px] h-[350px]" />
+                            <p class="mt-5 font-taruno text-white text-[15px]">{{ $obj->name }}</p>
+                            <p class="mt-1 font-sans text-white text-sm">Rp {{ $obj->price }}</p>
                         </div>
-                    </a>
+                    </div>
+                </a>
                 @endforeach
             </div>
         </div>
@@ -241,8 +244,7 @@
                             </path>
                         </svg>
                     </a>
-                    <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank"
-                        class="text-white">
+                    <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank" class="text-white">
                         <svg class="h-12 w-12 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path
                                 d="M12,20.55c-.3,0-7.279-.006-9.115-.5A3.375,3.375,0,0,1,.5,17.665,29.809,29.809,0,0,1,0,12,29.824,29.824,0,0,1,.5,6.334,3.375,3.375,0,0,1,2.885,3.948c1.836-.492,8.819-.5,9.115-.5s7.279.006,9.115.5A3.384,3.384,0,0,1,23.5,6.334,29.97,29.97,0,0,1,24,12a29.97,29.97,0,0,1-.5,5.666,3.384,3.384,0,0,1-2.388,2.386C19.279,20.544,12.3,20.55,12,20.55Zm0-16.1c-.072,0-7.146.006-8.857.464A2.377,2.377,0,0,0,1.464,6.593,29.566,29.566,0,0,0,1,12a29.566,29.566,0,0,0,.464,5.407,2.377,2.377,0,0,0,1.679,1.679c1.711.458,8.785.464,8.857.464s7.146-.006,8.857-.464a2.377,2.377,0,0,0,1.679-1.679A29.66,29.66,0,0,0,23,12a29.66,29.66,0,0,0-.464-5.407h0a2.377,2.377,0,0,0-1.679-1.679C19.146,4.456,12.071,4.45,12,4.45ZM9.7,15.95a.5.5,0,0,1-.5-.5V8.55a.5.5,0,0,1,.75-.433l5.975,3.45a.5.5,0,0,1,0,.866L9.95,15.883A.5.5,0,0,1,9.7,15.95Zm.5-6.534v5.168L14.675,12Z">
@@ -266,7 +268,7 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init();
+    AOS.init();
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
 </body>

@@ -13,7 +13,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="overflow-x-hidden bg-black">
+<body class="overflow-x-hidden bg-black text-white">
     {{-- <nav id="header" class="fixed navbar bg-transparent justify-center gap-16 z-40 transition-all duration-700">
         <a class="font-taruno text-white text-xs underline underline-offset-4 decoration-[#FFF000] cursor-pointer"
             href="/">HOME</a>
@@ -327,6 +327,26 @@
                                                     </div>
                                                 </label>
                                             </li>
+                                            <li>
+                                                <input type="radio" id="XL" name="size" value="XL"
+                                                    class="hidden peer">
+                                                <label for="XL"
+                                                    class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                    <div class="block w-full text-center">
+                                                        <p class="w-full">XL</p>
+                                                    </div>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="XXL" name="size" value="XXL"
+                                                    class="hidden peer">
+                                                <label for="XXL"
+                                                    class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                    <div class="block w-full text-center">
+                                                        <p class="w-full">XXL</p>
+                                                    </div>
+                                                </label>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="hidden" id="celessize">
@@ -391,6 +411,16 @@
                                                     </div>
                                                 </label>
                                             </li>
+                                            <li>
+                                                <input type="radio" id="4XL" name="size" value="4XL"
+                                                    class="hidden peer">
+                                                <label for="4XL"
+                                                    class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                    <div class="block w-full text-center">
+                                                        <p class="w-full">4XL</p>
+                                                    </div>
+                                                </label>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -411,12 +441,13 @@
                             onclick="button(this)"></input>
                         @if ($merch->table && $merch->id == 1)
                             <select name="size" id="size1"
-                                class="w-[60px] text-center font-taruno text-[.8rem] text-gray-800 cursor-pointer">
+                                class="w-[60px] text-center text-white font-taruno text-[.8rem] text-gray-800 cursor-pointer">
                                 <option value="XS">XS</option>
                                 <option value="S">S</option>
                                 <option value="M">M</option>
                                 <option value="L">L</option>
                                 <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
                             </select>
                         @endif
                         @if ($merch->table && $merch->id == 2)
@@ -458,7 +489,7 @@
     </div>
     <div class="mt-[80px] flex justify-center text-center text-white dark:text-gray-800 w-full align-middle">
         @if ($merch->table && $merch->id == 1)
-            <table border="1" cellpadding="10" class="border-white border-[1px] w-4/5 lg:w-1/2">
+            <table border="1" cellpadding="10" class="border-white border-[1px] w-4/5 lg:w-1/2 text-white">
                 <tr class="border-[1px] bg-[#0E0EC0]">
                     <th>Size</th>
                     <th>Width<br>(cm)</th>
