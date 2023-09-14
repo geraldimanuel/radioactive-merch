@@ -347,49 +347,47 @@
                         </div>
                     </div>
                     @endif
-                    <div class="w-4/5">
-                        <div class="inline-flex justify-center w-full gap-3" action="" method="post">
-                            @csrf
-                            <input type="button" value="-" id="decrement"
-                                class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
-                                onclick="button(this)"></input>
+                    <div class="inline-flex justify-center w-full gap-3" action="" method="post">
+                        @csrf
+                        <input type="button" value="-" id="decrement"
+                            class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
+                            onclick="button(this)"></input>
 
-                            <input id="qty" type="number" name="qty" min="1" max="{($merch->stock)}" value="1" step="1"
-                                readonly class="p-2 text-lg"></input>
+                        <input id="qty" type="number" name="qty" min="1" max="{($merch->stock)}" value="1" step="1"
+                            readonly class="p-2 text-lg"></input>
 
-                            <input type="button" value="+" id="increment"
-                                class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
-                                onclick="button(this)"></input>
-                            @if($merch->table && $merch->id == 1)
-                            <select name="size1" id="size1"
-                                class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
-                                <option value="XS">XS</option>
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                            </select>
-                            @endif
-                            @if($merch->table && $merch->id == 2)
-                            <select name="size2" id="size2"
-                                class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                                <option value="2XL">2XL</option>
-                                <option value="3XL">3XL</option>
-                            </select>
-                            @endif
-                        </div>
-                        <div class="grid gap-3">
-                            <input type="hidden" name="id" value="{{$merch->id}}">
-                            <input value="Add to Cart" type="submit"
-                                class="w-full font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"></input>
-                            <a href="{{url('/merch')}}"
-                                class="text-center font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] no-underline cursor-pointer">Back
-                                to Merch</a>
-                        </div>
+                        <input type="button" value="+" id="increment"
+                            class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
+                            onclick="button(this)"></input>
+                        @if($merch->table && $merch->id == 1)
+                        <select name="size1" id="size1"
+                            class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                        </select>
+                        @endif
+                        @if($merch->table && $merch->id == 2)
+                        <select name="size2" id="size2"
+                            class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="2XL">2XL</option>
+                            <option value="3XL">3XL</option>
+                        </select>
+                        @endif
+                    </div>
+                    <div class="grid gap-3">
+                        <input type="hidden" name="id" value="{{$merch->id}}">
+                        <input value="Add to Cart" type="submit"
+                            class="w-full font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"></input>
+                        <a href="{{url('/merch')}}"
+                            class="text-center font-taruno border-solid border-[1px] border-white p-3 text-xs text-white bg-[#0E0EC0] no-underline cursor-pointer">Back
+                            to Merch</a>
                     </div>
                 </form>
             </div>
@@ -408,7 +406,7 @@
             </ul>
         </div>
     </div>
-    <div class="mt-[80px] flex justify-center text-center w-full align-middle overflow-x-scroll">
+    <div class="mt-[80px] flex justify-center text-center w-full align-middle md:overflow-x-scroll">
         @if($merch->table && $merch->id == 1)
         <table border="1" cellpadding="10" class="border-white border-[1px] w-4/5 lg:w-1/2">
             <tr class="border-[1px] bg-[#0E0EC0]">
