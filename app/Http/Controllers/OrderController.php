@@ -30,6 +30,7 @@ class OrderController extends Controller
             return redirect('/login');
         }
     }
+    
     public function order(Request $request) {
         if(Auth::check()){
             Order::create([

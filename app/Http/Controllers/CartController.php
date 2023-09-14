@@ -22,14 +22,10 @@ class   CartController extends Controller
         //
     }
 
-    public function removeFromCart($id_merch) {
+    public function removeFromCart($cart_id) {
 
         if(Auth::check()){
-           $cart = session('cart');
-            unset($cart[$id_merch]);
-            session(['cart' => $cart]);
-
-            Cart::where('merch_id', $id_merch)->delete();
+            Cart::where('id', $cart_id)->delete();
 
             return redirect('/cart');
         } else {
@@ -63,7 +59,6 @@ class   CartController extends Controller
 
                 foreach ($cart as $key) {
                     $merch = Merch::find($key->id);
-                    $merch->stock = $merch->stock - 1;
                     $merch->save();
 
                     Cart::where('merch_id', $key->id)->delete();
@@ -77,7 +72,6 @@ class   CartController extends Controller
                 }
 
                 Order::where('id', $order_id)->update([
-                    // 'qty' => $total_qty,
                     'total_price' => $grandTotal
                 ]);
 
@@ -106,6 +100,8 @@ class   CartController extends Controller
             'orders' => $orders,
             'detailTrans' => $detailTrans
         ]);
+
+        
     }
 
     /**

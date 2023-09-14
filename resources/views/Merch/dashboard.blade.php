@@ -39,7 +39,14 @@
                 </ul>
             </td>
             <td>{{ $order->total_price }}</td>
-            <td>{{ $order->status }}</td>
+            <td>
+                <select required='required' class="form-control" name='status'>
+                    <optgroup label={{ $order->status }} />
+                    <option value='Unpaid'>Unpaid</option>
+                    <option value='Paid'>Paid</option>
+                    <option value='Cancelled'>Cancelled</option>
+                </select>
+            </td>
         </tr>
     @endforeach
 </table>

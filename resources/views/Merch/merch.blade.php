@@ -117,7 +117,6 @@
                         <p class="text-[11px] font-taruno text-gray-500"><i>With Zipper</i></p>
                     @endif
                 </div>
-                <p class="mt-1 font-sans text-gray-500 text-xs">Stock {{ $merch->stock }}</p>
                 <p class="mt-1 font-sans text-white text-sm">Rp {{ $merch->price }}</p>
                 <div id="indicators-carousel" class="relative w-full h-full" data-carousel="static">
                     <div class="z-30 inline-flex gap-4 h-3 overflow-hidden justify-center mt-[20px]">
@@ -340,14 +339,14 @@
                             class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
                             onclick="button(this)"></input>
 
-                        <input id="qty" type="number" name="qty" min="1" max="{($merch->stock)}" value="1" step="1"
-                            readonly class="p-2 text-lg"></input>
+                        <input id="qty" type="number" name="qty" min="1" max="{($merch->stock)}"
+                        value="1" step="1" readonly class="p-2 text-lg"></input>
 
-                        <input type="button" value="+" id="increment"
-                            class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
-                            onclick="button(this)"></input>
-                        @if($merch->table && $merch->id == 1)
-                        <select name="size1" id="size1"
+                    <input type="button" value="+" id="increment"
+                        class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
+                        onclick="button(this)"></input>
+                    @if ($merch->table && $merch->id == 1)
+                        <select name="size" id="size1"
                             class="w-[60px] text-center font-taruno text-[.8rem] text-white cursor-pointer">
                             <option value="XS">XS</option>
                             <option value="S">S</option>
@@ -625,14 +624,8 @@
             let step = Input.getAttribute("step");
             let val = Input.getAttribute("value");
 
-            var stockValue = <?php echo $merch->stock; ?>;
-
             let calcStep = (id == "increment") ? (step * 1) : (step * -1);
             let newValue = parseInt(val) + calcStep;
-
-            if (newValue >= min && newValue <= stockValue) {
-                Input.setAttribute("value", newValue);
-            }
         }
 
         const teeSelect = document.getElementById('tee');
@@ -656,14 +649,8 @@
             }
             sizeSelect.style.display = 'none';
 
-        var stockValue = <?php echo $merch->stock; ?>;
-
         let calcStep = (id == "increment") ? (step * 1) : (step * -1);
         let newValue = parseInt(val) + calcStep;
-
-        if (newValue >= min && newValue <= stockValue) {
-            Input.setAttribute("value", newValue);
-        }
     }
 
 

@@ -22,7 +22,8 @@ return new class extends Migration
             $table->string('image4');
             $table->string('image5');
             $table->bigInteger('price');
-            $table->integer('stock');
+            $table->integer('qty')->default(0);
+            $table->string('size')->default('');
             $table->timestamps();
         });
     }
