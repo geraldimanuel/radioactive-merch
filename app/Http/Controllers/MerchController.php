@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 
+use function PHPUnit\Framework\isNull;
+
 class MerchController extends Controller
 {
     /**
@@ -23,7 +25,7 @@ class MerchController extends Controller
         ]);
     }
 
-    public function home()
+    public function home(Request $request)
     {
         $merch = Merch::all();
         return view('Merch.list')->with('merch', $merch);
@@ -42,15 +44,19 @@ class MerchController extends Controller
     public function ShowItem($id) 
     {
         $merch = Merch::find($id);
-        
 
         return view('Merch.merch', compact('merch'));
     }
 
     public function cart() {
         if(Auth::check()){
-            $cart = session('cart');
-            return view('Merch.cart')->with('cart', $cart);
+            $logged_id = auth()->user()->id;
+            $cart = Cart::where('user_id', '=', $logged_id)->get();
+            $merches = Merch::all();
+
+            // dd($cart);
+
+            return view('Merch.cart')->with('cart', $cart)->with('merches', $merches);
         } else {
             return redirect('/login');
         }
@@ -60,20 +66,48 @@ class MerchController extends Controller
     public function addToCart(Request $request) {
         if(Auth::check()){
             $logged_id = auth()->user()->id;
+            $cart = Cart::where('user_id', '=', $logged_id)->get();
+            $flag = 'false';
+            $size = $request->size;
+            $tee = $request->tee;
 
-            $cart = session('cart');
-            $merch = Merch::find($request->id);
-            $cart[$request->id] = $merch;
-            $cart[$request->id]->qty = $request->qty;
-            $cart[$request->id]->size = $request->size;
-            $cart[$request->id]->tee = $request->tee;
+            // dd($request->size);
+
+            if ($request->id != 1 && $request->id != 2) {
+                $size = '';
+            }
+
+            if (isset($cart[0])) {
+                foreach ($cart as $merch) {
+
+                    if ($merch->merch_id == $request->id) {
+                        if ($merch->size == $request->size) {
+                            $new_qty = $merch->qty + $request->qty;
+                            $merch->update(['qty' => $new_qty]);
+
+                            $flag = 'true';
+                        }
+                    }
+                }
+
+                if ($flag == 'false') {
+                    Cart::create([
+                        'user_id' => $logged_id,
+                        'merch_id' => $request->id,
+                        'qty' => $request->qty,
+                        'size' => $size
+                    ]);
+                }
+            } else {
+                Cart::create([
+                    'user_id' => $logged_id,
+                    'merch_id' => $request->id,
+                    'qty' => $request->qty,
+                    'size' => $size
+                ]);
+            }
+
             session(['cart' => $cart]);
-
-            Cart::create([
-                'user_id' => $logged_id,
-                'merch_id' => $request->id,
-                'qty' => $request->qty
-            ]);
 
             return redirect('/cart');
         } else {

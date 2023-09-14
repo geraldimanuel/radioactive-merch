@@ -26,7 +26,7 @@
             href="ticket">CLOSING
             NIGHT</a>
         @auth
-        <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer" href="/logout">LOGOUT</a>
+            <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer" href="/logout">LOGOUT</a>
         @endauth
     </nav> --}}
     <div id="header" x-data="{ isOpen: false }"

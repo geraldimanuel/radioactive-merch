@@ -38,21 +38,20 @@ Route::get('/logout', function (Request $request) {
 
 Route::controller(OrderController::class)->group(function () {
     Route::get('/order', 'order');
-    Route::post('/order', 'order');
 });
 
 Route::middleware('guest')->controller(ResetPasswordController::class)->group(function() {
     Route::get('/forgot-password', 'index')->name('password.request');
     Route::post('/forgot-password', 'forgot_password')->name('password.email');
     Route::get('/reset-password/{token}', 'reset_token')->name('password.reset');
-    Route::post('/reset-password', 'reset')->name('passord.update');;
+    Route::post('/reset-password', 'reset')->name('passord.update');
 });
 
 Route::controller(MerchController::class)->group(function () {
-    Route::get('/', 'index'); // endpoint null
+    Route::get('/', 'home'); // endpoint null
     Route::get('/cart', 'cart');
     Route::post('/cart/{id}', 'addToCart');
-    Route::get('/merch', 'home');
+    // Route::get('/merch', 'home');
     Route::get('item/', 'merch');
     Route::get('item/{id}', 'ShowItem');
 

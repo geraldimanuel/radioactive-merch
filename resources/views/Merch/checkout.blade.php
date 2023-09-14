@@ -67,6 +67,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Name</th>
+                                <th>Size</th>
                                 <th>Quantity</th>
                                 <th>Total Price</th>
                             </tr>
@@ -78,12 +79,13 @@
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 @foreach ($merchs as $merch)
-                                @if ($merch->id == $obj->merch_id)
-                                <td>{{ $merch->name }}</td>
-                                @break
-                                @endif
+                                    @if ($merch->id == $obj->merch_id)
+                                        <td>{{ $merch->name }}</td>
+                                                @endif
                                 @endforeach
-
+                    <td>{{ $obj->size }}</td>
+                    <td>{{ $obj->qty }}</td>
+                    <td>{{ $obj->total_price }}</td>
                             </tr>
                             <?php $total += $obj->total_price; ?>
                             @endforeach

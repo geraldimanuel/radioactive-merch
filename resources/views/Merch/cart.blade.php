@@ -1,20 +1,18 @@
+{{-- shopping cart dri session --}}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/3a9b6894e0.js" crossorigin="anonymous"></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Radioactive UMN</title>
+    <title>Cart</title>
     @vite('resources/css/app.css')
 </head>
 
 <body class="overflow-x-hidden bg-black">
-    {{-- <nav id="header" class="fixed navbar bg-transparent justify-center gap-16 z-40 transition-all duration-700">
+    <nav id="header" class="fixed navbar bg-transparent justify-center gap-16 z-40 transition-all duration-700">
         <a class="font-taruno text-white text-xs underline underline-offset-4 decoration-[#FFF000] cursor-pointer"
             href="/">HOME</a>
         <a
@@ -26,62 +24,9 @@
             href="ticket">CLOSING
             NIGHT</a>
         @auth
-        <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer" href="/logout">LOGOUT</a>
+            <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer" href="/logout">LOGOUT</a>
         @endauth
-    </nav> --}}
-    <div id="header" x-data="{ isOpen: false }"
-        class="fixed navbar bg-[#0E0EC0] justify-center gap-16 z-40 transition-all duration-700">
-        <div class="flex items-center justify-between">
-            <button @click="isOpen = !isOpen" type="submit">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white lg:hidden" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-            <div class="pr-4 hidden space-x-6 lg:inline-block">
-                <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
-                    href="/">HOME</a>
-                <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
-                    href="/voc">VO
-                    CHALLENGE</a>
-                <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
-                    href="/rac">RAC</a>
-                <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
-                    href="/closing-night">CLOSING
-                    NIGHT</a>
-                <a class="font-taruno text-white text-xs underline underline-offset-4 decoration-[#FFF000] cursor-pointer"
-                    href="https://merch.umnradioactive.com/">MERCHANDISE</a>
-                @auth
-                    <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer"
-                        href="/logout">LOGOUT</a>
-                @endauth
-            </div>
-
-            <div class="mobile-navbar">
-                <div class="fixed left-0 w-full h-52 p-5 bg-white rounded-lg shadow-xl top-16" x-show="isOpen"
-                    @click.away=" isOpen = false">
-                    <div class="flex flex-col space-y-6">
-                        <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
-                            href="/">HOME</a>
-                        <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
-                            href="/voc">VO
-                            CHALLENGE</a>
-                        <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
-                            href="/rac">RAC</a>
-                        <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
-                            href="/closing-night">CLOSING
-                            NIGHT</a>
-                        <a class="font-taruno text-black text-xs underline underline-offset-4 decoration-[#0E0EC0] cursor-pointer"
-                            href="https://merch.umnradioactive.com/">MERCHANDISE</a>
-                        @auth
-                            <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer"
-                                href="/logout">LOGOUT</a>
-                        @endauth
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </nav>
     <div class="flex flex-wrap justify-center pb-[50px] pt-[200px] h-[800px]">
         <div class="text-center flex">
             <div class="w-full">
@@ -97,8 +42,7 @@
                     </div>
             </div>
         @else
-            <table border="1" cellpadding="10"
-                class="hidden md:contents w-4/5 text-white dark:text-gray-800 text-sm lg:text-lg md:mr-[50px] md:ml-[50px] shadow-lg lg:w-full">
+            <table border="1" cellpadding="10" class="w-4/5 text-lg mr-[50px] ml-[50px] shadow-lg lg:w-full">
                 <tr>
                     <th class="font-taruno text-left">Items</th>
                     <!-- <th class="font-taruno">Name</th> -->
@@ -141,54 +85,16 @@
                     <td>{{ $total }}</td>
                 </tr>
             </table>
-            {{-- Ini yg mobile table --}}
-            <table border="1" cellpadding="10"
-                class="contents md:hidden w-4/5 text-white dark:text-gray-800 text-sm lg:text-lg md:mr-[50px] md:ml-[50px] shadow-lg lg:w-full">
-                <tr>
-                    <th class="font-taruno text-left">Items</th>
-                    <!-- <th class="font-taruno">Name</th> -->
-                    <th class="font-taruno">Details</th>
-                    <th class="font-taruno">Remove</th>
-                </tr>
-                <?php $no = 1;
-                $total = 0; ?>
-                @foreach ($cart as $obj)
-                    <tr class="border-b-[1px]">
-                        <!-- <td>{{ $no++ }}</td> -->
-                        <td class="flex flex-wrap gap-3 h-full justify-left items-center">
-                            <img src="/images/{{ $obj->description }}//{{ $obj->image1 }}"
-                                class="h-[150px] w-auto object-cover" />
-                            <div class="flex mr-5 gap-0">
-                                <div>
-                                    <p class="text-left h-5">{{ $obj->name }}</p>
-                                    <p class="text-left m-0 text-gray-500 text-[11px]">{{ $obj->tee }}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <!-- <td>{{ $obj->name }}</td> -->
-                        <td>Price : {{ $obj->price }} <br> Size : {{ $obj->size }} <br> Qty :
-                            {{ $obj->price * $obj->qty }}</td>
-                        <td class="text-[1.1rem] w-[20px] rounded-[6px]">
-                            <a class="text-center text-[1.6rem] no-underline text-white hover:text-red-600"
-                                href="{{ url('/cart/' . $obj->id) }}">×</a>
-                        </td>
-                    </tr>
-
-                    <?php $total += $obj->qty * $obj->price; ?>
-                @endforeach
-                <tr>
-                    <td colspan="2" class="text-xl font-bold">Total</td>
-                    <td>{{ $total }}</td>
-                </tr>
-            </table>
 
             <div class="mt-[80px] flex justify-center mb-[10px]">
-                <div
-                    class="text-[1.1rem] bg-[#0E0EC0] hover:bg-[#1313c4] w-[200px] pt-[10px] pb-[10px]  border-white border-[1px] cursor-pointer">
-                    <a class="text-[1.1rem] no-underline text-white" href="{{ url('/checkout') }}">Checkout</a>
-                </div>
+                <a href='/checkout' class="text-[1.1rem] no-underline text-white">
+                    <div
+                        class="text-[1.1rem] bg-[#0E0EC0] hover:bg-[#1313c4] w-[200px] pt-[10px] pb-[10px]  border-white border-[1px] cursor-pointer">
+                        Checkout
+                    </div>
+                </a>
             </div>
-            <a class="text-[.8rem] hover:text-[#3838ff] no-underline text-white" href="{{ url('/merch') }}">Back to
+            <a class="text-[.8rem] hover:text-[#3838ff] no-underline text-white" href='/'>Back to
                 Merch</a>
         </div>
         @endif
@@ -286,6 +192,20 @@
             <p class="mb-2 text-xs font-taruno font-medium text-white">&copy; UMN RADIOACTIVE 2023</p>
         </div>
     </footer>
+    <script>
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            if (window.scrollY > 0) {
+                header.classList.remove('bg-transparent');
+                header.classList.add('bg-[#0E0EC0]');
+                // header.classList.add('fixed');
+            } else {
+                header.classList.add('bg-transparent');
+                header.classList.remove('bg-[#0E0EC0]');
+                // header.classList.remove('fixed');
+            }
+        });
+    </script>
 </body>
 
 </html>

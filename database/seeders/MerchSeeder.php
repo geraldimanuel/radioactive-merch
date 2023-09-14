@@ -23,8 +23,7 @@ class MerchSeeder extends Seeder
             'image3' => '3-KAOSBIRU.png',
             'image4' => '4-KAOSBIRU.png',
             'image5' => '4-KAOSBIRU.png',
-            'price' => 95000,
-            'stock' => 10,
+            'price' => 95000
         ]);
 
         Merch::create([
@@ -36,8 +35,7 @@ class MerchSeeder extends Seeder
             'image3' => '3-KAOSPUTIH.png',
             'image4' => '4-KAOSPUTIH.png',
             'image5' => '5-KAOSPUTIH.png',
-            'price' => 95000,
-            'stock' => 10,
+            'price' => 95000
         ]);
 
         Merch::create([
@@ -50,8 +48,7 @@ class MerchSeeder extends Seeder
             'image4' => '4-STICKER.png',
             'image5' => '5-STICKER.png',
             
-            'price' => 15000,
-            'stock' => 10,
+            'price' => 15000
         ]);
 
         Merch::create([
@@ -64,8 +61,7 @@ class MerchSeeder extends Seeder
             'image4' => '4-TOTEBAG.png',
             'image5' => '5-TOTEBAG.png',
             
-            'price' => 85000,
-            'stock' => 10,
+            'price' => 85000
         ]);
 
         Merch::create([
@@ -77,8 +73,7 @@ class MerchSeeder extends Seeder
             'image3' => '3-TUMBLER.png',
             'image4' => '4-TUMBLER.png',
             'image5' => '5-TUMBLER.png',
-            'price' => 65000,
-            'stock' => 10,
+            'price' => 65000
         ]);
         
         Merch::create([
@@ -90,8 +85,7 @@ class MerchSeeder extends Seeder
             'image3' => '3-BUNDLE1.png',
             'image4' => '4-BUNDLE1.png',
             'image5' => '5-BUNDLE1.png',
-            'price' => 115000,
-            'stock' => 10,
+            'price' => 115000
         ]);
         
         Merch::create([
@@ -103,8 +97,7 @@ class MerchSeeder extends Seeder
             'image3' => '3-BUNDLE2.png',
             'image4' => '4-BUNDLE2.png',
             'image5' => '5-BUNDLE2.png',
-            'price' => 180000,
-            'stock' => 10,
+            'price' => 180000
         ]);
 
         Merch::create([
@@ -116,8 +109,7 @@ class MerchSeeder extends Seeder
             'image3' => '3-BUNDLE3.png',
             'image4' => '4-BUNDLE3.png',
             'image5' => '5-BUNDLE3.png',
-            'price' => 240000,
-            'stock' => 10,
+            'price' => 240000
         ]);
     }
 }

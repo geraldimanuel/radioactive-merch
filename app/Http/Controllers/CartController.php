@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\DetailTransaction;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class   CartController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,14 +23,10 @@ class   CartController extends Controller
         //
     }
 
-    public function removeFromCart($id_merch) {
+    public function removeFromCart($cart_id) {
 
         if(Auth::check()){
-           $cart = session('cart');
-            unset($cart[$id_merch]);
-            session(['cart' => $cart]);
-
-            Cart::where('merch_id', $id_merch)->delete();
+            Cart::where('id', $cart_id)->delete();
 
             return redirect('/cart');
         } else {
@@ -41,93 +38,62 @@ class   CartController extends Controller
     public function checkout(Request $request) {
 
         if(Auth::check()){
+            $logged_id = auth()->user()->id;
 
-            if (session('cart') == null) {
-                $detailTrans = DetailTransaction::where('order_id', session('order_id'))->get();
-                $order = Order::where('id', session('order_id'))->first();
+            $user = User::find($logged_id);
+
+            $existing_order = Order::find($user->name);
+
+            // dd($existing_order);
+
+            if (isset($existing_order)) {
+                $detailTrans = DetailTransaction::where('order_id', $existing_order->id)->latest();
                 $merchs = Merch::all();
+                // $order = Order::where('id', $existing_order)->first();
 
                 return view('Merch.checkout', [
-                    'detailTrans' => $detailTrans,
-                    'order' => $order,
-                    'merchs' => $merchs
+                            'detailTrans' => $detailTrans,
+                            'order' => $existing_order,
+                            'merchs' => $merchs
                 ]);
             } else {
-                $cart = session('cart');
+                $cart = Cart::where('user_id', '=', $logged_id)->get();
                 $total_qty = 0;
                 $total_price = 0;
                 $grandTotal = 0;
 
+                // dd($cart);
+
                 $order_id = Order::new_order();
-                session(['order_id' => $order_id]);
 
                 foreach ($cart as $key) {
-                    $merch = Merch::find($key->id);
-                    $merch->stock = $merch->stock - 1;
+                    $merch = Merch::find($key->merch_id);
                     $merch->save();
 
-                    Cart::where('merch_id', $key->id)->delete();
+                    // Cart::where('id', $key->id)->delete();
 
-                    $total_price = $key->price * $key->qty;
+                    $total_price = $merch->price * $key->qty;
 
-                    DetailTransaction::new_transaction($key->id, $order_id, $key->qty, $total_price);
+                    DetailTransaction::new_transaction($key->merch_id, $order_id, $key->qty, $total_price);
 
                     $total_qty += $key->qty;
                     $grandTotal += $total_price;
                 }
 
                 Order::where('id', $order_id)->update([
-                    // 'qty' => $total_qty,
                     'total_price' => $grandTotal
                 ]);
-
-                session()->forget('cart');
 
                 $detailTrans = DetailTransaction::where('order_id', $order_id)->get();
                 $merchs = Merch::all();
                 $order = Order::where('id', $order_id)->first();
 
-                // dd($order);
-
-                // // $request->request->add(['total_price' => $request->qty * 75000, 'status' => 'Unpaid']);
-                // // $order = Order::create($request->all());
-
-                // // Set your Merchant Server Key
-                // \Midtrans\Config::$serverKey = config('midtrans.server_key');
-                // // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-                // \Midtrans\Config::$isProduction = false;
-                // // Set sanitization on (default)
-                // \Midtrans\Config::$isSanitized = true;
-                // // Set 3DS transaction for credit card to true
-                // \Midtrans\Config::$is3ds = true;
-
-                // $params = array(
-                //     'transaction_details' => array(
-                //         'order_id' => $order->id,
-                //         'gross_amount' => $order->total_price,
-                //     ),
-                //     'customer_details' => array(
-                //         'first_name' => $order->name,
-                //         'last_name' => '',
-                //         'email' => $order->email,
-                //         'phone' => $order->phone,
-                //     ),
-                // );
-
-                // $snapToken = \Midtrans\Snap::getSnapToken($params);
-                // // dd($snapToken);
-                // return view('Merch.checkout', compact('snapToken','detailTrans', 'merchs', 'order'));
-                // // return view('Tickets.checkout', compact('order', 'snapToken'));
-
-
-                // // ->with([
-                // //     'detailTrans' => $detailTrans,
-                // //     'merchs' => $merches,
-                // //     'order' => $order_details,
-                // //     'snapToken' => $snapToken
-                    
-                // // ]);
-            }   
+                return view('Merch.checkout', [
+                            'detailTrans' => $detailTrans,
+                            'order' => $order,
+                            'merchs' => $merchs
+                ]);
+            }
         } else {
             return redirect('/login');
         }
@@ -144,6 +110,8 @@ class   CartController extends Controller
             'orders' => $orders,
             'detailTrans' => $detailTrans
         ]);
+
+        
     }
 
     /**
