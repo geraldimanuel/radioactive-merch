@@ -61,14 +61,14 @@ class OrderController extends Controller
             Order::create([
                 'name' => $request->name,
                 'email' => $request->email,
-                'phone' => $request->wa,
+                'wa' => $request->wa,
                 'line' => $request->line,
                 'image' => $request->file('payment_proof')->storePublicly('payment_images_merch', 'public'),
                 'total_price' => $request->total_price,
                 'status' => 'Unpaid'
             ]);
 
-            return view('Merch.order');
+            return view('Merch.list');
         } else {
             return redirect('/login');
         }

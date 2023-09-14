@@ -14,7 +14,7 @@ class Order extends Model
         $order = Order::create([
             'name' => auth()->user()->name,
             'email' => auth()->user()->email,
-            'phone' => 0,
+            'wa' => 'aaaa',
             'line' => 'al',
             'image' => 'adad',
             'total_price' => 0,
