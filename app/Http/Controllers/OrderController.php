@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\User;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use Illuminate\Http\Request;
@@ -33,7 +34,9 @@ class OrderController extends Controller
     
     public function order(Request $request) {
         if(Auth::check()){
-            Order::create([
+            $logged_mail = auth()->user()->email;
+         
+            Order::where('email', $logged_mail)->update([
                 'name' => $request->name,
                 'email' => $request->email,
                 'wa' => $request->wa,

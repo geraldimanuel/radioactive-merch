@@ -53,7 +53,6 @@ class CartController extends Controller
             if (isset($existing_order)) {
                 $detailTrans = DetailTransaction::where('order_id', $existing_order->id)->latest();
                 $merchs = Merch::all();
-                // $order = Order::where('id', $existing_order)->first();
 
                 return view('Merch.checkout', [
                             'detailTrans' => $detailTrans,
@@ -74,7 +73,6 @@ class CartController extends Controller
                     $merch = Merch::find($key->merch_id);
                     $merch->save();
 
-                    // Cart::where('id', $key->id)->delete();
 
                     $total_price = $merch->price * $key->qty;
 
