@@ -32,12 +32,6 @@
         <div class="flex items-center gap-20 pt-[11rem] flex-wrap justify-center">
             <div id="indicators-carousel" class="relative w-[350px] h-[400px] justify-center" data-carousel="static">
                 <div class="m-auto relative overflow-hidden w-5/6 h-full rounded-lg border-[1px] border-white">
-
-                    <!-- @foreach($merch as $obj)
-                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                        <img src=" " class="absolute block w-full object-contain">
-                    </div>
-                    @endforeach -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
                         <img src="/images/{{$merch->description}}/{{$merch->image1}}"
                             class="absolute block w-full h-full object-fill">
@@ -59,7 +53,7 @@
                     @if ($merch->id == 6 || $merch->id == 7 || $merch->id == 8)
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
                         <img src="/images/{{$merch->description}}/{{$merch->image5}}"
-                            class="absolute block w-full object-contain">
+                            class="absolute block h-full w-full object-fill">
                     </div>
                     @endif
                 </div>
@@ -116,7 +110,7 @@
                     </span>
                 </button>
             </div>
-            <div class="grid gap-3 w-4/5">
+            <div class="grid gap-3 \sm:w-4/5">
                 <div class="mt-5">
                     <p class="mt-5 font-taruno text-white text-lg">{{$merch->name}}</p>
                     @if($merch->id == 3)
@@ -211,17 +205,17 @@
 
                 <form class="grid gap-6 w-full" action="{{url('/cart/'.$merch->id)}}" method="post">
                     @if($merch->id == 7 || $merch->id == 8)
-                    <div class=" w-full">
+                    <div class="">
                         <p class="text-white text-[15px]"><b><i>Choose ONE of your favorite tee!</i></b></p>
                         <div class="flex gap-1">
                             <div>
-                                <ul class="grid w-full gap-3 md:grid-cols-2">
+                                <ul class="grid w-[500px] gap-3 md:grid-cols-2">
                                     <li>
                                         <input type="radio" id="tee" name="tee" value="Turbulent Revolution Tee"
                                             class="hidden peer w-full" required>
                                         <label for="tee"
-                                            class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                            <img src="images/{{  $merch->image  }}" />
+                                            class="inline-flex items-center gap-3 w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            <img class="w-1/12" src="/images/KAOSBIRU/1-KAOSBIRU.png" />
                                             <div class="block">
                                                 <div class="w-full">Turbulent Revolution Tee</div>
                                             </div>
@@ -231,8 +225,8 @@
                                         <input type="radio" id="tee1" name="tee" value="Celestial Revy Tee"
                                             class="hidden peer">
                                         <label for="tee1"
-                                            class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                            <img src="images/{{  $merch->image  }}" />
+                                            class="inline-flex items-center gap-3 w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            <img class="w-1/12" src="/images/KAOSPUTIH/1-KAOSPUTIH.png" />
                                             <div class="block">
                                                 <div class="w-full">Celestial Revy Tee</div>
                                             </div>
@@ -406,7 +400,7 @@
             </ul>
         </div>
     </div>
-    <div class="mt-[80px] flex justify-center text-center w-full align-middle md:overflow-x-scroll">
+    <div class="mt-[80px] flex justify-center text-center w-full align-middle">
         @if($merch->table && $merch->id == 1)
         <table border="1" cellpadding="10" class="border-white border-[1px] w-4/5 lg:w-1/2">
             <tr class="border-[1px] bg-[#0E0EC0]">
