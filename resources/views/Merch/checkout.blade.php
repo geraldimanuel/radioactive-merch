@@ -15,47 +15,9 @@
     <title>List Merch</title>
 </head>
 
-<body class="bg-black h-screen">
-    <div class="flex flex-wrap justify-center gap-2 w-full pt-[10rem] pb-10">
-        <!-- <div class="w-auto form-content shadow-md justify-betwwn px-8 py-3 mb-10 font-pathway shadow-[#FFF000]">
-            <div class="text-center">
-                <h2>Detail Transaksi</h2>
-                <table border="1" class="text-left" cellpadding="10">
-                    <tr>
-                        <th>No</th>
-                        <th>Name</th>
-                        <th>Quantity</th>
-                        <th>Total Price</th>
-                    </tr>
-                    <?php
-                                $no = 1;
-                                $total = 0;
-                                ?>
-                    @foreach ($detailTrans as $obj)
-                    <tr>
-                        <td>{{ $no++ }}</td>
-                        @foreach ($merchs as $merch)
-                        @if ($merch->id == $obj->merch_id)
-                        <td>{{ $merch->name }}</td>
-                        @break
-                        @endif
-                        @endforeach
+<body class="bg-black h-full">
+    <div class="flex flex-wrap justify-center gap-2 w-full pt-[10rem] pb-10 text-white">
 
-                    </tr>
-                    <?php $total += $obj->total_price; ?>
-                    @endforeach
-                    <tr>
-                        <td colspan="3">Total</td>
-                        <td>{{ $total }}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">Status</td>
-                        <td>{{ $order->status }}</td>
-                    </tr>
-                </table>
-                @csrf
-            </div>
-        </div> -->
         <div class="flex max-w-2xl mx-auto">
             <div>
                 <form action="/order" enctype="multipart/form-data" method="post"
@@ -72,22 +34,22 @@
                                 <th>Total Price</th>
                             </tr>
                             <?php
-                                $no = 1;
-                                $total = 0;
-                                ?>
+                            $no = 1;
+                            $total = 0;
+                            ?>
                             @foreach ($detailTrans as $obj)
-                            <tr>
-                                <td>{{ $no++ }}</td>
-                                @foreach ($merchs as $merch)
-                                    @if ($merch->id == $obj->merch_id)
-                                        <td>{{ $merch->name }}</td>
-                                                @endif
-                                @endforeach
-                    <td>{{ $obj->size }}</td>
-                    <td>{{ $obj->qty }}</td>
-                    <td>{{ $obj->total_price }}</td>
-                            </tr>
-                            <?php $total += $obj->total_price; ?>
+                                <tr>
+                                    <td>{{ $no++ }}</td>
+                                    @foreach ($merchs as $merch)
+                                        @if ($merch->id == $obj->merch_id)
+                                            <td>{{ $merch->name }}</td>
+                                        @endif
+                                    @endforeach
+                                    <td>{{ $obj->size }}</td>
+                                    <td>{{ $obj->qty }}</td>
+                                    <td>{{ $obj->total_price }}</td>
+                                </tr>
+                                <?php $total += $obj->total_price; ?>
                             @endforeach
                             <tr>
                                 <td colspan="3">Total</td>
@@ -106,7 +68,7 @@
                             <h2 class="h-[50px]">Data Pribadi</h2>
                         </div>
                         @if (session()->has('success'))
-                        <div class="text-sm text-green-500" role="alert">{{ session('success') }}</div>
+                            <div class="text-sm text-green-500" role="alert">{{ session('success') }}</div>
                         @endif
                         <div>
                             <div class="mb-1">
@@ -118,7 +80,6 @@
                                         class="block @error('tim1_penyiar1') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline"
                                         type="text" placeholder="nama" name="name">
                                     @error('tim1_penyiar1')
-
                                     @enderror
                                 </div>
                             </div>
@@ -133,7 +94,6 @@
                                     class="block @error('tim1_institusi') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline"
                                     type="text" placeholder="email" name="email">
                                 @error('tim1_institusi')
-
                                 @enderror
                             </div>
                         </div>
@@ -182,13 +142,12 @@
                         class="block @error('payment_proof') border-red-500 @enderror w-full mb-5 text-xs text-gray-900 border  cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         type="file" accept="image/*" name="payment_proof">
                     @error('payment_proof')
-
                     @enderror
                 </div>
             </div>
             <div class="">
-                <button class="button-submit font-taruno text-white bg-[#0E0EC0] w-full text-sm px-5 py-1" type="submit"
-                    onclick="return confirm('Pastikan data yang dimasukkan benar adanya')">
+                <button class="button-submit font-taruno text-white bg-[#0E0EC0] w-full text-sm px-5 py-1"
+                    type="submit" onclick="return confirm('Pastikan data yang dimasukkan benar adanya')">
                     Send
                 </button>
             </div>

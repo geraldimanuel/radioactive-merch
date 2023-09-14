@@ -23,15 +23,19 @@ class CartController extends Controller
         //
     }
 
-    public function removeFromCart($cart_id) {
+    public function removeFromCart($id_merch) {
 
         if(Auth::check()){
-            Cart::where('id', $cart_id)->delete();
-
-            return redirect('/cart');
-        } else {
-            return redirect('/login');
-        }
+            $cart = session('cart');
+             unset($cart[$id_merch]);
+             session(['cart' => $cart]);
+ 
+             Cart::where('merch_id', $id_merch)->delete();
+ 
+             return redirect('/cart');
+         } else {
+             return redirect('/login');
+     }
 
     }
 

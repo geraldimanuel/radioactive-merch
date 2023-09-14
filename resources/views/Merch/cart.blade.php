@@ -27,7 +27,7 @@
             <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer" href="/logout">LOGOUT</a>
         @endauth
     </nav>
-    <div class="flex flex-wrap justify-center pb-[50px] pt-[200px] h-[800px]">
+    <div class="flex flex-wrap justify-center pb-[50px] pt-[200px] h-[800px] text-white">
         <div class="text-center flex">
             <div class="w-full">
                 @if (empty($cart))
@@ -36,7 +36,7 @@
                             <p class="font-taruno text-xl">Cart is empty</p>
                             <div class="mt-[20px]">
                                 <a class="text-[.8rem] hover:text-[#3838ff] rounded-[6px] no-underline text-white"
-                                    href="{{ url('/merch') }}">Back to Merch</a>
+                                    href="{{ url('/') }}">Back to Merch</a>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
                     </div>
                 </a>
             </div>
-            <a class="text-[.8rem] hover:text-[#3838ff] no-underline text-white" href='/'>Back to
+            <a class="text-[.8rem] hover:text-[#3838ff] no-underline text-white" href="{{ url('/') }}">Back to
                 Merch</a>
         </div>
         @endif
