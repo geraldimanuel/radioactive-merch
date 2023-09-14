@@ -86,6 +86,7 @@
         <div class="flex items-center gap-20 pt-[11rem] flex-wrap justify-center">
             <div id="indicators-carousel" class="relative w-[350px] h-[400px] justify-center" data-carousel="static">
                 <div class="m-auto relative overflow-hidden w-5/6 h-full rounded-lg border-[1px] border-white">
+
                     <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
                         <img src="/images/{{ $merch->description }}/{{ $merch->image1 }}"
                             class="absolute block w-full h-full object-fill">
@@ -107,15 +108,12 @@
                     @if ($merch->id == 6 || $merch->id == 7 || $merch->id == 8)
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
                             <img src="/images/{{ $merch->description }}/{{ $merch->image5 }}"
-                                class="absolute block h-full w-full object-fill">
+                                class="absolute block w-full object-contain">
                         </div>
                     @endif
                 </div>
                 <div class="z-30 flex gap-4 overflow-hidden justify-center mt-[20px]">
-                    <!-- @foreach ($merch as $obj)
-<img type="button" class="w-[50px] h-[70px] border-[1px] border-white" aria-current="true"
-                        aria-label="Slide 1" data-carousel-slide-to="0" src="images/merch1.jpg" />
-@endforeach -->
+
                     <img type="button" class="w-[50px] h-[70px] border-[1px] border-white" aria-current="true"
                         aria-label="Slide 1" data-carousel-slide-to="0"
                         src="/images/{{ $merch->description }}/{{ $merch->image1 }}" />
@@ -164,18 +162,13 @@
                     </span>
                 </button>
             </div>
-            <div class="pl-2 md:pl-0">
+            <div class="grid gap-3 w-4/5">
                 <div class="mt-5">
                     <p class="mt-5 font-taruno text-white text-lg">{{ $merch->name }}</p>
                     @if ($merch->id == 3)
                         <p class="text-[11px] font-taruno text-gray-500"><i>Illustrated by Radioactive</i></p>
-                    <p class="mt-5 font-taruno text-white text-lg">{{ $merch->name }}</p>
-                    @if ($merch->id == 3)
-                        <p class="text-[11px] font-taruno text-gray-500"><i>Illustrated by Radioactive</i></p>
-                    @endif
-                    @if ($merch->id == 4)
-                        <p class="text-[11px] font-taruno text-gray-500"><i>With Zipper</i></p>
-                    @if ($merch->id == 4)
+                        <p class="mt-5 font-taruno text-white text-lg">{{ $merch->name }}</p>
+                    @elseif ($merch->id == 4)
                         <p class="text-[11px] font-taruno text-gray-500"><i>With Zipper</i></p>
                     @endif
                 </div>
@@ -187,15 +180,7 @@
                             class="h-[2px] w-[126px] cursor-pointer no-underline text-white font-taruno text-[13px]"
                             aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0" class="relative">
                             <p class="absolute top-1">Description</p>
-                            <!-- @if (!$merch->id == 6 || !$merch->id == 7 || !$merch->id == 8)
--->
 
-                            <!--
-@else
--->
-                            <!-- <p class="absolute top-1">What will you get?</p> -->
-                            <!--
-@endif -->
                         </div>
                         <div type="button"
                             class="h-[2px] w-[100px] cursor-pointer no-underline text-white font-taruno text-[13px]"
@@ -207,8 +192,7 @@
                     <div class="relative w-full h-[110px] overflow-hidden">
 
                         <div class="hidden duration-700 ease-in-out" data-carousel-item="">
-                            @if ($merch->id == 6 || $merch->id == 7 || $merch->id == 8)
-                                <p class="text-white text-[17px]"><i>What will you get?</i></p>
+
                             @if ($merch->id == 6 || $merch->id == 7 || $merch->id == 8)
                                 <p class="text-white text-[17px]"><i>What will you get?</i></p>
                             @endif
@@ -219,67 +203,37 @@
                                     <li class="text-white text-[15px]">6 sizes XS - XXL</li>
                                     <li class="text-white text-[15px]">Model is 170cm and wearing size M</li>
                                     </li>
-                                @endif
-                                @if ($merch->id == 2)
+                                @elseif ($merch->id == 2)
                                     <li class="text-white text-[15px]">Premium soft cotton combed 24s</li>
                                     <li class="text-white text-[15px]">Regular cut and easy to wear</li>
                                     <li class="text-white text-[15px]">7 sizes S - 4XL</li>
                                     <li class="text-white text-[15px]">Model is 155cm and wearing size M</li>
-                                @if ($merch->id == 2)
-                                    <li class="text-white text-[15px]">Premium soft cotton combed 24s</li>
-                                    <li class="text-white text-[15px]">Regular cut and easy to wear</li>
-                                    <li class="text-white text-[15px]">7 sizes S - 4XL</li>
-                                    <li class="text-white text-[15px]">Model is 155cm and wearing size M</li>
-                                @endif
-                                @if ($merch->id == 3)
+                                @elseif ($merch->id == 3)
                                     <li class="text-white text-[15px]">Size: A6</li>
                                     <li class="text-white text-[15px]">Material: <i>Glossy Finish</i></li>
                                     <li class="text-white text-[15px]">Type: <i>Kisscut</i></li>
-                                @if ($merch->id == 3)
-                                    <li class="text-white text-[15px]">Size: A6</li>
-                                    <li class="text-white text-[15px]">Material: <i>Glossy Finish</i></li>
-                                    <li class="text-white text-[15px]">Type: <i>Kisscut</i></li>
-                                @endif
-                                @if ($merch->id == 4)
+                                @elseif ($merch->id == 4)
                                     <li class="text-white text-[15px]">Material: <i>Canvas Twill</i></li>
                                     <li class="text-white text-[15px]">Size: 40cm × 33 × 7cm</li>
-                                @if ($merch->id == 4)
-                                    <li class="text-white text-[15px]">Material: <i>Canvas Twill</i></li>
-                                    <li class="text-white text-[15px]">Size: 40cm × 33 × 7cm</li>
-                                @endif
-                                @if ($merch->id == 5)
-                                    <li class="text-white text-[15px]">Material: <i>Stainless Steel</i></li>
+                                @elseif ($merch->id == 5)
+                                    <li class="text-white text-[15px]">Material: <i>Stainless Steel</i>
+                                    </li>
                                     <li class="text-white text-[15px]">Capacity: 380ml</i></li>
                                     <li class="text-white text-[15px]">Weight: 200g</li>
                                     <li class="text-white text-[15px]">Dimension: 6cm × 8cm × 12cm</li>
-                                @if ($merch->id == 5)
-                                    <li class="text-white text-[15px]">Material: <i>Stainless Steel</i></li>
-                                    <li class="text-white text-[15px]">Capacity: 380ml</i></li>
-                                    <li class="text-white text-[15px]">Weight: 200g</li>
-                                    <li class="text-white text-[15px]">Dimension: 6cm × 8cm × 12cm</li>
-                                @endif
-                                @if ($merch->id == 6)
+                                @elseif ($merch->id == 6)
                                     <li class="text-white text-[15px]">Revolution Tote Bag</i></li>
                                     <li class="text-white text-[15px]">Revy Eggo Tumbler</li>
                                     <li class="text-white text-[15px]">Revolution Sticker Pack</li>
-                                @if ($merch->id == 6)
-                                    <li class="text-white text-[15px]">Revolution Tote Bag</i></li>
-                                    <li class="text-white text-[15px]">Revy Eggo Tumbler</li>
-                                    <li class="text-white text-[15px]">Revolution Sticker Pack</li>
-                                @endif
-                                @if ($merch->id == 7 || $merch->id == 8)
-                                    <li class="text-white text-[15px]">Revolution Tote Bag</i></li>
+                                @elseif ($merch->id == 7 || $merch->id == 8)
+                                    <li class="text-white text-[15px]">Revolution Tote Bag</i>
+                                    </li>
                                     <li class="text-white text-[15px]">Revolution Tote Bag</li>
-                                    <li class="text-white text-[15px]">Revolution Sticker Pack</li>
-                                @if ($merch->id == 7 || $merch->id == 8)
-                                    <li class="text-white text-[15px]">Revolution Tote Bag</i></li>
-                                    <li class="text-white text-[15px]">Revolution Tote Bag</li>
-                                    <li class="text-white text-[15px]">Revolution Sticker Pack</li>
-                                @endif
-                                @if ($merch->id == 8)
-                                    <li class="text-white text-[15px]">Revy Eggo Tumbler</li>
-                                @if ($merch->id == 8)
-                                    <li class="text-white text-[15px]">Revy Eggo Tumbler</li>
+                                    <li class="text-white text-[15px]">Revolution Sticker Pack
+                                    </li>
+                                @elseif ($merch->id == 8)
+                                    <li class="text-white text-[15px]">Revy Eggo
+                                        Tumbler</li>
                                 @endif
 
                             </ul>
@@ -297,17 +251,17 @@
 
                 <form class="grid gap-6 w-full" action="{{ url('/cart/' . $merch->id) }}" method="post">
                     @if ($merch->id == 7 || $merch->id == 8)
-                        <div class="">
+                        <div class=" w-full">
                             <p class="text-white text-[15px]"><b><i>Choose ONE of your favorite tee!</i></b></p>
                             <div class="flex gap-1">
                                 <div>
-                                    <ul class="grid w-[500px] gap-3 md:grid-cols-2">
+                                    <ul class="grid w-full gap-3 md:grid-cols-2">
                                         <li>
                                             <input type="radio" id="tee" name="tee"
                                                 value="Turbulent Revolution Tee" class="hidden peer w-full" required>
                                             <label for="tee"
-                                                class="inline-flex items-center gap-3 w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                <img class="w-1/12" src="/images/KAOSBIRU/1-KAOSBIRU.png" />
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <img src="images/{{ $merch->image }}" />
                                                 <div class="block">
                                                     <div class="w-full">Turbulent Revolution Tee</div>
                                                 </div>
@@ -317,8 +271,8 @@
                                             <input type="radio" id="tee1" name="tee"
                                                 value="Celestial Revy Tee" class="hidden peer">
                                             <label for="tee1"
-                                                class="inline-flex items-center gap-3 w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                <img class="w-1/12" src="/images/KAOSPUTIH/1-KAOSPUTIH.png" />
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <img src="images/{{ $merch->image }}" />
                                                 <div class="block">
                                                     <div class="w-full">Celestial Revy Tee</div>
                                                 </div>
@@ -498,7 +452,7 @@
             </ul>
         </div>
     </div>
-    <div class="mt-[80px] flex justify-center text-center text-white dark:text-gray-800 w-full align-middle">
+    <div class="mt-[80px] flex justify-center text-center w-full align-middle md:overflow-x-scroll">
         @if ($merch->table && $merch->id == 1)
             <table border="1" cellpadding="10" class="border-white border-[1px] w-4/5 lg:w-1/2">
                 <tr class="border-[1px] bg-[#0E0EC0]">
@@ -558,59 +512,7 @@
                     <td>105 000</td>
                 </tr>
             </table>
-        @endif
-        @if ($merch->table && $merch->id == 2)
-            <table border="1" cellpadding="10" class="border-white border-[1px] w-1/2">
-                <tr class="border-[1px] bg-[#0E0EC0]">
-                    <th>Size</th>
-                    <th>Width<br>(cm)</th>
-                    <th>Length<br>(cm)</th>
-                    <th>Price<br>(Rp)</th>
-                </tr>
-                <tr>
-                    <td>S</td>
-                    <td>47</td>
-                    <td>70</td>
-                    <td>95 000</td>
-                </tr>
-                <tr>
-                    <td>M</td>
-                    <td>51</td>
-                    <td>71</td>
-                    <td>95 000</td>
-                </tr>
-                <tr>
-                    <td>L</td>
-                    <td>55</td>
-                    <td>73</td>
-                    <td>95 000</td>
-                </tr>
-                <tr>
-                    <td>XL</td>
-                    <td>59</td>
-                    <td>76</td>
-                    <td>95 000</td>
-                </tr>
-                <tr>
-                    <td>2XL</td>
-                    <td>64</td>
-                    <td>80</td>
-                    <td>100 000</td>
-                </tr>
-                <tr>
-                    <td>3XL</td>
-                    <td>67</td>
-                    <td>83</td>
-                    <td>105 000</td>
-                </tr>
-                <tr>
-                    <td>4XL</td>
-                    <td>70</td>
-                    <td>86</td>
-                    <td>110 000</td>
-                </tr>
-            </table>
-        @if ($merch->table && $merch->id == 2)
+        @elseif ($merch->table && $merch->id == 2)
             <table border="1" cellpadding="10" class="border-white border-[1px] w-1/2">
                 <tr class="border-[1px] bg-[#0E0EC0]">
                     <th>Size</th>
@@ -736,14 +638,15 @@
                     </a>
                     <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank"
                         class="text-white">
-                    <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank"
-                        class="text-white">
-                        <svg class="h-12 w-12 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path
-                                d="M12,20.55c-.3,0-7.279-.006-9.115-.5A3.375,3.375,0,0,1,.5,17.665,29.809,29.809,0,0,1,0,12,29.824,29.824,0,0,1,.5,6.334,3.375,3.375,0,0,1,2.885,3.948c1.836-.492,8.819-.5,9.115-.5s7.279.006,9.115.5A3.384,3.384,0,0,1,23.5,6.334,29.97,29.97,0,0,1,24,12a29.97,29.97,0,0,1-.5,5.666,3.384,3.384,0,0,1-2.388,2.386C19.279,20.544,12.3,20.55,12,20.55Zm0-16.1c-.072,0-7.146.006-8.857.464A2.377,2.377,0,0,0,1.464,6.593,29.566,29.566,0,0,0,1,12a29.566,29.566,0,0,0,.464,5.407,2.377,2.377,0,0,0,1.679,1.679c1.711.458,8.785.464,8.857.464s7.146-.006,8.857-.464a2.377,2.377,0,0,0,1.679-1.679A29.66,29.66,0,0,0,23,12a29.66,29.66,0,0,0-.464-5.407h0a2.377,2.377,0,0,0-1.679-1.679C19.146,4.456,12.071,4.45,12,4.45ZM9.7,15.95a.5.5,0,0,1-.5-.5V8.55a.5.5,0,0,1,.75-.433l5.975,3.45a.5.5,0,0,1,0,.866L9.95,15.883A.5.5,0,0,1,9.7,15.95Zm.5-6.534v5.168L14.675,12Z">
-                            </path>
-                        </svg>
-                    </a>
+                        <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank"
+                            class="text-white">
+                            <svg class="h-12 w-12 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12,20.55c-.3,0-7.279-.006-9.115-.5A3.375,3.375,0,0,1,.5,17.665,29.809,29.809,0,0,1,0,12,29.824,29.824,0,0,1,.5,6.334,3.375,3.375,0,0,1,2.885,3.948c1.836-.492,8.819-.5,9.115-.5s7.279.006,9.115.5A3.384,3.384,0,0,1,23.5,6.334,29.97,29.97,0,0,1,24,12a29.97,29.97,0,0,1-.5,5.666,3.384,3.384,0,0,1-2.388,2.386C19.279,20.544,12.3,20.55,12,20.55Zm0-16.1c-.072,0-7.146.006-8.857.464A2.377,2.377,0,0,0,1.464,6.593,29.566,29.566,0,0,0,1,12a29.566,29.566,0,0,0,.464,5.407,2.377,2.377,0,0,0,1.679,1.679c1.711.458,8.785.464,8.857.464s7.146-.006,8.857-.464a2.377,2.377,0,0,0,1.679-1.679A29.66,29.66,0,0,0,23,12a29.66,29.66,0,0,0-.464-5.407h0a2.377,2.377,0,0,0-1.679-1.679C19.146,4.456,12.071,4.45,12,4.45ZM9.7,15.95a.5.5,0,0,1-.5-.5V8.55a.5.5,0,0,1,.75-.433l5.975,3.45a.5.5,0,0,1,0,.866L9.95,15.883A.5.5,0,0,1,9.7,15.95Zm.5-6.534v5.168L14.675,12Z">
+                                </path>
+                            </svg>
+                        </a>
                 </div>
             </div>
             <div class="flex justify-center md:justify-end items-center w-full mb-10 md:mb-0">

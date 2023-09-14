@@ -119,14 +119,10 @@
 
                             <tr class="border-b-[1px]">
                                 <!-- <td>{{ $no++ }}</td> -->
-                                <td class="flex flex-wrap gap-3 h-full justify-left items-center">
-                                    <img src="/images/{{$merch->description}}//{{$merch->image1}}"
-                                    class="h-[150px] w-auto object-cover" />
-                                    <div class="flex mr-5 gap-0">
-                                        <div>
-                                            <p class="text-left h-5">{{ $obj->name }}</p>
-                                            <p class="text-left m-0 text-gray-500 text-[11px]">{{ $obj->tee}}</p>
-                                        </div>
+                                <td class="flex h-full justify-left items-center">
+                                    <img src="/images/img2.jpg" class="h-[150px] w-auto object-fill" />
+                                    <div class="flex ml-5">
+                                        <p class="text-center">{{ $merch->name }}</p>
                                     </div>
                                 </td>
                                 <!-- <td>{{ $merch->name }}</td> -->

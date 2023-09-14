@@ -69,7 +69,6 @@ class MerchController extends Controller
             $cart = Cart::where('user_id', '=', $logged_id)->get();
             $flag = 'false';
             $size = $request->size;
-            $tee = $request->tee;
 
             // dd($request->size);
 

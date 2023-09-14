@@ -152,7 +152,7 @@
             <div class="flex flex-wrap justify-center w-">
                 @foreach($merch as $obj)
                 <a href="{{url('/item/'.$obj->id)}}"
-                    class="m-[30px] mt-[6rem] justify-center content-center gap-10 no-underline">
+                    class="mt-[6rem] p-[30px] justify-center content-center gap-10 no-underline">
                     <div id="item-img"
                         class=" mb-[7rem] w-[250px] h-[350px] border-solid border-[1px] border-white transform transition duration-500 hover:scale-[1.03]">
                         <div class="h-full w-full">
