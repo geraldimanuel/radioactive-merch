@@ -40,14 +40,14 @@
             </button>
             <div class="pr-4 hidden space-x-6 lg:inline-block">
                 <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
-                    href="/">HOME</a>
+                    href="https://umnradioactive.com/">HOME</a>
                 <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
-                    href="/voc">VO
+                    href="https://umnradioactive.com/voc">VO
                     CHALLENGE</a>
                 <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
-                    href="/rac">RAC</a>
+                    href="https://umnradioactive.com/rac">RAC</a>
                 <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
-                    href="/closing-night">CLOSING
+                    href="https://umnradioactive.com/closing-night">CLOSING
                     NIGHT</a>
                 <a class="font-taruno text-white text-xs underline underline-offset-4 decoration-[#FFF000] cursor-pointer"
                     href="https://merch.umnradioactive.com/">MERCHANDISE</a>
@@ -62,14 +62,14 @@
                     @click.away=" isOpen = false">
                     <div class="flex flex-col space-y-6">
                         <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
-                            href="/">HOME</a>
+                            href="https://umnradioactive.com/">HOME</a>
                         <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
-                            href="/voc">VO
+                            href="https://umnradioactive.com/voc">VO
                             CHALLENGE</a>
                         <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
-                            href="/rac">RAC</a>
+                            href="https://umnradioactive.com/rac">RAC</a>
                         <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
-                            href="/closing-night">CLOSING
+                            href="https://umnradioactive.com/closing-night">CLOSING
                             NIGHT</a>
                         <a class="font-taruno text-black text-xs underline underline-offset-4 decoration-[#0E0EC0] cursor-pointer"
                             href="https://merch.umnradioactive.com/">MERCHANDISE</a>
@@ -611,28 +611,34 @@
                 <img src="/images/LOGO RA.webp" alt="" class="h-40 object-contain">
             </div>
             <div class="lg:container flex flex-col justify-evenly py-3 my-10 gap-4 text-center md:text-left">
-                <a href="/"
+                <a href="https://umnradioactive.com/"
                     class="no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer">
                     <h5 class="text-xs font-taruno font-medium text-white">
                         <b>HOME</b>
                     </h5>
                 </a>
-                <a href="#"
+                <a href="https://umnradioactive.com/voc"
                     class="no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer">
                     <h5 class="text-xs font-taruno font-medium text-white">
                         <b>VO CHALLENGE</b>
                     </h5>
                 </a>
-                <a href="#"
+                <a href="https://umnradioactive.com/rac"
                     class="no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer">
                     <h5 class="text-xs font-taruno font-medium text-white">
                         <b>RAC</b>
                     </h5>
                 </a>
-                <a href="#"
+                <a href="https://umnradioactive.com/closing-night"
                     class="no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer">
                     <h5 class="text-xs font-taruno font-medium text-white">
                         <b>CLOSING NIGHT</b>
+                    </h5>
+                </a>
+                <a href="https://merch.umnradioactive.com"
+                    class="no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer">
+                    <h5 class="text-xs font-taruno font-medium text-white">
+                        <b>MERCHANDISE</b>
                     </h5>
                 </a>
             </div>
