@@ -52,8 +52,8 @@
                 <a class="font-taruno text-white text-xs underline underline-offset-4 decoration-[#FFF000] cursor-pointer"
                     href="https://merch.umnradioactive.com/">MERCHANDISE</a>
                 @auth
-                    <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer"
-                        href="/logout">LOGOUT</a>
+                <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer"
+                    href="/logout">LOGOUT</a>
                 @endauth
             </div>
 
@@ -74,8 +74,8 @@
                         <a class="font-taruno text-black text-xs underline underline-offset-4 decoration-[#0E0EC0] cursor-pointer"
                             href="https://merch.umnradioactive.com/">MERCHANDISE</a>
                         @auth
-                            <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer"
-                                href="/logout">LOGOUT</a>
+                        <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer"
+                            href="/logout">LOGOUT</a>
                         @endauth
                     </div>
                 </div>
@@ -99,16 +99,16 @@
                             class="absolute block w-full h-full object-fill">
                     </div>
                     @if ($merch->id == 1 || $merch->id == 2 || $merch->id == 6 || $merch->id == 7 || $merch->id == 8)
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="/images/{{ $merch->description }}/{{ $merch->image4 }}"
-                                class="absolute block w-full h-full object-fill">
-                        </div>
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="/images/{{ $merch->description }}/{{ $merch->image4 }}"
+                            class="absolute block w-full h-full object-fill">
+                    </div>
                     @endif
                     @if ($merch->id == 6 || $merch->id == 7 || $merch->id == 8)
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="/images/{{ $merch->description }}/{{ $merch->image5 }}"
-                                class="absolute block h-full w-full object-fill">
-                        </div>
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="/images/{{ $merch->description }}/{{ $merch->image5 }}"
+                            class="absolute block h-full w-full object-fill">
+                    </div>
                     @endif
                 </div>
                 <div class="z-30 flex gap-4 overflow-hidden justify-center mt-[20px]">
@@ -123,14 +123,14 @@
                         aria-label="Slide 3" data-carousel-slide-to="2"
                         src="/images/{{ $merch->description }}/{{ $merch->image3 }}" />
                     @if ($merch->id == 1 || $merch->id == 2 || $merch->id == 6 || $merch->id == 7 || $merch->id == 8)
-                        <img type="button" class="w-[50px] h-[70px] border-[1px] border-white" aria-current="true"
-                            aria-label="Slide 4" data-carousel-slide-to="3"
-                            src="/images/{{ $merch->description }}/{{ $merch->image4 }}" />
+                    <img type="button" class="w-[50px] h-[70px] border-[1px] border-white" aria-current="true"
+                        aria-label="Slide 4" data-carousel-slide-to="3"
+                        src="/images/{{ $merch->description }}/{{ $merch->image4 }}" />
                     @endif
                     @if ($merch->id == 6 || $merch->id == 7 || $merch->id == 8)
-                        <img type="button" class="w-[50px] h-[70px] border-[1px] border-white" aria-current="true"
-                            aria-label="Slide 5" data-carousel-slide-to="4"
-                            src="/images/{{ $merch->description }}/{{ $merch->image5 }}" />
+                    <img type="button" class="w-[50px] h-[70px] border-[1px] border-white" aria-current="true"
+                        aria-label="Slide 5" data-carousel-slide-to="4"
+                        src="/images/{{ $merch->description }}/{{ $merch->image5 }}" />
                     @endif
                 </div>
 
@@ -141,8 +141,8 @@
                         class="inline-flex items-center justify-center w-10 h-10 rounded-full dark:group-hover:bg-gray-800/60">
                         <svg class="w-4 h-4 text-white dark:text-gray-600" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M5 1 1 5l4 4" />
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 1 1 5l4 4" />
                         </svg>
                         <span class="sr-only">Previous</span>
                     </span>
@@ -154,8 +154,8 @@
                         class="inline-flex items-center justify-center w-10 h-10 rounded-full dark:group-hover:bg-gray-800/60 ">
                         <svg class="w-4 h-4 text-white dark:text-gray-600" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="m1 9 4-4-4-4" />
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 9 4-4-4-4" />
                         </svg>
                         <span class="sr-only">Next</span>
                     </span>
@@ -165,11 +165,11 @@
                 <div class="mt-5">
                     <p class="mt-5 font-taruno text-white text-lg">{{ $merch->name }}</p>
                     @if ($merch->id == 3)
-                        <p class="text-[11px] font-taruno text-gray-500"><i>Illustrated by Radioactive</i></p>
-                        <p class="mt-5 font-taruno text-white text-lg">{{ $merch->name }}</p>
+                    <p class="text-[11px] font-taruno text-gray-500"><i>Illustrated by Radioactive</i></p>
+                    <p class="mt-5 font-taruno text-white text-lg">{{ $merch->name }}</p>
                     @endif
                     @if ($merch->id == 4)
-                        <p class="text-[11px] font-taruno text-gray-500"><i>With Zipper</i></p>
+                    <p class="text-[11px] font-taruno text-gray-500"><i>With Zipper</i></p>
                     @endif
                 </div>
                 <p class="mt-1 font-sans text-white text-sm">Rp {{ $merch->price }}</p>
@@ -191,53 +191,53 @@
 
                         <div class="hidden duration-700 ease-in-out" data-carousel-item="">
                             @if ($merch->id == 6 || $merch->id == 7 || $merch->id == 8)
-                                <p class="text-white text-[17px]"><i>What will you get?</i></p>
+                            <p class="text-white text-[17px]"><i>What will you get?</i></p>
                             @endif
                             <ul class="list-disc ml-[17px]">
                                 @if ($merch->id == 1)
-                                    <li class="text-white text-[15px]">Premium soft cotton combed 24s</li>
-                                    <li class="text-white text-[15px]">Oversized cut and easy to wear</li>
-                                    <li class="text-white text-[15px]">6 sizes XS - XXL</li>
-                                    <li class="text-white text-[15px]">Model is 170cm and wearing size M</li>
-                                    </li>
+                                <li class="text-white text-[15px]">Premium soft cotton combed 24s</li>
+                                <li class="text-white text-[15px]">Oversized cut and easy to wear</li>
+                                <li class="text-white text-[15px]">6 sizes XS - XXL</li>
+                                <li class="text-white text-[15px]">Model is 170cm and wearing size M</li>
+                                </li>
                                 @endif
                                 @if ($merch->id == 2)
-                                    <li class="text-white text-[15px]">Premium soft cotton combed 24s</li>
-                                    <li class="text-white text-[15px]">Regular cut and easy to wear</li>
-                                    <li class="text-white text-[15px]">7 sizes S - 4XL</li>
-                                    <li class="text-white text-[15px]">Model is 155cm and wearing size M</li>
+                                <li class="text-white text-[15px]">Premium soft cotton combed 24s</li>
+                                <li class="text-white text-[15px]">Regular cut and easy to wear</li>
+                                <li class="text-white text-[15px]">7 sizes S - 4XL</li>
+                                <li class="text-white text-[15px]">Model is 155cm and wearing size M</li>
                                 @endif
                                 @if ($merch->id == 3)
-                                    <li class="text-white text-[15px]">Size: A6</li>
-                                    <li class="text-white text-[15px]">Material: <i>Glossy Finish</i></li>
-                                    <li class="text-white text-[15px]">Type: <i>Kisscut</i></li>
+                                <li class="text-white text-[15px]">Size: A6</li>
+                                <li class="text-white text-[15px]">Material: <i>Glossy Finish</i></li>
+                                <li class="text-white text-[15px]">Type: <i>Kisscut</i></li>
                                 @endif
                                 @if ($merch->id == 4)
-                                    <li class="text-white text-[15px]">Material: <i>Canvas Twill</i></li>
-                                    <li class="text-white text-[15px]">Size: 40cm × 33 × 7cm</li>
+                                <li class="text-white text-[15px]">Material: <i>Canvas Twill</i></li>
+                                <li class="text-white text-[15px]">Size: 40cm × 33 × 7cm</li>
                                 @endif
                                 @if ($merch->id == 5)
-                                    <li class="text-white text-[15px]">Material: <i>Stainless Steel</i>
-                                    </li>
-                                    <li class="text-white text-[15px]">Capacity: 380ml</i></li>
-                                    <li class="text-white text-[15px]">Weight: 200g</li>
-                                    <li class="text-white text-[15px]">Dimension: 6cm × 8cm × 12cm</li>
+                                <li class="text-white text-[15px]">Material: <i>Stainless Steel</i>
+                                </li>
+                                <li class="text-white text-[15px]">Capacity: 380ml</i></li>
+                                <li class="text-white text-[15px]">Weight: 200g</li>
+                                <li class="text-white text-[15px]">Dimension: 6cm × 8cm × 12cm</li>
                                 @endif
                                 @if ($merch->id == 6)
-                                    <li class="text-white text-[15px]">Revolution Tote Bag</i></li>
-                                    <li class="text-white text-[15px]">Revy Eggo Tumbler</li>
-                                    <li class="text-white text-[15px]">Revolution Sticker Pack</li>
+                                <li class="text-white text-[15px]">Revolution Tote Bag</i></li>
+                                <li class="text-white text-[15px]">Revy Eggo Tumbler</li>
+                                <li class="text-white text-[15px]">Revolution Sticker Pack</li>
                                 @endif
                                 @if ($merch->id == 7 || $merch->id == 8)
-                                    <li class="text-white text-[15px]">Revolution Tote Bag</i>
-                                    </li>
-                                    <li class="text-white text-[15px]">Revolution Tote Bag</li>
-                                    <li class="text-white text-[15px]">Revolution Sticker Pack
-                                    </li>
+                                <li class="text-white text-[15px]">Revolution Tote Bag</i>
+                                </li>
+                                <li class="text-white text-[15px]">Revolution Tote Bag</li>
+                                <li class="text-white text-[15px]">Revolution Sticker Pack
+                                </li>
                                 @endif
                                 @if ($merch->id == 8)
-                                    <li class="text-white text-[15px]">Revy Eggo Tumbler
-                                    </li>
+                                <li class="text-white text-[15px]">Revy Eggo Tumbler
+                                </li>
                                 @endif
 
                             </ul>
@@ -255,177 +255,168 @@
 
                 <form class="grid gap-6 w-full" action="{{ url('/cart/' . $merch->id) }}" method="post">
                     @if ($merch->id == 7 || $merch->id == 8)
-                        <div class="">
-                            <p class="text-white text-[15px]"><b><i>Choose ONE of your favorite tee!</i></b></p>
-                            <div class="flex gap-1">
-                                <div>
-                                    <ul class="grid w-[400px] md:w-[500px] gap-3 md:grid-cols-2">
+                    <div class="">
+                        <p class="text-white text-[15px]"><b><i>Choose ONE of your favorite tee!</i></b></p>
+                        <div class="flex gap-1">
+                            <div>
+                                <ul class="grid w-[400px] md:w-[500px] gap-3 md:grid-cols-2">
+                                    <li>
+                                        <input type="radio" id="tee" name="tee" value="Turbulent Revolution Tee"
+                                            class="hidden peer w-full" required>
+                                        <label for="tee"
+                                            class="inline-flex items-center gap-3 w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            <img class="w-1/12" src="/images/KAOSBIRU/1-KAOSBIRU.png" />
+                                            <div class="block">
+                                                <div class="w-full">Turbulent Revolution Tee</div>
+                                            </div>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="tee1" name="tee" value="Celestial Revy Tee"
+                                            class="hidden peer">
+                                        <label for="tee1"
+                                            class="inline-flex items-center gap-3 w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                            <img class="w-1/12" src="/images/KAOSPUTIH/1-KAOSPUTIH.png" />
+                                            <div class="block">
+                                                <div class="w-full">Celestial Revy Tee</div>
+                                            </div>
+                                        </label>
+                                    </li>
+                                </ul>
+
+                                <p class="text-white text-[15px] hidden" id="judul"><b><i>Size</i></b></p>
+                                <div id="turbsize" class="hidden">
+                                    <ul class="grid w-full gap-3 md:grid-cols-2 sm:grid-cols-4">
                                         <li>
-                                            <input type="radio" id="tee" name="tee"
-                                                value="Turbulent Revolution Tee" class="hidden peer w-full" required>
-                                            <label for="tee"
-                                                class="inline-flex items-center gap-3 w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                <img class="w-1/12" src="/images/KAOSBIRU/1-KAOSBIRU.png" />
-                                                <div class="block">
-                                                    <div class="w-full">Turbulent Revolution Tee</div>
+                                            <input type="radio" id="XS" name="size" value="XS"
+                                                class="hidden peer w-full" required>
+                                            <label for="XS"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="w-full text-center block">
+                                                    <p class="w-full text-center">XS</p>
                                                 </div>
                                             </label>
                                         </li>
                                         <li>
-                                            <input type="radio" id="tee1" name="tee"
-                                                value="Celestial Revy Tee" class="hidden peer">
-                                            <label for="tee1"
-                                                class="inline-flex items-center gap-3 w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                <img class="w-1/12" src="/images/KAOSPUTIH/1-KAOSPUTIH.png" />
-                                                <div class="block">
-                                                    <div class="w-full">Celestial Revy Tee</div>
+                                            <input type="radio" id="S" name="size" value="S" class="hidden peer">
+                                            <label for="S"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">S</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="M" name="size" value="M" class="hidden peer w-full"
+                                                required>
+                                            <label for="M"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">M</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="L" name="size" value="L" class="hidden peer">
+                                            <label for="L"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">L</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="XL" name="size" value="XL" class="hidden peer">
+                                            <label for="XL"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">XL</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="XXL" name="size" value="XXL" class="hidden peer">
+                                            <label for="XXL"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">XXL</p>
                                                 </div>
                                             </label>
                                         </li>
                                     </ul>
-
-                                    <p class="text-white text-[15px] hidden" id="judul"><b><i>Size</i></b></p>
-                                    <div id="turbsize" class="hidden">
-                                        <ul class="grid w-full gap-3 md:grid-cols-2 sm:grid-cols-4">
-                                            <li>
-                                                <input type="radio" id="XS" name="size" value="XS"
-                                                    class="hidden peer w-full" required>
-                                                <label for="XS"
-                                                    class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                    <div class="w-full text-center block">
-                                                        <p class="w-full text-center">XS</p>
-                                                    </div>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" id="S" name="size" value="S"
-                                                    class="hidden peer">
-                                                <label for="S"
-                                                    class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                    <div class="block w-full text-center">
-                                                        <p class="w-full">S</p>
-                                                    </div>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" id="M" name="size" value="M"
-                                                    class="hidden peer w-full" required>
-                                                <label for="M"
-                                                    class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                    <div class="block w-full text-center">
-                                                        <p class="w-full">M</p>
-                                                    </div>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" id="L" name="size" value="L"
-                                                    class="hidden peer">
-                                                <label for="L"
-                                                    class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                    <div class="block w-full text-center">
-                                                        <p class="w-full">L</p>
-                                                    </div>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" id="XL" name="size" value="XL"
-                                                    class="hidden peer">
-                                                <label for="XL"
-                                                    class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                    <div class="block w-full text-center">
-                                                        <p class="w-full">XL</p>
-                                                    </div>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" id="XXL" name="size" value="XXL"
-                                                    class="hidden peer">
-                                                <label for="XXL"
-                                                    class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                    <div class="block w-full text-center">
-                                                        <p class="w-full">XXL</p>
-                                                    </div>
-                                                </label>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="hidden" id="celessize">
-                                        <ul class="grid w-full gap-3 md:grid-cols-2 sm:grid-cols-4">
-                                            <li>
-                                                <input type="radio" id="SS" name="size" value="S"
-                                                    class="hidden peer w-full" required>
-                                                <label for="SS"
-                                                    class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                    <div class="w-full text-center block">
-                                                        <p class="w-full text-center">S</p>
-                                                    </div>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" id="MM" name="size" value="M"
-                                                    class="hidden peer">
-                                                <label for="MM"
-                                                    class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                    <div class="block w-full text-center">
-                                                        <p class="w-full">M</p>
-                                                    </div>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" id="LL" name="size" value="L"
-                                                    class="hidden peer w-full" required>
-                                                <label for="LL"
-                                                    class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                    <div class="block w-full text-center">
-                                                        <p class="w-full">L</p>
-                                                    </div>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" id="XLXL" name="size" value="XL"
-                                                    class="hidden peer">
-                                                <label for="XLXL"
-                                                    class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                    <div class="block w-full text-center">
-                                                        <p class="w-full">XL</p>
-                                                    </div>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" id="2XL" name="size" value="2XL"
-                                                    class="hidden peer">
-                                                <label for="2XL"
-                                                    class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                    <div class="block w-full text-center">
-                                                        <p class="w-full">2XL</p>
-                                                    </div>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" id="3XL" name="size" value="3XL"
-                                                    class="hidden peer">
-                                                <label for="3XL"
-                                                    class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                    <div class="block w-full text-center">
-                                                        <p class="w-full">3XL</p>
-                                                    </div>
-                                                </label>
-                                            </li>
-                                            <li>
-                                                <input type="radio" id="4XL" name="size" value="4XL"
-                                                    class="hidden peer">
-                                                <label for="4XL"
-                                                    class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
-                                                    <div class="block w-full text-center">
-                                                        <p class="w-full">4XL</p>
-                                                    </div>
-                                                </label>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                </div>
+                                <div class="hidden" id="celessize">
+                                    <ul class="grid w-full gap-3 md:grid-cols-2 sm:grid-cols-4">
+                                        <li>
+                                            <input type="radio" id="SS" name="size" value="S" class="hidden peer w-full"
+                                                required>
+                                            <label for="SS"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="w-full text-center block">
+                                                    <p class="w-full text-center">S</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="MM" name="size" value="M" class="hidden peer">
+                                            <label for="MM"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">M</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="LL" name="size" value="L" class="hidden peer w-full"
+                                                required>
+                                            <label for="LL"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">L</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="XLXL" name="size" value="XL" class="hidden peer">
+                                            <label for="XLXL"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">XL</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="2XL" name="size" value="2XL" class="hidden peer">
+                                            <label for="2XL"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">2XL</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="3XL" name="size" value="3XL" class="hidden peer">
+                                            <label for="3XL"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">3XL</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <input type="radio" id="4XL" name="size" value="4XL" class="hidden peer">
+                                            <label for="4XL"
+                                                class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700">
+                                                <div class="block w-full text-center">
+                                                    <p class="w-full">4XL</p>
+                                                </div>
+                                            </label>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     @endif
                     <div class="inline-flex justify-center w-full gap-3" action="" method="post">
                         @csrf
@@ -433,33 +424,34 @@
                             class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
                             onclick="button(this)"></input>
 
-                        <input id="qty" type="number" name="qty" min="1" value="1"
-                            step="1" readonly class="p-2 text-lg text-black dark:text-white"></input>
+                        <input id="qty" type="number" name="qty" min="1" value="1" step="1" readonly
+                            class="p-2 text-lg text-black dark:text-white"></input>
 
                         <input type="button" value="+" id="increment"
                             class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
                             onclick="button(this)"></input>
                         @if ($merch->table && $merch->id == 1)
-                            <select name="size" id="size1"
-                                class="w-[60px] text-center dark:text-white font-taruno text-[.8rem] text-gray-800 cursor-pointer">
-                                <option value="XS">XS</option>
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                                <option value="XXL">XXL</option>
-                            </select>
+                        <select name="size" id="size1"
+                            class="w-[60px] text-center dark:text-white font-taruno text-[.8rem] text-gray-800 cursor-pointer">
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                        </select>
                         @endif
                         @if ($merch->table && $merch->id == 2)
-                            <select name="size" id="size2"
-                                class="w-[60px] text-center font-taruno text-[.8rem] text-gray-800  cursor-pointer">
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                                <option value="2XL">2XL</option>
-                                <option value="3XL">3XL</option>
-                            </select>
+                        <select name="size" id="size2"
+                            class="w-[60px] text-center font-taruno text-[.8rem] text-gray-800  cursor-pointer">
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="2XL">2XL</option>
+                            <option value="3XL">3XL</option>
+                            <option value="4XL">4XL</option>
+                        </select>
                         @endif
                     </div>
                     <div class="grid gap-3">
@@ -489,116 +481,116 @@
     </div>
     <div class="mt-[80px] flex justify-center text-center text-white dark:text-gray-800 w-full align-middle">
         @if ($merch->table && $merch->id == 1)
-            <table border="1" cellpadding="10" class="border-white border-[1px] w-4/5 lg:w-1/2 text-white">
-                <tr class="border-[1px] bg-[#0E0EC0]">
-                    <th>Size</th>
-                    <th>Width<br>(cm)</th>
-                    <th>Length<br>(cm)</th>
-                    <th>Shoulders<br>(cm)</th>
-                    <th>Hands<br>(cm)</th>
-                    <th>Harga<br>(Rp)</th>
-                </tr>
-                <tr>
-                    <td>XS</td>
-                    <td>54</td>
-                    <td>69</td>
-                    <td>15</td>
-                    <td>25</td>
-                    <td>95 000</td>
-                </tr>
-                <tr>
-                    <td>S</td>
-                    <td>57</td>
-                    <td>72</td>
-                    <td>16</td>
-                    <td>25</td>
-                    <td>95 000</td>
-                </tr>
-                <tr>
-                    <td>M</td>
-                    <td>59</td>
-                    <td>73</td>
-                    <td>16</td>
-                    <td>29</td>
-                    <td>95 000</td>
-                </tr>
-                <tr>
-                    <td>L</td>
-                    <td>62</td>
-                    <td>76</td>
-                    <td>17</td>
-                    <td>31</td>
-                    <td>95 000</td>
-                </tr>
-                <tr>
-                    <td>XL</td>
-                    <td>66</td>
-                    <td>78</td>
-                    <td>17</td>
-                    <td>33</td>
-                    <td>95 000</td>
-                </tr>
-                <tr>
-                    <td>XXL</td>
-                    <td>70</td>
-                    <td>80</td>
-                    <td>19</td>
-                    <td>31</td>
-                    <td>105 000</td>
-                </tr>
-            </table>
+        <table border="1" cellpadding="10" class="border-white border-[1px] w-4/5 lg:w-1/2 text-white">
+            <tr class="border-[1px] bg-[#0E0EC0]">
+                <th>Size</th>
+                <th>Width<br>(cm)</th>
+                <th>Length<br>(cm)</th>
+                <th>Shoulders<br>(cm)</th>
+                <th>Hands<br>(cm)</th>
+                <th>Harga<br>(Rp)</th>
+            </tr>
+            <tr>
+                <td>XS</td>
+                <td>54</td>
+                <td>69</td>
+                <td>15</td>
+                <td>25</td>
+                <td>95 000</td>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>57</td>
+                <td>72</td>
+                <td>16</td>
+                <td>25</td>
+                <td>95 000</td>
+            </tr>
+            <tr>
+                <td>M</td>
+                <td>59</td>
+                <td>73</td>
+                <td>16</td>
+                <td>29</td>
+                <td>95 000</td>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>62</td>
+                <td>76</td>
+                <td>17</td>
+                <td>31</td>
+                <td>95 000</td>
+            </tr>
+            <tr>
+                <td>XL</td>
+                <td>66</td>
+                <td>78</td>
+                <td>17</td>
+                <td>33</td>
+                <td>95 000</td>
+            </tr>
+            <tr>
+                <td>XXL</td>
+                <td>70</td>
+                <td>80</td>
+                <td>19</td>
+                <td>31</td>
+                <td>105 000</td>
+            </tr>
+        </table>
         @endif
         @if ($merch->table && $merch->id == 2)
-            <table border="1" cellpadding="10" class="border-white border-[1px] w-1/2">
-                <tr class="border-[1px] bg-[#0E0EC0]">
-                    <th>Size</th>
-                    <th>Width<br>(cm)</th>
-                    <th>Length<br>(cm)</th>
-                    <th>Price<br>(Rp)</th>
-                </tr>
-                <tr>
-                    <td>S</td>
-                    <td>47</td>
-                    <td>70</td>
-                    <td>95 000</td>
-                </tr>
-                <tr>
-                    <td>M</td>
-                    <td>51</td>
-                    <td>71</td>
-                    <td>95 000</td>
-                </tr>
-                <tr>
-                    <td>L</td>
-                    <td>55</td>
-                    <td>73</td>
-                    <td>95 000</td>
-                </tr>
-                <tr>
-                    <td>XL</td>
-                    <td>59</td>
-                    <td>76</td>
-                    <td>95 000</td>
-                </tr>
-                <tr>
-                    <td>2XL</td>
-                    <td>64</td>
-                    <td>80</td>
-                    <td>100 000</td>
-                </tr>
-                <tr>
-                    <td>3XL</td>
-                    <td>67</td>
-                    <td>83</td>
-                    <td>105 000</td>
-                </tr>
-                <tr>
-                    <td>4XL</td>
-                    <td>70</td>
-                    <td>86</td>
-                    <td>110 000</td>
-                </tr>
-            </table>
+        <table border="1" cellpadding="10" class="border-white border-[1px] w-1/2">
+            <tr class="border-[1px] bg-[#0E0EC0]">
+                <th>Size</th>
+                <th>Width<br>(cm)</th>
+                <th>Length<br>(cm)</th>
+                <th>Price<br>(Rp)</th>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>47</td>
+                <td>70</td>
+                <td>95 000</td>
+            </tr>
+            <tr>
+                <td>M</td>
+                <td>51</td>
+                <td>71</td>
+                <td>95 000</td>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>55</td>
+                <td>73</td>
+                <td>95 000</td>
+            </tr>
+            <tr>
+                <td>XL</td>
+                <td>59</td>
+                <td>76</td>
+                <td>95 000</td>
+            </tr>
+            <tr>
+                <td>2XL</td>
+                <td>64</td>
+                <td>80</td>
+                <td>100 000</td>
+            </tr>
+            <tr>
+                <td>3XL</td>
+                <td>67</td>
+                <td>83</td>
+                <td>105 000</td>
+            </tr>
+            <tr>
+                <td>4XL</td>
+                <td>70</td>
+                <td>86</td>
+                <td>110 000</td>
+            </tr>
+        </table>
         @endif
     </div>
 
@@ -678,12 +670,10 @@
                             </path>
                         </svg>
                     </a>
-                    <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank"
-                        class="text-white">
+                    <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank" class="text-white">
                         <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank"
                             class="text-white">
-                            <svg class="h-12 w-12 fill-current" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24">
+                            <svg class="h-12 w-12 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                 <path
                                     d="M12,20.55c-.3,0-7.279-.006-9.115-.5A3.375,3.375,0,0,1,.5,17.665,29.809,29.809,0,0,1,0,12,29.824,29.824,0,0,1,.5,6.334,3.375,3.375,0,0,1,2.885,3.948c1.836-.492,8.819-.5,9.115-.5s7.279.006,9.115.5A3.384,3.384,0,0,1,23.5,6.334,29.97,29.97,0,0,1,24,12a29.97,29.97,0,0,1-.5,5.666,3.384,3.384,0,0,1-2.388,2.386C19.279,20.544,12.3,20.55,12,20.55Zm0-16.1c-.072,0-7.146.006-8.857.464A2.377,2.377,0,0,0,1.464,6.593,29.566,29.566,0,0,0,1,12a29.566,29.566,0,0,0,.464,5.407,2.377,2.377,0,0,0,1.679,1.679c1.711.458,8.785.464,8.857.464s7.146-.006,8.857-.464a2.377,2.377,0,0,0,1.679-1.679A29.66,29.66,0,0,0,23,12a29.66,29.66,0,0,0-.464-5.407h0a2.377,2.377,0,0,0-1.679-1.679C19.146,4.456,12.071,4.45,12,4.45ZM9.7,15.95a.5.5,0,0,1-.5-.5V8.55a.5.5,0,0,1,.75-.433l5.975,3.45a.5.5,0,0,1,0,.866L9.95,15.883A.5.5,0,0,1,9.7,15.95Zm.5-6.534v5.168L14.675,12Z">
                                 </path>
@@ -705,69 +695,69 @@
     </footer>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init();
+    AOS.init();
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
     <script>
-        const Input = document.getElementById("qty");
+    const Input = document.getElementById("qty");
 
-        function button(btn) {
-            let id = btn.getAttribute("id");
-            let min = Input.getAttribute("min");
-            let step = Input.getAttribute("step");
-            let val = Input.getAttribute("value");
+    function button(btn) {
+        let id = btn.getAttribute("id");
+        let min = Input.getAttribute("min");
+        let step = Input.getAttribute("step");
+        let val = Input.getAttribute("value");
 
 
-            let calcStep = (id == "increment") ? (step * 1) : (step * -1);
-            let newValue = parseInt(val) + calcStep;
+        let calcStep = (id == "increment") ? (step * 1) : (step * -1);
+        let newValue = parseInt(val) + calcStep;
 
-            if (newValue >= min) {
-                Input.setAttribute("value", newValue);
-                console(newValue);
-            }
+        if (newValue >= min) {
+            Input.setAttribute("value", newValue);
+            console(newValue);
         }
+    }
 
 
 
-        const turbulentRadio = document.getElementById('tee');
-        const celestialRadio = document.getElementById('tee1');
-        const turbsize = document.getElementById('turbsize');
-        const celessize = document.getElementById('celessize');
-        const judul = document.getElementById('judul');
-        const isSelected = {
-            value: false
-        };
+    const turbulentRadio = document.getElementById('tee');
+    const celestialRadio = document.getElementById('tee1');
+    const turbsize = document.getElementById('turbsize');
+    const celessize = document.getElementById('celessize');
+    const judul = document.getElementById('judul');
+    const isSelected = {
+        value: false
+    };
 
-        turbulentRadio.addEventListener('change', function() {
-            if (this.checked) {
-                isSelected.value = true;
-            }
-            sizechanges()
-        });
+    turbulentRadio.addEventListener('change', function() {
+        if (this.checked) {
+            isSelected.value = true;
+        }
+        sizechanges()
+    });
 
-        celestialRadio.addEventListener('change', function() {
-            if (this.checked) {
-                isSelected.value = false;
-            }
-            sizechanges();
-        });
+    celestialRadio.addEventListener('change', function() {
+        if (this.checked) {
+            isSelected.value = false;
+        }
+        sizechanges();
+    });
 
-        function sizechanges() {
-            judul.classList.remove('hidden');
-            judul.classList.add('block');
-            if (isSelected.value === true) {
-                turbsize.classList.remove('hidden');
-                turbsize.classList.add('block');
-                celessize.classList.remove('block');
-                celessize.classList.add('hidden');
-            } else {
-                turbsize.classList.remove('block');
-                turbsize.classList.add('hidden');
-                celessize.classList.add('block');
-                celessize.classList.remove('hidden');
-            }
-            console.log('aaaa:', isSelected.value);
-        };
+    function sizechanges() {
+        judul.classList.remove('hidden');
+        judul.classList.add('block');
+        if (isSelected.value === true) {
+            turbsize.classList.remove('hidden');
+            turbsize.classList.add('block');
+            celessize.classList.remove('block');
+            celessize.classList.add('hidden');
+        } else {
+            turbsize.classList.remove('block');
+            turbsize.classList.add('hidden');
+            celessize.classList.add('block');
+            celessize.classList.remove('hidden');
+        }
+        console.log('aaaa:', isSelected.value);
+    };
     </script>
 </body>
 

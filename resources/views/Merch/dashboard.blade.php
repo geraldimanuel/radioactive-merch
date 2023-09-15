@@ -46,18 +46,11 @@
                     <td>
                         @foreach ($merchs as $merch)
                         @if ($merch->id == $obj->merch_id)
-                        <img class="w-[150px] h-full object-cover cursor-pointer"
-                            src="{{ asset('storage/' . $order->image) }}" alt="Flower"
-                            onclick="showModalasset('storage/' . $order->image) }}" />
+                        <a href="{{ asset('storage/' . $order->image) }}">
+                            <img class="w-[150px] h-full object-cover cursor-pointer"
+                                src="{{ asset('storage/' . $order->image) }}" />
+                        </a>
                         @endif
-                        <div id="modal"
-                            class="hidden fixed top-0 left-0 z-80 w-screen h-screen bg-black/70  justify-center items-center">
-
-                            <a class="fixed z-90 top-6 right-8 text-white text-5xl font-bold" href="javascript:void(0)"
-                                onclick="closeModal()">&times;</a>
-
-                            <img id="modal-img" class="max-w-[800px] max-h-[600px] object-cover" />
-                        </div>
                         @endforeach
                     </td>
                     <td>
@@ -73,21 +66,6 @@
             </table>
         </div>
     </div>
-    <script>
-    var modal = document.getElementById("modal");
-
-    var modalImg = document.getElementById("modal-img");
-
-    function showModal(src) {
-        modal.classList.remove('hidden');
-        modalImg.src = src;
-    }
-
-    function closeModal() {
-        modal.classList.add('hidden');
-    }
-    </script>
-
 </body>
 
 </html>
