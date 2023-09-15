@@ -9,10 +9,13 @@
     <title>UMN RadioActive 2023 | Login</title>
 </head>
 
-<body>
-    <img src="{{ url('/images/backgroundLogin.jpg') }}" alt="Image"
-        class="absolute inset-0 z-0 h-full w-full object-cover" />
-    <div class="absolute inset-0 z-0 h-full w-full bg-black/50" />
+<body class="overflow-x-hidden">
+    <div>
+        <video autoplay loop muted
+            class="fixed -z-10 w-auto lg:w-full md:min-w-full md:min-h-full max-w-fit object-cover" loading="lazy">
+            <source src="/images/BACKGROUND_DESKTOP.webm" type="video/webm">
+        </video>
+    </div>
     {{-- <div class="container relative z-40 mx-auto p-8 flex items-center justify-center">
         <img src="{{ url('/img/logo.gif') }}" alt="Image" class="h-32" />
     </div> --}}
