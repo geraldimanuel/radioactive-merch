@@ -44,6 +44,7 @@
                             class="bg-gradient-to-r from-[#011F39] to-[#629FD4] hover:shadow-lg hover:shadow-blue-500/40 text-white font-bold py-2 px-4 rounded-lg block w-full">
                             Register now!
                         </button>
+                        <a href="/login" class="flex justify-center py-1">Have an account? Log in here!</a>
                     </div>
                 </div>
             </div>
