@@ -24,24 +24,24 @@
             href="ticket">CLOSING
             NIGHT</a>
         @auth
-        <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer" href="/logout">LOGOUT</a>
+            <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer" href="/logout">LOGOUT</a>
         @endauth
     </nav>
     <div class="flex flex-row justify-center pb-[50px] pt-[200px]  text-white">
         <div class="text-center flex">
             <div class="w-full">
                 @if ($cart->isEmpty())
-                <div class="flex justify-center align-middle items-center h-[800px]">
-                    <div>
-                        <p class="font-taruno text-xl">Cart is empty</p>
-                        <div class="mt-[20px]">
-                            <a class="text-[.8rem] hover:text-[#3838ff] rounded-[6px] no-underline text-white"
-                                href="{{ url('/') }}">Back to Merch</a>
+                    <div class="flex justify-center align-middle items-center h-[800px]">
+                        <div>
+                            <p class="font-taruno text-xl">Cart is empty</p>
+                            <div class="mt-[20px]">
+                                <a class="text-[.8rem] hover:text-[#3838ff] rounded-[6px] no-underline text-white"
+                                    href="{{ url('/') }}">Back to Merch</a>
+                            </div>
                         </div>
                     </div>
-                </div>
             </div>
-            @else
+        @else
             <table border="1" cellpadding="10"
                 class="hidden md:contents w-4/5 text-white dark:text-gray-800 text-sm lg:text-lg md:mr-[50px] md:ml-[50px] shadow-lg lg:w-full">
                 <tr class="text-white">
@@ -56,43 +56,42 @@
                 <?php $no = 1;
                 $total = 0; ?>
                 @foreach ($cart as $obj)
-                @foreach ($merches as $merch)
-                @if ($merch->id == $obj->merch_id)
-                <?php $price = $obj->qty * $obj->price;
+                    @foreach ($merches as $merch)
+                        @if ($merch->id == $obj->merch_id)
+                            <?php $price = $obj->qty * $obj->price;
                             $total += $price;
                             ?>
-
-                <tr class="border-b-[1px] text-white">
-                    <!-- <td>{{ $no++ }}</td> -->
-                    <td class="flex flex-wrap gap-3 h-full justify-left items-center">
-                        <img src="/images/{{ $merch->description }}//{{ $merch->image1 }}"
-                            class="h-[150px] w-auto object-cover" />
-                        <div class="flex mr-5 gap-0">
-                            <div>
-                                <p class="text-left h-5">{{ $merch->name }}</p>
-                                <p class="text-left m-0 text-gray-500 text-[11px]">{{ $obj->tee }}</p>
-                            </div>
-                        </div>
-                    </td>
-                    {{-- <td>{{ $merch->name }}</td> --}}
-                    <td>{{ $obj->price }}</td>
-                    <td>{{ $obj->size }}</td>
-                    <td>{{ $obj->qty }}</td>
-                    <td>{{ $price }}</td>
-                    <td class="text-[1.1rem] w-[20px] rounded-[6px]">
-                        <a class="text-center text-[1.6rem] no-underline text-white hover:text-red-600"
-                            href="{{ url('/cart/' . $obj->id) }}">×</a>
-                    </td>
-                </tr>
-                @endif
-                @endforeach
+                            <tr class="border-b-[1px] text-white">
+                                <!-- <td>{{ $no++ }}</td> -->
+                                <td class="flex flex-wrap gap-3 h-full justify-left items-center">
+                                    <img src="/images/{{ $merch->description }}//{{ $merch->image1 }}"
+                                        class="h-[150px] w-auto object-cover" />
+                                    <div class="flex mr-5 gap-0">
+                                        <div>
+                                            <p class="text-left h-5">{{ $merch->name }}</p>
+                                            <p class="text-left m-0 text-gray-500 text-[11px]">{{ $obj->tee }}</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                {{-- <td>{{ $merch->name }}</td> --}}
+                                <td>{{ $obj->price }}</td>
+                                <td>{{ $obj->size }}</td>
+                                <td>{{ $obj->qty }}</td>
+                                <td>{{ $price }}</td>
+                                <td class="text-[1.1rem] w-[20px] rounded-[6px]">
+                                    <a class="text-center text-[1.6rem] no-underline text-white hover:text-red-600"
+                                        href="{{ url('/cart/' . $obj->id) }}">×</a>
+                                </td>
+                            </tr>
+                        @endif
+                    @endforeach
                 @endforeach
                 <tr class="text-white">
                     <td colspan="5" class="text-xl font-bold">Total</td>
                     <td>{{ $total }}</td>
                 </tr>
             </table>
-            
+
             <div class="mt-[80px] flex justify-center mb-[10px]">
                 <a href='/checkout' class="text-[1.1rem] no-underline text-white">
                     <div
@@ -176,7 +175,8 @@
                             </path>
                         </svg>
                     </a>
-                    <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank" class="text-white">
+                    <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank"
+                        class="text-white">
                         <svg class="h-12 w-12 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path
                                 d="M12,20.55c-.3,0-7.279-.006-9.115-.5A3.375,3.375,0,0,1,.5,17.665,29.809,29.809,0,0,1,0,12,29.824,29.824,0,0,1,.5,6.334,3.375,3.375,0,0,1,2.885,3.948c1.836-.492,8.819-.5,9.115-.5s7.279.006,9.115.5A3.384,3.384,0,0,1,23.5,6.334,29.97,29.97,0,0,1,24,12a29.97,29.97,0,0,1-.5,5.666,3.384,3.384,0,0,1-2.388,2.386C19.279,20.544,12.3,20.55,12,20.55Zm0-16.1c-.072,0-7.146.006-8.857.464A2.377,2.377,0,0,0,1.464,6.593,29.566,29.566,0,0,0,1,12a29.566,29.566,0,0,0,.464,5.407,2.377,2.377,0,0,0,1.679,1.679c1.711.458,8.785.464,8.857.464s7.146-.006,8.857-.464a2.377,2.377,0,0,0,1.679-1.679A29.66,29.66,0,0,0,23,12a29.66,29.66,0,0,0-.464-5.407h0a2.377,2.377,0,0,0-1.679-1.679C19.146,4.456,12.071,4.45,12,4.45ZM9.7,15.95a.5.5,0,0,1-.5-.5V8.55a.5.5,0,0,1,.75-.433l5.975,3.45a.5.5,0,0,1,0,.866L9.95,15.883A.5.5,0,0,1,9.7,15.95Zm.5-6.534v5.168L14.675,12Z">
@@ -198,18 +198,18 @@
         </div>
     </footer>
     <script>
-    window.addEventListener('scroll', function() {
-        var header = document.getElementById('header');
-        if (window.scrollY > 0) {
-            header.classList.remove('bg-transparent');
-            header.classList.add('bg-[#0E0EC0]');
-            // header.classList.add('fixed');
-        } else {
-            header.classList.add('bg-transparent');
-            header.classList.remove('bg-[#0E0EC0]');
-            // header.classList.remove('fixed');
-        }
-    });
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            if (window.scrollY > 0) {
+                header.classList.remove('bg-transparent');
+                header.classList.add('bg-[#0E0EC0]');
+                // header.classList.add('fixed');
+            } else {
+                header.classList.add('bg-transparent');
+                header.classList.remove('bg-[#0E0EC0]');
+                // header.classList.remove('fixed');
+            }
+        });
     </script>
 </body>
 

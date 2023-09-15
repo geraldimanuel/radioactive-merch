@@ -23,7 +23,9 @@ use Illuminate\Support\Facades\Route;
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'index')->name('login');
     Route::post('/login', 'authenticate');
-    
+
+    Route::get('/signup', 'signup_view');
+    Route::post('/signup', 'signup');
 });
 
 Route::get('/logout', function (Request $request) {
