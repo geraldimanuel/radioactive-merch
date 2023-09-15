@@ -259,7 +259,7 @@
                             <p class="text-white text-[15px]"><b><i>Choose ONE of your favorite tee!</i></b></p>
                             <div class="flex gap-1">
                                 <div>
-                                    <ul class="grid w-[500px] gap-3 md:grid-cols-2">
+                                    <ul class="grid w-[400px] md:w-[500px] gap-3 md:grid-cols-2">
                                         <li>
                                             <input type="radio" id="tee" name="tee"
                                                 value="Turbulent Revolution Tee" class="hidden peer w-full" required>
@@ -434,14 +434,14 @@
                             onclick="button(this)"></input>
 
                         <input id="qty" type="number" name="qty" min="1" value="1"
-                            step="1" readonly class="p-2 text-lg"></input>
+                            step="1" readonly class="p-2 text-lg text-black dark:text-white"></input>
 
                         <input type="button" value="+" id="increment"
                             class="border-[1px] border-white w-[45px] h-[45px] p-3 text-xs text-white bg-[#0E0EC0] cursor-pointer"
                             onclick="button(this)"></input>
                         @if ($merch->table && $merch->id == 1)
                             <select name="size" id="size1"
-                                class="w-[60px] text-center text-white font-taruno text-[.8rem] text-gray-800 cursor-pointer">
+                                class="w-[60px] text-center dark:text-white font-taruno text-[.8rem] text-gray-800 cursor-pointer">
                                 <option value="XS">XS</option>
                                 <option value="S">S</option>
                                 <option value="M">M</option>
@@ -475,7 +475,7 @@
         </div>
     </div>
     <div class="mt-[100px] flex justify-center w-full align-middle">
-        <div class="text-left">
+        <div class="px-6 text-left">
             <h2 class="font-taruno text-white">NOTES</h2>
             <ul class="list-disc ml-[17px]">
                 <li class="text-white text-[15px]">TIDAK MENERIMA SEGALA JENIS BENTUK PENUKARAN TERMASUK

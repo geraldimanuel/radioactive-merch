@@ -13,9 +13,9 @@
     <img src="{{ url('/images/backgroundLogin.jpg') }}" alt="Image"
         class="absolute inset-0 z-0 h-full w-full object-cover" />
     <div class="absolute inset-0 z-0 h-full w-full bg-black/50" />
-    <div class="container relative z-40 mx-auto p-8 flex items-center justify-center">
+    {{-- <div class="container relative z-40 mx-auto p-8 flex items-center justify-center">
         <img src="{{ url('/img/logo.gif') }}" alt="Image" class="h-32" />
-    </div>
+    </div> --}}
     <div class="class=container mx-auto p-4">
         <form action="/login" method="POST">
             <div
