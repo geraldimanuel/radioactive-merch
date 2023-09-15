@@ -6,12 +6,14 @@ use App\Models\Cart;
 use App\Models\Merch;
 use App\Http\Requests\StoreCartRequest;
 use App\Http\Requests\UpdateCartRequest;
+use App\Mail\Confirmation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\DetailTransaction;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CartController extends Controller
 {
@@ -108,8 +110,38 @@ class CartController extends Controller
             'orders' => $orders,
             'detailTrans' => $detailTrans
         ]);
+   
+    }
 
-        
+    public function approval($id, $status)
+    {
+        $order = Order::where('id', $id)->first();
+        // dd($order);
+
+        $logged_email = auth()->user()->email;
+
+
+        if ($status == "paid") {
+            Order::where('id', $id)->update([
+                'status' => 'Paid'
+            ]);
+
+            $this->email_confirmation($logged_email);
+        } else {
+            Order::where('id', $id)->update([
+                'status' => 'Cancelled'
+            ]);
+        }
+        return redirect('/dashboard');
+    }
+
+    private function email_confirmation($receiver_mail)
+    {
+        $data = [
+            'subject' => '[UMN Radioactive 2023 - Your order has been confirmed]',
+            'receiver' => $receiver_mail
+        ];
+        Mail::to($receiver_mail)->send(new Confirmation($data));
     }
 
     /**

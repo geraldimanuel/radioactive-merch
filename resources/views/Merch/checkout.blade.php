@@ -77,7 +77,10 @@
                                 <td>{{ $no++ }}</td>
                                 @foreach ($merchs as $merch)
                                     @if ($merch->id == $obj->merch_id)
-                                        <td>{{ $merch->name }} @if ($obj->size) ({{ $obj->size }})@endif</td>
+                                        <td>{{ $merch->name }} @if ($obj->size)
+                                                ({{ $obj->size }})
+                                            @endif
+                                        </td>
                                     @endif
                                 @endforeach
                                 <td>{{ $obj->qty }}</td>
@@ -104,33 +107,6 @@
                     @if (session()->has('success'))
                         <div class="text-sm text-green-500" role="alert">{{ session('success') }}</div>
                     @endif
-                    <div>
-                        <div class="mb-1">
-                            <label class="block form-label text-sm mb-0" for="">
-                                <span class="">Nama</span>
-                            </label>
-                            <div>
-                                <input required
-                                    class="block @error('tim1_penyiar1') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline text-black"
-                                    type="text" placeholder="nama" name="name">
-                                @error('tim1_penyiar1')
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mb-1">
-                        <div>
-                            <label class="block form-label text-sm mb-0" for="">Email</label>
-                        </div>
-                        <div>
-                            <input required
-                                class="block @error('tim1_institusi') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline text-black"
-                                type="text" placeholder="email" name="email">
-                            @error('tim1_institusi')
-                            @enderror
-                        </div>
-                    </div>
 
                     <div>
                         <div class="mb-1">
@@ -168,7 +144,8 @@
                         for="">Bukti Pembayaran</label>
                 </div>
                 <div>
-                    <h6 class="text-sm font-pathway">Pembayaran sebesar Rp {{ $total }},~ ke 8831917474 a/n Raudhah Salsabila Surbakti</h6 class="text-sm">
+                    <h6 class="text-sm font-pathway">Pembayaran sebesar Rp {{ $total }},~ ke 8831917474 a/n
+                        Raudhah Salsabila Surbakti</h6 class="text-sm">
                 </div>
                 <div>
                     <input required
@@ -188,7 +165,7 @@
         </div>
         </form>
         <a class="text-[.8rem] hover:text-[#3838ff] no-underline text-white" href="{{ url('/cart') }}">Back to
-                cart</a>
+            cart</a>
 </body>
 
 </html>

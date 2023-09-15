@@ -6,9 +6,11 @@ use App\Models\Order;
 use App\Models\User;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Mail\Submission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Cart;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -38,8 +40,8 @@ class OrderController extends Controller
             $logged_mail = auth()->user()->email;
          
             Order::where('email', $logged_mail)->update([
-                'name' => $request->name,
-                'email' => $request->email,
+                // 'name' => $request->name,
+                // 'email' => $request->email,
                 'wa' => $request->wa,
                 'line' => $request->line,
                 'image' => $request->file('payment_proof')->storePublicly('payment_images_merch', 'public'),
@@ -47,10 +49,29 @@ class OrderController extends Controller
                 'status' => 'Unpaid'
             ]);
 
+            $order_id = Order::where('email', $logged_mail)->first()->id;
+
+            // dd($order_id);
+
+            $submission_date = date('Y-m-d H:i:s');
+
+            $this->email_submission($logged_mail, $order_id, $submission_date);
+
             return redirect('/reset-cart');
         } else {
             return redirect('/login');
         }
+    }
+
+    private function email_submission($receiver, $order_id, $submission_date)
+    {
+        $data = [
+            'subject' => '[UMN RadioActive 2023 - Your Order Has Been Submitted]',
+            'orderId' => $order_id,
+            'submissionDate' => $submission_date,
+            'receiver' => $receiver
+        ];
+        Mail::to($receiver)->send(new Submission($data));
     }
 
     public function resetCart() {

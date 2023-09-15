@@ -65,5 +65,6 @@ Route::controller(CartController::class)->group(function () {
     Route::get('/cart/{id}', 'removeFromCart');
     Route::get('/checkout', 'checkout');
     Route::get('/dashboard', 'dashboard');
+    Route::get('approval/{id}/{status}', 'approval');
     Route::get('item/{id}'. 'removeFromCart');
 });

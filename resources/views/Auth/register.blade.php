@@ -10,7 +10,7 @@
 </head>
 
 <body>
-   <div>
+    <div>
         <video autoplay loop muted
             class="fixed -z-10 w-auto lg:w-full md:min-w-full md:min-h-full max-w-fit object-cover" loading="lazy">
             <source src="/images/BACKGROUND_DESKTOP.webm" type="video/webm">
