@@ -27,6 +27,7 @@
                     <td>{{ $no++ }}</td>
                     <td>{{ $order->id }}</td>
                     <td>{{ $order->name }}</td>
+                    <td>{{ $order->total_price }}</td>
                     <td>
                         <ul>
                             @foreach ($detailTrans as $obj)
@@ -59,7 +60,6 @@
                         </div>
                         @endforeach
                     </td>
-                    <td>{{ $order->total_price }}</td>
                     <td>
                         <select required='required' class="form-control" name='status'>
                             <optgroup label={{ $order->status }} />
