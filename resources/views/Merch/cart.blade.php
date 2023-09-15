@@ -1,18 +1,20 @@
-{{-- shopping cart dri session --}}
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3a9b6894e0.js" crossorigin="anonymous"></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cart</title>
+    <title>Radioactive UMN</title>
     @vite('resources/css/app.css')
 </head>
 
-<body class="overflow-x-hidden bg-black">
-    <nav id="header" class="fixed navbar bg-transparent justify-center gap-16 z-40 transition-all duration-700">
+<body class="overflow-x-hidden bg-black text-white">
+    {{-- <nav id="header" class="fixed navbar bg-transparent justify-center gap-16 z-40 transition-all duration-700">
         <a class="font-taruno text-white text-xs underline underline-offset-4 decoration-[#FFF000] cursor-pointer"
             href="/">HOME</a>
         <a
@@ -26,7 +28,60 @@
         @auth
             <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer" href="/logout">LOGOUT</a>
         @endauth
-    </nav>
+    </nav> --}}
+    <div id="header" x-data="{ isOpen: false }"
+        class="fixed navbar bg-[#0E0EC0] justify-center gap-16 z-40 transition-all duration-700">
+        <div class="flex items-center justify-between">
+            <button @click="isOpen = !isOpen" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white lg:hidden" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <div class="pr-4 hidden space-x-6 lg:inline-block">
+                <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
+                    href="/">HOME</a>
+                <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
+                    href="/voc">VO
+                    CHALLENGE</a>
+                <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
+                    href="/rac">RAC</a>
+                <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
+                    href="/closing-night">CLOSING
+                    NIGHT</a>
+                <a class="font-taruno text-white text-xs underline underline-offset-4 decoration-[#FFF000] cursor-pointer"
+                    href="https://merch.umnradioactive.com/">MERCHANDISE</a>
+                @auth
+                    <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer"
+                        href="/logout">LOGOUT</a>
+                @endauth
+            </div>
+
+            <div class="mobile-navbar">
+                <div class="fixed left-0 w-full h-52 p-5 bg-white rounded-lg shadow-xl top-16" x-show="isOpen"
+                    @click.away=" isOpen = false">
+                    <div class="flex flex-col space-y-6">
+                        <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
+                            href="/">HOME</a>
+                        <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
+                            href="/voc">VO
+                            CHALLENGE</a>
+                        <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
+                            href="/rac">RAC</a>
+                        <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
+                            href="/closing-night">CLOSING
+                            NIGHT</a>
+                        <a class="font-taruno text-black text-xs underline underline-offset-4 decoration-[#0E0EC0] cursor-pointer"
+                            href="https://merch.umnradioactive.com/">MERCHANDISE</a>
+                        @auth
+                            <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer"
+                                href="/logout">LOGOUT</a>
+                        @endauth
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="flex flex-row justify-center pb-[50px] pt-[200px]  text-white">
         <div class="text-center flex">
             <div class="w-full">
@@ -88,6 +143,52 @@
                 @endforeach
                 <tr class="text-white">
                     <td colspan="5" class="text-xl font-bold">Total</td>
+                    <td>{{ $total }}</td>
+                </tr>
+            </table>
+
+            <table border="1" cellpadding="10"
+                class="contents md:hidden w-4/5 text-white dark:text-gray-800 text-sm lg:text-lg md:mr-[50px] md:ml-[50px] shadow-lg lg:w-full">
+                <tr class="text-white">
+                    <th class="font-taruno text-left ">Items</th>
+                    <!-- <th class="font-taruno">Name</th> -->
+                    <th class="font-taruno">Details</th>
+                    <th class="font-taruno">Remove</th>
+                </tr>
+                <?php $no = 1;
+                $total = 0; ?>
+                @foreach ($cart as $obj)
+                    @foreach ($merches as $merch)
+                        @if ($merch->id == $obj->merch_id)
+                            <?php $price = $obj->qty * $obj->price;
+                            $total += $price;
+                            ?>
+
+                            <tr class="border-b-[1px] text-white">
+                                <!-- <td>{{ $no++ }}</td> -->
+                                <td class="flex flex-wrap gap-3 h-full justify-left items-center">
+                                    <img src="/images/{{ $merch->description }}//{{ $merch->image1 }}"
+                                        class="h-[150px] w-auto object-cover" />
+                                    <div class="flex mr-5 gap-0 mb-3 md:mb-0">
+                                        <div>
+                                            <p class="text-left h-5">{{ $merch->name }}</p>
+                                            <p class="text-left m-0 text-gray-500 text-[11px]">{{ $obj->tee }}</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                {{-- <td>{{ $merch->name }}</td> --}}
+                                <td class="text-left">Price : {{ $obj->price }} <br>Size : {{ $obj->size }}
+                                    <br>Qty: {{ $obj->qty }} <br>Total Price: {{ $price }}</td>
+                                <td class="text-[1.1rem] w-[20px] rounded-[6px]">
+                                    <a class="text-center text-[1.6rem] no-underline text-white hover:text-red-600"
+                                        href="{{ url('/cart/' . $obj->id) }}">×</a>
+                                </td>
+                            </tr>
+                        @endif
+                    @endforeach
+                @endforeach
+                <tr class="text-white">
+                    <td colspan="1" class="text-xl font-bold">Total</td>
                     <td>{{ $total }}</td>
                 </tr>
             </table>

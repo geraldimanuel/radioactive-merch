@@ -25,7 +25,7 @@
                 <div
                     class="text-center w-full md:w-1/2 form-content shadow-md px-0 md:px-8 py-3 mb-3 md:mb-10 font-pathway shadow-[#FFF000]">
                     <h2 class="font-taruno">Detail Transaksi</h2>
-                    <table border="1" class="text-left font-pathway text-sm" cellpadding="10">
+                    <table border="1" class="hidden md:contents text-left font-pathway text-sm" cellpadding="10">
                         <tr>
                             <th>No</th>
                             <th>Name</th>
@@ -60,6 +60,40 @@
                             <td>{{ $order->status }}</td>
                         </tr>
                     </table>
+
+                    <table border="1" class="contents md:hidden text-left font-pathway text-sm" cellpadding="10">
+                        <tr>
+                            <th>No</th>
+                            <th>Name</th>
+                            <th>Qty</th>
+                            <th>Total Price</th>
+                        </tr>
+                        <?php
+                        $no = 1;
+                        $total = 0;
+                        ?>
+                        @foreach ($detailTrans as $obj)
+                            <tr>
+                                <td>{{ $no++ }}</td>
+                                @foreach ($merchs as $merch)
+                                    @if ($merch->id == $obj->merch_id)
+                                        <td>{{ $merch->name }} @if ($obj->size) ({{ $obj->size }})@endif</td>
+                                    @endif
+                                @endforeach
+                                <td>{{ $obj->qty }}</td>
+                                <td>{{ $obj->total_price }}</td>
+                            </tr>
+                            <?php $total += $obj->total_price; ?>
+                        @endforeach
+                        <tr>
+                            <td colspan="3">Total</td>
+                            <td>{{ $total }}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Status</td>
+                            <td>{{ $order->status }}</td>
+                        </tr>
+                    </table>
                     @csrf
                 </div>
                 <div
@@ -77,7 +111,7 @@
                             </label>
                             <div>
                                 <input required
-                                    class="block @error('tim1_penyiar1') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline"
+                                    class="block @error('tim1_penyiar1') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline text-black"
                                     type="text" placeholder="nama" name="name">
                                 @error('tim1_penyiar1')
                                 @enderror
@@ -91,7 +125,7 @@
                         </div>
                         <div>
                             <input required
-                                class="block @error('tim1_institusi') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline"
+                                class="block @error('tim1_institusi') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline text-black"
                                 type="text" placeholder="email" name="email">
                             @error('tim1_institusi')
                             @enderror
@@ -105,7 +139,7 @@
                             </div>
                             <div>
                                 <input required
-                                    class="block @error('tim1_nims1') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline"
+                                    class="block @error('tim1_nims1') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline text-black"
                                     type="text" placeholder="nomor telepon" name="wa">
 
                             </div>
@@ -118,8 +152,8 @@
                             </div>
                             <div>
                                 <input required
-                                    class="block @error('tim1_nims1') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline"
-                                    type="text" placeholder="nomor telepon" name="line">
+                                    class="block @error('tim1_nims1') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline text-black"
+                                    type="text" placeholder="id line" name="line">
 
                             </div>
                         </div>
