@@ -8,6 +8,10 @@
 </head>
 
 <body>
+    @if (auth()->user()->email != 'admin@admin.com')
+        // go to "/"
+    @endif
+
     <div class="container flex justify-center align-middle items-center">
         <div class="">
             <h1 class="font-taruno">Orders</h1>

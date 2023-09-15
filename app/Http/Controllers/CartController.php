@@ -118,7 +118,8 @@ class CartController extends Controller
         $order = Order::where('id', $id)->first();
         // dd($order);
 
-        $logged_email = auth()->user()->email;
+        // $logged_email = auth()->user()->email;
+        $customer_email = $order->email;
 
 
         if ($status == "paid") {
@@ -126,10 +127,10 @@ class CartController extends Controller
                 'status' => 'Paid'
             ]);
 
-            $this->email_confirmation($logged_email);
+            $this->email_confirmation($customer_email);
         } else {
             Order::where('id', $id)->update([
-                'status' => 'Cancelled'
+                'status' => 'Canceled'
             ]);
         }
         return redirect('/dashboard');
