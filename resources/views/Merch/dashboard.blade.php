@@ -47,11 +47,11 @@
                         @foreach ($merchs as $merch)
                         @if ($merch->id == $obj->merch_id)
                         <img class="w-[150px] h-full object-cover cursor-pointer"
-                            src="/images/{{ $merch->description }}//{{ $merch->image1 }}" alt="Flower"
-                            onclick="showModal('/images/{{ $merch->description }}//{{ $merch->image1 }}')" />
+                            src="{{ asset('storage/' . $order->image) }}" alt="Flower"
+                            onclick="showModalasset('storage/' . $order->image) }}" />
                         @endif
                         <div id="modal"
-                            class="hidden fixed top-0 left-0 z-80 w-screen h-screen bg-black/70 flex justify-center items-center">
+                            class="hidden fixed top-0 left-0 z-80 w-screen h-screen bg-black/70  justify-center items-center">
 
                             <a class="fixed z-90 top-6 right-8 text-white text-5xl font-bold" href="javascript:void(0)"
                                 onclick="closeModal()">&times;</a>

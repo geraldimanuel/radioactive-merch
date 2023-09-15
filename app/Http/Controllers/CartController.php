@@ -72,14 +72,14 @@ class CartController extends Controller
 
                     // dd($total_price);
 
-                    DetailTransaction::new_transaction($key->merch_id, $order_id, $key->qty, $total_price);
+                    DetailTransaction::new_transaction($key->merch_id, $order_id, $key->qty, $total_price, $key->size);
 
                     $total_qty += $key->qty;
                     $grandTotal += $total_price;
                 }
 
                 Order::where('id', $order_id)->update([
-                    'total_price' => $grandTotal
+                    'total_price' => $grandTotal,
                 ]);
 
                 $detailTrans = DetailTransaction::where('order_id', $order_id)->get();

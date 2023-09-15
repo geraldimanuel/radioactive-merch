@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('merch_id');
             $table->integer('qty');
             $table->bigInteger('total_price');
+            $table->string('size')->default('');
             $table->timestamps();
         });
     }
