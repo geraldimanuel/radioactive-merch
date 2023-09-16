@@ -100,6 +100,20 @@
                             <img src="/images/{{ $merch->description }}/{{ $merch->image3 }}"
                                 class="absolute block w-full h-full object-fill">
                         </div>
+                        @if ($merch->id == 3 || $merch->id == 4 || $merch->id == 5)
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="/images/{{ $merch->description }}/{{ $merch->image1 }}"
+                                class="absolute block w-full h-full object-fill">
+                        </div>
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="/images/{{ $merch->description }}/{{ $merch->image2 }}"
+                                class="absolute block w-full h-full object-fill">
+                        </div>
+                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                            <img src="/images/{{ $merch->description }}/{{ $merch->image3 }}"
+                                class="absolute block w-full h-full object-fill">
+                        </div>
+                        @endif
                         @if ($merch->id == 1 || $merch->id == 2 || $merch->id == 6 || $merch->id == 7 || $merch->id ==
                         8)
                         <div class="hidden duration-700 ease-in-out" data-carousel-item>
