@@ -47,13 +47,13 @@
                                 @endforeach
                                 <td>{{ $obj->size }}</td>
                                 <td>{{ $obj->qty }}</td>
-                                <td>{{ $obj->total_price }}</td>
+                                <td>{{ number_format($obj->total_price, 0, ',', '.') }}</td>
                             </tr>
                             <?php $total += $obj->total_price; ?>
                         @endforeach
                         <tr>
                             <td colspan="3">Total</td>
-                            <td>{{ $total }}</td>
+                            <td>{{ number_format($total, 0, ',', '.') }}</td>
                         </tr>
                         <tr>
                             <td colspan="3">Status</td>

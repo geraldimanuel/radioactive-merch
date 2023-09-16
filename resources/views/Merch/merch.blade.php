@@ -182,6 +182,7 @@
 
 
                 <div class="pl-2 md:pl-0">
+
                     <div class="mt-5">
                         <p class="mt-5 font-taruno text-white text-lg">{{ $merch->name }}</p>
                         @if ($merch->id == 3)
@@ -192,7 +193,7 @@
                         <p class="text-[11px] font-taruno text-gray-500"><i>With Zipper</i></p>
                         @endif
                     </div>
-                    <p class="mt-1 font-sans text-white text-sm">Rp {{ $merch->price }}</p>
+                    <p class="mt-1 font-sans text-white text-sm">Rp {{ number_format($merch->price, 0, ',', '.') }}</p>
                     <div id="indicators-carousel" class="relative w-full h-full" data-carousel="static">
                         <div class="z-30 inline-flex gap-4 h-3 overflow-hidden justify-center mt-[20px]">
                             <div type="button"
@@ -207,7 +208,7 @@
                             </div>
 
                         </div>
-                        <div class="relative w-full h-[110px] overflow-hidden">
+                        <div class="relative w-full h-[130px] overflow-hidden">
 
                             <div class="hidden duration-700 ease-in-out" data-carousel-item="">
                                 @if ($merch->id == 6 || $merch->id == 7 || $merch->id == 8)
@@ -499,10 +500,14 @@
                 <ul class="list-disc ml-[17px]">
                     <li class="text-white text-[15px]">TIDAK MENERIMA SEGALA JENIS BENTUK PENUKARAN TERMASUK
                         PENUKARAN MODEL, WARNA, DAN SIZE
-
                     </li>
                     <li class="text-white text-[15px]">TIDAK MENERIMA PENGEMBALIAN DANA ATAS PESANAN YANG
-                        TELAH DILAKUKAN</li>
+                    TELAH DILAKUKAN</li>
+                    @if($merch->id == 3 || $merch->id == 4 || $merch->id == 5)
+                    <li class="text-white text-[15px]">BARANG YANG SUDAH DITERIMA TIDAK DAPAT DITUKARKAN 
+                        KEMBALI
+                    </li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -523,7 +528,7 @@
                     <td>69</td>
                     <td>15</td>
                     <td>25</td>
-                    <td>95 000</td>
+                    <td>Rp 95.000,-</td>
                 </tr>
                 <tr>
                     <td>S</td>
@@ -531,7 +536,7 @@
                     <td>72</td>
                     <td>16</td>
                     <td>25</td>
-                    <td>95 000</td>
+                    <td>Rp 95.000,-</td>
                 </tr>
                 <tr>
                     <td>M</td>
@@ -539,7 +544,7 @@
                     <td>73</td>
                     <td>16</td>
                     <td>29</td>
-                    <td>95 000</td>
+                    <td>Rp 95.000,-</td>
                 </tr>
                 <tr>
                     <td>L</td>
@@ -547,7 +552,7 @@
                     <td>76</td>
                     <td>17</td>
                     <td>31</td>
-                    <td>95 000</td>
+                    <td>Rp 95.000,-</td>
                 </tr>
                 <tr>
                     <td>XL</td>
@@ -555,7 +560,7 @@
                     <td>78</td>
                     <td>17</td>
                     <td>33</td>
-                    <td>95 000</td>
+                    <td>Rp 95.000,-</td>
                 </tr>
                 <tr>
                     <td>XXL</td>
@@ -563,7 +568,7 @@
                     <td>80</td>
                     <td>19</td>
                     <td>31</td>
-                    <td>105 000</td>
+                    <td>Rp 105.000,-</td>
                 </tr>
             </table>
             @endif
@@ -579,43 +584,43 @@
                     <td>S</td>
                     <td>47</td>
                     <td>70</td>
-                    <td>95 000</td>
+                    <td>Rp 95.000,-</td>
                 </tr>
                 <tr>
                     <td>M</td>
                     <td>51</td>
                     <td>71</td>
-                    <td>95 000</td>
+                    <td>Rp 95.000,-</td>
                 </tr>
                 <tr>
                     <td>L</td>
                     <td>55</td>
                     <td>73</td>
-                    <td>95 000</td>
+                    <td>Rp 95.000,-</td>
                 </tr>
                 <tr>
                     <td>XL</td>
                     <td>59</td>
                     <td>76</td>
-                    <td>95 000</td>
+                    <td>Rp 95.000,-</td>
                 </tr>
                 <tr>
                     <td>2XL</td>
                     <td>64</td>
                     <td>80</td>
-                    <td>100 000</td>
+                    <td>Rp 100.000,-</td>
                 </tr>
                 <tr>
                     <td>3XL</td>
                     <td>67</td>
                     <td>83</td>
-                    <td>105 000</td>
+                    <td>Rp 105.000,-</td>
                 </tr>
                 <tr>
                     <td>4XL</td>
                     <td>70</td>
                     <td>86</td>
-                    <td>110 000</td>
+                    <td>Rp 110.000,-</td>
                 </tr>
             </table>
             @endif
