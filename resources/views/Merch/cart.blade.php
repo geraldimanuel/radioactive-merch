@@ -142,7 +142,7 @@
                     @endforeach
                 @endforeach
                 <tr class="text-white">
-                    <td colspan="5" class="text-xl font-bold">Total</td>
+                    <td colspan="4" class="text-xl font-bold">Total</td>
                     <td>{{ $total }}</td>
                 </tr>
             </table>

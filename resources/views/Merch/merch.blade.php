@@ -488,7 +488,7 @@
                 <th>Length<br>(cm)</th>
                 <th>Shoulders<br>(cm)</th>
                 <th>Hands<br>(cm)</th>
-                <th>Harga<br>(Rp)</th>
+                <th>Price<br>(Rp)</th>
             </tr>
             <tr>
                 <td>XS</td>

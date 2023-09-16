@@ -83,34 +83,44 @@
         </div>
     </div>
     <div class="justify-center align-middle items-center">
-        <div class="relative lg:h-[600px] overflow-hidden md:h-96 h-[275px] rounded-lg" data-carousel-item="">
+        <!-- <div class="relative lg:h-[600px] overflow-hidden md:h-96 h-[275px] rounded-lg" data-carousel-item="">
             <img src="/images/CarouselImg1.jpg" class="absolute block w-full lg:h-[40vw] md:h-[80vw] h-[75vw] object-cover lg:object-center">
+        </div> -->
+        <div
+            class="z-30 absolute w-full flex md:h-96 bg-black opacity-[.5] lg:h-[800px] h-[275px] justify-center items-center">
         </div>
-        <!-- <div id="indicators-carousel" class="relative w-full" data-carousel="static">
-
-            <div class="relative lg:h-[800px] overflow-hidden md:h-96 rounded-lg">
-
+        <div class="z-30 absolute w-full flex md:h-[430px] lg:h-[800px] h-[325px] justify-center items-center">
+            <img src="/images/CAROUSEL/NEO.png" class="md:w-1/3 lg:w-1/3 w-1/2">
+        </div>
+        <div id="indicators-carousel" class="relative w-full" data-carousel="static">
+a
+            <div class="relative  overflow-hidden z-0 md:h-96 lg:h-[800px] h-[275px] rounded-lg object-top">
                 <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                    <img src="/images/CarouselImg1.jpg" class="absolute block w-full h-full object-cover">
+                    <div class="absolute flex w-screen md:h-96 lg:h-[800px] h-[275px]">
+                        <img src="/images/CAROUSEL/4.jpg" class="block w-1/4 lg:h-full md:h-full h-[100vw] object-cover lg:object-center">
+                        <img src="/images/CAROUSEL/3.jpg" class="block w-1/2 lg:h-full md:h-full h-[100vw] object-cover lg:object-center">
+                        <img src="/images/CAROUSEL/6.jpg" class="block w-1/4 lg:h-full md:h-full h-[100vw] object-cover lg:object-center">
+                    </div>
                 </div>
 
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/images/img2.jpg" class="absolute block w-full h-full object-cover">
+                    <img src="/images/CAROUSEL/2.jpg"
+                        class="absolute block w-full lg:h-[110vw] md:h-[150vw] h-[150vw] object-cover lg:object-center">
                 </div>
 
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/images/img3.jpg" class="absolute block w-full h-full object-cover">
+                    <img src="/images/CAROUSEL/1.jpg"
+                        class="absolute block w-full lg:h-[110vw] md:h-[120vw] h-[155vw] object-cover lg:object-center">
                 </div>
 
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/images/img4.jpg" class="absolute block w-full h-full object-cover">
+                    <img src="/images/CAROUSEL/6.jpg" class="absolute block w-full h-full object-cover">
                 </div>
 
                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/images/img5.jpg" class="absolute block w-full h-full object-cover">
+                    <img src="/images/CAROUSEL/5.jpg" class="absolute block w-full lg:h-[70vw] md:h-[75vw] sm:h-[70vw] h-[90vw] object-cover">
                 </div>
             </div>
-
             <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
                 <button type="button" class="w-3 h-3 rounded-full bg-transparent border-[1px] border-white"
                     aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
@@ -150,7 +160,7 @@
                     <span class="sr-only">Next</span>
                 </span>
             </button>
-        </div> -->
+        </div>
         <div class="flex flex-wrap w-full justify-center">
             <div class="flex flex-wrap justify-center w-3/4">
                 @foreach ($merch as $obj)
