@@ -87,10 +87,10 @@
             <img src="/images/CarouselImg1.jpg" class="absolute block w-full lg:h-[40vw] md:h-[80vw] h-[75vw] object-cover lg:object-center">
         </div> -->
         <div
-            class="z-30 absolute w-full flex md:h-96 bg-black opacity-[.5] lg:h-[800px] h-[275px] justify-center items-center">
+            class="z-30 absolute w-full flex md:h-[500px] bg-black opacity-[.5] lg:h-[900px] h-[300px] justify-center items-center">
         </div>
         <div class="z-30 absolute w-full flex md:h-[430px] lg:h-[800px] h-[325px] justify-center items-center">
-            <img src="/images/CAROUSEL/NEO.png" class="md:w-1/3 lg:w-1/3 w-1/2">
+            <img src="/images/CAROUSEL/NEO.png" class="md:w-1/3 lg:w-1/3 w-1/2  sm:w-1/3">
         </div>
         <div id="indicators-carousel" class="relative w-full" data-carousel="static">
 a
