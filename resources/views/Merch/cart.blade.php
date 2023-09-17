@@ -129,10 +129,10 @@
                                     </div>
                                 </td>
                                 {{-- <td>{{ $merch->name }}</td> --}}
-                                <td>{{ $obj->price }}</td>
+                                <td>{{ number_format($obj->price, 0, ',', '.') }}</td>
                                 <td>{{ $obj->size }}</td>
                                 <td>{{ $obj->qty }}</td>
-                                <td>{{ $price }}</td>
+                                <td>{{ number_format($price, 0, ',', '.') }}</td>
                                 <td class="text-[1.1rem] w-[20px] rounded-[6px]">
                                     <a class="text-center text-[1.6rem] no-underline text-white hover:text-red-600"
                                         href="{{ url('/cart/' . $obj->id) }}">×</a>
@@ -142,8 +142,8 @@
                     @endforeach
                 @endforeach
                 <tr class="text-white">
-                    <td colspan="5" class="text-xl font-bold">Total</td>
-                    <td>{{ $total }}</td>
+                    <td colspan="4" class="text-xl font-bold">Total</td>
+                    <td>{{ number_format($total, 0, ',', '.') }}</td>
                 </tr>
             </table>
 
