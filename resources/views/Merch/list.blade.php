@@ -92,10 +92,10 @@
         <div class="z-30 absolute w-full flex md:h-[430px] lg:h-[800px] h-[325px] justify-center items-center">
             <img src="/images/CAROUSEL/NEO.png" class="md:w-1/3 lg:w-1/3 w-1/2  sm:w-1/3">
         </div>
-        <div id="indicators-carousel" class="relative w-full" data-carousel="static">
+        <div id="indicators-carousel" class="relative w-full" data-carousel="slide">
 a
             <div class="relative  overflow-hidden z-0 md:h-96 lg:h-[800px] h-[275px] rounded-lg object-top">
-                <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+                <div class="hidden duration-300 ease-in-out" data-carousel-item="active">
                     <div class="absolute flex w-screen md:h-96 lg:h-[800px] h-[275px]">
                         <img src="/images/CAROUSEL/4.jpg" class="block w-1/4 lg:h-full md:h-full h-[100vw] object-cover lg:object-center">
                         <img src="/images/CAROUSEL/3.jpg" class="block w-1/2 lg:h-full md:h-full h-[100vw] object-cover lg:object-center">
@@ -103,21 +103,21 @@ a
                     </div>
                 </div>
 
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <div class="hidden duration-300 ease-in-out" data-carousel-item>
                     <img src="/images/CAROUSEL/2.jpg"
                         class="absolute block w-full lg:h-[110vw] md:h-[150vw] h-[150vw] object-cover lg:object-center">
                 </div>
 
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <div class="hidden duration-300 ease-in-out" data-carousel-item>
                     <img src="/images/CAROUSEL/1.jpg"
                         class="absolute block w-full lg:h-[110vw] md:h-[120vw] h-[155vw] object-cover lg:object-center">
                 </div>
 
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <div class="hidden duration-300 ease-in-out" data-carousel-item>
                     <img src="/images/CAROUSEL/6.jpg" class="absolute block w-full h-full object-cover">
                 </div>
 
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <div class="hidden duration-300 ease-in-out" data-carousel-item>
                     <img src="/images/CAROUSEL/5.jpg" class="absolute block w-full lg:h-[70vw] md:h-[75vw] sm:h-[70vw] h-[90vw] object-cover">
                 </div>
             </div>
