@@ -32,7 +32,6 @@
                         <td>{{ $no++ }}</td>
                         <td>{{ $order->id }}</td>
                         <td>{{ $order->name }}</td>
-                        <td>{{ $order->total_price }}</td>
                         <td>
                             <ul>
                                 @foreach ($detailTrans as $obj)
@@ -48,6 +47,7 @@
                                 @endforeach
                             </ul>
                         </td>
+                        <td>{{ $order->total_price }}</td>
                         <td>
                             @foreach ($merchs as $merch)
                                 @if ($merch->id == $obj->merch_id)
