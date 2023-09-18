@@ -43,6 +43,7 @@
                                                         <p>Product: {{ $merch->name }}</p>
                                                         <p>Qty: {{ $obj->qty }}</p>
                                                         <p>Size: {{ $obj->size }}</p>
+                                                        <p>Tee: {{ $obj->tee }}</p>
                                                     </div>
                                                 @endif
                                             @endforeach

@@ -74,7 +74,7 @@ class CartController extends Controller
 
                     // dd($total_price);
 
-                    DetailTransaction::new_transaction($key->merch_id, $order_id, $key->qty, $total_price, $key->size);
+                    DetailTransaction::new_transaction($key->merch_id, $order_id, $key->qty, $total_price, $key->size, $key->tee);
 
                     $total_qty += $key->qty;
                     $grandTotal += $total_price;
