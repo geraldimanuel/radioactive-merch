@@ -23,7 +23,9 @@ use Illuminate\Support\Facades\Route;
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login', 'index')->name('login');
     Route::post('/login', 'authenticate');
-    
+
+    Route::get('/signup', 'signup_view');
+    Route::post('/signup', 'signup');
 });
 
 Route::get('/logout', function (Request $request) {
@@ -38,8 +40,8 @@ Route::get('/logout', function (Request $request) {
 
 Route::controller(OrderController::class)->group(function () {
     Route::get('/order', 'order');
-    Route::post('/order', 'iyaaa');
-
+    Route::post('/order', 'order');
+    Route::get('/reset-cart', 'resetCart');
 });
 
 Route::middleware('guest')->controller(ResetPasswordController::class)->group(function() {
@@ -50,10 +52,9 @@ Route::middleware('guest')->controller(ResetPasswordController::class)->group(fu
 });
 
 Route::controller(MerchController::class)->group(function () {
-    Route::get('/', 'home'); // endpoint null
+    Route::get('/', 'home');
     Route::get('/cart', 'cart');
     Route::post('/cart/{id}', 'addToCart');
-    // Route::get('/merch', 'home');
     Route::get('item/', 'merch');
     Route::get('item/{id}', 'ShowItem');
 
@@ -62,6 +63,6 @@ Route::controller(MerchController::class)->group(function () {
 Route::controller(CartController::class)->group(function () {
     Route::get('/cart/{id}', 'removeFromCart');
     Route::get('/checkout', 'checkout');
-    Route::get('/dashboard', 'dashboard');
-    Route::get('item/{id}'. 'removeFromCart');
-});
+    Route::get('/dashboard', 'dashboard')->middleware('auth');
+    Route::get('approval/{id}/{status}', 'approval')->middleware('auth');
+}); 

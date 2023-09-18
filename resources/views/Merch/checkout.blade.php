@@ -15,55 +15,17 @@
     <title>List Merch</title>
 </head>
 
-<body class="bg-black h-screen">
-    <div class="flex flex-wrap justify-center gap-2 w-full pt-[10rem] pb-10">
-        <!-- <div class="w-auto form-content shadow-md justify-betwwn px-8 py-3 mb-10 font-pathway shadow-[#FFF000]">
-            <div class="text-center">
-                <h2>Detail Transaksi</h2>
-                <table border="1" class="text-left" cellpadding="10">
-                    <tr>
-                        <th>No</th>
-                        <th>Name</th>
-                        <th>Quantity</th>
-                        <th>Total Price</th>
-                    </tr>
-                    <?php
-                    $no = 1;
-                    $total = 0;
-                    ?>
-                    @foreach ($detailTrans as $obj)
-<tr>
-                        <td>{{ $no++ }}</td>
-                        @foreach ($merchs as $merch)
-@if ($merch->id == $obj->merch_id)
-<td>{{ $merch->name }}</td>
-@break
-@endif
-@endforeach
+<body class="bg-black h-full md:h-screen">
 
-                </tr>
-                <?php $total += $obj->total_price; ?>
-@endforeach
-                <tr>
-                    <td colspan="3">Total</td>
-                    <td>{{ $total }}</td>
-                </tr>
-                <tr>
-                    <td colspan="3">Status</td>
-                    <td>{{ $order->status }}</td>
-                </tr>
-            </table>
-            @csrf
-        </div>
-    </div> -->
-    <div class="flex max-w-2xl mx-auto">
-        <div>
+    <div class="max-w-xs md:max-w-3xl mx-auto py-8">
+
+        <div class=" text-white">
             <form action="/order" enctype="multipart/form-data" method="post"
-                class="w-full flex flex-wrap justify-between gap-3 m-0">
+                class="flex flex-col md:flex-row items-center md:items-stretch gap-3">
                 <div
-                    class="text-center w-auto form-content shadow-md justify-betwwn px-8 py-3 mb-10 font-pathway shadow-[#FFF000]">
-                    <h2>Detail Transaksi</h2>
-                    <table border="1" class="text-left" cellpadding="10">
+                    class="text-center w-full md:w-1/2 form-content shadow-md px-0 md:px-8 py-3 mb-3 md:mb-10 font-pathway shadow-[#FFF000]">
+                    <h2 class="font-taruno">Detail Transaksi</h2>
+                    <table border="1" class="hidden md:contents text-left font-pathway text-sm" cellpadding="10">
                         <tr>
                             <th>No</th>
                             <th>Name</th>
@@ -85,6 +47,43 @@
                                 @endforeach
                                 <td>{{ $obj->size }}</td>
                                 <td>{{ $obj->qty }}</td>
+                                <td>{{ number_format($obj->total_price, 0, ',', '.') }}</td>
+                            </tr>
+                            <?php $total += $obj->total_price; ?>
+                        @endforeach
+                        <tr>
+                            <td colspan="3">Total</td>
+                            <td>{{ number_format($total, 0, ',', '.') }}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Status</td>
+                            <td>{{ $order->status }}</td>
+                        </tr>
+                    </table>
+
+                    <table border="1" class="contents md:hidden text-left font-pathway text-sm" cellpadding="10">
+                        <tr>
+                            <th>No</th>
+                            <th>Name</th>
+                            <th>Qty</th>
+                            <th>Total Price</th>
+                        </tr>
+                        <?php
+                        $no = 1;
+                        $total = 0;
+                        ?>
+                        @foreach ($detailTrans as $obj)
+                            <tr>
+                                <td>{{ $no++ }}</td>
+                                @foreach ($merchs as $merch)
+                                    @if ($merch->id == $obj->merch_id)
+                                        <td>{{ $merch->name }} @if ($obj->size)
+                                                ({{ $obj->size }})
+                                            @endif
+                                        </td>
+                                    @endif
+                                @endforeach
+                                <td>{{ $obj->qty }}</td>
                                 <td>{{ $obj->total_price }}</td>
                             </tr>
                             <?php $total += $obj->total_price; ?>
@@ -101,40 +100,13 @@
                     @csrf
                 </div>
                 <div
-                    class="flex flex-col w-4/5 form-content shadow-md px-8 py-3 mb-10 font-pathway shadow-[#FFF000]">
+                    class="flex flex-col w-full md:w-1/2 form-content shadow-md px-8 py-3 mb-3 md:mb-10 font-pathway shadow-[#FFF000]">
                     <div class="flex w-full justify-center">
-                        <h2 class="h-[50px]">Data Pribadi</h2>
+                        <h2 class="font-taruno">Data Pribadi</h2>
                     </div>
                     @if (session()->has('success'))
                         <div class="text-sm text-green-500" role="alert">{{ session('success') }}</div>
                     @endif
-                    <div>
-                        <div class="mb-1">
-                            <label class="block form-label text-sm mb-0" for="">
-                                <span class="">Nama</span>
-                            </label>
-                            <div>
-                                <input required
-                                    class="block @error('tim1_penyiar1') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline"
-                                    type="text" placeholder="nama" name="name">
-                                @error('tim1_penyiar1')
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mb-1">
-                        <div>
-                            <label class="block form-label text-sm mb-0" for="">Email</label>
-                        </div>
-                        <div>
-                            <input required
-                                class="block @error('tim1_institusi') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline"
-                                type="text" placeholder="email" name="email">
-                            @error('tim1_institusi')
-                            @enderror
-                        </div>
-                    </div>
 
                     <div>
                         <div class="mb-1">
@@ -143,7 +115,7 @@
                             </div>
                             <div>
                                 <input required
-                                    class="block @error('tim1_nims1') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline"
+                                    class="block @error('tim1_nims1') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline text-black"
                                     type="text" placeholder="nomor telepon" name="wa">
 
                             </div>
@@ -156,8 +128,8 @@
                             </div>
                             <div>
                                 <input required
-                                    class="block @error('tim1_nims1') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline"
-                                    type="text" placeholder="nomor telepon" name="line">
+                                    class="block @error('tim1_nims1') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline text-black"
+                                    type="text" placeholder="id line" name="line">
 
                             </div>
                         </div>
@@ -165,119 +137,35 @@
                 </div>
                 <input class="hidden" name="total_price" value="{{ $total }}" />
         </div>
-    </div>
-    <div class="w-4/5 form-content shadow-md px-8 py-3 mb-4 font-pathway shadow-[#FFF000]">
-        <div class="mb-1">
-            <div>
-                <label class="block font-taruno text-center text-md md:text-lg text- form-label text-sm mb-0"
-                    for="">Bukti Pembayaran</label>
-            </div>
-            <div>
-                <h6 class="text-sm">Pembayaran sebesar Rp 150.000,~ ke xxxxx a/n xxxxx</h6 class="text-sm">
-            </div>
-            <div>
-                <input required
-                    class="block @error('payment_proof') border-red-500 @enderror w-full mb-5 text-xs text-gray-900 border  cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                    type="file" accept="image/*" name="payment_proof">
-                @error('payment_proof')
-                @enderror
-            </div>
-        </div>
-        <div class="">
-            <button class="button-submit font-taruno text-white bg-[#0E0EC0] w-full text-sm px-5 py-1"
-                type="submit" onclick="return confirm('Pastikan data yang dimasukkan benar adanya')">
-                Send
-            </button>
-        </div>
-
-    </div>
-    </form>
-
-    <body>
-        <h1>Order Merch</h1>
-
-        <h2>Detail Transaksi</h2>
-        <table border="1" cellpadding="10">
-            <tr>
-                <th>No</th>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Total Price</th>
-            </tr>
-            <?php
-            $no = 1;
-            $total = 0;
-            ?>
-            @foreach ($detailTrans as $obj)
-                <tr>
-                    <td>{{ $no++ }}</td>
-                    @foreach ($merchs as $merch)
-                        @if ($merch->id == $obj->merch_id)
-                            <td>{{ $merch->name }}</td>
-                        @endif
-                    @endforeach
-                    <td>{{ $obj->qty }}</td>
-                    <td>{{ $obj->total_price }}</td>
-                </tr>
-                <?php $total += $obj->total_price; ?>
-            @endforeach
-            <tr>
-                <td colspan="3">Total</td>
-                <td>{{ $total }}</td>
-            </tr>
-            <tr>
-                <td colspan="3">Status</td>
-                <td>{{ $order->status }}</td>
-            </tr>
-        </table>
-        <form action="/order" enctype="multipart/form-data" method="post">
-            <label>Nama</label>
-            <input required type="text" name="name" />
-            <br />
-            <label>Email</label>
-            <input required type="email" name="email" />
-            <br />
-            <label>No. WA</label>
-            <input required type="text" name="wa" />
-            <br />
-            <label>ID Line</label>
-            <input required type="text" name="line" />
-            <br />
-            <input class="hidden" name="total_price" value="{{ $total }}" />
-            <div class="w-full form-content shadow-md  px-8 py-3 mb-4 font-pathway shadow-[#FFF000]">
-                <div class="mb-1">
-                    <div>
-                        <label
-                            class="block font-taruno text-center text-md md:text-lg text- form-label text-sm mb-0"
-                            for="">Bukti Pembayaran</label>
-                    </div>
-                    <div>
-                        <h6 class="text-sm">Pembayaran sebesar Rp 150.000,~ ke xxxxx a/n xxxxx</h6
-                            class="text-sm">
-                    </div>
-                    <div>
-                        <input required
-                            class="block @error('payment_proof') border-red-500 @enderror w-full mb-5 text-xs text-gray-900 border  cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                            type="file" accept="image/*" name="payment_proof">
-                        @error('payment_proof')
-                            <div class="text-sm text-red-600">{{ $message }}</div>
-                        @enderror
-                    </div>
+        <div class="form-content shadow-md px-8 py-3 mb-4 font-pathway shadow-[#FFF000] text-white">
+            <div class="">
+                <div>
+                    <label class="block font-taruno text-center text-md md:text-lg text- form-label text-sm mb-0"
+                        for="">Bukti Pembayaran</label>
                 </div>
-
-                <div class="">
-                    <button class="button-submit font-taruno text-white bg-[#0E0EC0] w-full text-sm px-5 py-1"
-                        type="submit" onclick="return confirm('Pastikan data yang dimasukkan benar adanya')">
-                        Send
-                    </button>
+                <div>
+                    <h6 class="text-sm font-pathway">Pembayaran sebesar Rp {{ $total }},~ ke 8831917474 a/n
+                        Raudhah Salsabila Surbakti</h6 class="text-sm">
+                </div>
+                <div>
+                    <input required
+                        class="block @error('payment_proof') border-red-500 @enderror w-full mb-5 text-xs text-gray-900 border  cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                        type="file" accept="image/*" name="payment_proof">
+                    @error('payment_proof')
+                    @enderror
                 </div>
             </div>
+            <div class="">
+                <button class="button-submit font-taruno text-white bg-[#0E0EC0] w-full text-sm px-5 py-1"
+                    type="submit" onclick="return confirm('Pastikan data yang dimasukkan benar adanya')">
+                    Send
+                </button>
+            </div>
+
+        </div>
         </form>
-        <div id="pay-button"
-            class="bg-green-300 rounded-md font-bold flex justify-center items-center py-1 cursor-pointer">
-            Pay
-        </div>
-
-    </body>
+        <a class="text-[.8rem] hover:text-[#3838ff] no-underline text-white" href="{{ url('/cart') }}">Back to
+            cart</a>
+</body>
 
 </html>

@@ -40,20 +40,20 @@
             </button>
             <div class="pr-4 hidden space-x-6 lg:inline-block">
                 <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
-                    href="/">HOME</a>
+                    href="https://umnradioactive.com/">HOME</a>
                 <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
-                    href="/voc">VO
+                    href="https://umnradioactive.com/voc">VO
                     CHALLENGE</a>
                 <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
-                    href="/rac">RAC</a>
+                    href="https://umnradioactive.com/rac">RAC</a>
                 <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
-                    href="/closing-night">CLOSING
+                    href="https://umnradioactive.com/closing-night">CLOSING
                     NIGHT</a>
                 <a class="font-taruno text-white text-xs underline underline-offset-4 decoration-[#FFF000] cursor-pointer"
                     href="https://merch.umnradioactive.com/">MERCHANDISE</a>
                 @auth
-                    <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer"
-                        href="/logout">LOGOUT</a>
+                <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer"
+                    href="/logout">LOGOUT</a>
                 @endauth
             </div>
 
@@ -62,20 +62,20 @@
                     @click.away=" isOpen = false">
                     <div class="flex flex-col space-y-6">
                         <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
-                            href="/">HOME</a>
+                            href="https://umnradioactive.com/">HOME</a>
                         <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
-                            href="/voc">VO
+                            href="https://umnradioactive.com/voc">VO
                             CHALLENGE</a>
                         <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
-                            href="/rac">RAC</a>
+                            href="https://umnradioactive.com/rac">RAC</a>
                         <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
-                            href="/closing-night">CLOSING
+                            href="https://umnradioactive.com/closing-night">CLOSING
                             NIGHT</a>
                         <a class="font-taruno text-black text-xs underline underline-offset-4 decoration-[#0E0EC0] cursor-pointer"
                             href="https://merch.umnradioactive.com/">MERCHANDISE</a>
                         @auth
-                            <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer"
-                                href="/logout">LOGOUT</a>
+                        <a class="font-taruno text-white text-xs no-underline hover:underline cursor-pointer"
+                            href="/logout">LOGOUT</a>
                         @endauth
                     </div>
                 </div>
@@ -83,31 +83,44 @@
         </div>
     </div>
     <div class="justify-center align-middle items-center">
-        <div id="indicators-carousel" class="relative w-full" data-carousel="static">
-
-            <div class="relative lg:h-[600px] overflow-hidden md:h-96 rounded-lg">
-
-                <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                    <img src="/images/CarouselImg1.jpg" class="absolute block w-full object-cover">
+        <!-- <div class="relative lg:h-[600px] overflow-hidden md:h-96 h-[275px] rounded-lg" data-carousel-item="">
+            <img src="/images/CarouselImg1.jpg" class="absolute block w-full lg:h-[40vw] md:h-[80vw] h-[75vw] object-cover lg:object-center">
+        </div> -->
+        <div
+            class="z-30 absolute w-full flex md:h-[500px] bg-black opacity-[.5] lg:h-[900px] h-[300px] justify-center items-center">
+        </div>
+        <div class="z-30 absolute w-full flex md:h-[430px] lg:h-[800px] h-[325px] justify-center items-center">
+            <img src="/images/CAROUSEL/NEO.png" class="md:w-1/3 lg:w-1/3 w-1/2  sm:w-1/3">
+        </div>
+        <div id="indicators-carousel" class="relative w-full" data-carousel="slide">
+a
+            <div class="relative  overflow-hidden z-0 md:h-96 lg:h-[800px] h-[275px] rounded-lg object-top">
+                <div class="hidden duration-300 ease-in-out" data-carousel-item="active">
+                    <div class="absolute flex w-screen md:h-96 lg:h-[800px] h-[275px]">
+                        <img src="/images/CAROUSEL/4.jpg" class="block w-1/4 lg:h-full md:h-full h-[100vw] object-cover lg:object-center">
+                        <img src="/images/CAROUSEL/3.jpg" class="block w-1/2 lg:h-full md:h-full h-[100vw] object-cover lg:object-center">
+                        <img src="/images/CAROUSEL/6.jpg" class="block w-1/4 lg:h-full md:h-full h-[100vw] object-cover lg:object-center">
+                    </div>
                 </div>
 
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/images/img2.jpg" class="absolute block w-full object-contain">
+                <div class="hidden duration-300 ease-in-out" data-carousel-item>
+                    <img src="/images/CAROUSEL/2.jpg"
+                        class="absolute block w-full lg:h-[110vw] md:h-[150vw] h-[150vw] object-cover lg:object-center">
                 </div>
 
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/images/img3.jpg" class="absolute block w-full object-contain">
+                <div class="hidden duration-300 ease-in-out" data-carousel-item>
+                    <img src="/images/CAROUSEL/1.jpg"
+                        class="absolute block w-full lg:h-[110vw] md:h-[120vw] h-[155vw] object-cover lg:object-center">
                 </div>
 
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/images/img4.jpg" class="absolute block w-full object-contain">
+                <div class="hidden duration-300 ease-in-out" data-carousel-item>
+                    <img src="/images/CAROUSEL/6.jpg" class="absolute block w-full h-full object-cover">
                 </div>
 
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/images/img5.jpg" class="absolute block w-full object-contain">
+                <div class="hidden duration-300 ease-in-out" data-carousel-item>
+                    <img src="/images/CAROUSEL/5.jpg" class="absolute block w-full lg:h-[70vw] md:h-[75vw] sm:h-[70vw] h-[90vw] object-cover">
                 </div>
             </div>
-
             <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
                 <button type="button" class="w-3 h-3 rounded-full bg-transparent border-[1px] border-white"
                     aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
@@ -149,19 +162,20 @@
             </button>
         </div>
         <div class="flex flex-wrap w-full justify-center">
-            <div class="flex flex-wrap justify-center w-">
-                @foreach($merch as $obj)
-                <a href="{{url('/item/'.$obj->id)}}"
-                    class="mt-[6rem] p-[30px] justify-center content-center gap-10 no-underline">
+            <div class="flex flex-wrap justify-center w-3/4">
+                @foreach ($merch as $obj)
+                <a href="{{ url('/item/' . $obj->id) }}"
+                    class="m-[30px] mt-[6rem] justify-center content-center gap-10 no-underline">
                     <div id="item-img"
                         class=" mb-[7rem] w-[250px] h-[350px] border-solid border-[1px] border-white transform transition duration-500 hover:scale-[1.03]">
                         <div class="h-full w-full">
-                            <img src="/images/{{$obj->description}}/{{$obj->image1}}" class="object-cover w-[250px] h-[350px]" />
-                            <p class="mt-5 font-taruno text-white text-[15px]">{{$obj->name}}</p>
-                            <p class="mt-1 font-sans text-white text-sm">Rp {{$obj->price}}</p>
-                            </div>
+                            <img src="/images/{{ $obj->description }}/{{ $obj->image1 }}"
+                                class="object-cover w-[250px] h-[350px]" />
+                            <p class="mt-5 font-taruno text-white text-[15px]">{{ $obj->name }}</p>
+                            <p class="mt-1 font-sans text-white text-sm">Rp {{ number_format($obj->price, 0, ',', '.') }}</p>
                         </div>
-                    </a>
+                    </div>
+                </a>
                 @endforeach
             </div>
         </div>
@@ -179,28 +193,34 @@
                 <img src="/images/LOGO RA.webp" alt="" class="h-40 object-contain">
             </div>
             <div class="lg:container flex flex-col justify-evenly py-3 my-10 gap-4 text-center md:text-left">
-                <a href="/"
+                <a href="https://umnradioactive.com/"
                     class="no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer">
                     <h5 class="text-xs font-taruno font-medium text-white">
                         <b>HOME</b>
                     </h5>
                 </a>
-                <a href="#"
+                <a href="https://umnradioactive.com/voc"
                     class="no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer">
                     <h5 class="text-xs font-taruno font-medium text-white">
                         <b>VO CHALLENGE</b>
                     </h5>
                 </a>
-                <a href="#"
+                <a href="https://umnradioactive.com/rac"
                     class="no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer">
                     <h5 class="text-xs font-taruno font-medium text-white">
                         <b>RAC</b>
                     </h5>
                 </a>
-                <a href="#"
+                <a href="https://umnradioactive.com/closing-night"
                     class="no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer">
                     <h5 class="text-xs font-taruno font-medium text-white">
                         <b>CLOSING NIGHT</b>
+                    </h5>
+                </a>
+                <a href="https://merch.umnradioactive.com"
+                    class="no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer">
+                    <h5 class="text-xs font-taruno font-medium text-white">
+                        <b>MERCHANDISE</b>
                     </h5>
                 </a>
             </div>
@@ -240,8 +260,7 @@
                             </path>
                         </svg>
                     </a>
-                    <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank"
-                        class="text-white">
+                    <a href="https://youtube.com/channel/UCeVl4fsOVkU7yVCurgoq5Lg" target="_blank" class="text-white">
                         <svg class="h-12 w-12 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path
                                 d="M12,20.55c-.3,0-7.279-.006-9.115-.5A3.375,3.375,0,0,1,.5,17.665,29.809,29.809,0,0,1,0,12,29.824,29.824,0,0,1,.5,6.334,3.375,3.375,0,0,1,2.885,3.948c1.836-.492,8.819-.5,9.115-.5s7.279.006,9.115.5A3.384,3.384,0,0,1,23.5,6.334,29.97,29.97,0,0,1,24,12a29.97,29.97,0,0,1-.5,5.666,3.384,3.384,0,0,1-2.388,2.386C19.279,20.544,12.3,20.55,12,20.55Zm0-16.1c-.072,0-7.146.006-8.857.464A2.377,2.377,0,0,0,1.464,6.593,29.566,29.566,0,0,0,1,12a29.566,29.566,0,0,0,.464,5.407,2.377,2.377,0,0,0,1.679,1.679c1.711.458,8.785.464,8.857.464s7.146-.006,8.857-.464a2.377,2.377,0,0,0,1.679-1.679A29.66,29.66,0,0,0,23,12a29.66,29.66,0,0,0-.464-5.407h0a2.377,2.377,0,0,0-1.679-1.679C19.146,4.456,12.071,4.45,12,4.45ZM9.7,15.95a.5.5,0,0,1-.5-.5V8.55a.5.5,0,0,1,.75-.433l5.975,3.45a.5.5,0,0,1,0,.866L9.95,15.883A.5.5,0,0,1,9.7,15.95Zm.5-6.534v5.168L14.675,12Z">
@@ -265,7 +284,7 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init();
+    AOS.init();
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
 </body>

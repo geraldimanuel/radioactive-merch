@@ -8,13 +8,14 @@
     @vite('resources/css/app.css')
     <title>UMN Radio | Reset Passowrd</title>
 </head>
+
 <body>
-<img src="{{ url('/images/backgroundLogin.jpg') }}" alt="Image"
+    {{-- <img src="{{ url('/images/backgroundLogin.jpg') }}" alt="Image"
         class="absolute inset-0 z-0 h-full w-full object-cover" />
     <div class="absolute inset-0 z-0 h-full w-full bg-black/50" />
     <div class="container relative z-40 mx-auto p-8 flex items-center justify-center">
         <img src="{{ url('/images/logoRadio-putih.png') }}" alt="Image" class="h-20" />
-    </div>
+    </div> --}}
     <div class="class=container mx-auto p-4">
         <form action="{{ route('password.update') }}" method="post">
             <div
@@ -22,7 +23,7 @@
                 <div
                     class="relative bg-clip-border mx-4 rounded-xl overflow-hidden shadow-lg -mt-6 mb-4 grid h-28 place-items-center bg-gradient-to-r from-[#011F39] to-[#629FD4]">
                     <h3 class="block antialiased tracking-normal font-sans text-xl font-bold leading-snug text-white">
-                    Forgot Your Password?</h3>
+                        Forgot Your Password?</h3>
                 </div>
                 @if ($errors->any())
                     <ul class="text-red-500 text-center">

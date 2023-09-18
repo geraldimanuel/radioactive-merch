@@ -13,7 +13,7 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="overflow-x-hidden bg-black">
+<body class="overflow-x-hidden bg-black text-white">
     {{-- <nav id="header" class="fixed navbar bg-transparent justify-center gap-16 z-40 transition-all duration-700">
         <a class="font-taruno text-white text-xs underline underline-offset-4 decoration-[#FFF000] cursor-pointer"
             href="/">HOME</a>
@@ -40,14 +40,14 @@
             </button>
             <div class="pr-4 hidden space-x-6 lg:inline-block">
                 <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
-                    href="/">HOME</a>
+                    href="https://umnradioactive.com/">HOME</a>
                 <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
-                    href="/voc">VO
+                    href="https://umnradioactive.com/voc">VO
                     CHALLENGE</a>
                 <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
-                    href="/rac">RAC</a>
+                    href="https://umnradioactive.com/rac">RAC</a>
                 <a class="font-taruno text-white text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer"
-                    href="/closing-night">CLOSING
+                    href="https://umnradioactive.com/closing-night">CLOSING
                     NIGHT</a>
                 <a class="font-taruno text-white text-xs underline underline-offset-4 decoration-[#FFF000] cursor-pointer"
                     href="https://merch.umnradioactive.com/">MERCHANDISE</a>
@@ -62,14 +62,14 @@
                     @click.away=" isOpen = false">
                     <div class="flex flex-col space-y-6">
                         <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
-                            href="/">HOME</a>
+                            href="https://umnradioactive.com/">HOME</a>
                         <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
-                            href="/voc">VO
+                            href="https://umnradioactive.com/voc">VO
                             CHALLENGE</a>
                         <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
-                            href="/rac">RAC</a>
+                            href="https://umnradioactive.com/rac">RAC</a>
                         <a class="font-taruno text-black text-xs no-underline hover:underline hover:underline-offset-4 hover:decoration-[#0E0EC0] cursor-pointer"
-                            href="/closing-night">CLOSING
+                            href="https://umnradioactive.com/closing-night">CLOSING
                             NIGHT</a>
                         <a class="font-taruno text-black text-xs underline underline-offset-4 decoration-[#0E0EC0] cursor-pointer"
                             href="https://merch.umnradioactive.com/">MERCHANDISE</a>
@@ -82,16 +82,16 @@
             </div>
         </div>
     </div>
-    <div class="flex flex-wrap justify-center pb-[50px] pt-[200px] h-[800px]">
+    <div class="flex flex-row justify-center pb-[50px] pt-[200px]  text-white">
         <div class="text-center flex">
             <div class="w-full">
-                @if (empty($cart))
+                @if ($cart->isEmpty())
                     <div class="flex justify-center align-middle items-center h-[800px]">
                         <div>
                             <p class="font-taruno text-xl">Cart is empty</p>
                             <div class="mt-[20px]">
                                 <a class="text-[.8rem] hover:text-[#3838ff] rounded-[6px] no-underline text-white"
-                                    href='/'>Back to Merch</a>
+                                    href="{{ url('/') }}">Back to Merch</a>
                             </div>
                         </div>
                     </div>
@@ -99,8 +99,8 @@
         @else
             <table border="1" cellpadding="10"
                 class="hidden md:contents w-4/5 text-white dark:text-gray-800 text-sm lg:text-lg md:mr-[50px] md:ml-[50px] shadow-lg lg:w-full">
-                <tr>
-                    <th class="font-taruno text-left">Items</th>
+                <tr class="text-white">
+                    <th class="font-taruno text-left ">Items</th>
                     <!-- <th class="font-taruno">Name</th> -->
                     <th class="font-taruno">Price</th>
                     <th class="font-taruno">Size</th>
@@ -113,23 +113,26 @@
                 @foreach ($cart as $obj)
                     @foreach ($merches as $merch)
                         @if ($merch->id == $obj->merch_id)
-
-                        <?php $price = $obj->qty * $merch->price;
-                        $total += $price; ?>
-
-                            <tr class="border-b-[1px]">
+                            <?php $price = $obj->qty * $obj->price;
+                            $total += $price;
+                            ?>
+                            <tr class="border-b-[1px] text-white">
                                 <!-- <td>{{ $no++ }}</td> -->
-                                <td class="flex h-full justify-left items-center">
-                                    <img src="/images/img2.jpg" class="h-[150px] w-auto object-fill" />
-                                    <div class="flex ml-5">
-                                        <p class="text-center">{{ $merch->name }}</p>
+                                <td class="flex flex-wrap gap-3 h-full justify-left items-center">
+                                    <img src="/images/{{ $merch->description }}//{{ $merch->image1 }}"
+                                        class="h-[150px] w-auto object-cover" />
+                                    <div class="flex mr-5 gap-0">
+                                        <div>
+                                            <p class="text-left h-5">{{ $merch->name }}</p>
+                                            <p class="text-left m-0 text-gray-500 text-[11px]">{{ $obj->tee }}</p>
+                                        </div>
                                     </div>
                                 </td>
-                                <!-- <td>{{ $merch->name }}</td> -->
-                                <td>{{ $merch->price }}</td>
+                                {{-- <td>{{ $merch->name }}</td> --}}
+                                <td>{{ number_format($obj->price, 0, ',', '.') }}</td>
                                 <td>{{ $obj->size }}</td>
                                 <td>{{ $obj->qty }}</td>
-                                <td>{{ $price }}</td>
+                                <td>{{ number_format($price, 0, ',', '.') }}</td>
                                 <td class="text-[1.1rem] w-[20px] rounded-[6px]">
                                     <a class="text-center text-[1.6rem] no-underline text-white hover:text-red-600"
                                         href="{{ url('/cart/' . $obj->id) }}">×</a>
@@ -138,48 +141,54 @@
                         @endif
                     @endforeach
                 @endforeach
-                <tr>
-                    <td colspan="5" class="text-xl font-bold">Total</td>
-                    <td>{{ $total }}</td>
+                <tr class="text-white">
+                    <td colspan="4" class="text-xl font-bold">Total</td>
+                    <td>{{ number_format($total, 0, ',', '.') }}</td>
                 </tr>
             </table>
-            {{-- Ini yg mobile table --}}
+
             <table border="1" cellpadding="10"
                 class="contents md:hidden w-4/5 text-white dark:text-gray-800 text-sm lg:text-lg md:mr-[50px] md:ml-[50px] shadow-lg lg:w-full">
-                <tr>
-                    <th class="font-taruno text-left">Items</th>
-                    <!-- <th class="font-taruno">Name</th> -->
-                    <th class="font-taruno">Details</th>
-                    <th class="font-taruno">Remove</th>
+                <tr class="text-white">
+                    <td class="font-taruno text-left ">Items</td>
+                    <!-- <td class="font-taruno">Name</td> -->
+                    <td class="font-taruno">Details</td>
+                    <td class="font-taruno">Remove</td>
                 </tr>
                 <?php $no = 1;
                 $total = 0; ?>
                 @foreach ($cart as $obj)
-                    <tr class="border-b-[1px]">
-                        <!-- <td>{{ $no++ }}</td> -->
-                        <td class="flex flex-wrap gap-3 h-full justify-left items-center">
-                            <img src="/images/{{ $obj->description }}//{{ $obj->image1 }}"
-                                class="h-[150px] w-auto object-cover" />
-                            <div class="flex mr-5 gap-0">
-                                <div>
-                                    <p class="text-left h-5">{{ $obj->name }}</p>
-                                    <p class="text-left m-0 text-gray-500 text-[11px]">{{ $obj->tee }}</p>
-                                </div>
-                            </div>
-                        </td>
-                        <!-- <td>{{ $obj->name }}</td> -->
-                        <td>Price : {{ $obj->price }} <br> Size : {{ $obj->size }} <br> Qty :
-                            {{ $obj->price * $obj->qty }}</td>
-                        <td class="text-[1.1rem] w-[20px] rounded-[6px]">
-                            <a class="text-center text-[1.6rem] no-underline text-white hover:text-red-600"
-                                href="{{ url('/cart/' . $obj->id) }}">×</a>
-                        </td>
-                    </tr>
-
-                    <?php $total += $obj->qty * $obj->price; ?>
+                    @foreach ($merches as $merch)
+                        @if ($merch->id == $obj->merch_id)
+                            <?php $price = $obj->qty * $obj->price;
+                            $total += $price;
+                            ?>
+                            <tr class="border-b-[1px] text-white">
+                                <!-- <td>{{ $no++ }}</td> -->
+                                <td class="flex flex-wrap gap-3 h-full justify-left items-center">
+                                    <img src="/images/{{ $merch->description }}//{{ $merch->image1 }}"
+                                        class="h-[150px] w-auto object-cover" />
+                                    <div class="flex mr-5 gap-0 mb-3 md:mb-0">
+                                        <div>
+                                            <p class="text-left h-5">{{ $merch->name }}</p>
+                                            <p class="text-left m-0 text-gray-500 text-[11px]">{{ $obj->tee }}</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                {{-- <td>{{ $merch->name }}</td> --}}
+                                <td class="text-left">Price : {{ $obj->price }} <br>Size : {{ $obj->size }}
+                                    <br>Qty: {{ $obj->qty }} <br>Total Price: {{ $price }}
+                                </td>
+                                <td class="text-[1.1rem] w-[20px] rounded-[6px]">
+                                    <a class="text-center text-[1.6rem] no-underline text-white hover:text-red-600"
+                                        href="/remove/{{ $obj->id }}">×</a>
+                                </td>
+                            </tr>
+                        @endif
+                    @endforeach
                 @endforeach
-                <tr>
-                    <td colspan="2" class="text-xl font-bold">Total</td>
+                <tr class="text-white">
+                    <td colspan="1" class="text-xl font-bold">Total</td>
                     <td>{{ $total }}</td>
                 </tr>
             </table>
@@ -192,12 +201,11 @@
                     </div>
                 </a>
             </div>
-            <a class="text-[.8rem] hover:text-[#3838ff] no-underline text-white" href='/'>Back to
+            <a class="text-[.8rem] hover:text-[#3838ff] no-underline text-white" href="{{ url('/') }}">Back to
                 Merch</a>
         </div>
         @endif
     </div>
-
     </div>
 
 
@@ -207,28 +215,34 @@
                 <img src="/images/LOGO RA.webp" alt="" class="h-40 object-contain">
             </div>
             <div class="lg:container flex flex-col justify-evenly py-3 my-10 gap-4 text-center md:text-left">
-                <a href="/"
+                <a href="https://umnradioactive.com/"
                     class="no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer">
                     <h5 class="text-xs font-taruno font-medium text-white">
                         <b>HOME</b>
                     </h5>
                 </a>
-                <a href="#"
+                <a href="https://umnradioactive.com/voc"
                     class="no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer">
                     <h5 class="text-xs font-taruno font-medium text-white">
                         <b>VO CHALLENGE</b>
                     </h5>
                 </a>
-                <a href="#"
+                <a href="https://umnradioactive.com/rac"
                     class="no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer">
                     <h5 class="text-xs font-taruno font-medium text-white">
                         <b>RAC</b>
                     </h5>
                 </a>
-                <a href="#"
+                <a href="https://umnradioactive.com/closing-night"
                     class="no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer">
                     <h5 class="text-xs font-taruno font-medium text-white">
                         <b>CLOSING NIGHT</b>
+                    </h5>
+                </a>
+                <a href="https://merch.umnradioactive.com"
+                    class="no-underline hover:underline hover:underline-offset-4 hover:decoration-[#FFF000] cursor-pointer">
+                    <h5 class="text-xs font-taruno font-medium text-white">
+                        <b>MERCHANDISE</b>
                     </h5>
                 </a>
             </div>
@@ -291,18 +305,18 @@
         </div>
     </footer>
     <script>
-    window.addEventListener('scroll', function() {
-        var header = document.getElementById('header');
-        if (window.scrollY > 0) {
-            header.classList.remove('bg-transparent');
-            header.classList.add('bg-[#0E0EC0]');
-            // header.classList.add('fixed');
-        } else {
-            header.classList.add('bg-transparent');
-            header.classList.remove('bg-[#0E0EC0]');
-            // header.classList.remove('fixed');
-        }
-    });
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            if (window.scrollY > 0) {
+                header.classList.remove('bg-transparent');
+                header.classList.add('bg-[#0E0EC0]');
+                // header.classList.add('fixed');
+            } else {
+                header.classList.add('bg-transparent');
+                header.classList.remove('bg-[#0E0EC0]');
+                // header.classList.remove('fixed');
+            }
+        });
     </script>
 </body>
 

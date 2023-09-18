@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\User;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Mail\Submission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Cart;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -33,9 +37,11 @@ class OrderController extends Controller
     
     public function order(Request $request) {
         if(Auth::check()){
-            Order::create([
-                'name' => $request->name,
-                'email' => $request->email,
+            $logged_mail = auth()->user()->email;
+         
+            Order::where('email', $logged_mail)->update([
+                // 'name' => $request->name,
+                // 'email' => $request->email,
                 'wa' => $request->wa,
                 'line' => $request->line,
                 'image' => $request->file('payment_proof')->storePublicly('payment_images_merch', 'public'),
@@ -43,8 +49,40 @@ class OrderController extends Controller
                 'status' => 'Unpaid'
             ]);
 
-            return redirect('/order');
-            return view('Merch.list');
+            $order_id = Order::where('email', $logged_mail)->first()->id;
+
+            // dd($order_id);
+
+            $submission_date = date('Y-m-d H:i:s');
+
+            $this->email_submission($logged_mail, $order_id, $submission_date);
+
+            return redirect('/reset-cart');
+        } else {
+            return redirect('/login');
+        }
+    }
+
+    private function email_submission($receiver, $order_id, $submission_date)
+    {
+        $data = [
+            'subject' => '[UMN RadioActive 2023 - Your Order Has Been Submitted]',
+            'orderId' => $order_id,
+            'submissionDate' => $submission_date,
+            'receiver' => $receiver
+        ];
+        Mail::to($receiver)->send(new Submission($data));
+    }
+
+    public function resetCart() {
+        if(Auth::check()){
+            $logged_id = auth()->user()->id;
+
+            $user = User::find($logged_id);
+            
+            Cart::where('user_id', '=', $logged_id)->delete();
+
+            return redirect('/');
         } else {
             return redirect('/login');
         }

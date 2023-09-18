@@ -6,12 +6,14 @@ use App\Models\Cart;
 use App\Models\Merch;
 use App\Http\Requests\StoreCartRequest;
 use App\Http\Requests\UpdateCartRequest;
+use App\Mail\Confirmation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\DetailTransaction;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CartController extends Controller
 {
@@ -24,7 +26,6 @@ class CartController extends Controller
     }
 
     public function removeFromCart($cart_id) {
-
         if(Auth::check()){
             Cart::where('id', $cart_id)->delete();
 
@@ -49,7 +50,6 @@ class CartController extends Controller
             if (isset($existing_order)) {
                 $detailTrans = DetailTransaction::where('order_id', $existing_order->id)->latest();
                 $merchs = Merch::all();
-                // $order = Order::where('id', $existing_order)->first();
 
                 return view('Merch.checkout', [
                             'detailTrans' => $detailTrans,
@@ -70,18 +70,18 @@ class CartController extends Controller
                     $merch = Merch::find($key->merch_id);
                     $merch->save();
 
-                    // Cart::where('id', $key->id)->delete();
+                    $total_price = $key->price * $key->qty;
 
-                    $total_price = $merch->price * $key->qty;
+                    // dd($total_price);
 
-                    DetailTransaction::new_transaction($key->merch_id, $order_id, $key->qty, $total_price);
+                    DetailTransaction::new_transaction($key->merch_id, $order_id, $key->qty, $total_price, $key->size, $key->tee);
 
                     $total_qty += $key->qty;
                     $grandTotal += $total_price;
                 }
 
                 Order::where('id', $order_id)->update([
-                    'total_price' => $grandTotal
+                    'total_price' => $grandTotal,
                 ]);
 
                 $detailTrans = DetailTransaction::where('order_id', $order_id)->get();
@@ -110,8 +110,39 @@ class CartController extends Controller
             'orders' => $orders,
             'detailTrans' => $detailTrans
         ]);
+   
+    }
 
-        
+    public function approval($id, $status)
+    {
+        $order = Order::where('id', $id)->first();
+        // dd($order);
+
+        // $logged_email = auth()->user()->email;
+        $customer_email = $order->email;
+
+
+        if ($status == "paid") {
+            Order::where('id', $id)->update([
+                'status' => 'Paid'
+            ]);
+
+            $this->email_confirmation($customer_email);
+        } else {
+            Order::where('id', $id)->update([
+                'status' => 'Canceled'
+            ]);
+        }
+        return redirect('/dashboard');
+    }
+
+    private function email_confirmation($receiver_mail)
+    {
+        $data = [
+            'subject' => '[UMN Radioactive 2023 - Your order has been confirmed]',
+            'receiver' => $receiver_mail
+        ];
+        Mail::to($receiver_mail)->send(new Confirmation($data));
     }
 
     /**
