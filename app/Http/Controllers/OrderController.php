@@ -67,7 +67,7 @@ class OrderController extends Controller
                 ]);
             }
 
-            $order = Order::where('name', $user->name)->latest();
+            $order = Order::where('name', $user->name)->latest('created_at')->first();
 
             $submission_date = date('Y-m-d H:i:s');
 

@@ -39,23 +39,29 @@
                         $grand_total = 0;
                         ?>
                         @foreach ($cart as $obj)
-                            <tr>
-                                <td>{{ $no++ }}</td>
-                                @foreach ($merches as $merch)
-                                    @if ($merch->id == $obj->merch_id)
-                                        <td>{{ $merch->name }}</td>
-                                    @endif
+                        <tr>
+                            <td>{{ $no++ }}</td>
+                            @foreach ($merches as $merch)
+                                @if ($merch->id == $obj->merch_id)
+                                    <td>{{ $merch->name }}</td>
+                                @endif
+                            @endforeach
+
+                            <td>{{ $obj->size }}</td>
+                            <td>{{ $obj->qty }}</td>
+
+                            @foreach ($merches as $merch)
+                                @if ($merch->id == $obj->merch_id)
                                     <?php $total_price = $obj->qty * $merch->price; ?>
-                                @endforeach
-                                <td>{{ $obj->size }}</td>
-                                <td>{{ $obj->qty }}</td>
-                                <td>{{ number_format($total_price, 0, ',', '.') }}</td>
-                            </tr>
+                                    <td>{{ number_format($total_price, 0, ',', '.') }}</td>
+                                @endif
+                            @endforeach
+                        </tr>
                             <?php $grand_total += $total_price; ?>
                         @endforeach
                         <tr>
                             <td colspan="3">Total</td>
-                            <td>{{ number_format($total, 0, ',', '.') }}</td>
+                            <td>{{ number_format($grand_total, 0, ',', '.') }}</td>
                         </tr>
                     </table>
 
@@ -78,17 +84,23 @@
                                     @if ($merch->id == $obj->merch_id)
                                         <td>{{ $merch->name }}</td>
                                     @endif
-                                    <?php $total_price = $obj->qty * $merch->price; ?>
                                 @endforeach
+
                                 <td>{{ $obj->size }}</td>
                                 <td>{{ $obj->qty }}</td>
-                                <td>{{ number_format($total_price, 0, ',', '.') }}</td>
+
+                                @foreach ($merches as $merch)
+                                    @if ($merch->id == $obj->merch_id)
+                                        <?php $total_price = $obj->qty * $merch->price; ?>
+                                        <td>{{ number_format($total_price, 0, ',', '.') }}</td>
+                                    @endif
+                                @endforeach
                             </tr>
                             <?php $grand_total += $total_price; ?>
                         @endforeach
                         <tr>
                             <td colspan="3">Total</td>
-                            <td>{{ number_format($total, 0, ',', '.') }}</td>
+                            <td>{{ number_format($grand_total, 0, ',', '.') }}</td>
                         </tr>
                     </table>
                     @csrf
@@ -129,7 +141,7 @@
                         </div>
                     </div>
                 </div>
-                <input class="hidden" name="total_price" value="{{ $total }}" />
+                <input class="hidden" name="total_price" value="{{ $grand_total }}" />
         </div>
         <div class="form-content shadow-md px-8 py-3 mb-4 font-pathway shadow-[#FFF000] text-white">
             <div class="">
@@ -138,7 +150,7 @@
                         for="">Bukti Pembayaran</label>
                 </div>
                 <div>
-                    <h6 class="text-sm font-pathway">Pembayaran sebesar Rp {{ $total }},~ ke 8831917474 a/n
+                    <h6 class="text-sm font-pathway">Pembayaran sebesar Rp {{ $grand_total }},~ ke 8831917474 a/n
                         Raudhah Salsabila Surbakti</h6 class="text-sm">
                 </div>
                 <div>
