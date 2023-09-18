@@ -34,19 +34,15 @@
                         <td>{{ $order->name }}</td>
                         <td>
                             <ul>
-                                @foreach ($detailTrans as $obj)
-                                    @if ($obj->order_id == $order->id)
+                                @foreach ($merches as $merch)
+                                    @if ($merch->id == $order->merch_id)
                                         <li>
-                                            @foreach ($merches as $merch)
-                                                @if ($merch->id == $obj->merch_id)
-                                                    <div class="flex flex-col">
-                                                        <p>Product: {{ $merch->name }}</p>
-                                                        <p>Qty: {{ $obj->qty }}</p>
-                                                        <p>Size: {{ $obj->size }}</p>
-                                                        <p>Tee: {{ $obj->tee }}</p>
-                                                    </div>
-                                                @endif
-                                            @endforeach
+                                            <div class="flex flex-col">
+                                                <p>Product: {{ $merch->name }}</p>
+                                                <p>Qty: {{ $order->qty }}</p>
+                                                <p>Size: {{ $order->size }}</p>
+                                                <p>Tee: {{ $order->tee }}</p>
+                                            </div>
                                         </li>
                                     @endif
                                 @endforeach
@@ -56,7 +52,7 @@
                         <td>{{ $order->total_price }}</td>
                         <td>
                             @foreach ($merches as $merch)
-                                @if ($merch->id == $obj->merch_id)
+                                @if ($merch->id == $order->merch_id)
                                     <img class="w-[150px] h-full object-cover cursor-pointer"
                                         src="{{ asset('storage/' . $order->image) }}" alt="Flower"
                                         onclick="showModalasset('storage/' . $order->image) }}" />

@@ -57,12 +57,10 @@ class CartController extends Controller
     public function dashboard() {
         $merches = Merch::all();
         $orders = Order::all();
-        $detailTrans = DetailTransaction::all();
 
         return view('Merch.dashboard', [
             'merches' => $merches,
-            'orders' => $orders,
-            'detailTrans' => $detailTrans
+            'orders' => $orders
         ]);
    
     }
