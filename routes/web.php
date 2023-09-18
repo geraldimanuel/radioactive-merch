@@ -64,7 +64,7 @@ Route::controller(MerchController::class)->group(function () {
 Route::controller(CartController::class)->group(function () {
     Route::get('/cart/{id}', 'removeFromCart');
     Route::get('/checkout', 'checkout');
-    Route::get('/dashboard', 'dashboard');
-    Route::get('approval/{id}/{status}', 'approval');
+    Route::get('/dashboard', 'dashboard')->middleware('auth');
+    Route::get('approval/{id}/{status}', 'approval')->middleware('auth');
     Route::get('item/{id}'. 'removeFromCart');
 });
