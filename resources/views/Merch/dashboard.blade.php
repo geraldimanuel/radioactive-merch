@@ -66,8 +66,19 @@
                             @endforeach
                         </td>
                         <td>
-                            <a href="/approval/{{ $order->id }}/paid">Paid</a>
-                            <a href="/approval/{{ $order->id }}/cancelled">Cancelled</a>
+                            <div class="flex flex-col gap-2 font-semibold">
+                                <a href="/approval/{{ $order->id }}/paid">
+                                    <div class="p-2 bg-lime-400 text-lime-900 rounded-xl">
+                                        Paid
+                                    </div>
+                                </a>
+                                <a href="/approval/{{ $order->id }}/cancelled">
+                                    <div class="p-2 bg-red-700 text-red-950 rounded-xl">
+                                        Cancelled
+                                    </div>
+                                </a>
+                                <p class="italic text-bold">Status: {{ $order->status }}</p>
+                            </div>
                         </td>
                     </tr>
                 @endforeach
