@@ -21,6 +21,7 @@
                     <th>No</th>
                     <th>Order ID</th>
                     <th>Name</th>
+                    <th>Email</th>
                     <th>Items</th>
                     <th>Total Price</th>
                     <th>Bukti Transfer</th>
@@ -32,6 +33,7 @@
                         <td>{{ $no++ }}</td>
                         <td>{{ $order->id }}</td>
                         <td>{{ $order->name }}</td>
+                        <td>{{ $order->email }}</td>
                         <td>
                             <ul>
                                 @foreach ($merches as $merch)
