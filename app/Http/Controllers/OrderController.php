@@ -51,7 +51,6 @@ class OrderController extends Controller
                 $merch->save();
 
                 $total_price = $merch->price * $key->qty;
-                dd($total_price);
 
                 $order = Order::create([
                     'name' => $user->name,

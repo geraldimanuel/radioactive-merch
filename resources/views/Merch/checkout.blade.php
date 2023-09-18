@@ -35,7 +35,8 @@
                         </tr>
                         <?php
                         $no = 1;
-                        $total = 0;
+                        $total_price = 0;
+                        $grand_total = 0;
                         ?>
                         @foreach ($cart as $obj)
                             <tr>
@@ -44,12 +45,13 @@
                                     @if ($merch->id == $obj->merch_id)
                                         <td>{{ $merch->name }}</td>
                                     @endif
+                                    <?php $total_price = $obj->qty * $merch->price; ?>
                                 @endforeach
                                 <td>{{ $obj->size }}</td>
                                 <td>{{ $obj->qty }}</td>
-                                <td>{{ number_format($obj->total_price, 0, ',', '.') }}</td>
+                                <td>{{ number_format($total_price, 0, ',', '.') }}</td>
                             </tr>
-                            <?php $total += $obj->total_price; ?>
+                            <?php $grand_total += $total_price; ?>
                         @endforeach
                         <tr>
                             <td colspan="3">Total</td>
@@ -66,7 +68,8 @@
                         </tr>
                         <?php
                         $no = 1;
-                        $total = 0;
+                        $total_price = 0;
+                        $grand_total = 0;
                         ?>
                         @foreach ($cart as $obj)
                             <tr>
@@ -75,12 +78,13 @@
                                     @if ($merch->id == $obj->merch_id)
                                         <td>{{ $merch->name }}</td>
                                     @endif
+                                    <?php $total_price = $obj->qty * $merch->price; ?>
                                 @endforeach
                                 <td>{{ $obj->size }}</td>
                                 <td>{{ $obj->qty }}</td>
-                                <td>{{ number_format($obj->total_price, 0, ',', '.') }}</td>
+                                <td>{{ number_format($total_price, 0, ',', '.') }}</td>
                             </tr>
-                            <?php $total += $obj->total_price; ?>
+                            <?php $grand_total += $total_price; ?>
                         @endforeach
                         <tr>
                             <td colspan="3">Total</td>
