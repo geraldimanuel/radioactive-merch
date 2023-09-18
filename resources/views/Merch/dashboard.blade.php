@@ -39,7 +39,11 @@
                                         <li>
                                             @foreach ($merchs as $merch)
                                                 @if ($merch->id == $obj->merch_id)
-                                                    {{ $merch->name }} ({{ $obj->qty }})
+                                                    <div class="flex flex-col">
+                                                        <p>Product: {{ $merch->name }}</p>
+                                                        <p>Qty: {{ $obj->qty }}</p>
+                                                        <p>Size: {{ $obj->size }}</p>
+                                                    </div>
                                                 @endif
                                             @endforeach
                                         </li>
@@ -47,6 +51,7 @@
                                 @endforeach
                             </ul>
                         </td>
+
                         <td>{{ $order->total_price }}</td>
                         <td>
                             @foreach ($merchs as $merch)
