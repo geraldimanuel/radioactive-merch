@@ -10,15 +10,4 @@ class DetailTransaction extends Model
     use HasFactory;
 
     protected $guarded = [];
-
-    static function new_transaction($merch_id, $order_id, $qty, $total_price, $size, $tee) {
-        DetailTransaction::create([
-            'merch_id' => $merch_id,
-            'order_id' => $order_id,
-            'qty' => $qty,
-            'total_price' => $total_price,
-            'size' => $size,
-            'tee' => $tee
-        ]);
-    }
 }

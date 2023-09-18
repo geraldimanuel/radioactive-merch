@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\User;
+use App\Models\Merch;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
 use App\Mail\Submission;
@@ -37,25 +38,41 @@ class OrderController extends Controller
     
     public function order(Request $request) {
         if(Auth::check()){
-            $logged_mail = auth()->user()->email;
-         
-            Order::where('email', $logged_mail)->update([
-                // 'name' => $request->name,
-                // 'email' => $request->email,
-                'wa' => $request->wa,
-                'line' => $request->line,
-                'image' => $request->file('payment_proof')->storePublicly('payment_images_merch', 'public'),
-                'total_price' => $request->total_price,
-                'status' => 'Unpaid'
-            ]);
+            $logged_id = auth()->user()->id;
 
-            $order_id = Order::where('email', $logged_mail)->first()->id;
+            $user = User::find($logged_id);
 
-            // dd($order_id);
+            $cart = Cart::where('user_id', '=', $logged_id)->get();
+
+            $total_price = 0;
+            $grandTotal = 0;
+
+            foreach ($cart as $key) {
+                $merch = Merch::find($key->merch_id);
+                $merch->save();
+
+                $total_price = $key->price * $key->qty;
+
+                $order = Order::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'wa' => $request->wa,
+                    'line' => $request->line,
+                    'merch_id' => $key->merch_id,
+                    'qty' => $key->qty,
+                    'size' => $key->size,
+                    'tee' => $key->tee,
+                    'image' => $request->file('payment_proof')->storePublicly('payment_images_merch', 'public'),
+                    'total_price' => $total_price,
+                    'status' => 'Unpaid'
+                ]);
+            }
+
+            $order = Order::where('name', $user->name)->latest();
 
             $submission_date = date('Y-m-d H:i:s');
 
-            $this->email_submission($logged_mail, $order_id, $submission_date);
+            $this->email_submission($user->email, $order->id, $submission_date);
 
             return redirect('/reset-cart');
         } else {

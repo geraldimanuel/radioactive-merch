@@ -37,7 +37,7 @@
                                 @foreach ($detailTrans as $obj)
                                     @if ($obj->order_id == $order->id)
                                         <li>
-                                            @foreach ($merchs as $merch)
+                                            @foreach ($merches as $merch)
                                                 @if ($merch->id == $obj->merch_id)
                                                     <div class="flex flex-col">
                                                         <p>Product: {{ $merch->name }}</p>
@@ -55,7 +55,7 @@
 
                         <td>{{ $order->total_price }}</td>
                         <td>
-                            @foreach ($merchs as $merch)
+                            @foreach ($merches as $merch)
                                 @if ($merch->id == $obj->merch_id)
                                     <img class="w-[150px] h-full object-cover cursor-pointer"
                                         src="{{ asset('storage/' . $order->image) }}" alt="Flower"

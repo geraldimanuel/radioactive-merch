@@ -40,60 +40,14 @@ class CartController extends Controller
 
         if(Auth::check()){
             $logged_id = auth()->user()->id;
+            $cart = Cart::where('user_id', '=', $logged_id)->get();
 
-            $user = User::find($logged_id);
+            $merches = Merch::all();
 
-            $existing_order = Order::find($user->name);
-
-            // dd($existing_order);
-
-            if (isset($existing_order)) {
-                $detailTrans = DetailTransaction::where('order_id', $existing_order->id)->latest();
-                $merchs = Merch::all();
-
-                return view('Merch.checkout', [
-                            'detailTrans' => $detailTrans,
-                            'order' => $existing_order,
-                            'merchs' => $merchs
-                ]);
-            } else {
-                $cart = Cart::where('user_id', '=', $logged_id)->get();
-                $total_qty = 0;
-                $total_price = 0;
-                $grandTotal = 0;
-
-                // dd($cart);
-
-                $order_id = Order::new_order();
-
-                foreach ($cart as $key) {
-                    $merch = Merch::find($key->merch_id);
-                    $merch->save();
-
-                    $total_price = $key->price * $key->qty;
-
-                    // dd($total_price);
-
-                    DetailTransaction::new_transaction($key->merch_id, $order_id, $key->qty, $total_price, $key->size, $key->tee);
-
-                    $total_qty += $key->qty;
-                    $grandTotal += $total_price;
-                }
-
-                Order::where('id', $order_id)->update([
-                    'total_price' => $grandTotal,
-                ]);
-
-                $detailTrans = DetailTransaction::where('order_id', $order_id)->get();
-                $merchs = Merch::all();
-                $order = Order::where('id', $order_id)->first();
-
-                return view('Merch.checkout', [
-                            'detailTrans' => $detailTrans,
-                            'order' => $order,
-                            'merchs' => $merchs
-                ]);
-            }
+            return view('Merch.checkout', [
+                        'cart' => $cart,
+                        'merches' => $merches
+            ]);
         } else {
             return redirect('/login');
         }
@@ -101,12 +55,12 @@ class CartController extends Controller
     }
 
     public function dashboard() {
-        $merchs = Merch::all();
+        $merches = Merch::all();
         $orders = Order::all();
         $detailTrans = DetailTransaction::all();
 
         return view('Merch.dashboard', [
-            'merchs' => $merchs,
+            'merches' => $merches,
             'orders' => $orders,
             'detailTrans' => $detailTrans
         ]);

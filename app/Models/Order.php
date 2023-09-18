@@ -9,18 +9,4 @@ class Order extends Model
 {
     use HasFactory;
     protected $guarded = [];
-
-    static function new_order() {
-        $order = Order::create([
-            'name' => auth()->user()->name,
-            'email' => auth()->user()->email,
-            'wa' => '',
-            'line' => '',
-            'image' => '',
-            'total_price' => 0,
-            'status' => 'Unpaid'
-        ]);
-
-        return $order->id;
-    }
 }

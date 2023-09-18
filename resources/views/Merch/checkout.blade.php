@@ -37,10 +37,10 @@
                         $no = 1;
                         $total = 0;
                         ?>
-                        @foreach ($detailTrans as $obj)
+                        @foreach ($cart as $obj)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                @foreach ($merchs as $merch)
+                                @foreach ($merches as $merch)
                                     @if ($merch->id == $obj->merch_id)
                                         <td>{{ $merch->name }}</td>
                                     @endif
@@ -75,7 +75,7 @@
                         @foreach ($detailTrans as $obj)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                @foreach ($merchs as $merch)
+                                @foreach ($merches as $merch)
                                     @if ($merch->id == $obj->merch_id)
                                         <td>{{ $merch->name }} @if ($obj->size)
                                                 ({{ $obj->size }})
@@ -91,10 +91,6 @@
                         <tr>
                             <td colspan="3">Total</td>
                             <td>{{ $total }}</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">Status</td>
-                            <td>{{ $order->status }}</td>
                         </tr>
                     </table>
                     @csrf

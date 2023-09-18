@@ -17,8 +17,12 @@ return new class extends Migration
             $table->string('email');
             $table->string('wa');
             $table->string('line');
-            $table->string('image');
+            $table->unsignedBigInteger('merch_id');
+            $table->integer('qty');
             $table->bigInteger('total_price');
+            $table->string('size')->default('');
+            $table->string('tee')->default('');
+            $table->string('image');
             $table->enum('status', ['Unpaid', 'Paid', 'Canceled']);
             $table->timestamps();
         });
