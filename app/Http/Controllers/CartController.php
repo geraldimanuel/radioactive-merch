@@ -40,7 +40,7 @@ class CartController extends Controller
 
         if(Auth::check()){
             $logged_id = auth()->user()->id;
-            $cart = Cart::where('user_id', '=', $logged_id)->get();
+            $cart = Cart::where('user_id', $logged_id)->get();
 
             $merches = Merch::all();
 

@@ -55,10 +55,6 @@
                             <td colspan="3">Total</td>
                             <td>{{ number_format($total, 0, ',', '.') }}</td>
                         </tr>
-                        <tr>
-                            <td colspan="3">Status</td>
-                            <td>{{ $order->status }}</td>
-                        </tr>
                     </table>
 
                     <table border="1" class="contents md:hidden text-left font-pathway text-sm" cellpadding="10">
@@ -72,25 +68,23 @@
                         $no = 1;
                         $total = 0;
                         ?>
-                        @foreach ($detailTrans as $obj)
+                        @foreach ($cart as $obj)
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 @foreach ($merches as $merch)
                                     @if ($merch->id == $obj->merch_id)
-                                        <td>{{ $merch->name }} @if ($obj->size)
-                                                ({{ $obj->size }})
-                                            @endif
-                                        </td>
+                                        <td>{{ $merch->name }}</td>
                                     @endif
                                 @endforeach
+                                <td>{{ $obj->size }}</td>
                                 <td>{{ $obj->qty }}</td>
-                                <td>{{ $obj->total_price }}</td>
+                                <td>{{ number_format($obj->total_price, 0, ',', '.') }}</td>
                             </tr>
                             <?php $total += $obj->total_price; ?>
                         @endforeach
                         <tr>
                             <td colspan="3">Total</td>
-                            <td>{{ $total }}</td>
+                            <td>{{ number_format($total, 0, ',', '.') }}</td>
                         </tr>
                     </table>
                     @csrf

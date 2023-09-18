@@ -45,13 +45,13 @@ class OrderController extends Controller
             $cart = Cart::where('user_id', '=', $logged_id)->get();
 
             $total_price = 0;
-            $grandTotal = 0;
 
             foreach ($cart as $key) {
                 $merch = Merch::find($key->merch_id);
                 $merch->save();
 
-                $total_price = $key->price * $key->qty;
+                $total_price = $merch->price * $key->qty;
+                dd($total_price);
 
                 $order = Order::create([
                     'name' => $user->name,
