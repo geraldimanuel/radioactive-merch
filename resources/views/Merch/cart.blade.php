@@ -150,10 +150,10 @@
             <table border="1" cellpadding="10"
                 class="contents md:hidden w-4/5 text-white dark:text-gray-800 text-sm lg:text-lg md:mr-[50px] md:ml-[50px] shadow-lg lg:w-full">
                 <tr class="text-white">
-                    <th class="font-taruno text-left ">Items</th>
-                    <!-- <th class="font-taruno">Name</th> -->
-                    <th class="font-taruno">Details</th>
-                    <th class="font-taruno">Remove</th>
+                    <td class="font-taruno text-left ">Items</td>
+                    <!-- <td class="font-taruno">Name</td> -->
+                    <td class="font-taruno">Details</td>
+                    <td class="font-taruno">Remove</td>
                 </tr>
                 <?php $no = 1;
                 $total = 0; ?>
@@ -163,7 +163,6 @@
                             <?php $price = $obj->qty * $obj->price;
                             $total += $price;
                             ?>
-
                             <tr class="border-b-[1px] text-white">
                                 <!-- <td>{{ $no++ }}</td> -->
                                 <td class="flex flex-wrap gap-3 h-full justify-left items-center">
