@@ -71,7 +71,7 @@ class OrderController extends Controller
 
             $submission_date = date('Y-m-d H:i:s');
 
-            $this->email_submission($user->email, $order->id, $submission_date);
+            $this->email_submission($user->email, $order->id, $submission_date, $user->name);
 
             return redirect('/reset-cart');
         } else {
@@ -79,13 +79,13 @@ class OrderController extends Controller
         }
     }
 
-    private function email_submission($receiver, $order_id, $submission_date)
+    private function email_submission($receiver, $order_id, $submission_date, $name)
     {
         $data = [
             'subject' => '[UMN RadioActive 2023 - Your Order Has Been Submitted]',
             'orderId' => $order_id,
             'submissionDate' => $submission_date,
-            'receiver' => $receiver
+            'receiver' => $name
         ];
         Mail::to($receiver)->send(new Submission($data));
     }

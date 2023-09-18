@@ -72,6 +72,7 @@ class CartController extends Controller
 
         // $logged_email = auth()->user()->email;
         $customer_email = $order->email;
+        $name = $order->name;
 
 
         if ($status == "paid") {
@@ -79,7 +80,7 @@ class CartController extends Controller
                 'status' => 'Paid'
             ]);
 
-            $this->email_confirmation($customer_email);
+            $this->email_confirmation($customer_email, $name);
         } else {
             Order::where('id', $id)->update([
                 'status' => 'Canceled'
@@ -88,11 +89,11 @@ class CartController extends Controller
         return redirect('/dashboard');
     }
 
-    private function email_confirmation($receiver_mail)
+    private function email_confirmation($receiver_mail, $name)
     {
         $data = [
-            'subject' => '[UMN Radioactive 2023 - Your order has been confirmed]',
-            'receiver' => $receiver_mail
+            'subject' => '[UMN Radioactive 2023 - Your Order Has Been Confirmed]',
+            'receiver' => $name
         ];
         Mail::to($receiver_mail)->send(new Confirmation($data));
     }
