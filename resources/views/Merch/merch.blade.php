@@ -472,7 +472,7 @@
                                     @endif
                                     @if ($merch->table && $merch->id == 2)
                                     <select name="size" id="size2"
-                                        class="w-11/12 sm:w-[10px] md:w-[10px] text-center font-taruno text-[.8rem] text-gray-800  cursor-pointer">
+                                        class="w-11/12 text-center font-taruno text-[.8rem] text-gray-800  cursor-pointer">
                                         <option value="S">S</option>
                                         <option value="M">M</option>
                                         <option value="L">L</option>
