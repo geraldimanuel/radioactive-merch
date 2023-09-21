@@ -17,11 +17,11 @@ class MerchSeeder extends Seeder
             'name' => 'Turbulent Revolution Tee',
             'description' => 'KAOSBIRU',
             'table' => 1,
-            'image1' => '1-KAOSBIRU.png',
-            'image2' => '2-KAOSBIRU.png',
-            'image3' => '3-KAOSBIRU.png',
-            'image4' => '4-KAOSBIRU.png',
-            'image5' => '4-KAOSBIRU.png',
+            'image1' => '1-KAOSBIRU.webp',
+            'image2' => '2-KAOSBIRU.webp',
+            'image3' => '3-KAOSBIRU.webp',
+            'image4' => '4-KAOSBIRU.webp',
+            'image5' => '4-KAOSBIRU.webp',
             'price' => 95000
         ]);
 
@@ -29,11 +29,11 @@ class MerchSeeder extends Seeder
             'name' => 'Celestial Revy Tee',
             'description' => 'KAOSPUTIH',
             'table' => 1,
-            'image1' => '1-KAOSPUTIH.png',
-            'image2' => '2-KAOSPUTIH.png',
-            'image3' => '3-KAOSPUTIH.png',
-            'image4' => '4-KAOSPUTIH.png',
-            'image5' => '5-KAOSPUTIH.png',
+            'image1' => '1-KAOSPUTIH.webp',
+            'image2' => '2-KAOSPUTIH.webp',
+            'image3' => '3-KAOSPUTIH.webp',
+            'image4' => '4-KAOSPUTIH.webp',
+            'image5' => '5-KAOSPUTIH.webp',
             'price' => 95000
         ]);
 
@@ -41,11 +41,11 @@ class MerchSeeder extends Seeder
             'name' => 'Radioactive Sticker Pack',
             'table' => 0,
             'description' => 'STICKER',
-            'image1' => '1-STICKER.png',
-            'image2' => '2-STICKER.png',
-            'image3' => '3-STICKER.png',
-            'image4' => '4-STICKER.png',
-            'image5' => '5-STICKER.png',
+            'image1' => '1-STICKER.webp',
+            'image2' => '2-STICKER.webp',
+            'image3' => '3-STICKER.webp',
+            'image4' => '4-STICKER.webp',
+            'image5' => '5-STICKER.webp',
             
             'price' => 15000
         ]);
@@ -54,11 +54,11 @@ class MerchSeeder extends Seeder
             'name' => 'Revolution Tote Bag',
             'description' => 'TOTEBAG',
             'table' => 0,
-            'image1' => '1-TOTEBAG.png',
-            'image2' => '2-TOTEBAG.png',
-            'image3' => '3-TOTEBAG.png',
-            'image4' => '4-TOTEBAG.png',
-            'image5' => '5-TOTEBAG.png',
+            'image1' => '1-TOTEBAG.webp',
+            'image2' => '2-TOTEBAG.webp',
+            'image3' => '3-TOTEBAG.webp',
+            'image4' => '4-TOTEBAG.webp',
+            'image5' => '5-TOTEBAG.webp',
             
             'price' => 85000
         ]);
@@ -67,11 +67,11 @@ class MerchSeeder extends Seeder
             'name' => 'Revy Eggo Tumbler',
             'description' => 'TUMBLER',
             'table' => 0,
-            'image1' => '1-TUMBLER.png',
-            'image2' => '2-TUMBLER.png',
-            'image3' => '3-TUMBLER.png',
-            'image4' => '4-TUMBLER.png',
-            'image5' => '5-TUMBLER.png',
+            'image1' => '1-TUMBLER.webp',
+            'image2' => '2-TUMBLER.webp',
+            'image3' => '3-TUMBLER.webp',
+            'image4' => '4-TUMBLER.webp',
+            'image5' => '5-TUMBLER.webp',
             'price' => 65000
         ]);
         
@@ -79,11 +79,11 @@ class MerchSeeder extends Seeder
             'name' => 'Bundle Exclusive 1',
             'description' => 'BUNDLE1',
             'table' => 0,
-            'image1' => '1-BUNDLE1.png',
-            'image2' => '2-BUNDLE1.png',
-            'image3' => '3-BUNDLE1.png',
-            'image4' => '4-BUNDLE1.png',
-            'image5' => '5-BUNDLE1.png',
+            'image1' => '1-BUNDLE1.webp',
+            'image2' => '2-BUNDLE1.webp',
+            'image3' => '3-BUNDLE1.webp',
+            'image4' => '4-BUNDLE1.webp',
+            'image5' => '5-BUNDLE1.webp',
             'price' => 115000
         ]);
         
@@ -91,11 +91,11 @@ class MerchSeeder extends Seeder
             'name' => 'Bundle Exclusive 2',
             'description' => 'BUNDLE2',
             'table' => 0,
-            'image1' => '1-BUNDLE2.png',
-            'image2' => '2-BUNDLE2.png',
-            'image3' => '3-BUNDLE2.png',
-            'image4' => '4-BUNDLE2.png',
-            'image5' => '5-BUNDLE2.png',
+            'image1' => '1-BUNDLE2.webp',
+            'image2' => '2-BUNDLE2.webp',
+            'image3' => '3-BUNDLE2.webp',
+            'image4' => '4-BUNDLE2.webp',
+            'image5' => '5-BUNDLE2.webp',
             'price' => 180000
         ]);
 
@@ -103,11 +103,11 @@ class MerchSeeder extends Seeder
             'name' => 'Bundle Exclusive 3',
             'description' => 'BUNDLE3',
             'table' => 0,
-            'image1' => '1-BUNDLE3.png',
-            'image2' => '2-BUNDLE3.png',
-            'image3' => '3-BUNDLE3.png',
-            'image4' => '4-BUNDLE3.png',
-            'image5' => '5-BUNDLE3.png',
+            'image1' => '1-BUNDLE3.webp',
+            'image2' => '2-BUNDLE3.webp',
+            'image3' => '3-BUNDLE3.webp',
+            'image4' => '4-BUNDLE3.webp',
+            'image5' => '5-BUNDLE3.webp',
             'price' => 240000
         ]);
     }

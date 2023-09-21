@@ -25,7 +25,7 @@
                 <div
                     class="text-center w-full md:w-1/2 form-content shadow-md px-0 md:px-8 py-3 mb-3 md:mb-10 font-pathway shadow-[#FFF000]">
                     <h2 class="font-taruno">Detail Transaksi</h2>
-                    <table border="1" class="hidden md:contents text-left font-pathway text-sm" cellpadding="10">
+                    <table border="1" class="hidden md:contents text-left font-pathway text-sm" cellpadding="8">
                         <tr>
                             <th>No</th>
                             <th>Name</th>
