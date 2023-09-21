@@ -28,11 +28,11 @@
                     @csrf
                     <div class="relative w-full min-w-[300px] h-11">
                         <input name="email" type="email" placeholder="Email"
-                            class="mt-1 px-3 py-2  border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1" style="color: white;">
+                            class="mt-1 px-3 py-2  border shadow-sm font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1">
                     </div>
                     <div class="relative w-full min-w-[300px] h-11">
                         <input name="password" type="password" placeholder="Password"
-                            class="mt-1 px-3 py-2  border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1" style="color: white;">
+                            class="mt-1 px-3 py-2  border shadow-sm font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1">
                     </div>
                     <div class="relative w-full min-w-[100px] text-right">
                         <a class="text-white text-s hover:text-[#FFF000]" href="{{ route('password.request') }}">Forgot

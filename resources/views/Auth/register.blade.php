@@ -29,15 +29,15 @@
                     @csrf
                     <div class="relative w-full min-w-[300px] h-11">
                         <input name="name" type="name" placeholder="Name"
-                            class="mt-1 px-3 py-3  border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1" style="color: white;">
+                            class="mt-1 px-3 py-3  border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1">
                     </div>
                     <div class="relative w-full min-w-[300px] h-11">
                         <input name="email" type="email" placeholder="Email"
-                            class="mt-1 px-3 py-3  border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1" style="color: white;">
+                            class="mt-1 px-3 py-3  border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1">
                     </div>
                     <div class="relative w-full min-w-[300px] h-11">
                         <input name="password" type="password" placeholder="Password"
-                            class="mt-1 px-3 py-3  border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1" style="color: white;">
+                            class="mt-1 px-3 py-3  border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1">
                     </div>
                     <div class="relative w-full pt-4 min-w-[200px] h-11 mb-3">
                         <button type="submit"

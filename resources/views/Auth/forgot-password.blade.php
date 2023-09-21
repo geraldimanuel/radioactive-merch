@@ -35,7 +35,7 @@
                     @csrf
                     <div class="relative w-full min-w-[300px] mb-3 h-11">
                         <input name="email" type="email" placeholder="Email"
-                        class="mt-1 px-3 py-2  h-12 border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1" style="color: white;">
+                        class="mt-1 px-3 py-2  h-12 border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1">
                     </div>
                     <div class="relative w-full text-center min-w-[300px] h-7 mb-5">
                         <button type="submit" class="bg-[#0E0EC0] text-white text-center w-80 border-white p-3 font-taruno text-2xs md:text-sm font-bold border-2 hover:bg-[#FFF000] hover:text-[#0E0EC0]">Send Reset Link</button>
