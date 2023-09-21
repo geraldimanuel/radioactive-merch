@@ -10,41 +10,35 @@
 </head>
 
 <body>
-    {{-- <img src="{{ url('/images/backgroundLogin.jpg') }}" alt="Image"
-        class="absolute inset-0 z-0 h-full w-full object-cover" />
-    <div class="absolute inset-0 z-0 h-full w-full bg-black/50" />
-    <div class="container relative z-40 mx-auto p-8 flex items-center justify-center">
-        <img src="{{ url('/images/logoRadio-putih.png') }}" alt="Image" class="h-20" />
-    </div> --}}
-    <div class="class=container mx-auto p-4">
+    <div>
+        <video autoplay loop muted
+            class="fixed -z-10 w-auto lg:w-full md:min-w-full md:min-h-full max-w-fit object-cover" loading="lazy">
+            <source src="/images/BACKGROUND_DESKTOP.webm" type="video/webm">
+        </video>
+    </div>
+    <div class=>
         <form action="{{ route('password.email') }}" method="post">
             <div
-                class="class=flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md absolute top-2/4 left-2/4 mt-5 w-full max-w-[24rem] -translate-y-2/4 -translate-x-2/4">
-                <div
-                    class="relative bg-clip-border mx-4 rounded-xl overflow-hidden shadow-lg -mt-6 mb-4 grid h-28 place-items-center bg-gradient-to-r from-[#011F39] to-[#629FD4]">
-                    <h3 class="block antialiased tracking-normal font-sans text-xl font-bold leading-snug text-white">
-                        Forgot Your Password?</h3>
+                class="class=flex flex-col border pb-16 p-8 bg-black absolute top-2/4 left-2/4 mt-5 w-full max-w-[24rem] -translate-y-2/4 -translate-x-2/4">
+                <div class="mt-4 mb-8 flex flex-col gap-5">
+                    @if ($errors->any())
+                        <ul class="text-red-500 text-center">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p class="block antialiased text-center tracking-normal text-l font-taruno leading-snug text-white">Please enter your email for password reset request.</p>
+                    @endif
                 </div>
-                @if ($errors->any())
-                    <ul class="text-red-500 text-center">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                @else
-                    <p class="text-center">Please enter your mail to password reset request.</p>
-                @endif
-                <div class="p-6 flex flex-col gap-4">
+                <div class="mt-4 flex flex-col gap-4">
                     @csrf
-                    <div class="relative w-full min-w-[200px] h-11">
+                    <div class="relative w-full min-w-[300px] mb-3 h-11">
                         <input name="email" type="email" placeholder="Email"
-                            class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1">
+                        class="mt-1 px-3 py-2  h-12 border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1" style="color: white;">
                     </div>
-                    <div class="relative w-full min-w-[200px] h-11 mb-3">
-                        <button type="submit"
-                            class="bg-gradient-to-r from-[#011F39] to-[#629FD4] hover:shadow-lg hover:shadow-blue-500/40 text-white font-bold py-2 px-4 rounded-lg block w-full">
-                            Send Reset Link
-                        </button>
+                    <div class="relative w-full text-center min-w-[300px] h-7 mb-5">
+                        <button type="submit" class="bg-[#0E0EC0] text-white text-center w-80 border-white p-3 font-taruno text-2xs md:text-sm font-bold border-2 hover:bg-[#FFF000] hover:text-[#0E0EC0]">Send Reset Link</button>
                     </div>
                 </div>
             </div>

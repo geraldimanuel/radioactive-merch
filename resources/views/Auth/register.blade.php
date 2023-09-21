@@ -19,32 +19,33 @@
     <div class="class=container mx-auto p-4">
         <form action="/signup" method="POST">
             <div
-                class="class=flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md absolute top-2/4 left-2/4 mt-5 w-full max-w-[24rem] -translate-y-2/4 -translate-x-2/4">
-                <div
-                    class="relative bg-clip-border mx-4 rounded-xl overflow-hidden shadow-lg -mt-6 mb-4 grid h-28 place-items-center bg-gradient-to-r from-[#011F39] to-[#629FD4]">
-                    <h3 class="block antialiased tracking-normal font-sans text-3xl font-bold leading-snug text-white">
-                        Register</h3>
-                </div>
-                <div class="p-6 flex flex-col gap-4">
+                class="class=flex flex-col border pb-20 pt-4 p-8 bg-black absolute top-2/4 left-2/4 mt-5 w-full max-w-[24rem] -translate-y-2/4 -translate-x-2/4">
+                <div class="mt-4 flex flex-col gap-4">
+                    <div
+                        class="">
+                        <h3 class="block font-bold antialiased text-center tracking-normal text-xl font-taruno leading-snug text-white pb-2">
+                            REGISTER</h3>
+                    </div>
                     @csrf
-                    <div class="relative w-full min-w-[200px] h-11">
+                    <div class="relative w-full min-w-[300px] h-11">
                         <input name="name" type="name" placeholder="Name"
-                            class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1">
+                            class="mt-1 px-3 py-3  border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1" style="color: white;">
                     </div>
-                    <div class="relative w-full min-w-[200px] h-11">
+                    <div class="relative w-full min-w-[300px] h-11">
                         <input name="email" type="email" placeholder="Email"
-                            class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1">
+                            class="mt-1 px-3 py-3  border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1" style="color: white;">
                     </div>
-                    <div class="relative w-full min-w-[200px] h-11">
+                    <div class="relative w-full min-w-[300px] h-11">
                         <input name="password" type="password" placeholder="Password"
-                            class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1">
+                            class="mt-1 px-3 py-3  border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1" style="color: white;">
                     </div>
-                    <div class="relative w-full min-w-[200px] h-11 mb-3">
+                    <div class="relative w-full pt-4 min-w-[200px] h-11 mb-3">
                         <button type="submit"
-                            class="bg-gradient-to-r from-[#011F39] to-[#629FD4] hover:shadow-lg hover:shadow-blue-500/40 text-white font-bold py-2 px-4 rounded-lg block w-full">
+                            class="bg-[#0E0EC0] text-white text-center w-80 border-white p-3 font-taruno text-2xs md:text-sm font-bold border-2 hover:bg-[#FFF000] hover:text-[#0E0EC0]">
                             Register now!
                         </button>
-                        <a href="/login" class="flex justify-center py-1">Have an account? Log in here!</a>
+                        <a href="/login" class="flex mt-3 justify-center  text-white text-s hover:text-[#FFF000]">Have an account? Log in here!</a>
+                        
                     </div>
                 </div>
             </div>

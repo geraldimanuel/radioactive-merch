@@ -9,51 +9,44 @@
     <title>UMN RadioActive 2023 | Login</title>
 </head>
 
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden bg-black h-full">
     <div>
         <video autoplay loop muted
             class="fixed -z-10 w-auto lg:w-full md:min-w-full md:min-h-full max-w-fit object-cover" loading="lazy">
             <source src="/images/BACKGROUND_DESKTOP.webm" type="video/webm">
         </video>
     </div>
-    {{-- <div class="container relative z-40 mx-auto p-8 flex items-center justify-center">
-        <img src="{{ url('/img/logo.gif') }}" alt="Image" class="h-32" />
-    </div> --}}
-    <div class="class=container mx-auto p-4">
+    <div>
         <form action="/login" method="POST">
-            <div
-                class="class=flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md absolute top-2/4 left-2/4 mt-5 w-full max-w-[24rem] -translate-y-2/4 -translate-x-2/4">
+            <div class="class=flex flex-col border pb-16 p-8 bg-black absolute top-2/4 left-2/4 mt-5 w-full max-w-[24rem] -translate-y-2/4 -translate-x-2/4">
                 <div
-                    class="relative bg-clip-border mx-4 rounded-xl overflow-hidden shadow-lg -mt-6 mb-4 grid h-28 place-items-center bg-gradient-to-r from-[#011F39] to-[#629FD4]">
-                    <h3 class="block antialiased tracking-normal font-sans text-3xl font-bold leading-snug text-white">
-                        Log In</h3>
+                    class="">
+                    <h3 class="block antialiased text-center tracking-normal text-xl font-taruno leading-snug text-white">
+                        LOGIN</h3>
                 </div>
-                <div class="p-6 flex flex-col gap-4">
+                <div class="mt-4 flex flex-col gap-4">
                     @csrf
-                    <div class="relative w-full min-w-[200px] h-11">
+                    <div class="relative w-full min-w-[300px] h-11">
                         <input name="email" type="email" placeholder="Email"
-                            class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1">
+                            class="mt-1 px-3 py-2  border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1" style="color: white;">
                     </div>
-                    <div class="relative w-full min-w-[200px] h-11">
+                    <div class="relative w-full min-w-[300px] h-11">
                         <input name="password" type="password" placeholder="Password"
-                            class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1">
+                            class="mt-1 px-3 py-2  border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1" style="color: white;">
                     </div>
-                    <div class="relative w-full min-w-[200px] text-right">
-                        <a class="text-blue-600 hover:text-blue-500" href="{{ route('password.request') }}">Forgot
+                    <div class="relative w-full min-w-[100px] text-right">
+                        <a class="text-white text-s hover:text-[#FFF000]" href="{{ route('password.request') }}">Forgot
                             Password?</a>
                     </div>
-                    <div class="relative w-full min-w-[200px] h-11 mb-3">
-                        <button type="submit"
-                            class="bg-gradient-to-r from-[#011F39] to-[#629FD4] hover:shadow-lg hover:shadow-blue-500/40 text-white font-bold py-2 px-4 rounded-lg block w-full">
-                            Login
-                        </button>
-                        <a href="/signup" class="flex justify-center py-1">Don't have an account yet? Register here!</a>
+                    <div class="relative w-full text-center min-w-[300px] h-7 mb-5">
+                        <button type="submit" class="bg-[#0E0EC0] text-white text-center w-80 border-white p-3 font-taruno text-2xs md:text-sm font-bold border-2 hover:bg-[#FFF000] hover:text-[#0E0EC0]">Login</button>
+                        <a href="/signup" class="flex mt-3 justify-center py-1 text-white text-s hover:text-[#FFF000]">Don't have an account yet? Register here!</a>
                     </div>
                 </div>
             </div>
         </form>
     </div>
-    </div>
+</div>
 </body>
 
 </html>
