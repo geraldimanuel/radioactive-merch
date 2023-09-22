@@ -503,7 +503,6 @@
             </div>
         </div>
     </div>
-
     <div class="flex justify-center w-full align-middle">
         <div class="px-6 text-left">
             <h2 class="font-taruno text-white">NOTES</h2>
@@ -521,9 +520,10 @@
             </ul>
         </div>
     </div>
-    <div class="flex justify-center text-center text-white dark:text-gray-800 w-full align-middle">
+    <div class="flex w-full justify-center text-center mt-5 text-white dark:text-gray-800 align-middle">
         @if ($merch->table && $merch->id == 1)
-            <table border="1" cellpadding="10" class="border-white border-[1px] w-4/5 lg:w-1/2 text-white">
+            <table border="1"
+                class="w-full justify-center gap-3 border-white border-[1px] md:w-4/5 sm:w-full lg:w-1/2 text-white">
                 <tr class="border-[1px] bg-[#0E0EC0]">
                     <th>Size</th>
                     <th>Width<br>(cm)</th>
@@ -583,7 +583,8 @@
             </table>
         @endif
         @if ($merch->table && $merch->id == 2)
-            <table border="1" cellpadding="10" class="border-white border-[1px] w-1/2">
+            <table border="1"
+                class="w-full justify-center gap-3 border-white border-[1px] md:w-4/5 sm:w-full lg:w-1/2 text-white">
                 <tr class="border-[1px] bg-[#0E0EC0]">
                     <th>Size</th>
                     <th>Width<br>(cm)</th>
@@ -634,139 +635,7 @@
                 </tr>
             </table>
         @endif
-        <div class="flex justify-center w-full align-middle">
-            <div class="px-6 text-left">
-                <h2 class="font-taruno text-white">NOTES</h2>
-                <ul class="list-disc ml-[17px]">
-                    <li class="text-white text-[15px]">TIDAK MENERIMA SEGALA JENIS BENTUK PENUKARAN TERMASUK
-                        PENUKARAN MODEL, WARNA, DAN SIZE
-                    </li>
-                    <li class="text-white text-[15px]">TIDAK MENERIMA PENGEMBALIAN DANA ATAS PESANAN YANG
-                        TELAH DILAKUKAN</li>
-                    @if ($merch->id == 3 || $merch->id == 4 || $merch->id == 5)
-                        <li class="text-white text-[15px]">BARANG YANG SUDAH DITERIMA TIDAK DAPAT DITUKARKAN
-                            KEMBALI
-                        </li>
-                    @endif
-                </ul>
-            </div>
-        </div>
-        <div class="flex w-full justify-center text-center mt-5 text-white dark:text-gray-800 align-middle">
-            @if ($merch->table && $merch->id == 1)
-                <table border="1"
-                    class="w-full justify-center gap-3 border-white border-[1px] md:w-4/5 sm:w-full lg:w-1/2 text-white">
-                    <tr class="border-[1px] bg-[#0E0EC0]">
-                        <th>Size</th>
-                        <th>Width<br>(cm)</th>
-                        <th>Length<br>(cm)</th>
-                        <th>Shoulders<br>(cm)</th>
-                        <th>Hands<br>(cm)</th>
-                        <th>Price<br>(Rp)</th>
-                    </tr>
-                    <tr>
-                        <td>XS</td>
-                        <td>54</td>
-                        <td>69</td>
-                        <td>15</td>
-                        <td>25</td>
-                        <td>Rp 95.000,-</td>
-                    </tr>
-                    <tr>
-                        <td>S</td>
-                        <td>57</td>
-                        <td>72</td>
-                        <td>16</td>
-                        <td>25</td>
-                        <td>Rp 95.000,-</td>
-                    </tr>
-                    <tr>
-                        <td>M</td>
-                        <td>59</td>
-                        <td>73</td>
-                        <td>16</td>
-                        <td>29</td>
-                        <td>Rp 95.000,-</td>
-                    </tr>
-                    <tr>
-                        <td>L</td>
-                        <td>62</td>
-                        <td>76</td>
-                        <td>17</td>
-                        <td>31</td>
-                        <td>Rp 95.000,-</td>
-                    </tr>
-                    <tr>
-                        <td>XL</td>
-                        <td>66</td>
-                        <td>78</td>
-                        <td>17</td>
-                        <td>33</td>
-                        <td>Rp 95.000,-</td>
-                    </tr>
-                    <tr>
-                        <td>XXL</td>
-                        <td>70</td>
-                        <td>80</td>
-                        <td>19</td>
-                        <td>31</td>
-                        <td>Rp 105.000,-</td>
-                    </tr>
-                </table>
-            @endif
-            @if ($merch->table && $merch->id == 2)
-                <table border="1"
-                    class="w-full justify-center gap-3 border-white border-[1px] md:w-4/5 sm:w-full lg:w-1/2 text-white">
-                    <tr class="border-[1px] bg-[#0E0EC0]">
-                        <th>Size</th>
-                        <th>Width<br>(cm)</th>
-                        <th>Length<br>(cm)</th>
-                        <th>Price<br>(Rp)</th>
-                    </tr>
-                    <tr>
-                        <td>S</td>
-                        <td>47</td>
-                        <td>70</td>
-                        <td>Rp 95.000,-</td>
-                    </tr>
-                    <tr>
-                        <td>M</td>
-                        <td>51</td>
-                        <td>71</td>
-                        <td>Rp 95.000,-</td>
-                    </tr>
-                    <tr>
-                        <td>L</td>
-                        <td>55</td>
-                        <td>73</td>
-                        <td>Rp 95.000,-</td>
-                    </tr>
-                    <tr>
-                        <td>XL</td>
-                        <td>59</td>
-                        <td>76</td>
-                        <td>Rp 95.000,-</td>
-                    </tr>
-                    <tr>
-                        <td>2XL</td>
-                        <td>64</td>
-                        <td>80</td>
-                        <td>Rp 100.000,-</td>
-                    </tr>
-                    <tr>
-                        <td>3XL</td>
-                        <td>67</td>
-                        <td>83</td>
-                        <td>Rp 105.000,-</td>
-                    </tr>
-                    <tr>
-                        <td>4XL</td>
-                        <td>70</td>
-                        <td>86</td>
-                        <td>Rp 110.000,-</td>
-                    </tr>
-                </table>
-            @endif
-        </div>
+    </div>
     </div>
 
 
