@@ -135,7 +135,7 @@
                                 <td>{{ number_format($price, 0, ',', '.') }}</td>
                                 <td class="text-[1.1rem] w-[20px] rounded-[6px]">
                                     <a class="text-center text-[1.6rem] no-underline text-white hover:text-red-600"
-                                        href="{{ url('/cart/' . $obj->id) }}">×</a>
+                                        href="/remove/{{ $obj->id }}">×</a>
                                 </td>
                             </tr>
                         @endif
