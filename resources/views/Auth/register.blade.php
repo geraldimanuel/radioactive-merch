@@ -29,11 +29,11 @@
                     @csrf
                     <div class="relative w-full min-w-[300px] h-11">
                         <input name="name" type="name" placeholder="Name"
-                            class="mt-1 px-3 py-3 bg-black border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1">
+                            class="mt-1 px-3 py-3 bg-black text-white border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1">
                     </div>
                     <div class="relative w-full min-w-[300px] h-11">
                         <input name="email" type="email" placeholder="Email"
-                            class="mt-1 px-3 py-3 bg-black border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1">
+                            class="mt-1 px-3 py-3 bg-black text-white border shadow-sm placeholder-white font-pathway focus:outline-none focus:border-[#FFF000] block w-full sm:text-sm focus:ring-1">
                     </div>
                     <div class="relative w-full min-w-[300px] h-11">
                         <input name="password" type="password" placeholder="Password"
