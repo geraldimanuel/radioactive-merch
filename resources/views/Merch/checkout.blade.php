@@ -121,7 +121,7 @@
                             </div>
                             <div>
                                 <input required
-                                    class="block @error('tim1_nims1') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline text-black"
+                                    class="block @error('tim1_nims1') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline text-white bg-black"
                                     type="text" placeholder="nomor telepon" name="wa">
 
                             </div>
@@ -134,7 +134,7 @@
                             </div>
                             <div>
                                 <input required
-                                    class="block @error('tim1_nims1') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline text-black"
+                                    class="block @error('tim1_nims1') border-red-500 @enderror shadow appearance-none border  w-full py-2 px-3 form-input leading-tight focus:outline-none focus:shadow-outline text-white bg-black"
                                     type="text" placeholder="id line" name="line">
 
                             </div>
